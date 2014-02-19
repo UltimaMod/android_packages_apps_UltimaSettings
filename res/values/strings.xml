@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Strings -->
+    <string name="app_name">ROM Control</string>
+    <string name="romcfg_folder">/mnt/sdcard/ROMControl/</string>
+    <string name="modcfg_folder">/mnt/sdcard/ROMControl</string>
+    <string name="boot_animation_extraction_folder">/ROMControl/BootAnimations/temp/</string>
+    <string name="boot_animation_folder">/ROMControl/BootAnimations/</string>
+    <string name="opacityLabel">Alpha</string>
+    <string name="change_theme">Theme</string>
+    <string name="restart_phone">Restart Phone</string>
+    <string name="restart_phone_summary">Restart Phone Process to apply some of the above changes</string>
+    <string name="restart_system">Restart SystemUI</string>
+    <string name="restart_system_summary">Restart SystemUI Process to apply some of the above changes</string>
+    <string name="reboot">Reboot</string>
+    <string name="reboot_fully">Reboot system to allow changes to take effect</string>
+    <string name="list_summary">%s</string>
+    <string name="none">None</string>
+    <string name="settings">Settings</string>
+    
+    <!-- Hostname Activity Strings -->
+    <string name="title_activity_hostname">Set Hostname</string>
+    <string name="action_settings">Settings</string>
+    <string name="hostname_info">Use the textbox below to enter a hostname for this device.\n\nMake sure it has no special characters and contains no spaces.</string>
+    <string name="hostname_set">Set Hostname</string>
+    <string name="hostname_current">Current Hostname</string>
+    <string name="hostname_original">Original Hostname</string>
+    <string name="hostname_new">New Hostname</string>
+    <string name="hostname_restore_original">Restore Original</string>
+    <string name="hostname_title">Device Hostname</string>
+    <string name="hostname_summary">Change the hostname of your device as it appears on networks. Useful for managing and identifying multiple devices on a WLAN.</string>
+
+    <!-- Boot Animation Activity Strings -->
+    <string name="boot_animation_title">Boot Animation</string>
+    <string name="choose_file">Choose File</string>
+    <string name="clear_file">Clear</string>
+    <string name="choose_sound">Boot Sound</string>
+    <string name="animation">Selected File</string>
+    <string name="sound">Sound File</string>
+    <string name="bootanimation_help">Help</string>
+    <string name="boot_animation_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
+    <string name="enable_disable_boot">Enable/Disable Animation</string>
+    <string name="reboot_bootani_pref">Show the reboot dialog after making a selection?</string>
+    <string name="help">Help</string>
+    <string name="error_selecting_file">Error selecting File</string>
+    <string name="set_animation">Set Animation</string>
+    <string name="set_sounds">Set Sounds</string>
+    <string name="boot_ani_status">Status</string>
+    <string name="default_boot_animation">Restore Default</string>
+    
+    <!-- Battery Settings -->
+    <string name="battery_icon_category">Battery Icon</string>
+    <string name="battery_icon">Battery icon style</string>
+    <string name="battery_bar">Enable battery bar</string>
+    <string name="battery_bar_color">Choose battery bar colour</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery Bar Thickness</string>
+    <string name="battery_bar_animate_title">Battery Bar Animation</string>
+    <string name="battery_bar_animate_summary">Animate bar when charging</string>
+    <string name="select_colour">Select Colour</string>
+    <string name="battery_bar_label">Battery Bar</string>
+    <string name="battery_icon_colours_label">Battery Colours</string>
+    <string name="battery_icon_colour">Battery Colour</string>
+    <string name="battery_icon_colour_summary">Choose the colour of the battery icon</string>
+    <string name="battery_text_colour">Battery Text Colour</string>
+    <string name="battery_text_colour_summary">Choose the colour of the battery text</string>
+    <string name="low_battery_text_colour">Low Battery Colour</string>
+    <string name="low_battery_text_colour_summary">Choose the colour for low battery</string>
+    <string name="charge_text_colour">Charging Colour</string>
+    <string name="charge_text_colour_summary">Choose the colour for charging</string>
+    <string name="battery_icon_full">Battery Full</string>
+    <string name="battery_icon_full_on">Notification is on</string>
+    <string name="battery_icon_full_off">Notificiation is off</string>
+    <string name="battery_warning">Low Battery Warning</string>
+    <string name="battery_warning_on">Warning is on</string>
+    <string name="battery_warning_off">Warning is off</string>
+</resources>

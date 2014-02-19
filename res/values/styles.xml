@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeCompat" />
+	<style name="ThemeCompat.Dark" parent="@android:style/Theme" />
+ 	<style name="ThemeCompat.Light" parent="@android:style/Theme.Light" />
+    <style name="ThemeCompat.Light.DarkAction" parent="@android:style/Theme.Light" />
+        
+    <style name="RagnarTheme.Light" parent="@style/ThemeCompat.Light">
+        <item name="settingsIcon">@drawable/ic_settings_light</item>   
+        <item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
+		<item name="hostnameIcon">@drawable/ic_hostname_light</item>
+		<item name="ledIcon">@drawable/ic_led_light</item>	
+		<item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
+    	<item name="modsIcon">@drawable/ic_mods_light</item>
+    	<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
+    	<item name="rebootIcon">@drawable/ic_reboot_light</item>
+    	<item name="restartIcon">@drawable/ic_restart_light</item>
+    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>
+    	<item name="alertIcon">@drawable/ic_alert_light</item>
+    </style>
+    <style name="RagnarTheme.Light.Dark.Actionbar" parent="@style/ThemeCompat.Light.DarkAction">
+        <item name="settingsIcon">@drawable/ic_settings_dark</item>
+        <item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
+        <item name="hostnameIcon">@drawable/ic_hostname_light</item>
+        <item name="ledIcon">@drawable/ic_led_light</item>
+        <item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
+    	<item name="modsIcon">@drawable/ic_mods_light</item>
+    	<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
+    	<item name="rebootIcon">@drawable/ic_reboot_light</item>
+    	<item name="restartIcon">@drawable/ic_restart_light</item>	    
+    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>    
+    	<item name="alertIcon">@drawable/ic_alert_dark</item>
+    </style>
+    <style name="RagnarTheme.Dark" parent="@style/ThemeCompat.Dark">
+        <item name="settingsIcon">@drawable/ic_settings_dark</item>
+        <item name="moreIconWidget">@drawable/ic_btn_round_more_dark</item>
+        <item name="hostnameIcon">@drawable/ic_hostname_dark</item>
+        <item name="ledIcon">@drawable/ic_led_dark</item>
+        <item name="kernelIcon">@drawable/ic_settings_kernel_dark</item>
+    	<item name="modsIcon">@drawable/ic_mods_dark</item>
+    	<item name="batteryIcon">@drawable/ic_settings_battery_dark</item>	
+    	<item name="rebootIcon">@drawable/ic_reboot_dark</item>
+    	<item name="restartIcon">@drawable/ic_restart_dark</item>   
+    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_dark</item> 
+    	<item name="alertIcon">@drawable/ic_alert_dark</item>	
+    </style>
+       
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/colorpicker_viewContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:clipToPadding="false"
+    android:paddingBottom="0dp"
+    android:paddingLeft="@dimen/colorpicker_spacer"
+    android:paddingRight="@dimen/colorpicker_spacer"
+    android:paddingTop="@dimen/colorpicker_spacer" >
+
+    <LinearLayout
+        android:id="@+id/colorpicker_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/colorpicker_viewSatBri"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/colorpicker_spacer" >
+
+        <View
+            android:id="@+id/colorpicker_warnaLama"
+            android:layout_width="80dp"
+            android:layout_height="24dp"
+            android:background="#faa" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/colorpicker_spacer"
+            android:paddingTop="@dimen/colorpicker_spacer"
+            android:src="@drawable/ic_colorpicker_arrow_down" />
+
+        <View
+            android:id="@+id/colorpicker_warnaBaru"
+            android:layout_width="80dp"
+            android:layout_height="24dp"
+            android:background="#aaf" />
+
+        <EditText
+            android:id="@+id/color_rgb"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:singleLine="true" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <com.ultima.settings.colorpicker.ColorPickerView
+        android:id="@+id/colorpicker_viewSatBri"
+        android:layout_width="@dimen/colorpicker_hsvWidth"
+        android:layout_height="@dimen/colorpicker_hsvHeight"
+        android:layout_toRightOf="@id/colorpicker_state"
+        android:layerType="software" />
+
+    <View
+        android:layout_width="@dimen/colorpicker_spacer"
+        android:layout_height="@dimen/colorpicker_spacer"
+        android:layout_below="@id/colorpicker_viewSatBri" />
+
+    <ImageView
+        android:id="@+id/colorpicker_viewHue"
+        android:layout_width="@dimen/colorpicker_hueWidth"
+        android:layout_height="@dimen/colorpicker_hsvHeight"
+        android:layout_marginLeft="@dimen/colorpicker_spacer"
+        android:layout_toRightOf="@id/colorpicker_viewSatBri"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_colorpicker_hue" />
+
+    <ImageView
+        android:id="@+id/colorpicker_cursor"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:scaleType="matrix"
+        android:src="@drawable/ic_colorpicker_cursor" />
+
+    <ImageView
+        android:id="@+id/colorpicker_target"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:scaleType="matrix"
+        android:src="@drawable/ic_colorpicker_target" />
+
+    <LinearLayout
+        android:id="@+id/colorpicker_opacityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/colorpicker_viewHue"
+        android:layout_below="@+id/colorpicker_viewSatBri"
+        android:layout_marginTop="@dimen/colorpicker_spacer"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/opacityActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opacityLabel" />
+
+        <SeekBar
+            android:id="@+id/opacityValue"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.62"
+            android:indeterminate="false"
+            android:max="@integer/max_opacity" />
+    </LinearLayout>
+
+</RelativeLayout>

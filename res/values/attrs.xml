@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  	<declare-styleable name="RagnarTheme.Dark">
+  	    <attr name="settingsIcon" format="reference" />
+  	    <attr name="moreIconWidget" format="reference" />
+  	    <attr name="hostnameIcon" format="reference" />
+  	    <attr name="ledIcon" format="reference" />
+  	    <attr name="kernelIcon" format="reference" />
+    	<attr name="modsIcon" format="reference" />.
+    	<attr name="batteryIcon" format="reference" />
+    	<attr name="rebootIcon" format="reference" />
+		<attr name="restartIcon" format="reference" />
+		<attr name="alertIcon" format="reference" />
+		<attr name="bootaniIcon" format="reference" />
+  	</declare-styleable>
+</resources>
