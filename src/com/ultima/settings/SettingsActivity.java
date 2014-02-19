@@ -158,7 +158,7 @@ public class SettingsActivity extends Activity implements Constants {
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
             cr = getActivity().getContentResolver();
             initPrefs();
-            disablePrefs();
+            //disablePrefs();
         }
         
         public boolean onPreferenceChange(Preference item, Object newValue){
