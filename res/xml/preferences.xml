@@ -135,4 +135,29 @@
         android:title="@string/hostname_title" 
         android:key="activity;com.ultima.settings;com.ultima.settings.hostname.HostnameActivity" 
         android:widgetLayout="@layout/round_more_icon" />
+    <PreferenceScreen 
+        android:title="@string/mod_screen_title" 
+        android:key="settings_mod_screen"
+        android:icon="?attr/modsIcon"
+        android:widgetLayout="@layout/round_more_icon">
+        	<PreferenceCategory 
+        	    android:title="@string/mod_crt_category" 
+        	    android:key="crt_category">
+				<!-- Currently FC's when you rotate the display
+				<ListPreference 
+				    android:title="@string/mod_crt_on_title"
+				    android:key="system_crt_on"
+				    android:summary="@string/list_summary"
+				    android:entries="@array/crt_on_animation_entries"
+				    android:entryValues="@array/crt_on_animation_values"
+				    android:defaultValue="2" /> -->
+				<ListPreference 
+				    android:title="@string/mod_crt_off_title"
+				    android:key="system_crt_off"
+				    android:summary="@string/list_summary"
+				    android:entries="@array/crt_off_animation_entries"
+				    android:entryValues="@array/crt_off_animation_values"
+				    android:defaultValue="1" />     	    
+        	</PreferenceCategory>       
+    </PreferenceScreen>
 </PreferenceScreen>
