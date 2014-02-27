@@ -40,19 +40,22 @@
 			    android:title="@string/battery_back_colour" 
 			    android:key="status_bar_battery_back_color" 
 			    android:summary="@string/battery_back_colour_summary"
-			    android:defaultValue="0xffff3300" />
+			    android:defaultValue="0xffff3300"
+			    alphaSlider="true" />
 			<!-- Battery Charge Color -->
 			<com.ultima.settings.colorpicker.ColorPickerPreference 
 			    android:title="@string/battery_charge_colour" 
 			    android:key="status_bar_battery_charge_color" 
 			    android:summary="@string/battery_charge_colour_summary"
-			    android:defaultValue="0xffffffff" />
+			    android:defaultValue="0xffffffff"
+			    alphaSlider="true" />
 			<!-- Battery Bolt Color -->
 			<com.ultima.settings.colorpicker.ColorPickerPreference 
 			    android:title="@string/battery_bolt_colour" 
 			    android:key="status_bar_battery_bolt_color" 
 			    android:summary="@string/battery_bolt_colour_summary" 
-			    android:defaultValue="0xb2000000" />	           
+			    android:defaultValue="0xb2000000"
+			    alphaSlider="true" />	           
        </PreferenceCategory> 
        <PreferenceCategory
            android:title="@string/battery_levels_category"
@@ -67,7 +70,8 @@
 			    android:title="@string/battery_low_colour" 
 			    android:key="status_bar_battery_low_color" 
 			    android:summary="@string/battery_low_colour_summary" 
-			    android:defaultValue="0xffffffff" />
+			    android:defaultValue="0xffffffff"
+			    alphaSlider="true" />
 			<!-- Battery Low Level -->
 		    <Preference 
 		        android:title="@string/battery_level_mid" 
@@ -78,7 +82,8 @@
 			    android:title="@string/battery_mid_colour" 
 			    android:key="status_bar_battery_mid_color" 
 			    android:summary="@string/battery_mid_colour_summary" 
-			    android:defaultValue="0xffffffff" />
+			    android:defaultValue="0xffffffff"
+			    alphaSlider="true" />
 		</PreferenceCategory>
 		
 		<Preference android:title="@string/battery_reset_defaults" 
@@ -94,6 +99,21 @@
         android:title="@string/boot_animation_title" 
         android:key="activity;com.ultima.settings;com.ultima.settings.bootanimation.BootAnimationActivity" 
         android:widgetLayout="@layout/round_more_icon" />
+    <PreferenceScreen 
+        android:title="@string/clock_category"
+        android:key="settings_clock"
+        android:icon="?attr/clockIcon"
+        android:widgetLayout="@layout/round_more_icon">
+        	<com.ultima.settings.colorpicker.ColorPickerPreference
+        	    android:title="@string/clock_colour_title" 
+			    android:key="status_bar_clock_colour" 
+			    android:summary="@string/clock_color_summary" 
+			    android:defaultValue="0xffffffff"
+			    alphaSlider="true"/>
+        	<Preference android:title="@string/restart_system" 
+		    android:key="tool#restartsystemui" 
+		    android:summary="@string/restart_system_summary" /> 
+    </PreferenceScreen>
     <Preference 
         android:icon="?attr/hostnameIcon" 
         android:title="@string/hostname_title" 

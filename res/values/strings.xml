@@ -30,7 +30,7 @@
     <string name="hostname_original">Original hostname</string>
     <string name="hostname_new">New hostname</string>
     <string name="hostname_restore_original">Restore original</string>
-    <string name="hostname_title">Device hostname</string>
+    <string name="hostname_title">Hostname</string>
     <string name="hostname_summary">Change the hostname of your device as it appears on networks. Useful for managing and identifying multiple devices on a WLAN.</string>
 
     <!-- Boot Animation Activity Strings -->
@@ -85,4 +85,9 @@
     <string name="battery_warning_off">Warning is off</string>
     <string name="battery_reset_defaults">Reset Defaults</string>
     <string name="battery_reset_defaults_summary">Reset the default colours</string>
+    
+    <!-- Clock Settings -->
+    <string name="clock_category">Clock</string>
+    <string name="clock_colour_title">Clock colour</string>
+    <string name="clock_color_summary">Change the colour of the statusbar clock</string>
 </resources>
