@@ -21,6 +21,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
@@ -335,10 +336,6 @@ public class SettingsActivity extends Activity implements Constants {
         	if(item != null){
         		setSettingString(cr,item.getKey(),(String) value);
         		//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
-        		if (item.getValue() == null){
-        		    item.setValueIndex(0);
-        		    item.setSummary(item.getEntry());
-        		}
         		int id = 0;
                 for (int i = 0; i < item.getEntryValues().length; i++)
                 {
@@ -488,14 +485,6 @@ public class SettingsActivity extends Activity implements Constants {
 
 				settingsRoot.removePreference(pref1);
 			}
-        }
-        
-        private void restartActivity() {
-            System.exit(0);
-            Intent intent1 = new Intent(mContext, SettingsActivity.class);
-            intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
-           startActivity(intent1);
         }
         
         public void showBatteryLowLevelDialog() {
@@ -730,7 +719,11 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void initList(ListPreference item){
         	item.setOnPreferenceChangeListener(this);
-        	item.setValue(getSettingString(cr, item.getKey()));
+            if (item.getValue() == null){
+                item.setValueIndex(0);
+                item.setSummary(item.getEntry());
+            }
+        	item.setValue(getSettingString(cr, item.getKey()));       	
         }
         
         private void initMultiSelectList(MultiSelectListPreference item){

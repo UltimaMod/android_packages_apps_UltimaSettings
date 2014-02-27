@@ -90,4 +90,6 @@
     <string name="clock_category">Clock</string>
     <string name="clock_colour_title">Clock colour</string>
     <string name="clock_color_summary">Change the colour of the statusbar clock</string>
+    <string name="clock_ampm_style_title">AM/PM style</string>
+    <string name="clock_dow_style_title">Weekday style</string>
 </resources>
