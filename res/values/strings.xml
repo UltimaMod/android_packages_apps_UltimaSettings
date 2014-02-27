@@ -18,6 +18,7 @@
     <string name="list_summary">%s</string>
     <string name="none">None</string>
     <string name="settings">Settings</string>
+    <string name="select_colour">Select Colour</string>
     
     <!-- Hostname Activity Strings -->
     <string name="title_activity_hostname">Set Hostname</string>
@@ -51,24 +52,21 @@
     
     <!-- Battery Settings -->
     <string name="battery_icon_category">Battery Icon</string>
-    <string name="battery_icon">Battery icon style</string>
-    <string name="battery_bar">Enable battery bar</string>
-    <string name="battery_bar_color">Choose battery bar colour</string>
-    <string name="battery_bar_style_title">Battery bar style</string>
-    <string name="battery_bar_thickness_title">Battery Bar Thickness</string>
-    <string name="battery_bar_animate_title">Battery Bar Animation</string>
-    <string name="battery_bar_animate_summary">Animate bar when charging</string>
-    <string name="select_colour">Select Colour</string>
-    <string name="battery_bar_label">Battery Bar</string>
+    <string name="battery_percent">Battery Percent</string>
+    <string name="battery_percent_summary">Enable or disable the battery icon percent indicator</string>
     <string name="battery_icon_colours_label">Battery Colours</string>
     <string name="battery_icon_colour">Battery Colour</string>
     <string name="battery_icon_colour_summary">Choose the colour of the battery icon</string>
+    <string name="battery_low_colour">Low Battery Colour</string>
+    <string name="battery_low_colour_summary">Choose the colour for low battery</string>
+    <string name="battery_mid_colour">Mid Battery Colour</string>
+    <string name="battery_mid_colour_summary">Choose the colour for medium battery</string>
     <string name="battery_text_colour">Battery Text Colour</string>
-    <string name="battery_text_colour_summary">Choose the colour of the battery text</string>
-    <string name="low_battery_text_colour">Low Battery Colour</string>
-    <string name="low_battery_text_colour_summary">Choose the colour for low battery</string>
-    <string name="charge_text_colour">Charging Colour</string>
-    <string name="charge_text_colour_summary">Choose the colour for charging</string>
+    <string name="battery_text_colour_summary">Choose the colour of the battery text</string>  
+    <string name="battery_charge_colour">Charging Colour</string>
+    <string name="battery_charge_colour_summary">Choose the colour for charging</string>
+    <string name="battery_bolt_colour">Bolt Colour</string>
+    <string name="battery_bolt_colour_summary">Choose the colour for charging bolt</string>
     <string name="battery_icon_full">Battery Full</string>
     <string name="battery_icon_full_on">Notification is on</string>
     <string name="battery_icon_full_off">Notificiation is off</string>
