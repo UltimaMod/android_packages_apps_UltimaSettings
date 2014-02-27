@@ -1,15 +1,5 @@
 package com.ultima.settings;
 
-import java.io.File;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-import com.ultima.settings.colorpicker.ColorPickerPreference;
-import com.ultima.settings.utils.Constants;
-import com.ultima.settings.utils.Preferences;
-import com.ultima.settings.utils.Tools;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -27,19 +17,28 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.provider.Settings;
 import android.provider.MediaStore.MediaColumns;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.ultima.settings.colorpicker.ColorPickerPreference;
+import com.ultima.settings.utils.Constants;
+import com.ultima.settings.utils.Preferences;
+import com.ultima.settings.utils.Tools;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
 	private static Context mContext = CONTEXT;
@@ -130,7 +129,7 @@ public class SettingsActivity extends Activity implements Constants {
 		Intent i = new Intent(mContext, SettingsActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		this.finish();
-		this.startActivity(i);
+		startActivity(i);
 	}
     
     public boolean appInstalled(String uri)	{
@@ -191,6 +190,15 @@ public class SettingsActivity extends Activity implements Constants {
                     return false;
                 }
             });
+            Preference resetBatteryDefault = findPreference("battery_reset_defaults");
+            resetBatteryDefault.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    showBatteryResetDialog();
+                    return false;
+                }
+            });
         }
 
         private void setLowBattSummary(){
@@ -210,11 +218,6 @@ public class SettingsActivity extends Activity implements Constants {
         	String type = item.getClass().getSimpleName();
         	Log.d(LCAT, "onPreferenceChange: "+type+" "+item.getKey()+" > "+newValue);
         	dispatchItem(item,newValue);
-        	
-        	//Buttons Backlight changed?
-        	if(item.getKey().equals("buttons_backlight")){
-        		Tools.setBacklightValue(newValue);
-        	}
         	
         	return true;
         }
@@ -332,6 +335,19 @@ public class SettingsActivity extends Activity implements Constants {
         	if(item != null){
         		setSettingString(cr,item.getKey(),(String) value);
         		//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
+        		if (item.getValue() == null){
+        		    item.setValueIndex(0);
+        		    item.setSummary(item.getEntry());
+        		}
+        		int id = 0;
+                for (int i = 0; i < item.getEntryValues().length; i++)
+                {
+                    if(item.getEntryValues()[i].equals((String)value)){
+                        id = i;
+                        break;
+                    }
+                }
+                item.setSummary(item.getEntries()[id]);
         	}
         }
         
@@ -474,6 +490,14 @@ public class SettingsActivity extends Activity implements Constants {
 			}
         }
         
+        private void restartActivity() {
+            System.exit(0);
+            Intent intent1 = new Intent(mContext, SettingsActivity.class);
+            intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
+           startActivity(intent1);
+        }
+        
         public void showBatteryLowLevelDialog() {
             int current = getSettingInt(cr, "status_bar_battery_low_level", 4);
             int currentSelection = 0;
@@ -519,6 +543,41 @@ public class SettingsActivity extends Activity implements Constants {
                 public void onClick(DialogInterface dialog, int which) {
                     setSettingInt(cr, "status_bar_battery_low_level", batteryLevelLowSelection);
                     setLowBattSummary();
+                }
+            });
+            builder.show();
+        }
+        
+        public void showBatteryResetDialog() {
+            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
+            aDialog = builder.create();
+
+            builder.setTitle("Are you sure?");
+            builder.setMessage("Are you sure you want to reset the battery options to their defaults?");
+            
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    aDialog.dismiss();              
+                }
+            });
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    setSettingInt(cr, "status_bar_battery_low_level", 4);
+                    setLowBattSummary();
+                    setSettingInt(cr, "status_bar_battery_mid_level", 15);
+                    setMidBattSummary();
+                    setSettingInt(cr, "status_bar_battery_percent_color", 0xFF000000);
+                    setSettingInt(cr, "status_bar_battery_norm_color", 0xFFFFFFFF);
+                    setSettingInt(cr, "status_bar_battery_back_color", 0x66FFFFFF);
+                    setSettingInt(cr, "status_bar_battery_charge_color", 0xFFFFFFFF);
+                    setSettingInt(cr, "status_bar_battery_bolt_color", 0xB2000000);
+                    setSettingInt(cr, "status_bar_battery_low_color", 0xFFF3300);
+                    setSettingInt(cr, "status_bar_battery_mid_color", 0xFFF3300);
+                    setSettingInt(cr, "status_bar_battery_percent_color", 0xFF000000);
                 }
             });
             builder.show();

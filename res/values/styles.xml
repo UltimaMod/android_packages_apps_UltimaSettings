@@ -1,48 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ThemeCompat" />
-	<style name="ThemeCompat.Dark" parent="@android:style/Theme" />
- 	<style name="ThemeCompat.Light" parent="@android:style/Theme.Light" />
-    <style name="ThemeCompat.Light.DarkAction" parent="@android:style/Theme.Light" />
-        
-    <style name="RagnarTheme.Light" parent="@style/ThemeCompat.Light">
-        <item name="settingsIcon">@drawable/ic_settings_light</item>   
-        <item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
-		<item name="hostnameIcon">@drawable/ic_hostname_light</item>
-		<item name="ledIcon">@drawable/ic_led_light</item>	
-		<item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
-    	<item name="modsIcon">@drawable/ic_mods_light</item>
-    	<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
-    	<item name="rebootIcon">@drawable/ic_reboot_light</item>
-    	<item name="restartIcon">@drawable/ic_restart_light</item>
-    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>
-    	<item name="alertIcon">@drawable/ic_alert_light</item>
-    </style>
-    <style name="RagnarTheme.Light.Dark.Actionbar" parent="@style/ThemeCompat.Light.DarkAction">
-        <item name="settingsIcon">@drawable/ic_settings_dark</item>
-        <item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
-        <item name="hostnameIcon">@drawable/ic_hostname_light</item>
-        <item name="ledIcon">@drawable/ic_led_light</item>
-        <item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
-    	<item name="modsIcon">@drawable/ic_mods_light</item>
-    	<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
-    	<item name="rebootIcon">@drawable/ic_reboot_light</item>
-    	<item name="restartIcon">@drawable/ic_restart_light</item>	    
-    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>    
-    	<item name="alertIcon">@drawable/ic_alert_dark</item>
-    </style>
-    <style name="RagnarTheme.Dark" parent="@style/ThemeCompat.Dark">
-        <item name="settingsIcon">@drawable/ic_settings_dark</item>
-        <item name="moreIconWidget">@drawable/ic_btn_round_more_dark</item>
-        <item name="hostnameIcon">@drawable/ic_hostname_dark</item>
-        <item name="ledIcon">@drawable/ic_led_dark</item>
-        <item name="kernelIcon">@drawable/ic_settings_kernel_dark</item>
-    	<item name="modsIcon">@drawable/ic_mods_dark</item>
-    	<item name="batteryIcon">@drawable/ic_settings_battery_dark</item>	
-    	<item name="rebootIcon">@drawable/ic_reboot_dark</item>
-    	<item name="restartIcon">@drawable/ic_restart_dark</item>   
-    	<item name="bootaniIcon">@drawable/ic_settings_bootanimations_dark</item> 
-    	<item name="alertIcon">@drawable/ic_alert_dark</item>	
-    </style>
-       
+<style name="ThemeCompat"/>
+<style name="ThemeCompat.Dark" parent="@android:style/Theme"/>
+<style name="ThemeCompat.Light" parent="@android:style/Theme.Light"/>
+<style name="ThemeCompat.Light.DarkAction" parent="@android:style/Theme.Light"/>
+<style name="RagnarTheme.Light" parent="@style/ThemeCompat.Light">
+<item name="appsIcon">@drawable/ic_settings_apps_light</item>
+<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
+<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>
+<item name="clockIcon">@drawable/ic_settings_clock_light</item>
+<item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
+<item name="launcherIcon">@drawable/ic_settings_launcher_mods_light</item>
+<item name="lockscreenIcon">@drawable/ic_settings_lockscreen_light</item>
+<item name="modsIcon">@drawable/ic_settings_mods_light</item>
+<item name="phoneIcon">@drawable/ic_settings_phone_light</item>
+<item name="statusbarIcon">@drawable/ic_settings_statusbar_light</item>
+<item name="togglesIcon">@drawable/ic_settings_toggles_light</item>
+<item name="wifiIcon">@drawable/ic_settings_wifi_light</item>
+<item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
+<item name="alertIcon">@drawable/ic_alert_light</item>
+<item name="settingsIcon">@drawable/ic_settings_light</item>
+<item name="rebootIcon">@drawable/ic_reboot_light</item>
+<item name="restartIcon">@drawable/ic_restart_light</item>
+<item name="crtIcon">@drawable/ic_crt_animation_light</item>
+<item name="ext2intIcon">@drawable/ic_ext2internal_light</item>
+<item name="epmIcon">@drawable/ic_extended_power_light</item>
+<item name="hostnameIcon">@drawable/ic_hostname_light</item>
+<item name="keyboardIcon">@drawable/ic_keyboard_light</item>
+<item name="menuIcon">@drawable/ic_menu_light</item>
+<item name="musicControlIcon">@drawable/ic_music_controls_light</item>
+<item name="blockingIcon">@drawable/ic_blocking_mode_light</item>
+<item name="callSettingsIcon">@drawable/ic_call_rec_light</item>
+<item name="emailIcon">@drawable/ic_email_light</item>
+<item name="navBarIcon">@drawable/ic_navigation_bar_light</item>
+<item name="quickLockIcon">@drawable/ic_quicklock_light</item>
+<item name="rotationIcon">@drawable/ic_rotation_light</item>
+<item name="callLogIcon">@drawable/ic_sms_calllog_light</item>
+<item name="torchIcon">@drawable/ic_torch_light</item>
+<item name="vibrationIcon">@drawable/ic_vibration_light</item>
+<item name="lagIcon">@drawable/ic_wake_lag_light</item>
+<item name="wallIcon">@drawable/ic_wallpaper_light</item>
+<item name="pauseButton">@drawable/ic_music_pause_light</item>
+<item name="playButton">@drawable/ic_music_play_light</item>
+<item name="stopButton">@drawable/ic_music_stop_light</item>
+<item name="nextButton">@drawable/ic_music_next_light</item>
+<item name="previousButton">@drawable/ic_music_previous_light</item>
+<item name="playPauseButton">@drawable/ic_music_playpause_light</item>
+<item name="pieIcon">@drawable/ic_pie_light</item>
+<item name="brightnessIcon">@drawable/ic_brightness_light</item>
+<item name="textIcon">@drawable/ic_text_light</item>
+<item name="alarmIcon">@drawable/ic_alarm_light</item>
+<item name="volumeIcon">@drawable/ic_volume_light</item>
+<item name="networkIcon">@drawable/ic_network_light</item>
+</style>
+<style name="RagnarTheme.Light.Dark.Actionbar" parent="@style/ThemeCompat.Light.DarkAction">
+<item name="appsIcon">@drawable/ic_settings_apps_light</item>
+<item name="batteryIcon">@drawable/ic_settings_battery_light</item>
+<item name="bootaniIcon">@drawable/ic_settings_bootanimations_light</item>
+<item name="clockIcon">@drawable/ic_settings_clock_light</item>
+<item name="kernelIcon">@drawable/ic_settings_kernel_light</item>
+<item name="launcherIcon">@drawable/ic_settings_launcher_mods_light</item>
+<item name="lockscreenIcon">@drawable/ic_settings_lockscreen_light</item>
+<item name="modsIcon">@drawable/ic_settings_mods_light</item>
+<item name="phoneIcon">@drawable/ic_settings_phone_light</item>
+<item name="statusbarIcon">@drawable/ic_settings_statusbar_light</item>
+<item name="togglesIcon">@drawable/ic_settings_toggles_light</item>
+<item name="wifiIcon">@drawable/ic_settings_wifi_light</item>
+<item name="moreIconWidget">@drawable/ic_btn_round_more_light</item>
+<item name="alertIcon">@drawable/ic_alert_dark</item>
+<item name="settingsIcon">@drawable/ic_settings_dark</item>
+<item name="rebootIcon">@drawable/ic_reboot_light</item>
+<item name="restartIcon">@drawable/ic_restart_light</item>
+<item name="crtIcon">@drawable/ic_crt_animation_light</item>
+<item name="ext2intIcon">@drawable/ic_ext2internal_light</item>
+<item name="epmIcon">@drawable/ic_extended_power_light</item>
+<item name="hostnameIcon">@drawable/ic_hostname_light</item>
+<item name="keyboardIcon">@drawable/ic_keyboard_light</item>
+<item name="menuIcon">@drawable/ic_menu_light</item>
+<item name="musicControlIcon">@drawable/ic_music_controls_light</item>
+<item name="blockingIcon">@drawable/ic_blocking_mode_light</item>
+<item name="callSettingsIcon">@drawable/ic_call_rec_light</item>
+<item name="emailIcon">@drawable/ic_email_light</item>
+<item name="navBarIcon">@drawable/ic_navigation_bar_light</item>
+<item name="quickLockIcon">@drawable/ic_quicklock_light</item>
+<item name="rotationIcon">@drawable/ic_rotation_light</item>
+<item name="callLogIcon">@drawable/ic_sms_calllog_light</item>
+<item name="torchIcon">@drawable/ic_torch_light</item>
+<item name="vibrationIcon">@drawable/ic_vibration_light</item>
+<item name="lagIcon">@drawable/ic_wake_lag_light</item>
+<item name="wallIcon">@drawable/ic_wallpaper_light</item>
+<item name="pauseButton">@drawable/ic_music_pause_light</item>
+<item name="playButton">@drawable/ic_music_play_light</item>
+<item name="stopButton">@drawable/ic_music_stop_light</item>
+<item name="nextButton">@drawable/ic_music_next_light</item>
+<item name="previousButton">@drawable/ic_music_previous_light</item>
+<item name="playPauseButton">@drawable/ic_music_playpause_light</item>
+<item name="pieIcon">@drawable/ic_pie_light</item>
+<item name="brightnessIcon">@drawable/ic_brightness_light</item>
+<item name="textIcon">@drawable/ic_text_light</item>
+<item name="alarmIcon">@drawable/ic_alarm_light</item>
+<item name="volumeIcon">@drawable/ic_volume_light</item>
+<item name="networkIcon">@drawable/ic_network_light</item>
+</style>
+<style name="RagnarTheme.Dark" parent="@style/ThemeCompat.Dark">
+<item name="appsIcon">@drawable/ic_settings_apps_dark</item>
+<item name="batteryIcon">@drawable/ic_settings_battery_dark</item>
+<item name="bootaniIcon">@drawable/ic_settings_bootanimations_dark</item>
+<item name="clockIcon">@drawable/ic_settings_clock_dark</item>
+<item name="kernelIcon">@drawable/ic_settings_kernel_dark</item>
+<item name="launcherIcon">@drawable/ic_settings_launcher_mods_dark</item>
+<item name="lockscreenIcon">@drawable/ic_settings_lockscreen_dark</item>
+<item name="modsIcon">@drawable/ic_settings_mods_dark</item>
+<item name="phoneIcon">@drawable/ic_settings_phone_dark</item>
+<item name="statusbarIcon">@drawable/ic_settings_statusbar_dark</item>
+<item name="togglesIcon">@drawable/ic_settings_toggles_dark</item>
+<item name="wifiIcon">@drawable/ic_settings_wifi_dark</item>
+<item name="moreIconWidget">@drawable/ic_btn_round_more_dark</item>
+<item name="alertIcon">@drawable/ic_alert_dark</item>
+<item name="settingsIcon">@drawable/ic_settings_dark</item>
+<item name="rebootIcon">@drawable/ic_reboot_dark</item>
+<item name="restartIcon">@drawable/ic_restart_dark</item>
+<item name="crtIcon">@drawable/ic_crt_animation_dark</item>
+<item name="ext2intIcon">@drawable/ic_ext2internal_dark</item>
+<item name="epmIcon">@drawable/ic_extended_power_dark</item>
+<item name="hostnameIcon">@drawable/ic_hostname_dark</item>
+<item name="keyboardIcon">@drawable/ic_keyboard_dark</item>
+<item name="menuIcon">@drawable/ic_menu_dark</item>
+<item name="musicControlIcon">@drawable/ic_music_controls_dark</item>
+<item name="blockingIcon">@drawable/ic_blocking_mode_dark</item>
+<item name="callSettingsIcon">@drawable/ic_call_rec_dark</item>
+<item name="emailIcon">@drawable/ic_email_dark</item>
+<item name="navBarIcon">@drawable/ic_navigation_bar_dark</item>
+<item name="quickLockIcon">@drawable/ic_quicklock_dark</item>
+<item name="rotationIcon">@drawable/ic_rotation_dark</item>
+<item name="callLogIcon">@drawable/ic_sms_calllog_dark</item>
+<item name="torchIcon">@drawable/ic_torch_dark</item>
+<item name="vibrationIcon">@drawable/ic_vibration_dark</item>
+<item name="lagIcon">@drawable/ic_wake_lag_dark</item>
+<item name="wallIcon">@drawable/ic_wallpaper_dark</item>
+<item name="pauseButton">@drawable/ic_music_pause_dark</item>
+<item name="playButton">@drawable/ic_music_play_dark</item>
+<item name="stopButton">@drawable/ic_music_stop_dark</item>
+<item name="nextButton">@drawable/ic_music_next_dark</item>
+<item name="previousButton">@drawable/ic_music_previous_dark</item>
+<item name="playPauseButton">@drawable/ic_music_playpause_dark</item>
+<item name="pieIcon">@drawable/ic_pie_dark</item>
+<item name="brightnessIcon">@drawable/ic_brightness_dark</item>
+<item name="textIcon">@drawable/ic_text_dark</item>
+<item name="alarmIcon">@drawable/ic_alarm_dark</item>
+<item name="volumeIcon">@drawable/ic_volume_dark</item>
+<item name="networkIcon">@drawable/ic_network_dark</item>
+</style>
 </resources>

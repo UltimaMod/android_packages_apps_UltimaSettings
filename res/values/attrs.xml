@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  	<declare-styleable name="RagnarTheme.Dark">
-  	    <attr name="settingsIcon" format="reference" />
-  	    <attr name="moreIconWidget" format="reference" />
-  	    <attr name="hostnameIcon" format="reference" />
-  	    <attr name="ledIcon" format="reference" />
-  	    <attr name="kernelIcon" format="reference" />
-    	<attr name="modsIcon" format="reference" />.
-    	<attr name="batteryIcon" format="reference" />
-    	<attr name="rebootIcon" format="reference" />
-		<attr name="restartIcon" format="reference" />
-		<attr name="alertIcon" format="reference" />
-		<attr name="bootaniIcon" format="reference" />
-  	</declare-styleable>
+<declare-styleable name="UltimaTheme.Dark">
+<attr name="copyrightIcon" format="reference"/>
+<attr name="appsIcon" format="reference"/>
+<attr name="batteryIcon" format="reference"/>
+<attr name="bootaniIcon" format="reference"/>
+<attr name="clockIcon" format="reference"/>
+<attr name="launcherIcon" format="reference"/>
+<attr name="lockscreenIcon" format="reference"/>
+<attr name="kernelIcon" format="reference"/>
+<attr name="modsIcon" format="reference"/>
+<attr name="phoneIcon" format="reference"/>
+<attr name="statusbarIcon" format="reference"/>
+<attr name="togglesIcon" format="reference"/>
+<attr name="wifiIcon" format="reference"/>
+<attr name="moreIconWidget" format="reference"/>
+<attr name="alertIcon" format="reference"/>
+<attr name="settingsIcon" format="reference"/>
+<attr name="rebootIcon" format="reference"/>
+<attr name="restartIcon" format="reference"/>
+<attr name="crtIcon" format="reference"/>
+<attr name="ext2intIcon" format="reference"/>
+<attr name="epmIcon" format="reference"/>
+<attr name="hostnameIcon" format="reference"/>
+<attr name="keyboardIcon" format="reference"/>
+<attr name="menuIcon" format="reference"/>
+<attr name="musicControlIcon" format="reference"/>
+<attr name="blockingIcon" format="reference"/>
+<attr name="callSettingsIcon" format="reference"/>
+<attr name="emailIcon" format="reference"/>
+<attr name="navBarIcon" format="reference"/>
+<attr name="quickLockIcon" format="reference"/>
+<attr name="rotationIcon" format="reference"/>
+<attr name="callLogIcon" format="reference"/>
+<attr name="torchIcon" format="reference"/>
+<attr name="vibrationIcon" format="reference"/>
+<attr name="lagIcon" format="reference"/>
+<attr name="wallIcon" format="reference"/>
+<attr name="pauseButton" format="reference"/>
+<attr name="playButton" format="reference"/>
+<attr name="stopButton" format="reference"/>
+<attr name="nextButton" format="reference"/>
+<attr name="previousButton" format="reference"/>
+<attr name="playPauseButton" format="reference"/>
+<attr name="pieIcon" format="reference"/>
+<attr name="brightnessIcon" format="reference"/>
+<attr name="textIcon" format="reference"/>
+<attr name="alarmIcon" format="reference"/>
+<attr name="volumeIcon" format="reference"/>
+<attr name="networkIcon" format="reference"/>
+</declare-styleable>
 </resources>
