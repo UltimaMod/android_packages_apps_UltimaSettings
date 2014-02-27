@@ -34,6 +34,7 @@ import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.provider.Settings;
 import android.provider.MediaStore.MediaColumns;
 import android.util.Log;
 import android.view.Menu;
@@ -41,14 +42,16 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements Constants {
-	private Context mContext = CONTEXT;
-	AlertDialog aDialog;	
-	
+	private static Context mContext = CONTEXT;
+	private static Context mActivityContext;
+	private static AlertDialog aDialog;
+		
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	setTheme(Preferences.getTheme());
     	Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
         super.onCreate(savedInstanceState);
+        mActivityContext = this;
         if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
     }
@@ -122,7 +125,7 @@ public class SettingsActivity extends Activity implements Constants {
 		});
 		builder.show();
 	}
-        
+            
     private void restartActivity() {
 		Intent i = new Intent(mContext, SettingsActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -149,6 +152,9 @@ public class SettingsActivity extends Activity implements Constants {
 
     	private static String ROMCFG_FOLDER;
     	private static String MODCFG_FOLDER;
+    	private int batteryLevelLowSelection, batteryLevelMidSelection;
+        String lowBatterySummary, midBatterySummary;
+        Preference lowBattPref, midBattPref;
     	
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -159,6 +165,45 @@ public class SettingsActivity extends Activity implements Constants {
             cr = getActivity().getContentResolver();
             initPrefs();
             //disablePrefs();
+            lowBatterySummary = getString(R.string.battery_level_low_summary);
+            midBatterySummary = getString(R.string.battery_level_mid_summary);
+
+            lowBattPref = findPreference("battery_level_low");
+            setLowBattSummary();
+            
+            lowBattPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    showBatteryLowLevelDialog();
+                    return false;
+                }
+            });
+            
+            midBattPref = findPreference("battery_level_mid");
+            setMidBattSummary();
+            
+            midBattPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    showBatteryMidLevelDialog();
+                    return false;
+                }
+            });
+        }
+
+        private void setLowBattSummary(){
+            int currentValue = getSettingInt(cr, "status_bar_battery_low_level", 4);
+            String text = lowBatterySummary + " " + currentValue + "%";
+            lowBattPref.setSummary(text);
+        }
+
+        private void setMidBattSummary(){
+            String text;
+            int currentValue = getSettingInt(cr, "status_bar_battery_mid_level", 15);
+            text = midBatterySummary + " " + currentValue + "%";
+            midBattPref.setSummary(text);
         }
         
         public boolean onPreferenceChange(Preference item, Object newValue){
@@ -198,7 +243,7 @@ public class SettingsActivity extends Activity implements Constants {
     				return false;
     			}
     			new RunToolTask().execute(new Object[]{getActivity(),data});
-    		}
+    		} 
     		
     		return true;
     	}
@@ -429,6 +474,106 @@ public class SettingsActivity extends Activity implements Constants {
 			}
         }
         
+        public void showBatteryLowLevelDialog() {
+            int current = getSettingInt(cr, "status_bar_battery_low_level", 4);
+            int currentSelection = 0;
+            if(current == 4){
+                currentSelection = 0;
+            } else if (current == 10){
+                currentSelection = 1;
+            } else {
+                currentSelection = 2;
+            }
+            final CharSequence [] items={ "4", "10", "14" };
+            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
+            aDialog = builder.create();
+
+            builder.setTitle("Select a Value");
+            builder.setSingleChoiceItems(items, currentSelection, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {        
+
+                    if ("4".equals(items[which])){         
+                        batteryLevelLowSelection = 4;
+                    }               
+                    if ("10".equals(items[which])){
+                        batteryLevelLowSelection = 10;
+                    }
+                    if ("14".equals(items[which])){
+                        batteryLevelLowSelection = 14;
+                    }
+                    aDialog.dismiss();          
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    aDialog.dismiss();              
+                }
+            });
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    setSettingInt(cr, "status_bar_battery_low_level", batteryLevelLowSelection);
+                    setLowBattSummary();
+                }
+            });
+            builder.show();
+        }
+        
+        public void showBatteryMidLevelDialog() {
+            int current = getSettingInt(cr, "status_bar_battery_mid_level", 15);
+            int currentSelection = 0;
+            if(current == 15){
+                currentSelection = 0;
+            } else if (current == 30){
+                currentSelection = 1;
+            } else {
+                currentSelection = 2;
+            }
+            final CharSequence [] items={ "15", "30", "45" };
+            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
+            aDialog = builder.create();
+
+            builder.setTitle("Select a Value");
+            builder.setSingleChoiceItems(items, currentSelection, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {        
+
+                    if ("15".equals(items[which])){         
+                        batteryLevelMidSelection = 15;
+                    }               
+                    if ("30".equals(items[which])){
+                        batteryLevelMidSelection = 30;
+                    }
+                    if ("45".equals(items[which])){
+                        batteryLevelMidSelection = 45;
+                    }
+                    aDialog.dismiss();          
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    aDialog.dismiss();              
+                }
+            });
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    setSettingInt(cr, "status_bar_battery_mid_level", batteryLevelMidSelection);
+                    setMidBattSummary();
+                }
+            });
+            builder.show();
+        }
+        
         private void initItem(Preference item){
         	String type = item.getClass().getSimpleName();
         	//Log.d(LCAT, "Found: "+type);
@@ -513,7 +658,7 @@ public class SettingsActivity extends Activity implements Constants {
     			String theColor = getSettingString(cr,key);
     			if(theColor == null) { theColor = "#33B5E5"; }
     			int color = Color.parseColor(theColor);
-    			item.disableAlpha(true);
+    			item.setAlphaSliderEnabled(true);
     			item.setInitialColor(color);
     		} else {
     			item.setInitialColor(getSettingInt(cr, key));

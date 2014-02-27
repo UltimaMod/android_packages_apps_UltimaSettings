@@ -1,207 +1,230 @@
+/*
+ * Copyright (C) 2010 Daniel Nilsson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.ultima.settings.colorpicker;
 
-import android.app.AlertDialog;
+import java.util.Locale;
+
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ultima.settings.R;
 
-public class ColorPickerDialog {
-	public interface OnColorPickerListener {
-		void onCancel(ColorPickerDialog dialog);
-		void onOk(ColorPickerDialog dialog, int color);
+public class ColorPickerDialog 
+	extends 
+		Dialog 
+	implements
+		ColorPickerView.OnColorChangedListener,
+		View.OnClickListener {
+
+	private ColorPickerView mColorPicker;
+
+	private ColorPickerPanelView mOldColor;
+	private ColorPickerPanelView mNewColor;
+	
+	private EditText mHexVal;
+	private boolean mHexValueEnabled = false;
+	private ColorStateList mHexDefaultTextColor;
+
+	private OnColorChangedListener mListener;
+
+	public interface OnColorChangedListener {
+		public void onColorChanged(int color);
+	}
+	
+	public ColorPickerDialog(Context context, int initialColor) {
+		super(context);
+
+		init(initialColor);
 	}
 
-	final AlertDialog dialog;
-	final OnColorPickerListener listener;
-	final View viewHue;
-	final ColorPickerView viewSatVal;
-	final ImageView viewCursor;
-	final View viewOldColor;
-	final View viewNewColor;
-	final ImageView viewTarget;
-	final ViewGroup viewContainer;
-	final float[] currentColorHsv = new float[3];
+	private void init(int color) {
+		// To fight color banding.
+		getWindow().setFormat(PixelFormat.RGBA_8888);
 
+		setUp(color);
+
+	}
+
+	private void setUp(int color) {
+		
+		LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
+		View layout = inflater.inflate(R.layout.dialog_color_picker, null);
+
+		setContentView(layout);
+
+		setTitle(R.string.select_colour);
+		
+		mColorPicker = (ColorPickerView) layout.findViewById(R.id.color_picker_view);
+		mOldColor = (ColorPickerPanelView) layout.findViewById(R.id.old_color_panel);
+		mNewColor = (ColorPickerPanelView) layout.findViewById(R.id.new_color_panel);
+		
+		mHexVal = (EditText) layout.findViewById(R.id.hex_val);
+		mHexVal.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+		mHexDefaultTextColor = mHexVal.getTextColors();
+		
+		mHexVal.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_DONE) {
+					InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+					String s = mHexVal.getText().toString();
+					if (s.length() > 5 || s.length() < 10) {
+						try {
+							int c = ColorPickerPreference.convertToColorInt(s.toString());
+							mColorPicker.setColor(c, true);
+							mHexVal.setTextColor(mHexDefaultTextColor);
+						} catch (IllegalArgumentException e) {
+							mHexVal.setTextColor(Color.RED);
+						}
+					} else {
+						mHexVal.setTextColor(Color.RED);
+					}
+					return true;
+				}
+				return false;
+			}
+		});
+		
+		((LinearLayout) mOldColor.getParent()).setPadding(
+			Math.round(mColorPicker.getDrawingOffset()), 
+			0, 
+			Math.round(mColorPicker.getDrawingOffset()), 
+			0
+		);	
+		
+		mOldColor.setOnClickListener(this);
+		mNewColor.setOnClickListener(this);
+		mColorPicker.setOnColorChangedListener(this);
+		mOldColor.setColor(color);
+		mColorPicker.setColor(color, true);
+
+	}
+
+	@Override
+	public void onColorChanged(int color) {
+
+		mNewColor.setColor(color);
+		
+		if (mHexValueEnabled)
+			updateHexValue(color);
+
+		/*
+		if (mListener != null) {
+			mListener.onColorChanged(color);
+		}
+		*/
+
+	}
+	
+	public void setHexValueEnabled(boolean enable) {
+		mHexValueEnabled = enable;
+		if (enable) {
+			mHexVal.setVisibility(View.VISIBLE);
+			updateHexLengthFilter();
+			updateHexValue(getColor());
+		}
+		else
+			mHexVal.setVisibility(View.GONE);
+	}
+	
+	public boolean getHexValueEnabled() {
+		return mHexValueEnabled;
+	}
+	
+	private void updateHexLengthFilter() {
+		if (getAlphaSliderVisible())
+			mHexVal.setFilters(new InputFilter[] {new InputFilter.LengthFilter(9)});
+		else
+			mHexVal.setFilters(new InputFilter[] {new InputFilter.LengthFilter(7)});
+	}
+
+	private void updateHexValue(int color) {
+		if (getAlphaSliderVisible()) {
+			mHexVal.setText(ColorPickerPreference.convertToARGB(color).toUpperCase(Locale.getDefault()));
+		} else {
+			mHexVal.setText(ColorPickerPreference.convertToRGB(color).toUpperCase(Locale.getDefault()));
+		}
+		mHexVal.setTextColor(mHexDefaultTextColor);
+	}
+
+	public void setAlphaSliderVisible(boolean visible) {
+		mColorPicker.setAlphaSliderVisible(visible);
+		if (mHexValueEnabled) {
+			updateHexLengthFilter();
+			updateHexValue(getColor());
+		}
+	}
+	
+	public boolean getAlphaSliderVisible() {
+		return mColorPicker.getAlphaSliderVisible();
+	}
+	
 	/**
-	 * create an ColorPickerDialog. call this only from OnCreateDialog() or from a background thread.
-	 * 
-	 * @param context
-	 *            current context
-	 * @param color
-	 *            current color
+	 * Set a OnColorChangedListener to get notified when the color
+	 * selected by the user has changed.
 	 * @param listener
-	 *            an OnColorPickerListener, allowing you to get back error or
 	 */
-	public ColorPickerDialog(final Context context, int color, OnColorPickerListener listener) {
-		this.listener = listener;
-		Color.colorToHSV(color, currentColorHsv);
+	public void setOnColorChangedListener(OnColorChangedListener listener){
+		mListener = listener;
+	}
 
-		final View view = LayoutInflater.from(context).inflate(R.layout.colorpicker_dialog, null);
-		viewHue = view.findViewById(R.id.colorpicker_viewHue);
-		viewSatVal = (ColorPickerView) view.findViewById(R.id.colorpicker_viewSatBri);
-		viewCursor = (ImageView) view.findViewById(R.id.colorpicker_cursor);
-		viewOldColor = view.findViewById(R.id.colorpicker_warnaLama);
-		viewNewColor = view.findViewById(R.id.colorpicker_warnaBaru);
-		viewTarget = (ImageView) view.findViewById(R.id.colorpicker_target);
-		viewContainer = (ViewGroup) view.findViewById(R.id.colorpicker_viewContainer);
+	public int getColor() {
+		return mColorPicker.getColor();
+	}
 
-		viewSatVal.setHue(getHue());
-		viewOldColor.setBackgroundColor(color);
-		viewNewColor.setBackgroundColor(color);
-
-		viewHue.setOnTouchListener(new View.OnTouchListener() {
-			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getAction() == MotionEvent.ACTION_MOVE
-						|| event.getAction() == MotionEvent.ACTION_DOWN
-						|| event.getAction() == MotionEvent.ACTION_UP) {
-
-					float y = event.getY();
-					if (y < 0.f) y = 0.f;
-					if (y > viewHue.getMeasuredHeight()) y = viewHue.getMeasuredHeight() - 0.001f; // to avoid looping from end to start.
-					float hue = 360.f - 360.f / viewHue.getMeasuredHeight() * y;
-					if (hue == 360.f) hue = 0.f;
-					setHue(hue);
-
-					// update view
-					viewSatVal.setHue(getHue());
-					moveCursor();
-					viewNewColor.setBackgroundColor(getColor());
-
-					return true;
-				}
-				return false;
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.new_color_panel) {
+			if (mListener != null) {
+				mListener.onColorChanged(mNewColor.getColor());
 			}
-		});
-		viewSatVal.setOnTouchListener(new View.OnTouchListener() {
-			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getAction() == MotionEvent.ACTION_MOVE
-						|| event.getAction() == MotionEvent.ACTION_DOWN
-						|| event.getAction() == MotionEvent.ACTION_UP) {
-
-					float x = event.getX(); // touch event are in dp units.
-					float y = event.getY();
-
-					if (x < 0.f) x = 0.f;
-					if (x > viewSatVal.getMeasuredWidth()) x = viewSatVal.getMeasuredWidth();
-					if (y < 0.f) y = 0.f;
-					if (y > viewSatVal.getMeasuredHeight()) y = viewSatVal.getMeasuredHeight();
-
-					setSat(1.f / viewSatVal.getMeasuredWidth() * x);
-					setVal(1.f - (1.f / viewSatVal.getMeasuredHeight() * y));
-
-					// update view
-					moveTarget();
-					viewNewColor.setBackgroundColor(getColor());
-
-					return true;
-				}
-				return false;
-			}
-		});
-
-		dialog = new AlertDialog.Builder(context)
-			.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					if (ColorPickerDialog.this.listener != null) {
-						ColorPickerDialog.this.listener.onOk(ColorPickerDialog.this, getColor());
-					}
-				}
-			})
-			.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					if (ColorPickerDialog.this.listener != null) {
-						ColorPickerDialog.this.listener.onCancel(ColorPickerDialog.this);
-					}
-				}
-			})
-			.setOnCancelListener(new OnCancelListener() {
-				// if back button is used, call back our listener.
-				public void onCancel(DialogInterface paramDialogInterface) {
-					if (ColorPickerDialog.this.listener != null) {
-						ColorPickerDialog.this.listener.onCancel(ColorPickerDialog.this);
-					}
-
-				}
-			})
-			.create();
-		// kill all padding from the dialog window
-		dialog.setView(view, 0, 0, 0, 0);
-
-		// move cursor & target on first draw
-		ViewTreeObserver vto = view.getViewTreeObserver();
-		vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-			@SuppressWarnings("deprecation")
-			public void onGlobalLayout() {
-				moveCursor();
-				moveTarget();
-				view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-			}
-		});
+		}
+		dismiss();
 	}
-
-	protected void moveCursor() {
-		float y = viewHue.getMeasuredHeight() - (getHue() * viewHue.getMeasuredHeight() / 360.f);
-		if (y == viewHue.getMeasuredHeight()) y = 0.f;
-		RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) viewCursor.getLayoutParams();
-		layoutParams.leftMargin = (int) (viewHue.getLeft() - Math.floor(viewCursor.getMeasuredWidth() / 2) - viewContainer.getPaddingLeft());
-		;
-		layoutParams.topMargin = (int) (viewHue.getTop() + y - Math.floor(viewCursor.getMeasuredHeight() / 2) - viewContainer.getPaddingTop());
-		;
-		viewCursor.setLayoutParams(layoutParams);
+	
+	@Override
+	public Bundle onSaveInstanceState() {
+		Bundle state = super.onSaveInstanceState();
+		state.putInt("old_color", mOldColor.getColor());
+		state.putInt("new_color", mNewColor.getColor());
+		return state;
 	}
-
-	protected void moveTarget() {
-		float x = getSat() * viewSatVal.getMeasuredWidth();
-		float y = (1.f - getVal()) * viewSatVal.getMeasuredHeight();
-		RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) viewTarget.getLayoutParams();
-		layoutParams.leftMargin = (int) (viewSatVal.getLeft() + x - Math.floor(viewTarget.getMeasuredWidth() / 2) - viewContainer.getPaddingLeft());
-		layoutParams.topMargin = (int) (viewSatVal.getTop() + y - Math.floor(viewTarget.getMeasuredHeight() / 2) - viewContainer.getPaddingTop());
-		viewTarget.setLayoutParams(layoutParams);
-	}
-
-	private int getColor() {
-		return Color.HSVToColor(currentColorHsv);
-	}
-
-	private float getHue() {
-		return currentColorHsv[0];
-	}
-
-	private float getSat() {
-		return currentColorHsv[1];
-	}
-
-	private float getVal() {
-		return currentColorHsv[2];
-	}
-
-	private void setHue(float hue) {
-		currentColorHsv[0] = hue;
-	}
-
-	private void setSat(float sat) {
-		currentColorHsv[1] = sat;
-	}
-
-	private void setVal(float val) {
-		currentColorHsv[2] = val;
-	}
-
-	public void show() {
-		dialog.show();
-	}
-
-	public AlertDialog getDialog() {
-		return dialog;
+	
+	@Override
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		mOldColor.setColor(savedInstanceState.getInt("old_color"));
+		mColorPicker.setColor(savedInstanceState.getInt("new_color"), true);
 	}
 }
