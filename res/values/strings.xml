@@ -112,4 +112,12 @@
     <string name="mod_navbar_category">Navigation bar</string>
     <string name="mod_navbar_title">Show navigation bar</string>
     <string name="mod_navbar_summary">enable or disable the on-screen controls (Requires reboot)</string>
+    
+    <!-- Launcher Settings -->
+    <string name="launcher_screen_title">Launcher</string>
+    <string name="launcher_workspace_title">Workspace settings</string>
+    <string name="launcher_title_workspace_rows">Rows</string>
+    <string name="launcher_title_workspace_cols">Columns</string>
+    <string name="launcher_title_default_workspace">Default Screen</string>
+    <string name="launcher_title_show_search_bar">Show Search Bar</string>
 </resources>
