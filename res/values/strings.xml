@@ -103,4 +103,10 @@
     <string name="mod_power_menu_summary">Enable reboot to recovery and bootloader in the reboot menu</string>
     <string name="mod_advanced_display_title">Advanced Display</string>
     <string name="mod_advanced_display_summary">mDNIe scenario display settings</string>
+    <string name="mod_airplane_title">Airplane mode</string>
+    <string name="mod_airplane_summary">Show the airplane mode toggle in the power menu</string>
+    <string name="mod_screenshot_title">Screenshot</string>
+    <string name="mod_screenshot_summary">Show the screenshot button in the power menu</string>
+    <string name="mod_silentmode_title">Silent mode</string>
+    <string name="mod_silentmode_summary">Show the silent mode toggles in the power menu</string>
 </resources>
