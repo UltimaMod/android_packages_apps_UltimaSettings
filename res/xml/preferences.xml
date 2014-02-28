@@ -158,6 +158,14 @@
 				    android:entries="@array/crt_off_animation_entries"
 				    android:entryValues="@array/crt_off_animation_values"
 				    android:defaultValue="1" />     	    
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_power_menu_category"
+        	    android:key="power_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_power_menu_title"
+        	    	    android:summary="@string/mod_power_menu_summary"
+        	    	    android:key="system_pref_power_menu"/>
         	</PreferenceCategory>       
     </PreferenceScreen>
 </PreferenceScreen>

@@ -98,4 +98,7 @@
     <string name="mod_crt_category">Screen Controls</string>
     <string name="mod_crt_on_title">Screen on animation</string>
     <string name="mod_crt_off_title">Screen off animation</string>
+    <string name="mod_power_menu_category">Power menu</string>
+    <string name="mod_power_menu_title">Extended power menu</string>
+    <string name="mod_power_menu_summary">Enable reboot to recovery and bootloader in the reboot menu</string>
 </resources>
