@@ -157,7 +157,11 @@
 				    android:summary="@string/list_summary"
 				    android:entries="@array/crt_off_animation_entries"
 				    android:entryValues="@array/crt_off_animation_values"
-				    android:defaultValue="1" />     	    
+				    android:defaultValue="1" />
+				<Preference
+				    android:title="@string/mod_advanced_display_title"
+				    android:summary="@string/mod_advanced_display_summary"
+				    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" />     	    
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_power_menu_category"

@@ -164,7 +164,7 @@ public class SettingsActivity extends Activity implements Constants {
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
             cr = getActivity().getContentResolver();
             initPrefs();
-            //disablePrefs();
+            disablePrefs();
             lowBatterySummary = getString(R.string.battery_level_low_summary);
             midBatterySummary = getString(R.string.battery_level_mid_summary);
 
@@ -474,16 +474,11 @@ public class SettingsActivity extends Activity implements Constants {
         private void disablePrefs(){
         	PreferenceScreen settingsRoot = (PreferenceScreen) findPreference("settings_root"); // First Settings page
 
-			//KTweaker
-			if(!((SettingsActivity) getActivity()).appInstalled("com.ktoonsez.KTweaker")){
-				Preference pref1 = (Preference) findPreference("activity;com.ktoonsez.KTweaker;com.ktoonsez.KTweaker.MainActivity");
-				settingsRoot.removePreference(pref1);
-			}
-			//STWeaks
-			if(!((SettingsActivity) getActivity()).appInstalled("com.gokhanmoral.stweaks.app"))	{
-				Preference pref1 = (Preference) findPreference("activity;com.gokhanmoral.stweaks.app;com.gokhanmoral.stweaks.app.MainActivity");
-
-				settingsRoot.removePreference(pref1);
+			//Remove Advanced Display from settings if it's not installed
+			if(!((SettingsActivity) getActivity()).appInstalled("com.cyanogenmod.settings.device")){
+			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
+				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
+				cat.removePreference(pref1);
 			}
         }
         
