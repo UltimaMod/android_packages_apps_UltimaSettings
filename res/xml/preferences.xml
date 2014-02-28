@@ -180,6 +180,14 @@
         	    	    android:title="@string/mod_silentmode_title"
         	    	    android:summary="@string/mod_silentmode_summary"
         	    	    android:key="system_pref_power_menu_silentmode" />
-        	</PreferenceCategory>       
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_navbar_category"
+        	    android:key="navbar_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_navbar_title"
+        	    	    android:summary="@string/mod_navbar_summary"
+        	    	    android:key="system_pref_show_navbar" />
+        	</PreferenceCategory>        
     </PreferenceScreen>
 </PreferenceScreen>

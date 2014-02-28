@@ -109,4 +109,7 @@
     <string name="mod_screenshot_summary">Show the screenshot button in the power menu</string>
     <string name="mod_silentmode_title">Silent mode</string>
     <string name="mod_silentmode_summary">Show the silent mode toggles in the power menu</string>
+    <string name="mod_navbar_category">Navigation bar</string>
+    <string name="mod_navbar_title">Show navigation bar</string>
+    <string name="mod_navbar_summary">enable or disable the on-screen controls (Requires reboot)</string>
 </resources>
