@@ -8,14 +8,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.NumberPicker;
 
-public class NumberPreference extends DialogPreference {
+import com.ultima.settings.R;
+
+public class NumberPickerPreference extends DialogPreference {
 
     private int mMin;
     private int mMax;
 
     private NumberPicker mNumberPicker;
 
-    public NumberPreference(Context context, AttributeSet attrs) {
+    public NumberPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberPreference, 0, 0);
