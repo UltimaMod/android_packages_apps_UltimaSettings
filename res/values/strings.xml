@@ -117,6 +117,8 @@
     <string name="mod_navbar_category">Navigation bar</string>
     <string name="mod_navbar_title">Show navigation bar</string>
     <string name="mod_navbar_summary">enable or disable the on-screen controls (Requires reboot)</string>
+    <string name="mod_ime_switcher_title">IME switcher</string>
+    <string name="mod_ime_switcher_summary">Enable the IME switcher icon in the notification bar</string>
     
     <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>

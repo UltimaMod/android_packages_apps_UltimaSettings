@@ -89,8 +89,8 @@
 		</PreferenceCategory>
 		
        <PreferenceCategory 
-           android:title=""
-           android:key="">
+           android:title="@string/battery_warning_title"
+           android:key="battery_warning_cat">
            	<ListPreference
            	    android:title="@string/battery_warning_title"
 		    	android:key="status_bar_battery_warning" 
@@ -244,6 +244,14 @@
         	    	    android:title="@string/mod_navbar_title"
         	    	    android:summary="@string/mod_navbar_summary"
         	    	    android:key="system_pref_show_navbar" />
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_ime_switcher_title"
+        	    android:key="ime_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_ime_switcher_title"
+        	    	    android:key="system_pref_ime_switcher_notif"
+        	    	    android:summary="@string/mod_ime_switcher_summary" />
         	</PreferenceCategory>        
     </PreferenceScreen>
 </PreferenceScreen>
