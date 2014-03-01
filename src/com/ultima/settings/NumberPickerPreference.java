@@ -1,11 +1,15 @@
 package com.ultima.settings;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.NumberPicker;
@@ -21,7 +25,7 @@ public class NumberPickerPreference extends DialogPreference {
     
     private ContentResolver cr;
 
-    public NumberPickerPreference(Context context, AttributeSet attrs) {
+    public NumberPickerPreference(Context context, AttributeSet attrs) throws SettingNotFoundException {
         super(context, attrs);
         cr = context.getContentResolver();
         
@@ -31,6 +35,8 @@ public class NumberPickerPreference extends DialogPreference {
         if(mMin<0 || mMin > mMax) {
             throw new IllegalArgumentException();
         }
+        a.recycle();
+        this.setSummary("Set to " + Settings.System.getInt(cr, this.getKey()));
     }
 
     @Override
@@ -58,7 +64,10 @@ public class NumberPickerPreference extends DialogPreference {
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
-        Settings.System.putInt(cr, this.getKey(), mNumberPicker.getValue());
+        if(positiveResult){
+            Settings.System.putInt(cr, this.getKey(), mNumberPicker.getValue());
+            this.setSummary("Set to " + mNumberPicker.getValue());
+        }     
     }
 
     @Override
@@ -81,5 +90,12 @@ public class NumberPickerPreference extends DialogPreference {
     protected Object onGetDefaultValue(TypedArray a, int index) {
         return a.getInteger(index, 0);
     }
-
+    
+    @Override
+    protected int getPersistedInt(int defaultReturnValue) {
+        if (!shouldPersist()) {
+            return defaultReturnValue;
+        }    
+        return Settings.System.getInt(cr, this.getKey(), defaultReturnValue);
+    }
 }
