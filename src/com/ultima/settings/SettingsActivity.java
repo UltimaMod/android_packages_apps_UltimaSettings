@@ -714,7 +714,8 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void initList(ListPreference item){
         	item.setOnPreferenceChangeListener(this);
-            if (item.getValue() == null){
+            if (item.getValue() == null ||
+                    "%s".equals(item.getSummary())){
                 item.setValueIndex(0);
                 item.setSummary(item.getEntry());
             }

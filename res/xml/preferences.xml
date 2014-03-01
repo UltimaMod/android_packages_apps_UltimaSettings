@@ -88,6 +88,18 @@
 			    alphaSlider="true" />
 		</PreferenceCategory>
 		
+       <PreferenceCategory 
+           android:title=""
+           android:key="">
+           	<ListPreference
+           	    android:title="@string/battery_warning_title"
+		    	android:key="status_bar_battery_warning" 
+		    	android:summary="@string/list_summary"
+		    	android:entries="@array/battery_warning_entries"
+		    	android:entryValues="@array/battery_warning_values"
+		    	android:defaultValue="0" />
+       </PreferenceCategory>
+		
 		<Preference android:title="@string/battery_reset_defaults" 
 		    android:key="battery_reset_defaults" 
 		    android:summary="@string/battery_reset_defaults_summary" />

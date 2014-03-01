@@ -46,4 +46,14 @@
 	    <item>2</item>
 	    <item>0</item>
 	</string-array>
+	<string-array name="battery_warning_entries">
+	    <item>Popup and Sound</item>
+	    <item>Popup only</item>
+	    <item>Sound only</item>
+	</string-array>
+	<string-array name="battery_warning_values">
+	    <item>0</item>
+	    <item>1</item>
+	    <item>2</item>
+	</string-array>
 </resources>
