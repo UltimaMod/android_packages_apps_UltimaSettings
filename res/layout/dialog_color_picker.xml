@@ -77,7 +77,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="→"
+            android:text="@string/color_picker_arrow;"
             android:textSize="20sp" />
 
         <com.ultima.settings.colorpicker.ColorPickerPanelView

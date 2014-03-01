@@ -35,6 +35,8 @@ public class Tools {
 			hotboot();
 		} else if(tool[0].contentEquals("restartsystemui")){
 			rebootSystemUi();
+		} else if(tool[0].contentEquals("restartlauncher")){
+            rebootLauncher();
 		} else if(tool[0].contentEquals("shell")){
 			if(tool.length < 2){
 				Log.e("Tools","Not enough parameters given for SHELL");
@@ -57,6 +59,8 @@ public class Tools {
 			hotboot();
 		} else if(tool[0].contentEquals("restartsystemui")){
 			rebootSystemUi();
+		} else if(tool[0].contentEquals("restartlauncher")){
+            rebootLauncher();
 		} else if(tool[0].contentEquals("shell")){
 			if(tool.length < 2){
 				Log.e("Tools","Not enough parameters given for SHELL");
@@ -101,6 +105,10 @@ public class Tools {
 	public static void rebootSystemUi(){
 		shell("pkill -TERM -f com.android.systemui");
 	}
+	
+	public static void rebootLauncher(){
+        shell("pkill -TERM -f com.android.launcher3");
+    }
 
 	public static void hotboot(){
 		shell("setprop ctl.restart surfaceflinger;setprop ctl.restart zygote");

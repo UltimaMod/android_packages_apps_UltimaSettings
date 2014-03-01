@@ -162,7 +162,20 @@
         <CheckBoxPreference
             android:key="pref_key_showSearchBar"
             android:title="@string/launcher_title_show_search_bar"
-            android:defaultValue="true" />      	
+            android:summaryOn="@string/launcher_title_show_search_bar_on"
+            android:summaryOff="@string/launcher_title_show_search_bar_off"
+            android:defaultValue="true" />
+        
+         <CheckBoxPreference
+            android:key="pref_key_enableRotation"
+            android:title="@string/launcher_title_rotation"
+            android:summaryOn="@string/launcher_title_rotation_on"
+            android:summaryOff="@string/launcher_title_rotation_off"
+            android:defaultValue="true" />
+         
+            <Preference android:title="@string/restart_launcher" 
+		    android:key="tool#restartlauncher" 
+		    android:summary="@string/restart_launcher_summary" />      	
     </PreferenceScreen>
     <PreferenceScreen 
         android:title="@string/mod_screen_title" 

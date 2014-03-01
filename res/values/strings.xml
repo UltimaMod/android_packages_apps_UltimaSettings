@@ -13,13 +13,16 @@
     <string name="restart_phone_summary">Restart Phone process to apply some of the above changes</string>
     <string name="restart_system">Restart SystemUI</string>
     <string name="restart_system_summary">Restart SystemUI process to apply some of the above changes</string>
+    <string name="restart_launcher">Restart Launcher</string>
+    <string name="restart_launcher_summary">You must restart the Launcher to apply any of the above changes</string>
     <string name="reboot">Reboot</string>
     <string name="reboot_fully">Reboot system to allow changes to take effect</string>
     <string name="list_summary">%s</string>
     <string name="none">None</string>
     <string name="settings">Settings</string>
     <string name="select_colour">Select colour</string>
-    <string name="press_color_to_apply">Press on colour to apply</string> 
+    <string name="press_color_to_apply">Press on colour to apply</string>
+    <string name="color_picker_arrow">&#8594;</string> 
     
     <!-- Hostname Activity Strings -->
     <string name="title_activity_hostname">Set hostname</string>
@@ -120,4 +123,9 @@
     <string name="launcher_title_workspace_cols">Columns</string>
     <string name="launcher_title_default_workspace">Default Screen</string>
     <string name="launcher_title_show_search_bar">Show Search Bar</string>
+    <string name="launcher_title_show_search_bar_on">Persistent search bar is on</string>
+    <string name="launcher_title_show_search_bar_off">Persistent search bar is off (Warning, the app info and delete buttons that you can drag icons and widgets to will no longer show, but will still be accessible)</string>
+    <string name="launcher_title_rotation">Enable Rotation</string>
+    <string name="launcher_title_rotation_on">Launcher rotation is on</string>
+    <string name="launcher_title_rotation_off">Launcher rotation is off</string>
 </resources>
