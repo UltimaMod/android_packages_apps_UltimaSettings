@@ -138,6 +138,10 @@
 		    	android:entries="@array/clock_dow_style_entries"
 		    	android:entryValues="@array/clock_dow_style_values"
 		    	android:defaultValue="2" />
+        	<CheckBoxPreference 
+        	   	android:title="@string/clock_alarm_icon_title"
+        	    android:key="system_pref_alarm_icon"
+        	    android:summary="@string/clock_alarm_icon_summary" />
         	<Preference android:title="@string/restart_system" 
 		    android:key="tool#restartsystemui" 
 		    android:summary="@string/restart_system_summary" /> 

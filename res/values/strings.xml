@@ -97,6 +97,8 @@
     <string name="clock_color_summary">Change the colour of the statusbar clock</string>
     <string name="clock_ampm_style_title">AM/PM style</string>
     <string name="clock_dow_style_title">Weekday style</string>
+    <string name="clock_alarm_icon_title">Alarm Icon</string>
+    <string name="clock_alarm_icon_summary">Show a persistent alarm icon in the notification bar</string>
     
     <!-- Mod Settings -->
     <string name="mod_screen_title">Mods</string>
