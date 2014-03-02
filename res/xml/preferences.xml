@@ -275,6 +275,15 @@
         	    	    android:key="system_pref_all_rotation"
         	    	    android:summary="@string/mod_rotation_summary"
         	    	    android:defaultValue="0" />
-        	</PreferenceCategory>             
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_lockscreen_category"
+        	    android:key="mod_lockscreen_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_lockscreen_menu_title"
+        	    	    android:key="system_pref_menu_lockscreen"
+        	    	    android:summary="@string/mod_lockscreen_menu_summary"
+        	    	    android:defaultValue="1" />
+        	</PreferenceCategory>              
     </PreferenceScreen>
 </PreferenceScreen>

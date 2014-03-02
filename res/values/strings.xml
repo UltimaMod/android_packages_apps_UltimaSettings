@@ -127,6 +127,9 @@
     <string name="mod_rotation_category">Rotation</string>
     <string name="mod_rotation_title">4-way rotation</string>
     <string name="mod_rotation_summary">Enable/disable rotation along all axis</string>
+    <string name="mod_lockscreen_category">Lockscreen</string>
+    <string name="mod_lockscreen_menu_title">Menu button on lockscreen</string>
+    <string name="mod_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
     
     <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>
