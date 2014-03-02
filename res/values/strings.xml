@@ -124,6 +124,9 @@
     <string name="mod_sounds_category">Sounds</string>
     <string name="mod_screen_chord_title">Screenshot chord</string>
     <string name="mod_screen_chord_summary">Enable/disable the chord sound played when taking a screenshot</string>
+    <string name="mod_rotation_category">Rotation</string>
+    <string name="mod_rotation_title">4-way rotation</string>
+    <string name="mod_rotation_summary">Enable/disable rotation along all axis</string>
     
     <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>

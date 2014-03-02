@@ -266,6 +266,15 @@
         	    	    android:key="system_pref_screenshot_chord"
         	    	    android:summary="@string/mod_screen_chord_summary"
         	    	    android:defaultValue="1" />
-        	</PreferenceCategory>           
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_sounds_category"
+        	    android:key="mod_rotation_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_rotation_title"
+        	    	    android:key="system_pref_all_rotation"
+        	    	    android:summary="@string/mod_rotation_summary"
+        	    	    android:defaultValue="0" />
+        	</PreferenceCategory>             
     </PreferenceScreen>
 </PreferenceScreen>

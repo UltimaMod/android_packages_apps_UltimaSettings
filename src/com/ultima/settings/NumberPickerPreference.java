@@ -36,7 +36,7 @@ public class NumberPickerPreference extends DialogPreference {
             throw new IllegalArgumentException();
         }
         a.recycle();
-        this.setSummary("Set to " + Settings.System.getInt(cr, this.getKey()));
+        this.setSummary("Set to " + Settings.System.getInt(cr, this.getKey(), getPersistedInt(0)));
     }
 
     @Override

@@ -480,6 +480,11 @@ public class SettingsActivity extends Activity implements Constants {
 				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
 				cat.removePreference(pref1);
 			}
+			//Remove Launcher Settings from settings if it's not installed
+            if(!((SettingsActivity) getActivity()).appInstalled("com.android.launcher3")){
+                PreferenceScreen pref1 = (PreferenceScreen) findPreference("settings_launcher_screen");
+                settingsRoot.removePreference(pref1);
+            }			
         }
         
         public void showBatteryLowLevelDialog() {
