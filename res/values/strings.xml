@@ -121,6 +121,9 @@
     <string name="mod_navbar_summary">enable or disable the on-screen controls (Requires reboot)</string>
     <string name="mod_ime_switcher_title">IME switcher</string>
     <string name="mod_ime_switcher_summary">Enable the IME switcher icon in the notification bar</string>
+    <string name="mod_sounds_category">Sounds</string>
+    <string name="mod_screen_chord_title">Screenshot chord</string>
+    <string name="mod_screen_chord_summary">Enable/disable the chord sound played when taking a screenshot</string>
     
     <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>

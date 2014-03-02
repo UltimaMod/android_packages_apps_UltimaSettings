@@ -223,7 +223,7 @@
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_power_menu_category"
-        	    android:key="power_category">
+        	    android:key="mod_power_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_power_menu_title"
         	    	    android:summary="@string/mod_power_menu_summary"
@@ -243,7 +243,7 @@
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_navbar_category"
-        	    android:key="navbar_category">
+        	    android:key="mod_navbar_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_navbar_title"
         	    	    android:summary="@string/mod_navbar_summary"
@@ -251,11 +251,21 @@
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_ime_switcher_title"
-        	    android:key="ime_category">
+        	    android:key="mod_ime_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_ime_switcher_title"
         	    	    android:key="system_pref_ime_switcher_notif"
-        	    	    android:summary="@string/mod_ime_switcher_summary" />
-        	</PreferenceCategory>        
+        	    	    android:summary="@string/mod_ime_switcher_summary"
+        	    	    android:defaultValue="1" />
+        	</PreferenceCategory>
+        	<PreferenceCategory 
+        	    android:title="@string/mod_sounds_category"
+        	    android:key="mod_sounds_category">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_screen_chord_title"
+        	    	    android:key="system_pref_screenshot_chord"
+        	    	    android:summary="@string/mod_screen_chord_summary"
+        	    	    android:defaultValue="1" />
+        	</PreferenceCategory>           
     </PreferenceScreen>
 </PreferenceScreen>
