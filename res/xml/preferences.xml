@@ -99,6 +99,26 @@
 		    	android:entryValues="@array/battery_warning_values"
 		    	android:defaultValue="0" />
        </PreferenceCategory>
+       
+       <PreferenceCategory
+           android:title="@string/battery_led_cat"
+           android:key="battery_led_cat">
+           	<com.ultima.settings.colorpicker.ColorPickerPreference
+           	    android:title="@string/battery_led_low_colour" 
+			    android:key="system_pref_batt_ledcolor_low" 
+			    android:summary="@string/battery_led_low_colour_summary" 
+			    android:defaultValue="0xffff0000" />
+           	<com.ultima.settings.colorpicker.ColorPickerPreference
+           	    android:title="@string/battery_led_med_colour" 
+			    android:key="system_pref_batt_ledcolor_med" 
+			    android:summary="@string/battery_led_med_colour_summary" 
+			    android:defaultValue="0xffffff00" />
+           	<com.ultima.settings.colorpicker.ColorPickerPreference
+           	    android:title="@string/battery_led_full_colour" 
+			    android:key="system_pref_batt_ledcolor_full" 
+			    android:summary="@string/battery_led_full_colour_summary" 
+			    android:defaultValue="0xff00ff00" />
+       </PreferenceCategory>
 		
 		<Preference android:title="@string/battery_reset_defaults" 
 		    android:key="battery_reset_defaults" 

@@ -89,7 +89,14 @@
     <string name="battery_warning_off">Warning is off</string>
     <string name="battery_reset_defaults">Reset Defaults</string>
     <string name="battery_reset_defaults_summary">Reset the default colours</string>
-    <string name="battery_warning_title">Low Battery Warning</string>
+    <string name="battery_warning_title">Low battery warning</string>   
+    <string name="battery_led_cat">Battery LED</string>
+    <string name="battery_led_low_colour">Low battery LED</string>
+    <string name="battery_led_low_colour_summary">The colour of the battery LED when charging, and low</string>
+    <string name="battery_led_med_colour">Medium battery LED</string>
+    <string name="battery_led_med_colour_summary">The colour of the LED battery when charging and partly charged</string>
+    <string name="battery_led_full_colour">Full battery LED</string>
+    <string name="battery_led_full_colour_summary">The colour of the LED battery when charged fully</string>
     
     <!-- Clock Settings -->
     <string name="clock_category">Clock</string>
