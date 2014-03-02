@@ -458,7 +458,9 @@ public class SettingsActivity extends Activity implements Constants {
         private void dispatchCheckbox(CheckBoxPreference item, Object value){
         	//Log.d(LCAT, "Dispatching Checkbox: "+item);
         	if(item != null){
-        		setSettingBoolean(cr,item.getKey(),(Boolean) value);
+        	    String[] prefs = item.getKey().substring(0).split(";");
+                String key = prefs[0];
+        		setSettingBoolean(cr,key,(Boolean) value);
         		//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
         	}
         }
@@ -719,12 +721,12 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void initList(ListPreference item){
         	item.setOnPreferenceChangeListener(this);
+        	item.setValue(getSettingString(cr, item.getKey())); 
             if (item.getValue() == null ||
                     "%s".equals(item.getSummary())){
                 item.setValueIndex(0);
                 item.setSummary(item.getEntry());
-            }
-        	item.setValue(getSettingString(cr, item.getKey()));       	
+            }       	      	
         }
         
         private void initMultiSelectList(MultiSelectListPreference item){
@@ -749,8 +751,14 @@ public class SettingsActivity extends Activity implements Constants {
         private void initSwitch(SwitchPreference item){
         	//Log.d(LCAT, "Initializin Switch: "+item);
         	if(item != null){
+                int defaultValue = 0;
+                String[] prefs = item.getKey().substring(0).split(";");
+                String key = prefs[0];
+                if (prefs.length >= 1){
+                    defaultValue = Integer.parseInt(prefs[1]);
+                }
         		item.setOnPreferenceChangeListener(this);
-        		boolean isChecked = getSettingBoolean(cr,item.getKey());
+        		boolean isChecked = getSettingBoolean(cr, key, defaultValue);
         		item.setChecked(isChecked);
         		//Log.d(LCAT, "Setting Switch: "+item.getKey()+" => "+isChecked);
         	}
@@ -775,8 +783,14 @@ public class SettingsActivity extends Activity implements Constants {
         private void initCheckbox(CheckBoxPreference item){
         	//Log.d(LCAT, "Initializin Checkbox: "+item);
         	if(item != null){
+        	    int defaultValue = 0;
+        	    String[] prefs = item.getKey().substring(0).split(";");
+        	    String key = prefs[0];
+        	    if (prefs.length >= 1){
+        	        defaultValue = Integer.parseInt(prefs[1]);
+        	    }
         		item.setOnPreferenceChangeListener(this);
-        		boolean isChecked = getSettingBoolean(cr,item.getKey());
+        		boolean isChecked = getSettingBoolean(cr,key, defaultValue);
         		item.setChecked(isChecked);
         		//Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
         	}
@@ -868,19 +882,33 @@ public class SettingsActivity extends Activity implements Constants {
     		}
     	}
     	
-    	public static boolean getSettingBoolean(ContentResolver contentResolver, String setting) {
+    	public static boolean getSettingBoolean(ContentResolver contentResolver, String setting, int def) {
     		//Log.d(LCAT, "getSettingInt called: "+setting);
     		if(setting.startsWith("romcfg") || setting.startsWith("modcfg")){
         		return getFileBoolean(setting);
         	}
     		try {
     			final ContentResolver cr = contentResolver;
-    			return android.provider.Settings.System.getInt(cr, setting) > 0;
+    			return android.provider.Settings.System.getInt(cr, setting, def) > 0;
     		} catch (Exception e) {
     			e.printStackTrace();
     			return false;
     		}
     	}
+    	
+    	public static boolean getSettingBoolean(ContentResolver contentResolver, String setting) {
+            //Log.d(LCAT, "getSettingInt called: "+setting);
+            if(setting.startsWith("romcfg") || setting.startsWith("modcfg")){
+                return getFileBoolean(setting);
+            }
+            try {
+                final ContentResolver cr = contentResolver;
+                return android.provider.Settings.System.getInt(cr, setting, 0) > 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
     	
     	public static boolean setSettingString(ContentResolver contentResolver, String setting, String value) {
     		//Log.d(LCAT, "setSettingString called: "+setting+":"+value);

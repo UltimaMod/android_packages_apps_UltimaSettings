@@ -20,6 +20,7 @@ public class NumberPickerPreference extends DialogPreference {
 
     private int mMin;
     private int mMax;
+    private int mDefault;
 
     private NumberPicker mNumberPicker;
     
@@ -32,6 +33,7 @@ public class NumberPickerPreference extends DialogPreference {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberPreference, 0, 0);
         mMin = a.getInt(R.styleable.NumberPreference_min, 1);
         mMax = a.getInt(R.styleable.NumberPreference_max, 3);
+        mDefault = a.getInteger(R.styleable.NumberPreference_def, 0);
         if(mMin<0 || mMin > mMax) {
             throw new IllegalArgumentException();
         }
@@ -92,10 +94,7 @@ public class NumberPickerPreference extends DialogPreference {
     }
     
     @Override
-    protected int getPersistedInt(int defaultReturnValue) {
-        if (!shouldPersist()) {
-            return defaultReturnValue;
-        }    
-        return Settings.System.getInt(cr, this.getKey(), defaultReturnValue);
+    protected int getPersistedInt(int defaultReturnValue) {   
+        return Settings.System.getInt(cr, this.getKey(), mDefault);
     }
 }

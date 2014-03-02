@@ -160,7 +160,7 @@
 		    	android:defaultValue="2" />
         	<CheckBoxPreference 
         	   	android:title="@string/clock_alarm_icon_title"
-        	    android:key="system_pref_alarm_icon"
+        	    android:key="system_pref_alarm_icon;1"
         	    android:summary="@string/clock_alarm_icon_summary" />
         	<Preference android:title="@string/restart_system" 
 		    android:key="tool#restartsystemui" 
@@ -181,29 +181,31 @@
             android:key="pref_key_workspaceRows"
             android:title="@string/launcher_title_workspace_rows"
             ultima:min="1"
-            ultima:max="10" />
+            ultima:max="10"
+            ultima:def="4" />
         <com.ultima.settings.NumberPickerPreference
             android:key="pref_key_workspaceCols"
             android:title="@string/launcher_title_workspace_cols"
             ultima:min="1"
-            ultima:max="10" />
+            ultima:max="10"
+            ultima:def="4" />
 
         <com.ultima.settings.NumberPickerPreference
             android:key="pref_key_workspaceDefaultPage"
             android:title="@string/launcher_title_default_workspace"
-            android:defaultValue="0"
+            ultima:def="0"
             ultima:min="0"
             ultima:max="10" />
         
         <CheckBoxPreference
-            android:key="pref_key_showSearchBar"
+            android:key="pref_key_showSearchBar;1"
             android:title="@string/launcher_title_show_search_bar"
             android:summaryOn="@string/launcher_title_show_search_bar_on"
             android:summaryOff="@string/launcher_title_show_search_bar_off"
             android:defaultValue="true" />
         
          <CheckBoxPreference
-            android:key="pref_key_enableRotation"
+            android:key="pref_key_enableRotation;0"
             android:title="@string/launcher_title_rotation"
             android:summaryOn="@string/launcher_title_rotation_on"
             android:summaryOff="@string/launcher_title_rotation_off"
@@ -247,19 +249,19 @@
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_power_menu_title"
         	    	    android:summary="@string/mod_power_menu_summary"
-        	    	    android:key="system_pref_power_menu" />
+        	    	    android:key="system_pref_power_menu;0" />
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_screenshot_title"
         	    	    android:summary="@string/mod_screenshot_summary"
-        	    	    android:key="system_pref_power_menu_screenshot" />
+        	    	    android:key="system_pref_power_menu_screenshot;0" />
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_airplane_title"
         	    	    android:summary="@string/mod_airplane_summary"
-        	    	    android:key="system_pref_power_menu_airplane" />
+        	    	    android:key="system_pref_power_menu_airplane;0" />
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_silentmode_title"
         	    	    android:summary="@string/mod_silentmode_summary"
-        	    	    android:key="system_pref_power_menu_silentmode" />
+        	    	    android:key="system_pref_power_menu_silentmode;0" />
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_navbar_category"
@@ -267,14 +269,14 @@
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_navbar_title"
         	    	    android:summary="@string/mod_navbar_summary"
-        	    	    android:key="system_pref_show_navbar" />
+        	    	    android:key="system_pref_show_navbar;0" />
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_ime_switcher_title"
         	    android:key="mod_ime_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_ime_switcher_title"
-        	    	    android:key="system_pref_ime_switcher_notif"
+        	    	    android:key="system_pref_ime_switcher_notif;1"
         	    	    android:summary="@string/mod_ime_switcher_summary"
         	    	    android:defaultValue="1" />
         	</PreferenceCategory>
@@ -283,7 +285,7 @@
         	    android:key="mod_sounds_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_screen_chord_title"
-        	    	    android:key="system_pref_screenshot_chord"
+        	    	    android:key="system_pref_screenshot_chord;1"
         	    	    android:summary="@string/mod_screen_chord_summary"
         	    	    android:defaultValue="1" />
         	</PreferenceCategory>
@@ -292,7 +294,7 @@
         	    android:key="mod_rotation_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_rotation_title"
-        	    	    android:key="system_pref_all_rotation"
+        	    	    android:key="system_pref_all_rotation;0"
         	    	    android:summary="@string/mod_rotation_summary"
         	    	    android:defaultValue="0" />
         	</PreferenceCategory>
@@ -301,7 +303,7 @@
         	    android:key="mod_lockscreen_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_lockscreen_menu_title"
-        	    	    android:key="system_pref_menu_lockscreen"
+        	    	    android:key="system_pref_menu_lockscreen;1"
         	    	    android:summary="@string/mod_lockscreen_menu_summary"
         	    	    android:defaultValue="1" />
         	</PreferenceCategory>              
