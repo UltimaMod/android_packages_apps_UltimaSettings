@@ -10,7 +10,7 @@
         <!-- Battery percent on/off -->
         <SwitchPreference 
             android:title="@string/battery_percent" 
-            android:key="status_bar_show_battery_percent" 
+            android:key="status_bar_show_battery_percent;0" 
             android:summary="@string/battery_percent_summary"/>
         <!-- Battery Text Colour -->
 		<com.ultima.settings.colorpicker.ColorPickerPreference 

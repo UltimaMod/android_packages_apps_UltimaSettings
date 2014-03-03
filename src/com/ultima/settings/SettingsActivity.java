@@ -754,7 +754,7 @@ public class SettingsActivity extends Activity implements Constants {
                 int defaultValue = 0;
                 String[] prefs = item.getKey().substring(0).split(";");
                 String key = prefs[0];
-                if (prefs.length >= 1){
+                if (prefs.length >= 2){
                     defaultValue = Integer.parseInt(prefs[1]);
                 }
         		item.setOnPreferenceChangeListener(this);
@@ -786,7 +786,7 @@ public class SettingsActivity extends Activity implements Constants {
         	    int defaultValue = 0;
         	    String[] prefs = item.getKey().substring(0).split(";");
         	    String key = prefs[0];
-        	    if (prefs.length >= 1){
+        	    if (prefs.length >= 2){
         	        defaultValue = Integer.parseInt(prefs[1]);
         	    }
         		item.setOnPreferenceChangeListener(this);
