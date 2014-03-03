@@ -326,7 +326,9 @@ public class SettingsActivity extends Activity implements Constants {
         private void dispatchSwitch(SwitchPreference item, Object value){
         	//Log.d(LCAT, "Dispatching Switch: "+item);
         	if(item != null){
-        		setSettingBoolean(cr,item.getKey(),(Boolean) value);
+        	    String[] prefs = item.getKey().substring(0).split(";");
+                String key = prefs[0];
+        		setSettingBoolean(cr,key,(Boolean) value);
         		//Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
         	}
         }
