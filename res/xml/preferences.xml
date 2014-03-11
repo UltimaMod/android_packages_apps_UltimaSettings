@@ -99,27 +99,7 @@
 		    	android:entryValues="@array/battery_warning_values"
 		    	android:defaultValue="0" />
        </PreferenceCategory>
-       
-       <PreferenceCategory
-           android:title="@string/battery_led_cat"
-           android:key="battery_led_cat">
-           	<com.ultima.settings.colorpicker.ColorPickerPreference
-           	    android:title="@string/battery_led_low_colour" 
-			    android:key="system_pref_batt_ledcolor_low" 
-			    android:summary="@string/battery_led_low_colour_summary" 
-			    android:defaultValue="0xffff0000" />
-           	<com.ultima.settings.colorpicker.ColorPickerPreference
-           	    android:title="@string/battery_led_med_colour" 
-			    android:key="system_pref_batt_ledcolor_med" 
-			    android:summary="@string/battery_led_med_colour_summary" 
-			    android:defaultValue="0xffffff00" />
-           	<com.ultima.settings.colorpicker.ColorPickerPreference
-           	    android:title="@string/battery_led_full_colour" 
-			    android:key="system_pref_batt_ledcolor_full" 
-			    android:summary="@string/battery_led_full_colour_summary" 
-			    android:defaultValue="0xff00ff00" />
-       </PreferenceCategory>
-		
+
 		<Preference android:title="@string/battery_reset_defaults" 
 		    android:key="battery_reset_defaults" 
 		    android:summary="@string/battery_reset_defaults_summary" />
@@ -216,6 +196,49 @@
 		    android:summary="@string/restart_launcher_summary" />      	
     </PreferenceScreen>
     <PreferenceScreen 
+        android:title="@string/led_screen_title"
+        android:key="screen_led_setting" 
+        android:icon="?attr/ledIcon"
+        android:widgetLayout="@layout/round_more_icon">
+        	<PreferenceCategory
+	           android:title="@string/battery_led_cat"
+	           android:key="battery_led_cat">
+	           	<com.ultima.settings.colorpicker.ColorPickerPreference
+	           	    android:title="@string/battery_led_low_colour" 
+				    android:key="system_pref_batt_ledcolor_low" 
+				    android:summary="@string/battery_led_low_colour_summary" 
+				    android:defaultValue="0xffff0000" />
+	           	<com.ultima.settings.colorpicker.ColorPickerPreference
+	           	    android:title="@string/battery_led_med_colour" 
+				    android:key="system_pref_batt_ledcolor_med" 
+				    android:summary="@string/battery_led_med_colour_summary" 
+				    android:defaultValue="0xffffff00" />
+	           	<com.ultima.settings.colorpicker.ColorPickerPreference
+	           	    android:title="@string/battery_led_full_colour" 
+				    android:key="system_pref_batt_ledcolor_full" 
+				    android:summary="@string/battery_led_full_colour_summary" 
+				    android:defaultValue="0xff00ff00" />
+	       </PreferenceCategory>
+	       <Preference
+	           android:title="@string/information"
+	           android:icon="?attr/alertIcon"
+	           android:summary="@string/led_information"
+	           style="?android:preferenceInformationStyle"
+	           android:key="led_information"
+	           android:selectable="false" />
+    </PreferenceScreen>
+    <PreferenceScreen 
+        android:title="@string/mod_lockscreen_screen"
+        android:key="mod_lockscreen_screen"
+        android:icon="?attr/lockscreenIcon"
+        android:widgetLayout="@layout/round_more_icon">
+        	<CheckBoxPreference 
+        	    android:title="@string/mod_lockscreen_menu_title"
+        	    android:key="system_pref_menu_lockscreen;1"
+        	    android:summary="@string/mod_lockscreen_menu_summary"
+        	    android:defaultValue="1" />
+    </PreferenceScreen>  
+    <PreferenceScreen 
         android:title="@string/mod_screen_title" 
         android:key="settings_mod_screen"
         android:icon="?attr/modsIcon"
@@ -290,22 +313,72 @@
         	    	    android:defaultValue="1" />
         	</PreferenceCategory>
         	<PreferenceCategory 
-        	    android:title="@string/mod_sounds_category"
+        	    android:title="@string/mod_rotation_category"
         	    android:key="mod_rotation_category">
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_rotation_title"
         	    	    android:key="system_pref_all_rotation;0"
         	    	    android:summary="@string/mod_rotation_summary"
         	    	    android:defaultValue="0" />
-        	</PreferenceCategory>
-        	<PreferenceCategory 
-        	    android:title="@string/mod_lockscreen_category"
-        	    android:key="mod_lockscreen_category">
-        	    	<CheckBoxPreference 
-        	    	    android:title="@string/mod_lockscreen_menu_title"
-        	    	    android:key="system_pref_menu_lockscreen;1"
-        	    	    android:summary="@string/mod_lockscreen_menu_summary"
-        	    	    android:defaultValue="1" />
-        	</PreferenceCategory>              
+        	</PreferenceCategory>        
+    </PreferenceScreen>
+    <!-- Network traffic meter -->
+     <PreferenceScreen
+             android:key="category_network_traffic"
+             android:title="@string/network_traffic_title"
+             android:icon="?attr/networkMeterIcon"
+        	 android:widgetLayout="@layout/round_more_icon">
+
+         <ListPreference
+                 android:key="system_pref_network_traffic_meter"
+                 android:title="@string/show_network_traffic_state"
+                 android:entries="@array/show_network_traffic_state_entries"
+                 android:entryValues="@array/show_network_traffic_state_values"
+                 android:persistent="false"
+                 android:summary="@string/list_summary" />
+ 
+         <ListPreference
+                 android:key="system_pref_network_traffic_unit"
+                 android:title="@string/show_network_traffic_unit"
+                 android:entries="@array/show_network_traffic_unit_entries"
+                 android:entryValues="@array/show_network_traffic_unit_values"
+                 android:persistent="false"
+                 android:summary="@string/list_summary" />
+ 
+         <ListPreference
+                 android:key="system_pref_network_traffic_interval"
+                 android:title="@string/show_network_traffic_frequency"
+                 android:entries="@array/show_network_traffic_frequency_entries"
+                 android:entryValues="@array/show_network_traffic_frequency_values"
+                 android:persistent="false"
+                 android:summary="@string/list_summary" />
+         
+         <CheckBoxPreference 
+             android:key="system_pref_network_traffic_hide;0"
+             android:title="@string/network_traffic_hide_inactivity" 
+             android:summary="@string/network_traffic_hide_inactivity_summary"/>
+         
+         <CheckBoxPreference 
+             android:key="system_pref_network_traffic_text;0"
+             android:title="@string/network_traffic_text" 
+             android:summary="@string/network_traffic_text_summary"/>
+         
+         <CheckBoxPreference 
+             android:key="system_pref_network_traffic_icon;1"
+             android:title="@string/network_traffic_icon" 
+             android:summary="@string/network_traffic_icon_summary"/>
+  
+      </PreferenceScreen>
+    <PreferenceScreen
+        android:title="@string/signal_icons_title"
+        android:key="screen_sysyu"
+        android:icon="?attr/wifiIcon"
+        android:widgetLayout="@layout/round_more_icon">
+        	<com.ultima.settings.colorpicker.ColorPickerPreference
+        	    android:title="@string/sysui_statusbar_icon_colors_title"
+        	    android:key="system_pref_statusbar_icon_colors"
+        	    android:summary="@string/sysui_statusbar_icon_colors_summary"
+        	    android:defaultValue="0xffffffff"
+			    alphaSlider="true" />
     </PreferenceScreen>
 </PreferenceScreen>
