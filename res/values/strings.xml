@@ -24,6 +24,7 @@
     <string name="press_color_to_apply">Press on colour to apply</string>
     <string name="color_picker_arrow">&#8594;</string>
     <string name="hexcode_hint">Hex Code</string>  
+    <string name="information">Information</string>  
     
     <!-- Hostname Activity Strings -->
     <string name="title_activity_hostname">Set hostname</string>
@@ -97,6 +98,7 @@
     <string name="battery_led_med_colour_summary">The colour of the LED battery when charging and partly charged</string>
     <string name="battery_led_full_colour">Full battery LED</string>
     <string name="battery_led_full_colour_summary">The colour of the LED battery when charged fully</string>
+    <string name="led_information">LED controls on this page will require a reboot to take effect</string>
     
     <!-- Clock Settings -->
     <string name="clock_category">Clock</string>
@@ -133,8 +135,8 @@
     <string name="mod_screen_chord_summary">Enable/disable the chord sound played when taking a screenshot</string>
     <string name="mod_rotation_category">Rotation</string>
     <string name="mod_rotation_title">4-way rotation</string>
-    <string name="mod_rotation_summary">Enable/disable rotation along all axis</string>
-    <string name="mod_lockscreen_category">Lockscreen</string>
+    <string name="mod_rotation_summary">Enable/disable rotation along all axis (Requires reboot)</string>
+    <string name="mod_lockscreen_screen">Lockscreen</string>
     <string name="mod_lockscreen_menu_title">Menu button on lockscreen</string>
     <string name="mod_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
     
@@ -150,4 +152,35 @@
     <string name="launcher_title_rotation">Enable Rotation</string>
     <string name="launcher_title_rotation_on">Launcher rotation is on</string>
     <string name="launcher_title_rotation_off">Launcher rotation is off</string>
+    
+    <!-- Signal Icons -->
+    <string name="signal_icons_title">Signal Icons</string>
+    <string name="sysui_statusbar_icon_colors_title">Signal icon colours</string>
+    <string name="sysui_statusbar_icon_colors_summary">Change the colour of the wifi, signal, data type and airplane icons</string>
+    
+    <!-- LED Settings -->
+    <string name="led_screen_title">LED</string>
+    
+    <!-- Network traffic -->
+     <string name="network_traffic_title">Network traffic</string>
+     <string name="show_network_traffic_state">Status bar traffic monitor</string>
+     <string name="show_network_traffic_unit">Display unit</string>
+     <string name="show_network_traffic_frequency">Update interval</string>
+     <string name="show_network_traffic_disable">Disabled</string>
+     <string name="show_network_traffic_up">Outgoing</string>
+     <string name="show_network_traffic_down">Incoming</string>
+     <string name="show_network_traffic_all">Outgoing and incoming</string>
+     <string name="show_network_traffic_bit">Bits per second</string>
+     <string name="show_network_traffic_byte">Bytes per second</string>
+     <string name="show_network_traffic_500">500 ms</string>
+     <string name="show_network_traffic_1000">1000 ms</string>
+     <string name="show_network_traffic_1500">1500 ms</string>
+     <string name="show_network_traffic_2000">2000 ms</string>
+     
+     <string name="network_traffic_hide_inactivity">Hide inactivity</string>
+     <string name="network_traffic_hide_inactivity_summary">Hide the indicator if there has been no network activity</string>
+     <string name="network_traffic_text">Labels</string>
+     <string name="network_traffic_text_summary">Show U and D for Upload and Download net to their values</string>
+     <string name="network_traffic_icon">Icon</string>
+     <string name="network_traffic_icon_summary">Show a small icon next to the indicator</string>
 </resources>

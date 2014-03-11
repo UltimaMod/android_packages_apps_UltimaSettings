@@ -49,6 +49,8 @@
 		<attr name="alarmIcon" format="reference"/>
 		<attr name="volumeIcon" format="reference"/>
 		<attr name="networkIcon" format="reference"/>
+		<attr name="ledIcon" format="reference"/>
+		<attr name="networkMeterIcon" format="reference"/>
 	</declare-styleable>
 	<declare-styleable name="NumberPreference">
 	    <attr name="min" format="integer" />
