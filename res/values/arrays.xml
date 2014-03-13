@@ -1,63 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="battery_font_entries">
-	    <item>Sans-Serif Condensed</item>
-	    <item>Sans-Serif</item>
-	    <item>Sans-Serif, Bold</item>
+	<string-array name="battery_font_entries" translatable="false">
+	    <item>@string/battery_font_condensed</item>
+	    <item>@string/battery_font_serif</item>
+	    <item>@string/battery_font_bold</item>
 	</string-array>
-	<string-array name="battery_font_values">
-	    <item>0</item>
-	    <item>1</item>
-	    <item>2</item>
-	</string-array>
-	<string-array name="clock_ampm_style_entries">
-	    <item>Gone</item>
-	    <item>Normal</item>
-	    <item>Small</item>
-	</string-array>
-	<string-array name="clock_ampm_style_values">
-	    <item>2</item>
-	    <item>0</item>
-	    <item>1</item>
-	</string-array>
-	<string-array name="clock_dow_style_entries">
-	    <item>Gone</item>
-	    <item>Normal</item>
-	    <item>Small</item>
-	</string-array>
-	<string-array name="clock_dow_style_values">
-	    <item>2</item>
-	    <item>0</item>
-	    <item>1</item>
-	</string-array>
-	<string-array name="crt_off_animation_entries">
-	    <item>CRT</item>
-	    <item>Fade</item>
-	</string-array>
-	<string-array name="crt_off_animation_values">
-	    <item>1</item>
-	    <item>2</item>
-	</string-array>
-	<string-array name="crt_on_animation_entries">
-	    <item>Fade</item>
-	    <item>CRT</item>
-	</string-array>
-	<string-array name="crt_on_animation_values">
-	    <item>2</item>
-	    <item>0</item>
-	</string-array>
-	<string-array name="battery_warning_entries">
-	    <item>Popup and Sound</item>
-	    <item>Popup only</item>
-	    <item>Sound only</item>
-	</string-array>
-	<string-array name="battery_warning_values">
+	
+	<string-array name="battery_font_values" translatable="false">
 	    <item>0</item>
 	    <item>1</item>
 	    <item>2</item>
 	</string-array>
 	
-	<!-- Network Traffic Display States -->
+	<string-array name="clock_style_entries" translatable="false">
+	    <item>@string/clock_style_right</item>
+	    <item>@string/clock_style_center</item>
+	    <item>@string/clock_style_hide</item>
+	</string-array>
+	
+	<string-array name="clock_style_values" translatable="false">
+	    <item>0</item>
+	    <item>1</item>
+	    <item>2</item>
+	</string-array>
+	
+	<string-array name="clock_ampm_style_entries" translatable="false">
+	    <item>@string/clock_style_hide</item>
+	    <item>@string/clock_style_normal</item>
+	    <item>@string/clock_style_small</item>
+	</string-array>
+	
+	<string-array name="clock_ampm_style_values" translatable="false">
+	    <item>2</item>
+	    <item>0</item>
+	    <item>1</item>
+	</string-array>
+	
+	<string-array name="clock_dow_style_entries" translatable="false">
+	    <item>@string/clock_style_hide</item>
+	    <item>@string/clock_style_normal</item>
+	    <item>@string/clock_style_small</item>
+	</string-array>
+	
+	<string-array name="clock_dow_style_values" translatable="false">
+	    <item>2</item>
+	    <item>0</item>
+	    <item>1</item>
+	</string-array>
+	
+	<string-array name="crt_off_animation_entries" translatable="false">
+	    <item>@string/animation_crt</item>
+	    <item>@string/animation_fade</item>
+	</string-array>
+	
+	<string-array name="crt_off_animation_values" translatable="false">
+	    <item>1</item>
+	    <item>2</item>
+	</string-array>
+	
+	<string-array name="crt_on_animation_entries" translatable="false">
+	    <item>@string/animation_crt</item>
+	    <item>@string/animation_fade</item>
+	</string-array>
+	
+	<string-array name="crt_on_animation_values" translatable="false">
+	    <item>2</item>
+	    <item>0</item>
+	</string-array>
+	
+	<string-array name="battery_warning_entries" translatable="false">
+	    <item>@string/battery_warning_popup_sound</item>
+	    <item>@string/battery_warning_popup</item>
+	    <item>@string/battery_warning_sound</item>
+	    <item>@string/none</item>
+	</string-array>
+	<string-array name="battery_warning_values" translatable="false">
+	    <item>0</item>
+	    <item>1</item>
+	    <item>2</item>
+	    <item>3</item>
+	</string-array>
+	
      <string-array name="show_network_traffic_state_entries" translatable="false">
          <item>@string/show_network_traffic_disable</item>
          <item>@string/show_network_traffic_up</item>
@@ -71,8 +94,7 @@
          <item>2</item>
          <item>3</item>
      </string-array>
- 
-     <!-- Network Traffic Display Unit -->
+
      <string-array name="show_network_traffic_unit_entries" translatable="false">
          <item>@string/show_network_traffic_byte</item>
          <item>@string/show_network_traffic_bit</item>        
@@ -83,7 +105,6 @@
          <item>0</item>
      </string-array>
  
-     <!-- Network Traffic Period -->
      <string-array name="show_network_traffic_frequency_entries" translatable="false">
          <item>@string/show_network_traffic_500</item>
          <item>@string/show_network_traffic_1000</item>

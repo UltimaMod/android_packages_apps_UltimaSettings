@@ -24,7 +24,7 @@
     <string name="press_color_to_apply">Press on colour to apply</string>
     <string name="color_picker_arrow">&#8594;</string>
     <string name="hexcode_hint">Hex Code</string>  
-    <string name="information">Information</string>  
+    <string name="information">Information</string> 
     
     <!-- Hostname Activity Strings -->
     <string name="title_activity_hostname">Set hostname</string>
@@ -99,21 +99,35 @@
     <string name="battery_led_full_colour">Full battery LED</string>
     <string name="battery_led_full_colour_summary">The colour of the LED battery when charged fully</string>
     <string name="led_information">LED controls on this page will require a reboot to take effect</string>
+    <string name="battery_font_condensed">Sans-Serif Condensed</string>
+    <string name="battery_font_serif">Sans-Serif</string>
+    <string name="battery_font_bold">Sans-Serif, Bold</string>
+    <string name="battery_warning_popup_sound">Popup and Sound</string>
+    <string name="battery_warning_popup">Popup</string>
+    <string name="battery_warning_sound">Sound</string>
     
     <!-- Clock Settings -->
     <string name="clock_category">Clock</string>
     <string name="clock_colour_title">Clock colour</string>
     <string name="clock_color_summary">Change the colour of the statusbar clock</string>
+    <string name="clock_style_title">Clock style</string>
     <string name="clock_ampm_style_title">AM/PM style</string>
     <string name="clock_dow_style_title">Weekday style</string>
     <string name="clock_alarm_icon_title">Alarm Icon</string>
     <string name="clock_alarm_icon_summary">Show a persistent alarm icon in the notification bar</string>
+    <string name="clock_style_right">Right</string>
+    <string name="clock_style_center">Center</string>
+    <string name="clock_style_hide">Hide</string>
+    <string name="clock_style_normal">Normal</string>
+    <string name="clock_style_small">Small</string>
     
     <!-- Mod Settings -->
     <string name="mod_screen_title">Mods</string>
     <string name="mod_crt_category">Screen Controls</string>
     <string name="mod_crt_on_title">Screen on animation</string>
     <string name="mod_crt_off_title">Screen off animation</string>
+    <string name="animation_crt">CRT</string>
+    <string name="animation_fade">Fade</string>
     <string name="mod_power_menu_category">Power menu</string>
     <string name="mod_power_menu_title">Extended power menu</string>
     <string name="mod_power_menu_summary">Enable reboot to recovery and bootloader in the reboot menu</string>
@@ -139,11 +153,8 @@
     <string name="mod_lockscreen_screen">Lockscreen</string>
     <string name="mod_lockscreen_menu_title">Menu button on lockscreen</string>
     <string name="mod_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
-    
-    <!-- Launcher Settings -->
-    <string name="launcher_screen_title">Launcher</string>
-    <string name="launcher_workspace_title">Workspace settings</string>
-    <string name="launcher_title_workspace_rows">Rows</string>
+    <string name="mod_volume_media_controls">Volume media controls</string>
+    <string name="mod_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen
     <string name="launcher_title_workspace_cols">Columns</string>
     <string name="launcher_title_default_workspace">Default Screen</string>
     <string name="launcher_title_show_search_bar">Show Search Bar</string>
