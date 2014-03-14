@@ -159,6 +159,10 @@
     <string name="mod_long_back_summary">Long press the back button to kill the foreground app</string>
     <string name="mod_long_back_timeout">Long press timeout</string>
     
+    <!-- Lockscreen Settings -->
+    <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
+    <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
+    
      <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>
     <string name="launcher_workspace_title">Workspace settings</string>

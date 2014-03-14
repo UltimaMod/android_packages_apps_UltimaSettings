@@ -244,6 +244,11 @@
         	    android:key="system_pref_menu_lockscreen;1"
         	    android:summary="@string/mod_lockscreen_menu_summary"
         	    android:defaultValue="1" />
+        	<CheckBoxPreference 
+        	    android:title="@string/lockscreen_torch_toggle"
+        	    android:key="system_pref_menu_lockscreen;0"
+        	    android:summary="@string/lockscreen_torch_toggle_summary"
+        	    android:defaultValue="0" />
     </PreferenceScreen>  
     <PreferenceScreen 
         android:title="@string/mod_screen_title" 
