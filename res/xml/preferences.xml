@@ -328,6 +328,21 @@
         	    	    android:summary="@string/mod_rotation_summary"
         	    	    android:defaultValue="0" />
         	</PreferenceCategory> 
+        	<PreferenceCategory 
+        	    android:title="@string/mod_long_back_title"
+        	    android:key="mod_long_back">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_long_back_title"
+        	    	    android:summary="@string/mod_long_back_summary"
+        	    	    android:key="system_pref_long_back_kill;0" />
+        	    	<ListPreference 
+					    android:title="@string/mod_long_back_timeout"
+					    android:key="system_pref_long_back_kill_timeout"
+					    android:summary="@string/list_summary"
+					    android:entries="@array/long_press_timeout_entries"
+					    android:entryValues="@array/long_press_timeout_values"
+					    android:defaultValue="1" />
+        	</PreferenceCategory>
         	<CheckBoxPreference 
         	    android:title="@string/mod_volume_media_controls"
         	    android:key="system_pref_volume_to_skip;0"

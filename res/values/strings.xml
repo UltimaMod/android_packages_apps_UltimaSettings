@@ -154,7 +154,15 @@
     <string name="mod_lockscreen_menu_title">Menu button on lockscreen</string>
     <string name="mod_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
     <string name="mod_volume_media_controls">Volume media controls</string>
-    <string name="mod_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen
+    <string name="mod_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen</string>
+    <string name="mod_long_back_title">Long back press</string>
+    <string name="mod_long_back_summary">Long press the back button to kill the foreground app</string>
+    <string name="mod_long_back_timeout">Long press timeout</string>
+    
+     <!-- Launcher Settings -->
+    <string name="launcher_screen_title">Launcher</string>
+    <string name="launcher_workspace_title">Workspace settings</string>
+    <string name="launcher_title_workspace_rows">Rows</string>
     <string name="launcher_title_workspace_cols">Columns</string>
     <string name="launcher_title_default_workspace">Default Screen</string>
     <string name="launcher_title_show_search_bar">Show Search Bar</string>
