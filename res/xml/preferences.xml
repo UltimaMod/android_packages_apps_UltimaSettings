@@ -246,7 +246,7 @@
         	    android:defaultValue="1" />
         	<CheckBoxPreference 
         	    android:title="@string/lockscreen_torch_toggle"
-        	    android:key="system_pref_menu_lockscreen;0"
+        	    android:key="system_pref_torch_home_button;0"
         	    android:summary="@string/lockscreen_torch_toggle_summary"
         	    android:defaultValue="0" />
     </PreferenceScreen>  
