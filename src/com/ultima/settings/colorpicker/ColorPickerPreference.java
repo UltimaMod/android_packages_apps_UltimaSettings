@@ -43,7 +43,8 @@ public class ColorPickerPreference
 
 	View mView;
 	ColorPickerDialog mDialog;
-	private int mValue = Color.BLACK;
+	private int mValue = 0;
+	private int mDefaultValue;
 	private float mDensity = 0;
 	private boolean mAlphaSliderEnabled = false;
 	private boolean mHexValueEnabled = false;
@@ -70,7 +71,7 @@ public class ColorPickerPreference
 
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-		onColorChanged(restoreValue ? getPersistedInt(mValue) : (Integer) defaultValue);
+		onColorChanged(restoreValue ? getPersistedInt(mValue) : mDefaultValue);
 	}
 
 	private void init(Context context, AttributeSet attrs) {
@@ -79,7 +80,8 @@ public class ColorPickerPreference
 		if (attrs != null) {
 			mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
 			mHexValueEnabled = attrs.getAttributeBooleanValue(null, "hexValue", false);
-		}
+			mDefaultValue = attrs.getAttributeIntValue(null, "defaultValue", 0x00000000);
+		}		
 	}
 
 	@Override
@@ -90,7 +92,7 @@ public class ColorPickerPreference
 	}
 	
 	public void setInitialColor(int color){
-	    mValue = (color);
+	    mValue = mDefaultValue;
 	}
 
 	private void setPreviewColor() {

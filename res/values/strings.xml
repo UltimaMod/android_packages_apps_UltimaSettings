@@ -105,6 +105,8 @@
     <string name="battery_warning_popup_sound">Popup and Sound</string>
     <string name="battery_warning_popup">Popup</string>
     <string name="battery_warning_sound">Sound</string>
+    <string name="battery_text_percent_colour_40">Text color for below 40 percent</string>
+    <string name="battery_text_percent_colour_40_summary">Set a different colour for the text when below 40 percent, useful for white battery icons</string>
     
     <!-- Clock Settings -->
     <string name="clock_category">Clock</string>
