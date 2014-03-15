@@ -25,7 +25,8 @@
 		    android:summary="@string/list_summary"
 		    android:entries="@array/battery_font_entries"
 		    android:entryValues="@array/battery_font_values"
-		    android:defaultValue="0" />
+		    android:defaultValue="0"
+		    android:dependency="status_bar_show_battery_percent;0" />
 		
        <PreferenceCategory
            android:title="@string/battery_colour_category"
@@ -103,10 +104,7 @@
 		<Preference android:title="@string/battery_reset_defaults" 
 		    android:key="battery_reset_defaults" 
 		    android:summary="@string/battery_reset_defaults_summary" />
-		
-		<Preference android:title="@string/restart_system" 
-		    android:key="tool#restartsystemui" 
-		    android:summary="@string/restart_system_summary" /> 
+
     </PreferenceScreen>
     <Preference 
         android:icon="?attr/bootaniIcon" 
@@ -149,9 +147,6 @@
         	   	android:title="@string/clock_alarm_icon_title"
         	    android:key="system_pref_alarm_icon;1"
         	    android:summary="@string/clock_alarm_icon_summary" />
-        	<Preference android:title="@string/restart_system" 
-		    android:key="tool#restartsystemui" 
-		    android:summary="@string/restart_system_summary" /> 
     </PreferenceScreen>
     <Preference 
         android:icon="?attr/hostnameIcon" 
@@ -249,6 +244,10 @@
         	    android:key="system_pref_torch_home_button;0"
         	    android:summary="@string/lockscreen_torch_toggle_summary"
         	    android:defaultValue="0" />
+        	<CheckBoxPreference 
+        	    android:title="@string/mod_volume_media_controls"
+        	    android:key="system_pref_volume_to_skip;0"
+        	    android:summary="@string/mod_volume_media_controls_summary" /> 
     </PreferenceScreen>  
     <PreferenceScreen 
         android:title="@string/mod_screen_title" 
@@ -346,12 +345,9 @@
 					    android:summary="@string/list_summary"
 					    android:entries="@array/long_press_timeout_entries"
 					    android:entryValues="@array/long_press_timeout_values"
-					    android:defaultValue="1" />
-        	</PreferenceCategory>
-        	<CheckBoxPreference 
-        	    android:title="@string/mod_volume_media_controls"
-        	    android:key="system_pref_volume_to_skip;0"
-        	    android:summary="@string/mod_volume_media_controls_summary" />       
+					    android:defaultValue="1"
+					    android:dependency="system_pref_long_back_kill;0" />
+        	</PreferenceCategory>  
     </PreferenceScreen>
     <!-- Network traffic meter -->
      <PreferenceScreen
@@ -398,7 +394,14 @@
              android:key="system_pref_network_traffic_icon;1"
              android:title="@string/network_traffic_icon" 
              android:summary="@string/network_traffic_icon_summary"/>
-  
+         
+         <com.ultima.settings.colorpicker.ColorPickerPreference
+        	    android:title="@string/network_traffic_color"
+        	    android:key="system_pref_network_traffic_color"
+        	    android:summary="@string/network_traffic_color_summary"
+        	    android:defaultValue="0xffffffff"
+			    alphaSlider="true" />
+           
       </PreferenceScreen>
     <PreferenceScreen
         android:title="@string/signal_icons_title"

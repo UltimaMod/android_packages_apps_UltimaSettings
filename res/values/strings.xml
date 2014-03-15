@@ -206,4 +206,6 @@
      <string name="network_traffic_text_summary">Show U and D for Upload and Download net to their values</string>
      <string name="network_traffic_icon">Icon</string>
      <string name="network_traffic_icon_summary">Show a small icon next to the indicator</string>
+     <string name="network_traffic_color">Text and icon color</string>
+     <string name="network_traffic_color_summary">Set the color of any text and icons</string>
 </resources>
