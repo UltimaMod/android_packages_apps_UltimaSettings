@@ -365,6 +365,18 @@
         	    	    android:title="@string/mod_recents_rambar"
         	    	    android:summary="@string/mod_recents_rambar_summary"
         	    	    android:key="system_pref_rambar;0" />
+        	    	<com.ultima.settings.colorpicker.ColorPickerPreference
+		        	    android:title="@string/mod_recents_rambar_color_left"
+		        	    android:key="system_pref_rambar_color_left"
+		        	    android:summary="@string/mod_recents_rambar_color_left_summary"
+		        	    defaultValue="0xffffffff"
+					    alphaSlider="true" />
+        	    	<com.ultima.settings.colorpicker.ColorPickerPreference
+		        	    android:title="@string/mod_recents_rambar_color_right"
+		        	    android:key="system_pref_rambar_color_right"
+		        	    android:summary="@string/mod_recents_rambar_color_right_summary"
+		        	    defaultValue="0xff888888"
+					    alphaSlider="true" />
         	</PreferenceCategory>
     </PreferenceScreen>
     <!-- Network traffic meter -->

@@ -165,7 +165,11 @@
     <string name="mod_recents_clear_all_summary">Show the clear all button on the recents screen</string>
     <string name="mod_recents_rambar">RAM bar</string>
     <string name="mod_recents_rambar_summary">Show a RAM bar on the recents screen</string>
-    
+    <string name="mod_recents_rambar_color_left">RAM used</string>
+    <string name="mod_recents_rambar_color_left_summary">Set the color for used RAM</string>
+    <string name="mod_recents_rambar_color_right">RAM free</string>
+    <string name="mod_recents_rambar_color_right_summary">SEt the color for free RAM</string>
+
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
     <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
