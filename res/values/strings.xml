@@ -160,6 +160,11 @@
     <string name="mod_long_back_title">Long back press</string>
     <string name="mod_long_back_summary">Long press the back button to kill the foreground app</string>
     <string name="mod_long_back_timeout">Long press timeout</string>
+    <string name="mod_recents_screen">Recents Screen</string>
+    <string name="mod_recents_clear_all">Clear all</string>
+    <string name="mod_recents_clear_all_summary">Show the clear all button on the recents screen</string>
+    <string name="mod_recents_rambar">RAM bar</string>
+    <string name="mod_recents_rambar_summary">Show a RAM bar on the recents screen</string>
     
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>

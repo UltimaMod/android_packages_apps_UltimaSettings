@@ -353,7 +353,19 @@
 					    android:entryValues="@array/long_press_timeout_values"
 					    android:defaultValue="1"
 					    android:dependency="system_pref_long_back_kill;0" />
-        	</PreferenceCategory>  
+        	</PreferenceCategory> 
+        	<PreferenceCategory
+        	    android:title="@string/mod_recents_screen"
+        	    android:key="mod_recents_screen">
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_recents_clear_all"
+        	    	    android:summary="@string/mod_recents_clear_all_summary"
+        	    	    android:key="system_pref_clear_all;0" />
+        	    	<CheckBoxPreference 
+        	    	    android:title="@string/mod_recents_rambar"
+        	    	    android:summary="@string/mod_recents_rambar_summary"
+        	    	    android:key="system_pref_rambar;0" />
+        	</PreferenceCategory>
     </PreferenceScreen>
     <!-- Network traffic meter -->
      <PreferenceScreen
