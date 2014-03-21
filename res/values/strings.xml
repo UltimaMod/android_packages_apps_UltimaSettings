@@ -24,7 +24,9 @@
     <string name="press_color_to_apply">Press on colour to apply</string>
     <string name="color_picker_arrow">&#8594;</string>
     <string name="hexcode_hint">Hex Code</string>  
-    <string name="information">Information</string> 
+    <string name="information">Information</string>
+    <string name="position_top">Top</string>
+    <string name="position_bottom">Bottom</string> 
     
     <!-- Hostname Activity Strings -->
     <string name="title_activity_hostname">Set hostname</string>
@@ -163,12 +165,14 @@
     <string name="mod_recents_screen">Recents Screen</string>
     <string name="mod_recents_clear_all">Clear all</string>
     <string name="mod_recents_clear_all_summary">Show the clear all button on the recents screen</string>
+    <string name="mod_clear_all_position">Clear all position</string>
     <string name="mod_recents_rambar">RAM bar</string>
     <string name="mod_recents_rambar_summary">Show a RAM bar on the recents screen</string>
     <string name="mod_recents_rambar_color_left">RAM used</string>
     <string name="mod_recents_rambar_color_left_summary">Set the color for used RAM</string>
     <string name="mod_recents_rambar_color_right">RAM free</string>
-    <string name="mod_recents_rambar_color_right_summary">SEt the color for free RAM</string>
+    <string name="mod_recents_rambar_color_right_summary">Set the color for free RAM</string>
+    <string name="mod_rambar_position">RAM bar position</string>
 
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>

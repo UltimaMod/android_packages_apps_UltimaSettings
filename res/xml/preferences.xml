@@ -240,29 +240,35 @@
         android:key="mod_lockscreen_screen"
         android:icon="?attr/lockscreenIcon"
         android:widgetLayout="@layout/round_more_icon">
+	       
         	<CheckBoxPreference 
         	    android:title="@string/mod_lockscreen_menu_title"
         	    android:key="system_pref_menu_lockscreen;1"
         	    android:summary="@string/mod_lockscreen_menu_summary"
         	    android:defaultValue="1" />
+        	
         	<CheckBoxPreference 
         	    android:title="@string/lockscreen_torch_toggle"
         	    android:key="system_pref_torch_home_button;0"
         	    android:summary="@string/lockscreen_torch_toggle_summary"
         	    android:defaultValue="0" />
+        	
         	<CheckBoxPreference 
         	    android:title="@string/mod_volume_media_controls"
         	    android:key="system_pref_volume_to_skip;0"
         	    android:summary="@string/mod_volume_media_controls_summary" /> 
+        	    
     </PreferenceScreen>  
     <PreferenceScreen 
         android:title="@string/mod_screen_title" 
         android:key="settings_mod_screen"
         android:icon="?attr/modsIcon"
         android:widgetLayout="@layout/round_more_icon">
+        	
         	<PreferenceCategory 
         	    android:title="@string/mod_crt_category" 
         	    android:key="crt_category">
+	           	
 				<!-- Currently FC's when you rotate the display
 				<ListPreference 
 				    android:title="@string/mod_crt_on_title"
@@ -271,6 +277,7 @@
 				    android:entries="@array/crt_on_animation_entries"
 				    android:entryValues="@array/crt_on_animation_values"
 				    android:defaultValue="2" /> -->
+				    
 				<ListPreference 
 				    android:title="@string/mod_crt_off_title"
 				    android:key="system_crt_off"
@@ -278,65 +285,80 @@
 				    android:entries="@array/crt_off_animation_entries"
 				    android:entryValues="@array/crt_off_animation_values"
 				    android:defaultValue="1" />
+				
 				<Preference
 				    android:title="@string/mod_advanced_display_title"
 				    android:summary="@string/mod_advanced_display_summary"
-				    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" />     	    
+				    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" />     
+				    	    
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_power_menu_category"
         	    android:key="mod_power_category">
+				
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_power_menu_title"
         	    	    android:summary="@string/mod_power_menu_summary"
         	    	    android:key="system_pref_power_menu;0" />
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_screenshot_title"
         	    	    android:summary="@string/mod_screenshot_summary"
         	    	    android:key="system_pref_power_menu_screenshot;0" />
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_airplane_title"
         	    	    android:summary="@string/mod_airplane_summary"
         	    	    android:key="system_pref_power_menu_airplane;0" />
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_silentmode_title"
         	    	    android:summary="@string/mod_silentmode_summary"
         	    	    android:key="system_pref_power_menu_silentmode;0" />
+        	    	
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_navbar_category"
         	    android:key="mod_navbar_category">
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_navbar_title"
         	    	    android:summary="@string/mod_navbar_summary"
         	    	    android:key="system_pref_show_navbar;0" />
+        	    	
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_ime_switcher_title"
         	    android:key="mod_ime_category">
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_ime_switcher_title"
         	    	    android:key="system_pref_ime_switcher_notif;1"
         	    	    android:summary="@string/mod_ime_switcher_summary"
         	    	    android:defaultValue="1" />
+        	    	
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_sounds_category"
         	    android:key="mod_sounds_category">
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_screen_chord_title"
         	    	    android:key="system_pref_screenshot_chord;1"
         	    	    android:summary="@string/mod_screen_chord_summary"
         	    	    android:defaultValue="1" />
+        	    	
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_rotation_category"
         	    android:key="mod_rotation_category">
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_rotation_title"
         	    	    android:key="system_pref_all_rotation;0"
         	    	    android:summary="@string/mod_rotation_summary"
         	    	    android:defaultValue="0" />
+        	    	
         	</PreferenceCategory> 
         	<PreferenceCategory 
         	    android:title="@string/mod_long_back_title"
@@ -345,6 +367,7 @@
         	    	    android:title="@string/mod_long_back_title"
         	    	    android:summary="@string/mod_long_back_summary"
         	    	    android:key="system_pref_long_back_kill;0" />
+        	    	
         	    	<ListPreference 
 					    android:title="@string/mod_long_back_timeout"
 					    android:key="system_pref_long_back_kill_timeout"
@@ -361,16 +384,37 @@
         	    	    android:title="@string/mod_recents_clear_all"
         	    	    android:summary="@string/mod_recents_clear_all_summary"
         	    	    android:key="system_pref_clear_all;0" />
+        	    	
+        	    	<ListPreference 
+        	    	    android:title="@string/mod_clear_all_position"
+        	    	    android:key="system_pref_clear_all_position"
+        	    	    android:summary="@string/list_summary"
+        	    	    android:entries="@array/clear_all_position_entries"
+					    android:entryValues="@array/clear_all_position_values"
+					    android:defaultValue="0"
+					    android:dependency="system_pref_clear_all;0"/>
+        	    	
         	    	<CheckBoxPreference 
         	    	    android:title="@string/mod_recents_rambar"
         	    	    android:summary="@string/mod_recents_rambar_summary"
         	    	    android:key="system_pref_rambar;0" />
+        	    	
+        	    	<!-- <ListPreference 
+        	    	    android:title="@string/mod_rambar_position"
+        	    	    android:key="system_pref_rambar_position"
+        	    	    android:summary="@string/list_summary"
+        	    	    android:entries="@array/clear_all_position_entries"
+					    android:entryValues="@array/clear_all_position_values"
+					    android:defaultValue="1"
+					    android:dependency="system_pref_rambar;0"/> -->
+        	    	
         	    	<com.ultima.settings.colorpicker.ColorPickerPreference
 		        	    android:title="@string/mod_recents_rambar_color_left"
 		        	    android:key="system_pref_rambar_color_left"
 		        	    android:summary="@string/mod_recents_rambar_color_left_summary"
 		        	    defaultValue="0xffffffff"
 					    alphaSlider="true" />
+        	    	
         	    	<com.ultima.settings.colorpicker.ColorPickerPreference
 		        	    android:title="@string/mod_recents_rambar_color_right"
 		        	    android:key="system_pref_rambar_color_right"
