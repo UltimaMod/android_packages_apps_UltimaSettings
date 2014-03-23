@@ -173,6 +173,9 @@
     <string name="mod_recents_rambar_color_right">RAM free</string>
     <string name="mod_recents_rambar_color_right_summary">Set the color for free RAM</string>
     <string name="mod_rambar_position">RAM bar position</string>
+    <string name="mod_volume">Volume</string>
+    <string name="mod_volume_headphones_nag_title">Headphones safe volume</string>
+    <string name="mod_volume_headphones_nag_summary">Show the nag for safe volume levels in EU locales?</string>
 
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
