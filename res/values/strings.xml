@@ -175,11 +175,16 @@
     <string name="mod_rambar_position">RAM bar position</string>
     <string name="mod_volume">Volume</string>
     <string name="mod_volume_headphones_nag_title">Headphones safe volume</string>
-    <string name="mod_volume_headphones_nag_summary">Show the nag for safe volume levels in EU locales?</string>
-
+    <string name="mod_volume_headphones_nag_summary">Show the nag for safe volume levels in EU locales? (Requires Reboot)</string>
+    <string name="mod_long_press_values_250">0.5 seconds</string>
+    <string name="mod_long_press_values_500">1 seconds</string>
+    <string name="mod_long_press_values_1000">2 seconds</string>
+    <string name="mod_long_press_values_1500">3 seconds</string>
+    
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
     <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
+    <string name="lockscreen_torch_toggle_timeout">Long press timeout</string>
     
      <!-- Launcher Settings -->
     <string name="launcher_screen_title">Launcher</string>

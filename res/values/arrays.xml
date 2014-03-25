@@ -120,18 +120,17 @@
      </string-array>
      
      <string-array name="long_press_timeout_entries" translatable="false">
-         <!--  I can get away with reusing these values. Naughty me -->
-         <item>@string/show_network_traffic_500</item>
-         <item>@string/show_network_traffic_1000</item>
-         <item>@string/show_network_traffic_1500</item>
-         <item>@string/show_network_traffic_2000</item>
+         <item>@string/mod_long_press_values_250</item>
+         <item>@string/mod_long_press_values_500</item>
+         <item>@string/mod_long_press_values_1000</item>
+         <item>@string/mod_long_press_values_1500</item>
      </string-array>
  
      <string-array name="long_press_timeout_values" translatable="false">
+         <item>250</item>
          <item>500</item>
          <item>1000</item>
          <item>1500</item>
-         <item>2000</item>
      </string-array>
      
      <string-array name="clear_all_position_entries" translatable="false">
