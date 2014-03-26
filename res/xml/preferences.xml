@@ -372,9 +372,24 @@
         	    	    android:defaultValue="1" />
         	    	
         	    	<CheckBoxPreference 
-        	        android:title="@string/mod_volume_headphones_nag_title"
-        	        android:key="system_pref_safe_volume_nag;1"
-        	        android:summary="@string/mod_volume_headphones_nag_summary"/>
+	        	        android:title="@string/mod_volume_headphones_nag_title"
+	        	        android:key="system_pref_safe_volume_nag;1"
+	        	        android:summary="@string/mod_volume_headphones_nag_summary"/>
+        	    	
+        	    	<CheckBoxPreference 
+	        	        android:title="@string/mod_volume_adjust_sounds"
+	        	        android:key="system_pref_volume_adjust_sounds;1"
+	        	        android:summary="@string/mod_volume_adjust_sounds_summary" />
+        	    	
+        	    	<CheckBoxPreference 
+	        	        android:title="@string/mod_link_nofication_volume"
+	        	        android:key="system_pref_volume_link_notification;0"
+	        	        android:summary="@string/mod_link_nofication_volume_summary" />
+        	    	
+        	    	<CheckBoxPreference 
+	        	        android:title="@string/mod_expandable_volume_panel"
+	        	        android:key="system_pref_volume_overlay;0"
+	        	        android:summary="@string/mod_expandable_volume_panel_summary" />
         	    	
         	</PreferenceCategory>
         	<PreferenceCategory 

@@ -189,6 +189,13 @@
     <string name="mod_touch_key_backlight_summary">Enable or disable the touchkey backlight LED</string>
     <string name="mod_touch_key_backlight_timeout">Touch key timeout</string>
     
+    <string name="mod_volume_adjust_sounds">Volume adjust</string>
+    <string name="mod_volume_adjust_sounds_summary">Volume adjust sounds enable/disable</string>
+    <string name="mod_link_nofication_volume">Link notification volume</string>
+    <string name="mod_link_nofication_volume_summary">Link notification volume</string>
+    <string name="mod_expandable_volume_panel">Expandable volume panel</string>
+    <string name="mod_expandable_volume_panel_summary">Show the expandable volume panel button</string>
+    
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
     <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
