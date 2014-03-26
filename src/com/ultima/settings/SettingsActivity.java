@@ -21,17 +21,20 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
 import android.provider.MediaStore.MediaColumns;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ultima.settings.colorpicker.ColorPickerPreference;
+import com.ultima.settings.preferences.UltimaCheckboxPreference;
+import com.ultima.settings.preferences.UltimaListPreference;
+import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
@@ -270,14 +273,20 @@ public class SettingsActivity extends Activity implements Constants {
         	String type = item.getClass().getSimpleName();
         	if(type.equals("CheckBoxPreference")){
         		dispatchCheckbox((CheckBoxPreference) item, value);
+        	}else if(type.equals("UltimaCheckboxPreference")){
+                    dispatchCheckbox((UltimaCheckboxPreference) item, value);
         	} else if(type.equals("EditTextPreference")){
         		dispatchText((EditTextPreference) item, value);
         	} else if(type.equals("ListPreference")){
         		dispatchList((ListPreference) item, value);
+        	} else if(type.equals("UltimaListPreference")){
+                dispatchList((UltimaListPreference) item, value);
         	} else if(type.equals("MultiSelectListPreference")){
         		dispatchMultiSelectList((MultiSelectListPreference) item, (Set<String>) value);
         	} else if(type.equals("SwitchPreference")){
         		dispatchSwitch((SwitchPreference) item, value);
+        	} else if(type.equals("UltimaSwitchPreference")){
+                dispatchSwitch((UltimaSwitchPreference) item, value);
         	} else if(type.equals("RingtonePreference")){
         		dispatchRingtone((RingtonePreference) item, value);
         	} else if(type.equals("ColorPickerPreference")){
@@ -324,13 +333,19 @@ public class SettingsActivity extends Activity implements Constants {
         }
         
         private void dispatchSwitch(SwitchPreference item, Object value){
-        	//Log.d(LCAT, "Dispatching Switch: "+item);
-        	if(item != null){
-        	    String[] prefs = item.getKey().substring(0).split(";");
-                String key = prefs[0];
-        		setSettingBoolean(cr,key,(Boolean) value);
-        		//Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
-        	}
+            //Log.d(LCAT, "Dispatching Switch: "+item);
+            if(item != null){
+                setSettingBoolean(cr, item.getKey(),(Boolean) value);
+                //Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
+            }
+        }
+        
+        private void dispatchSwitch(UltimaSwitchPreference item, Object value){
+            //Log.d(LCAT, "Dispatching Switch: "+item);
+            if(item != null){
+                setSettingBoolean(cr, item.getKey(),(Boolean) value);
+                //Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
+            }
         }
         
         private void dispatchList(ListPreference item, Object value){
@@ -347,7 +362,28 @@ public class SettingsActivity extends Activity implements Constants {
                     }
                 }
                 item.setSummary(item.getEntries()[id]);
+                
+                disableListItems(item);
         	}
+        }
+        
+        private void dispatchList(UltimaListPreference item, Object value){
+            //Log.d(LCAT, "Dispatching List: "+item);
+            if(item != null){
+                setSettingString(cr,item.getKey(),(String) value);
+                //Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
+                int id = 0;
+                for (int i = 0; i < item.getEntryValues().length; i++)
+                {
+                    if(item.getEntryValues()[i].equals((String)value)){
+                        id = i;
+                        break;
+                    }
+                }
+                item.setSummary(item.getEntries()[id]);
+                
+                disableListItems(item);
+            }
         }
         
         private void dispatchMultiSelectList(MultiSelectListPreference item, Set<String> value){
@@ -434,7 +470,6 @@ public class SettingsActivity extends Activity implements Constants {
         	}
         }
         
-
     	private String getRGB(int color, boolean hasAlpha){
     		int red = Color.red(color);
     		int green = Color.green(color);
@@ -460,11 +495,17 @@ public class SettingsActivity extends Activity implements Constants {
         private void dispatchCheckbox(CheckBoxPreference item, Object value){
         	//Log.d(LCAT, "Dispatching Checkbox: "+item);
         	if(item != null){
-        	    String[] prefs = item.getKey().substring(0).split(";");
-                String key = prefs[0];
-        		setSettingBoolean(cr,key,(Boolean) value);
+        		setSettingBoolean(cr, item.getKey(),(Boolean) value);
         		//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
         	}
+        }
+        
+        private void dispatchCheckbox(UltimaCheckboxPreference item, Object value){
+            //Log.d(LCAT, "Dispatching Checkbox: "+item);
+            if(item != null){
+                setSettingBoolean(cr, item.getKey(),(Boolean) value);
+                //Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
+            }
         }
         
         private void initPrefs(){
@@ -489,6 +530,24 @@ public class SettingsActivity extends Activity implements Constants {
                 PreferenceScreen pref1 = (PreferenceScreen) findPreference("settings_launcher_screen");
                 settingsRoot.removePreference(pref1);
             }			
+        }
+        
+        private void disableListItems(ListPreference item){
+
+            if(item.getKey().equals("system_pref_battery_style")){
+                // Remove the battery 40% setting if we're not using the battery icon
+                ColorPickerPreference pref = 
+                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color_forty");
+                int setting = Settings.System.getInt(
+                        mContext.getContentResolver(), "system_pref_battery_style", 0);
+                if(setting != 0){                 
+                    pref.setEnabled(false);
+                    pref.setSummary("Only available for battery icon");
+                } else {
+                    pref.setEnabled(true);
+                    pref.setSummary(R.string.battery_text_percent_colour_40_summary);
+                }
+            }
         }
         
         public void showBatteryLowLevelDialog() {
@@ -635,14 +694,20 @@ public class SettingsActivity extends Activity implements Constants {
         		initScreen((PreferenceScreen) item);
         	} else if(type.equals("CheckBoxPreference")){
         		initCheckbox((CheckBoxPreference) item);
+        	} else if(type.equals("UltimaCheckboxPreference")){
+                initCheckbox((UltimaCheckboxPreference) item);
         	} else if(type.equals("EditTextPreference")){
         		initText((EditTextPreference) item);
         	} else if(type.equals("ListPreference")){
         		initList((ListPreference) item);
+        	} else if(type.equals("UltimaListPreference")){
+        	    initList((UltimaListPreference) item);
         	} else if(type.equals("MultiSelectListPreference")){
         		initMultiSelectList((MultiSelectListPreference) item);
         	} else if(type.equals("SwitchPreference")){
         		initSwitch((SwitchPreference) item);
+        	} else if(type.equals("UltimaSwitchPreference")){
+                initSwitch((UltimaSwitchPreference) item);
         	} else if(type.equals("RingtonePreference")){
         		initRingtone((RingtonePreference) item);
         	} else if(type.equals("ColorPickerPreference")){
@@ -723,12 +788,17 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void initList(ListPreference item){
         	item.setOnPreferenceChangeListener(this);
-        	item.setValue(getSettingString(cr, item.getKey())); 
+        	item.setValue(getSettingString(cr, item.getKey()));     	      	
+        }
+        
+        private void initList(UltimaListPreference item){
+            item.setOnPreferenceChangeListener(this);
+            item.setValue(getSettingString(cr, item.getKey())); 
             if (item.getValue() == null ||
                     "%s".equals(item.getSummary())){
-                item.setValueIndex(0);
+                item.setValueIndex(item.getDefaultValue());
                 item.setSummary(item.getEntry());
-            }       	      	
+            }                   
         }
         
         private void initMultiSelectList(MultiSelectListPreference item){
@@ -765,6 +835,17 @@ public class SettingsActivity extends Activity implements Constants {
         		//Log.d(LCAT, "Setting Switch: "+item.getKey()+" => "+isChecked);
         	}
         }
+        
+        private void initSwitch(UltimaSwitchPreference item){
+            //Log.d(LCAT, "Initializin Switch: "+item);
+            if(item != null){
+                int defaultValue = item.getDefaultValue();
+                item.setOnPreferenceChangeListener(this);
+                boolean isChecked = getSettingBoolean(cr, item.getKey(), defaultValue);
+                item.setChecked(isChecked);
+                //Log.d(LCAT, "Setting Switch: "+item.getKey()+" => "+isChecked);
+            }
+        }
 
         private void initCategory(PreferenceCategory category){
         	int items = category.getPreferenceCount();
@@ -796,6 +877,17 @@ public class SettingsActivity extends Activity implements Constants {
         		item.setChecked(isChecked);
         		//Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
         	}
+        }
+        
+        private void initCheckbox(UltimaCheckboxPreference item){
+            //Log.d(LCAT, "Initializin Checkbox: "+item);
+            if(item != null){
+                int defaultValue = item.getDefaultValue();
+                item.setOnPreferenceChangeListener(this);
+                boolean isChecked = getSettingBoolean(cr, item.getKey(), defaultValue);
+                item.setChecked(isChecked);
+                //Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
+            }
         }
         
         public static boolean setSettingInt(ContentResolver contentResolver, String setting, int value) {
