@@ -299,7 +299,20 @@
 				    android:title="@string/mod_advanced_display_title"
 				    android:summary="@string/mod_advanced_display_summary"
 				    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" />     
-				    	    
+				 
+				 <CheckBoxPreference 
+				     android:title="@string/mod_touch_key_backlight"
+				     android:key="system_pref_button_brightness;1"
+				     android:summary="@string/mod_touch_key_backlight_summary"/>
+				 
+				 <ListPreference 
+				    android:title="@string/mod_touch_key_backlight_timeout"
+				    android:key="system_pref_button_timeout"
+				    android:summary="@string/list_summary"
+				    android:entries="@array/touchkey_timeout_entries"
+				    android:entryValues="@array/touchkey_timeout_values"
+				    android:dependency="system_pref_button_brightness;1"
+				    android:defaultValue="1" />   	    
         	</PreferenceCategory>
         	<PreferenceCategory 
         	    android:title="@string/mod_power_menu_category"
@@ -334,6 +347,7 @@
         	    	    android:title="@string/mod_navbar_title"
         	    	    android:summary="@string/mod_navbar_summary"
         	    	    android:key="system_pref_show_navbar;0" />
+        	    	
         	    	
         	</PreferenceCategory>
         	<PreferenceCategory 

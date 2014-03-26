@@ -180,6 +180,14 @@
     <string name="mod_long_press_values_500">1 seconds</string>
     <string name="mod_long_press_values_1000">2 seconds</string>
     <string name="mod_long_press_values_1500">3 seconds</string>
+    <string name="mod_touch_key_timeout_1s">1 Second</string>
+    <string name="mod_touch_key_timeout_2s">2 Second</string>
+    <string name="mod_touch_key_timeout_3s">3 Second</string>
+    <string name="mod_touch_key_timeout_4s">4 Second</string>
+    <string name="mod_touch_key_timeout_5s">5 Second</string>
+    <string name="mod_touch_key_backlight">Touch key backlight</string>
+    <string name="mod_touch_key_backlight_summary">Enable or disable the touchkey backlight LED</string>
+    <string name="mod_touch_key_backlight_timeout">Touch key timeout</string>
     
     <!-- Lockscreen Settings -->
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>

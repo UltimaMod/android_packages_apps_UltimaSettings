@@ -153,4 +153,19 @@
          <item>0</item>
      </string-array>
      
+     <string-array name="touchkey_timeout_entries" translatable="false">
+         <item>@string/mod_touch_key_timeout_1s</item>
+         <item>@string/mod_touch_key_timeout_2s</item>
+         <item>@string/mod_touch_key_timeout_3s</item>
+         <item>@string/mod_touch_key_timeout_4s</item>
+         <item>@string/mod_touch_key_timeout_5s</item>
+     </string-array>
+ 
+     <string-array name="touchkey_timeout_values" translatable="false">
+         <item>1000</item>
+         <item>2000</item>
+         <item>3000</item>
+         <item>4000</item>
+         <item>5000</item>
+     </string-array>
 </resources>
