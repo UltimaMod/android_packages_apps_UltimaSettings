@@ -180,4 +180,44 @@
          <item>2</item>
          <item>4</item>
      </string-array>
+     
+     <string-array name="volbtn_action_entries">
+        <item>@string/media_next</item>
+        <item>@string/media_pause</item>
+        <item>@string/media_play</item>
+        <item>@string/media_play_pause</item>
+        <item>@string/media_prev</item>
+        <item>@string/media_stop</item>
+    </string-array>
+    <string-array name="volbtn_action_values">
+        <item>87</item>
+        <item>127</item>
+        <item>126</item>
+        <item>85</item>
+        <item>88</item>
+        <item>86</item>
+    </string-array>
+    
+    <string-array name="volbtn_timeout_entries">
+        <item>@string/media_100</item>
+        <item>@string/media_150</item>
+        <item>@string/media_200</item>
+        <item>@string/media_250</item>
+        <item>@string/media_300</item>
+        <item>@string/media_350</item>
+        <item>@string/media_400</item>
+        <item>@string/media_450</item>
+        <item>@string/media_500</item>
+    </string-array>
+    <string-array name="volbtn_timeout_values">
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+        <item>450</item>
+        <item>500</item>
+    </string-array>
 </resources>

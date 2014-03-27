@@ -249,4 +249,25 @@
      <string name="network_traffic_icon_summary">Show a small icon next to the indicator</string>
      <string name="network_traffic_color">Text and icon color</string>
      <string name="network_traffic_color_summary">Set the color of any text and icons</string>
+     
+     <string name="media_next">Next</string>
+     <string name="media_pause">Pause</string>
+     <string name="media_play">Play</string>
+     <string name="media_play_pause">Play/Pause</string>
+     <string name="media_prev">Previous</string>
+     <string name="media_stop">Stop</string>
+     
+     <string name="media_100">100ms</string>
+     <string name="media_150">150ms</string>
+     <string name="media_200">200ms</string>
+     <string name="media_250">250ms</string>
+     <string name="media_300">300ms</string>
+     <string name="media_350">350ms</string>
+     <string name="media_400">400ms</string>
+     <string name="media_450">450ms</string>
+     <string name="media_500">500ms</string>
+     
+     <string name="media_vol_up_title">Volume Up action</string>
+     <string name="media_vol_down_title">Volume down action</string>
+     <string name="media_vol_timeout">Timeout</string>
 </resources>

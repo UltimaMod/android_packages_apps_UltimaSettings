@@ -275,7 +275,37 @@
         	    android:title="@string/mod_volume_media_controls"
         	    android:key="system_pref_volume_to_skip"
         	    android:summary="@string/mod_volume_media_controls_summary"
-        	    defaultValue="0" /> 
+        	    defaultValue="0" />
+        	
+        	<com.ultima.settings.preferences.UltimaListPreference 
+        	    android:entries="@array/volbtn_timeout_entries" 
+        	    android:title="@string/media_vol_timeout" 
+        	    android:key="system_pref_music_timeout" 
+        	    android:summary="@string/list_summary" 
+        	    android:widgetLayout="@layout/round_more_icon" 
+        	    android:dependency="system_pref_volume_to_skip" 
+        	    android:entryValues="@array/volbtn_timeout_values"
+        	    defaultValue="8" />
+        	
+            <com.ultima.settings.preferences.UltimaListPreference 
+                android:entries="@array/volbtn_action_entries" 
+                android:title="@string/media_vol_up_title" 
+                android:key="system_pref_music_vol_up" 
+                android:summary="@string/list_summary" 
+                android:widgetLayout="@layout/round_more_icon" 
+                android:dependency="system_pref_volume_to_skip" 
+                android:entryValues="@array/volbtn_action_values"
+                defaultValue="0" />
+            
+            <com.ultima.settings.preferences.UltimaListPreference 
+                android:entries="@array/volbtn_action_entries" 
+                android:title="@string/media_vol_down_title" 
+                android:key="system_pref_music_vol_down" 
+                android:summary="@string/list_summary" 
+                android:widgetLayout="@layout/round_more_icon" 
+                android:dependency="system_pref_volume_to_skip" 
+                android:entryValues="@array/volbtn_action_values"
+                defaultValue="4" />
         	    
     </PreferenceScreen>  
     <PreferenceScreen 
