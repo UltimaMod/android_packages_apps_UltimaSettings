@@ -578,7 +578,7 @@
       </PreferenceScreen>
     <PreferenceScreen
         android:title="@string/signal_icons_title"
-        android:key="screen_sysyu"
+        android:key="screen_signal_icons"
         android:icon="?attr/wifiIcon"
         android:widgetLayout="@layout/round_more_icon">
         	<com.ultima.settings.colorpicker.ColorPickerPreference
@@ -587,5 +587,18 @@
         	    android:summary="@string/sysui_statusbar_icon_colors_summary"
         	    defaultValue="0xffffffff"
 			    alphaSlider="true" />
+        	<com.ultima.settings.preferences.UltimaCheckboxPreference  
+        	    android:key="system_pref_h_plus_enabled"
+        	    android:title="@string/signal_icons_h_plus_enabled"
+        	    android:summary="@string/signal_icons_h_plus_enabled_summary"
+        	    defaultValue="0"
+        	    />
+        	<com.ultima.settings.preferences.UltimaCheckboxPreference  
+        	    android:key="system_pref_show_4g"
+        	    android:title="@string/signal_icons_4g_enabled"
+        	    android:summaryOn="@string/signal_icons_4g_enabled_summary_on"
+        	    android:summaryOff="@string/signal_icons_4g_enabled_summary_off"
+        	    defaultValue="0"
+        	    />
     </PreferenceScreen>
 </PreferenceScreen>

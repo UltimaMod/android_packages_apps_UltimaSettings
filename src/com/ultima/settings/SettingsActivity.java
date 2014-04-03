@@ -38,6 +38,7 @@ import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
+import com.ultima.settings.utils.Utils;
 
 import java.io.File;
 import java.util.HashSet;
@@ -529,7 +530,14 @@ public class SettingsActivity extends Activity implements Constants {
             if(!((SettingsActivity) getActivity()).appInstalled("com.android.launcher3")){
                 PreferenceScreen pref1 = (PreferenceScreen) findPreference("settings_launcher_screen");
                 settingsRoot.removePreference(pref1);
-            }			
+            }
+            
+            //Remove 4G option for non-4G phones
+            if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
+                UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");
+                PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("screen_signal_icons");
+                preferenceScreen.removePreference(preference);
+            }
         }
         
         private void disableListItems(ListPreference item){
