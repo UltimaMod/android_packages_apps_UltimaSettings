@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lockscreen Settings -->
+    <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
+    <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
+    <string name="lockscreen_torch_toggle_timeout">Long press timeout</string>
+</resources>

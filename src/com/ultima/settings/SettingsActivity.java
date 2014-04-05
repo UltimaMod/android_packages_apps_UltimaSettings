@@ -163,7 +163,22 @@ public class SettingsActivity extends Activity implements Constants {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.preferences);
+            //Add preferences - made them modular, so they're easier to layout
+            addPreferencesFromResource(R.xml.preferences_battery);
+            addPreferencesFromResource(R.xml.preferences_bootanimation);
+            addPreferencesFromResource(R.xml.preferences_clock);
+            addPreferencesFromResource(R.xml.preferences_hostname);
+            
+            //Remove Launcher Settings from settings if it's not installed
+            if(((SettingsActivity) getActivity()).appInstalled("com.android.launcher3")){
+                addPreferencesFromResource(R.xml.preferences_launcher);
+            } 
+            
+            addPreferencesFromResource(R.xml.preferences_led);
+            addPreferencesFromResource(R.xml.preferences_lockscreen);
+            addPreferencesFromResource(R.xml.preferences_mods);
+            addPreferencesFromResource(R.xml.preferences_network);
+            
             ROMCFG_FOLDER = getResources().getString(R.string.romcfg_folder);
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
             cr = getActivity().getContentResolver();
@@ -526,12 +541,7 @@ public class SettingsActivity extends Activity implements Constants {
 				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
 				cat.removePreference(pref1);
 			}
-			//Remove Launcher Settings from settings if it's not installed
-            if(!((SettingsActivity) getActivity()).appInstalled("com.android.launcher3")){
-                PreferenceScreen pref1 = (PreferenceScreen) findPreference("settings_launcher_screen");
-                settingsRoot.removePreference(pref1);
-            }
-            
+			
             //Remove 4G option for non-4G phones
             if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
                 UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");

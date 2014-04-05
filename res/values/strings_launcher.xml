@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launcher Settings -->
+    <string name="launcher_screen_title">Launcher</string>
+    <string name="launcher_workspace_title">Workspace settings</string>
+    <string name="launcher_title_workspace_rows">Rows</string>
+    <string name="launcher_title_workspace_cols">Columns</string>
+    <string name="launcher_title_default_workspace">Default Screen</string>
+    <string name="launcher_title_show_search_bar">Show Search Bar</string>
+    <string name="launcher_title_show_search_bar_on">Persistent search bar is on</string>
+    <string name="launcher_title_show_search_bar_off">Persistent search bar is off (Warning, the app info and delete buttons that you can drag icons and widgets to will no longer show, but will still be accessible)</string>
+    <string name="launcher_title_rotation">Enable Rotation</string>
+    <string name="launcher_title_rotation_on">Launcher rotation is on</string>
+    <string name="launcher_title_rotation_off">Launcher rotation is off</string>
+</resources>

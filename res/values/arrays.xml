@@ -182,12 +182,12 @@
      </string-array>
      
      <string-array name="volbtn_action_entries">
-        <item>@string/media_next</item>
-        <item>@string/media_pause</item>
-        <item>@string/media_play</item>
-        <item>@string/media_play_pause</item>
-        <item>@string/media_prev</item>
-        <item>@string/media_stop</item>
+        <item>@string/volume_media_next</item>
+        <item>@string/volume_media_pause</item>
+        <item>@string/volume_media_play</item>
+        <item>@string/volume_media_play_pause</item>
+        <item>@string/volume_media_prev</item>
+        <item>@string/volume_media_stop</item>
     </string-array>
     <string-array name="volbtn_action_values">
         <item>87</item>
@@ -199,15 +199,15 @@
     </string-array>
     
     <string-array name="volbtn_timeout_entries">
-        <item>@string/media_100</item>
-        <item>@string/media_150</item>
-        <item>@string/media_200</item>
-        <item>@string/media_250</item>
-        <item>@string/media_300</item>
-        <item>@string/media_350</item>
-        <item>@string/media_400</item>
-        <item>@string/media_450</item>
-        <item>@string/media_500</item>
+        <item>@string/volume_media_100</item>
+        <item>@string/volume_media_150</item>
+        <item>@string/volume_media_200</item>
+        <item>@string/volume_media_250</item>
+        <item>@string/volume_media_300</item>
+        <item>@string/volume_media_350</item>
+        <item>@string/volume_media_400</item>
+        <item>@string/volume_media_450</item>
+        <item>@string/volume_media_500</item>
     </string-array>
     <string-array name="volbtn_timeout_values">
         <item>100</item>

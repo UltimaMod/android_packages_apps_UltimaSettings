@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Signal Icons -->
+    <string name="signal_icons_title">Signal Icons</string>
+    <string name="sysui_statusbar_icon_colors_title">Signal icon colours</string>
+    <string name="sysui_statusbar_icon_colors_summary">Change the colour of the wifi, signal, data type and airplane icons</string>
+    <string name="signal_icons_h_plus_enabled">Distinguish H+</string>
+    <string name="signal_icons_h_plus_enabled_summary">Show the H+ icon when connected to a HSPA+ network</string>
+    <string name="signal_icons_4g_enabled">Show 4G or LTE</string>
+    <string name="signal_icons_4g_enabled_summary_on">Show 4G rather than LTE when connected to such a network</string>
+    <string name="signal_icons_4g_enabled_summary_off">Show LTE rather than 4G when connected to such a network</string>
+</resources>

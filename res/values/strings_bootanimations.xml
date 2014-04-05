@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Boot Animation Activity Strings -->
+    <string name="boot_animation_title">Boot animation</string>
+    <string name="choose_file">Choose file</string>
+    <string name="clear_file">Clear</string>
+    <string name="choose_sound">Boot sound</string>
+    <string name="animation">Selected file</string>
+    <string name="sound">Sound file</string>
+    <string name="bootanimation_help">Help</string>
+    <string name="boot_animation_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
+    <string name="enable_disable_boot">Enable/Disable animation</string>
+    <string name="reboot_bootani_pref">Show the reboot dialog after making a selection?</string>
+    <string name="help">Help</string>
+    <string name="error_selecting_file">Error selecting File</string>
+    <string name="set_animation">Set animation</string>
+    <string name="set_sounds">Set sounds</string>
+    <string name="boot_ani_status">Status</string>
+    <string name="default_boot_animation">Restore default</string>
+</resources>
