@@ -4,8 +4,7 @@
     <PreferenceScreen 
         android:title="@string/launcher_screen_title"
         android:icon="?attr/launcherIcon"
-        android:key="settings_launcher_screen"
-        android:widgetLayout="@layout/round_more_icon" >
+        android:key="settings_launcher_screen">
         	
         <com.ultima.settings.preferences.NumberPickerPreference
             android:key="pref_key_workspaceRows"

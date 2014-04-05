@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+	<PreferenceScreen
+        android:title="@string/signal_icons_title"
+        android:key="screen_signal_icons"
+        android:icon="?attr/wifiIcon">
+        
+        	<com.ultima.settings.colorpicker.ColorPickerPreference
+        	    android:title="@string/sysui_statusbar_icon_colors_title"
+        	    android:key="system_pref_statusbar_icon_colors"
+        	    android:summary="@string/sysui_statusbar_icon_colors_summary"
+        	    defaultValue="0xffffffff"
+			    alphaSlider="true" />
+        	<com.ultima.settings.preferences.UltimaCheckboxPreference  
+        	    android:key="system_pref_h_plus_enabled"
+        	    android:title="@string/signal_icons_h_plus_enabled"
+        	    android:summary="@string/signal_icons_h_plus_enabled_summary"
+        	    defaultValue="0"
+        	    />
+        	<com.ultima.settings.preferences.UltimaCheckboxPreference  
+        	    android:key="system_pref_show_4g"
+        	    android:title="@string/signal_icons_4g_enabled"
+        	    android:summaryOn="@string/signal_icons_4g_enabled_summary_on"
+        	    android:summaryOff="@string/signal_icons_4g_enabled_summary_off"
+        	    defaultValue="0"
+        	    />
+    </PreferenceScreen>
+</PreferenceScreen>

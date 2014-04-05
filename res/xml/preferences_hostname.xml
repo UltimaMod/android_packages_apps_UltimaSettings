@@ -3,6 +3,5 @@
     <Preference 
         android:icon="?attr/hostnameIcon" 
         android:title="@string/hostname_title" 
-        android:key="activity;com.ultima.settings;com.ultima.settings.hostname.HostnameActivity" 
-        android:widgetLayout="@layout/round_more_icon" />
+        android:key="activity;com.ultima.settings;com.ultima.settings.hostname.HostnameActivity" />
 </PreferenceScreen>

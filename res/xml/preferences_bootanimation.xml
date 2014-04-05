@@ -3,7 +3,6 @@
     <Preference 
         android:icon="?attr/bootaniIcon" 
         android:title="@string/boot_animation_title" 
-        android:key="activity;com.ultima.settings;com.ultima.settings.bootanimation.BootAnimationActivity" 
-        android:widgetLayout="@layout/round_more_icon" />
+        android:key="activity;com.ultima.settings;com.ultima.settings.bootanimation.BootAnimationActivity" />
 </PreferenceScreen>
  

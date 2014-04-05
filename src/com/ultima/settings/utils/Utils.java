@@ -1,10 +1,16 @@
 package com.ultima.settings.utils;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+
+import com.ultima.settings.SettingsApplication;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Utils {
+   private static Context mContext = SettingsApplication.getContext();
     
     public static Boolean doesPropExist(String propName, String propValue) {
         boolean valid = false;
@@ -27,5 +33,17 @@ public class Utils {
         }
         return valid;
     }
-
+    
+    public static boolean appInstalled(String uri) {
+        PackageManager pm = mContext.getPackageManager();
+        boolean app_installed = false;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed ;
+    }
 }

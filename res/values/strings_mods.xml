@@ -2,93 +2,27 @@
 <resources>
     <!-- Mod Settings -->
     <string name="mod_screen_title">Mods</string>
-    <string name="mod_crt_category">Screen Controls</string>
-    <string name="mod_crt_on_title">Screen on animation</string>
-    <string name="mod_crt_off_title">Screen off animation</string>
-    <string name="animation_crt">CRT</string>
-    <string name="animation_fade">Fade</string>
     <string name="mod_power_menu_category">Power menu</string>
     <string name="mod_power_menu_title">Extended power menu</string>
     <string name="mod_power_menu_summary">Enable reboot to recovery and bootloader in the reboot menu</string>
-    <string name="mod_advanced_display_title">Advanced Display</string>
-    <string name="mod_advanced_display_summary">mDNIe scenario display settings</string>
     <string name="mod_airplane_title">Airplane mode</string>
     <string name="mod_airplane_summary">Show the airplane mode toggle in the power menu</string>
     <string name="mod_screenshot_title">Screenshot</string>
     <string name="mod_screenshot_summary">Show the screenshot button in the power menu</string>
     <string name="mod_silentmode_title">Silent mode</string>
     <string name="mod_silentmode_summary">Show the silent mode toggles in the power menu</string>
-    <string name="mod_navbar_category">Navigation bar</string>
-    <string name="mod_navbar_title">Show navigation bar</string>
-    <string name="mod_navbar_summary">enable or disable the on-screen controls (Requires reboot)</string>
-    <string name="mod_ime_switcher_title">IME switcher</string>
-    <string name="mod_ime_switcher_summary">Enable the IME switcher icon in the notification bar</string>
-    <string name="mod_sounds_category">Sounds</string>
-    <string name="mod_screen_chord_title">Screenshot chord</string>
-    <string name="mod_screen_chord_summary">Enable/disable the chord sound played when taking a screenshot</string>
+
+    
     <string name="mod_rotation_category">Rotation</string>
     <string name="mod_rotation_title">4-way rotation</string>
     <string name="mod_rotation_summary">Enable/disable rotation along all axis (Requires reboot)</string>
-    <string name="mod_lockscreen_screen">Lockscreen</string>
-    <string name="mod_lockscreen_menu_title">Menu button on lockscreen</string>
-    <string name="mod_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
-    <string name="mod_volume_media_controls">Volume media controls</string>
-    <string name="mod_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen</string>
+    
     <string name="mod_long_back_title">Long back press</string>
     <string name="mod_long_back_summary">Long press the back button to kill the foreground app</string>
     <string name="mod_long_back_timeout">Long press timeout</string>
-    <string name="mod_recents_screen">Recents Screen</string>
-    <string name="mod_recents_clear_all">Clear all</string>
-    <string name="mod_recents_clear_all_summary">Show the clear all button on the recents screen</string>
-    <string name="mod_clear_all_position">Clear all position</string>
-    <string name="mod_recents_rambar">RAM bar</string>
-    <string name="mod_recents_rambar_summary">Show a RAM bar on the recents screen</string>
-    <string name="mod_recents_rambar_color_left">RAM used</string>
-    <string name="mod_recents_rambar_color_left_summary">Set the color for used RAM</string>
-    <string name="mod_recents_rambar_color_right">RAM free</string>
-    <string name="mod_recents_rambar_color_right_summary">Set the color for free RAM</string>
-    <string name="mod_rambar_position">RAM bar position</string>
-    <string name="mod_volume">Volume</string>
-    <string name="mod_volume_headphones_nag_title">Headphones safe volume</string>
-    <string name="mod_volume_headphones_nag_summary">Show the nag for safe volume levels in EU locales? (Requires Reboot)</string>
+    
     <string name="mod_long_press_values_250">0.5 seconds</string>
     <string name="mod_long_press_values_500">1 seconds</string>
     <string name="mod_long_press_values_1000">2 seconds</string>
-    <string name="mod_long_press_values_1500">3 seconds</string>
-    <string name="mod_touch_key_timeout_1s">1 Second</string>
-    <string name="mod_touch_key_timeout_2s">2 Second</string>
-    <string name="mod_touch_key_timeout_3s">3 Second</string>
-    <string name="mod_touch_key_timeout_4s">4 Second</string>
-    <string name="mod_touch_key_timeout_5s">5 Second</string>
-    <string name="mod_touch_key_backlight">Touch key backlight</string>
-    <string name="mod_touch_key_backlight_summary">Enable or disable the touchkey backlight LED</string>
-    <string name="mod_touch_key_backlight_timeout">Touch key timeout</string>
-    
-    <string name="mod_volume_adjust_sounds">Volume adjust</string>
-    <string name="mod_volume_adjust_sounds_summary">Volume adjust sounds enable/disable</string>
-    <string name="mod_link_nofication_volume">Link notification volume</string>
-    <string name="mod_link_nofication_volume_summary">Link notification volume</string>
-    <string name="mod_expandable_volume_panel">Expandable volume panel</string>
-    <string name="mod_expandable_volume_panel_summary">Show the expandable volume panel button</string>
-    
-    <string name="volume_media_next">Next</string>
-    <string name="volume_media_pause">Pause</string>
-    <string name="volume_media_play">Play</string>
-    <string name="volume_media_play_pause">Play/Pause</string>
-    <string name="volume_media_prev">Previous</string>
-    <string name="volume_media_stop">Stop</string>
-    
-    <string name="volume_media_100">100ms</string>
-    <string name="volume_media_150">150ms</string>
-    <string name="volume_media_200">200ms</string>
-    <string name="volume_media_250">250ms</string>
-    <string name="volume_media_300">300ms</string>
-    <string name="volume_media_350">350ms</string>
-    <string name="volume_media_400">400ms</string>
-    <string name="volume_media_450">450ms</string>
-    <string name="volume_media_500">500ms</string>
-    
-    <string name="volume_media_vol_up_title">Volume Up action</string>
-    <string name="volume_media_vol_down_title">Volume down action</string>
-    <string name="volume_media_vol_timeout">Timeout</string>
+    <string name="mod_long_press_values_1500">3 seconds</string> 
 </resources>

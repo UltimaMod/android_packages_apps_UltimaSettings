@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Lockscreen Settings -->
+    <string name="lockscreen_screen_title">Lockscreen</string>
+    <string name="lockscreen_lockscreen_menu_title">Menu button on lockscreen</string>
+    <string name="lockscreen_lockscreen_menu_summary">Enable/disable alloowing the menu button to unlock the device</string>
+    <string name="lockscreen_volume_media_controls">Volume media controls</string>
+    <string name="lockscreen_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen</string>
+    
     <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
     <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
     <string name="lockscreen_torch_toggle_timeout">Long press timeout</string>
+    
+    <string name="volume_media_next">Next</string>
+    <string name="volume_media_pause">Pause</string>
+    <string name="volume_media_play">Play</string>
+    <string name="volume_media_play_pause">Play/Pause</string>
+    <string name="volume_media_prev">Previous</string>
+    <string name="volume_media_stop">Stop</string>
+    
+    <string name="volume_media_100">100ms</string>
+    <string name="volume_media_150">150ms</string>
+    <string name="volume_media_200">200ms</string>
+    <string name="volume_media_250">250ms</string>
+    <string name="volume_media_300">300ms</string>
+    <string name="volume_media_350">350ms</string>
+    <string name="volume_media_400">400ms</string>
+    <string name="volume_media_450">450ms</string>
+    <string name="volume_media_500">500ms</string>
+    
+    <string name="volume_media_vol_up_title">Volume Up action</string>
+    <string name="volume_media_vol_down_title">Volume down action</string>
+    <string name="volume_media_vol_timeout">Timeout</string>
 </resources>

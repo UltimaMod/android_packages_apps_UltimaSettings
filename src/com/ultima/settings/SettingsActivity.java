@@ -6,7 +6,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -136,20 +135,7 @@ public class SettingsActivity extends Activity implements Constants {
 		this.finish();
 		startActivity(i);
 	}
-    
-    public boolean appInstalled(String uri)	{
-		PackageManager pm = getPackageManager();
-		boolean app_installed = false;
-		try	{
-			pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-			app_installed = true;
-		}
-		catch (PackageManager.NameNotFoundException e) {
-			app_installed = false;
-		}
-		return app_installed ;
-	}
-    
+
     public static class PrefsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
     	ContentResolver cr;
     	private static final String LCAT = "PrefsFragment";
@@ -167,10 +153,11 @@ public class SettingsActivity extends Activity implements Constants {
             addPreferencesFromResource(R.xml.preferences_battery);
             addPreferencesFromResource(R.xml.preferences_bootanimation);
             addPreferencesFromResource(R.xml.preferences_clock);
+            addPreferencesFromResource(R.xml.preferences_display);
             addPreferencesFromResource(R.xml.preferences_hostname);
             
             //Remove Launcher Settings from settings if it's not installed
-            if(((SettingsActivity) getActivity()).appInstalled("com.android.launcher3")){
+            if(Utils.appInstalled("com.android.launcher3")){
                 addPreferencesFromResource(R.xml.preferences_launcher);
             } 
             
@@ -178,6 +165,9 @@ public class SettingsActivity extends Activity implements Constants {
             addPreferencesFromResource(R.xml.preferences_lockscreen);
             addPreferencesFromResource(R.xml.preferences_mods);
             addPreferencesFromResource(R.xml.preferences_network);
+            addPreferencesFromResource(R.xml.preferences_signal);
+            addPreferencesFromResource(R.xml.preferences_sounds);
+            addPreferencesFromResource(R.xml.preferences_ui);
             
             ROMCFG_FOLDER = getResources().getString(R.string.romcfg_folder);
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
@@ -533,10 +523,9 @@ public class SettingsActivity extends Activity implements Constants {
         }
         
         private void disablePrefs(){
-        	PreferenceScreen settingsRoot = (PreferenceScreen) findPreference("settings_root"); // First Settings page
 
 			//Remove Advanced Display from settings if it's not installed
-			if(!((SettingsActivity) getActivity()).appInstalled("com.cyanogenmod.settings.device")){
+			if(!(Utils.appInstalled("com.cyanogenmod.settings.device"))){
 			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
 				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
 				cat.removePreference(pref1);

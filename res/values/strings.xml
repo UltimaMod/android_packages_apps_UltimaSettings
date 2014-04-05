@@ -26,6 +26,7 @@
     <string name="hexcode_hint">Hex Code</string>  
     <string name="information">Information</string>
     <string name="position_top">Top</string>
-    <string name="position_bottom">Bottom</string> 
+    <string name="position_bottom">Bottom</string>
+    <string name="misc_cat">Misc</string> 
 
 </resources>

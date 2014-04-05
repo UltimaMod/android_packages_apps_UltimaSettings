@@ -3,8 +3,12 @@
     <PreferenceScreen 
         android:title="@string/battery_icon_category" 
         android:key="settings_battery"
-        android:icon="?attr/batteryIcon"
-        android:widgetLayout="@layout/round_more_icon">
+        android:icon="?attr/batteryIcon">
+        
+        <PreferenceCategory
+            android:title="@string/battery_style"
+           	android:key="settings_cat_battery_style" >
+           	
         <com.ultima.settings.preferences.UltimaListPreference 
 		    android:title="@string/battery_style"
 		    android:key="system_pref_battery_style" 
@@ -12,12 +16,89 @@
 		    android:entries="@array/battery_style_entries"
 		    android:entryValues="@array/battery_style_values"
 		    defaultValue="0" />
+        
+        <PreferenceScreen
+           android:title="@string/battery_colour_category"
+           android:key="settings_cat_battery_colour">
+           
+	        <!-- Battery Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_icon_colour" 
+			    android:key="status_bar_battery_norm_color" 
+			    android:summary="@string/battery_icon_colour_summary"
+			    defaultValue="0xffffffff"
+    			alphaSlider="true" />
+			
+			<!-- Battery Background Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_back_colour" 
+			    android:key="status_bar_battery_back_color" 
+			    android:summary="@string/battery_back_colour_summary"
+			    defaultValue="0x66FFFFFF"
+			    alphaSlider="true" />
+			
+			<!-- Battery Charge Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_charge_colour" 
+			    android:key="status_bar_battery_charge_color" 
+			    android:summary="@string/battery_charge_colour_summary"
+			    defaultValue="0xffffffff"
+			    alphaSlider="true" />
+			
+			<!-- Battery Bolt Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_bolt_colour" 
+			    android:key="status_bar_battery_bolt_color" 
+			    android:summary="@string/battery_bolt_colour_summary" 
+			    defaultValue="0xb2000000"
+			    alphaSlider="true" />	
+			               
+       </PreferenceScreen> 
+       
+       <PreferenceScreen
+           android:title="@string/battery_levels_category"
+           android:key="settings_cat_battery_levels">
+			
+		    <!-- Battery Low Level -->
+		    <Preference 
+		        android:title="@string/battery_level_low" 
+		        android:key="battery_level_low" 
+		        android:summary="@string/battery_level_low_summary" />    
+		        
+			<!-- Battery Low Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_low_colour" 
+			    android:key="status_bar_battery_low_color" 
+			    android:summary="@string/battery_low_colour_summary" 
+			   defaultValue="0xffff3300"
+			    alphaSlider="true" />
+			
+			<!-- Battery Low Level -->
+		    <Preference 
+		        android:title="@string/battery_level_mid" 
+		        android:key="battery_level_mid" 
+		        android:summary="@string/battery_level_mid_summary" /> 
+		        
+			<!-- Battery Mid Color -->
+			<com.ultima.settings.colorpicker.ColorPickerPreference 
+			    android:title="@string/battery_mid_colour" 
+			    android:key="status_bar_battery_mid_color" 
+			    android:summary="@string/battery_mid_colour_summary" 
+			    defaultValue="0xffff3300"
+			    alphaSlider="true" />
+			
+		</PreferenceScreen>
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:title="@string/battery_percent"
+           	android:key="settings_cat_battery_percent" >
         <!-- Battery percent on/off -->
         <com.ultima.settings.preferences.UltimaSwitchPreference 
             android:title="@string/battery_percent" 
             android:key="status_bar_show_battery_percent" 
             android:summary="@string/battery_percent_summary"
             defaultValue="0"/>
+        
         <!-- Battery Text Colour -->
 		<com.ultima.settings.colorpicker.ColorPickerPreference 
 		    android:title="@string/battery_text_colour" 
@@ -25,12 +106,14 @@
 		    android:summary="@string/battery_text_colour_summary" 
 		    defaultValue="0xff000000"
 		    android:dependency="status_bar_show_battery_percent" />
+		
 		<com.ultima.settings.colorpicker.ColorPickerPreference 
 		    android:title="@string/battery_text_percent_colour_40" 
 		    android:key="status_bar_battery_percent_color_forty" 
 		    android:summary="@string/battery_text_percent_colour_40_summary" 
 		    defaultValue="0xffffffff"
 		    android:dependency="status_bar_show_battery_percent" />
+		
 		<com.ultima.settings.preferences.UltimaListPreference 
 		    android:title="@string/battery_text_font"
 		    android:key="status_bar_battery_text_font" 
@@ -40,70 +123,12 @@
 		    android:defaultValue="0"
 		    android:dependency="status_bar_show_battery_percent" />
 		
-       <PreferenceCategory
-           android:title="@string/battery_colour_category"
-           android:key="settings_cat_battery_colour">
-	        <!-- Battery Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_icon_colour" 
-			    android:key="status_bar_battery_norm_color" 
-			    android:summary="@string/battery_icon_colour_summary"
-			    defaultValue="0xffffffff"
-    			alphaSlider="true" />
-			<!-- Battery Background Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_back_colour" 
-			    android:key="status_bar_battery_back_color" 
-			    android:summary="@string/battery_back_colour_summary"
-			    defaultValue="0x66FFFFFF"
-			    alphaSlider="true" />
-			<!-- Battery Charge Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_charge_colour" 
-			    android:key="status_bar_battery_charge_color" 
-			    android:summary="@string/battery_charge_colour_summary"
-			    defaultValue="0xffffffff"
-			    alphaSlider="true" />
-			<!-- Battery Bolt Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_bolt_colour" 
-			    android:key="status_bar_battery_bolt_color" 
-			    android:summary="@string/battery_bolt_colour_summary" 
-			    defaultValue="0xb2000000"
-			    alphaSlider="true" />	           
-       </PreferenceCategory> 
-       <PreferenceCategory
-           android:title="@string/battery_levels_category"
-           android:key="settings_cat_battery_levels">
-		    <!-- Battery Low Level -->
-		    <Preference 
-		        android:title="@string/battery_level_low" 
-		        android:key="battery_level_low" 
-		        android:summary="@string/battery_level_low_summary" />    
-			<!-- Battery Low Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_low_colour" 
-			    android:key="status_bar_battery_low_color" 
-			    android:summary="@string/battery_low_colour_summary" 
-			   defaultValue="0xffff3300"
-			    alphaSlider="true" />
-			<!-- Battery Low Level -->
-		    <Preference 
-		        android:title="@string/battery_level_mid" 
-		        android:key="battery_level_mid" 
-		        android:summary="@string/battery_level_mid_summary" /> 
-			<!-- Battery Mid Color -->
-			<com.ultima.settings.colorpicker.ColorPickerPreference 
-			    android:title="@string/battery_mid_colour" 
-			    android:key="status_bar_battery_mid_color" 
-			    android:summary="@string/battery_mid_colour_summary" 
-			    defaultValue="0xffff3300"
-			    alphaSlider="true" />
 		</PreferenceCategory>
-		
+
        <PreferenceCategory 
            android:title="@string/battery_warning_title"
            android:key="battery_warning_cat">
+			
            	<com.ultima.settings.preferences.UltimaListPreference
            	    android:title="@string/battery_warning_title"
 		    	android:key="status_bar_battery_warning" 
@@ -111,6 +136,7 @@
 		    	android:entries="@array/battery_warning_entries"
 		    	android:entryValues="@array/battery_warning_values"
 		    	defaultValue="0" />
+           	
        </PreferenceCategory>
 
 		<Preference android:title="@string/battery_reset_defaults" 

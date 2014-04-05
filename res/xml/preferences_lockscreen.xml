@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <PreferenceScreen 
-        android:title="@string/mod_lockscreen_screen"
-        android:key="mod_lockscreen_screen"
-        android:icon="?attr/lockscreenIcon"
-        android:widgetLayout="@layout/round_more_icon">
-	       
-        	<com.ultima.settings.preferences.UltimaCheckboxPreference   
-        	    android:title="@string/mod_lockscreen_menu_title"
-        	    android:key="system_pref_menu_lockscreen"
-        	    android:summary="@string/mod_lockscreen_menu_summary"
-        	    defaultValue="1" />
+        android:title="@string/lockscreen_screen_title"
+        android:key="settings_lockscreen_screen"
+        android:icon="?attr/lockscreenIcon">
+
+        	<PreferenceCategory
+        	    android:key="lockscreen_torch_cat"
+        	    android:title="@string/lockscreen_torch_toggle" />
         	
         	<com.ultima.settings.preferences.UltimaCheckboxPreference   
         	    android:title="@string/lockscreen_torch_toggle"
@@ -27,18 +24,21 @@
                  android:dependency="system_pref_torch_home_button"
                  android:summary="@string/list_summary" />
         	
+        	<PreferenceCategory
+        	    android:key="lockscreen_volume_cat"
+        	    android:title="@string/lockscreen_volume_media_controls" />
+        	
         	<com.ultima.settings.preferences.UltimaCheckboxPreference   
-        	    android:title="@string/mod_volume_media_controls"
+        	    android:title="@string/lockscreen_volume_media_controls"
         	    android:key="system_pref_volume_to_skip"
-        	    android:summary="@string/mod_volume_media_controls_summary"
+        	    android:summary="@string/lockscreen_volume_media_controls_summary"
         	    defaultValue="0" />
         	
         	<com.ultima.settings.preferences.UltimaListPreference 
         	    android:entries="@array/volbtn_timeout_entries" 
         	    android:title="@string/volume_media_vol_timeout" 
         	    android:key="system_pref_music_timeout" 
-        	    android:summary="@string/list_summary" 
-        	    android:widgetLayout="@layout/round_more_icon" 
+        	    android:summary="@string/list_summary"
         	    android:dependency="system_pref_volume_to_skip" 
         	    android:entryValues="@array/volbtn_timeout_values"
         	    defaultValue="8" />
@@ -47,8 +47,7 @@
                 android:entries="@array/volbtn_action_entries" 
                 android:title="@string/volume_media_vol_up_title" 
                 android:key="system_pref_music_vol_up" 
-                android:summary="@string/list_summary" 
-                android:widgetLayout="@layout/round_more_icon" 
+                android:summary="@string/list_summary"
                 android:dependency="system_pref_volume_to_skip" 
                 android:entryValues="@array/volbtn_action_values"
                 defaultValue="0" />
@@ -58,10 +57,20 @@
                 android:title="@string/volume_media_vol_down_title" 
                 android:key="system_pref_music_vol_down" 
                 android:summary="@string/list_summary" 
-                android:widgetLayout="@layout/round_more_icon" 
                 android:dependency="system_pref_volume_to_skip" 
                 android:entryValues="@array/volbtn_action_values"
                 defaultValue="4" />
+            
+            <PreferenceCategory
+        	    android:key="lockscreen_misc_cat"
+        	    android:title="@string/misc_cat" />
+        
+        	<com.ultima.settings.preferences.UltimaCheckboxPreference   
+        	    android:title="@string/lockscreen_lockscreen_menu_title"
+        	    android:key="system_pref_menu_lockscreen"
+        	    android:summary="@string/lockscreen_lockscreen_menu_summary"
+        	    defaultValue="1" />
+        	
         	    
     </PreferenceScreen>  
 </PreferenceScreen>
