@@ -22,7 +22,7 @@ public class BootAnimationSettings extends PreferenceActivity implements Constan
         
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.bootanimation_settings);
+		addPreferencesFromResource(R.xml.settings_bootanimation);
 
 		rebootAfterSelectionCheck = (CheckBoxPreference) findPreference("boot_ani_reboot");
 		
