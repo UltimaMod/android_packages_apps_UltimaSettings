@@ -543,16 +543,32 @@ public class SettingsActivity extends Activity implements Constants {
 
             if(item.getKey().equals("system_pref_battery_style")){
                 // Remove the battery 40% setting if we're not using the battery icon
-                ColorPickerPreference pref = 
+                ColorPickerPreference pref40pc = 
                         (ColorPickerPreference) findPreference("status_bar_battery_percent_color_forty");
+                UltimaSwitchPreference prefBatterypc = 
+                        (UltimaSwitchPreference) findPreference("status_bar_show_battery_percent");
+                ColorPickerPreference prefBatterypcColor = 
+                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color");
                 int setting = Settings.System.getInt(
                         mContext.getContentResolver(), "system_pref_battery_style", 0);
                 if(setting != 0){                 
-                    pref.setEnabled(false);
-                    pref.setSummary("Only available for battery icon");
+                    pref40pc.setEnabled(false);
+                    pref40pc.setSummary("Only available for battery icon");
                 } else {
-                    pref.setEnabled(true);
-                    pref.setSummary(R.string.battery_text_percent_colour_40_summary);
+                    pref40pc.setEnabled(true);
+                    pref40pc.setSummary(R.string.battery_text_percent_colour_40_summary);
+                }
+                
+                if(setting == 3){
+                    prefBatterypc.setEnabled(false);
+                    prefBatterypc.setSummary("Only available for battery text only option");
+                    prefBatterypcColor.setEnabled(false);
+                    prefBatterypcColor.setSummary("Only available for battery text only option");
+                } else {
+                    prefBatterypc.setEnabled(true);
+                    prefBatterypc.setSummary(R.string.battery_percent_summary);
+                    prefBatterypcColor.setEnabled(true);
+                    prefBatterypcColor.setSummary(R.string.battery_text_colour_summary);
                 }
             }
         }

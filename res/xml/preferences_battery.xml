@@ -120,8 +120,7 @@
 		    android:summary="@string/list_summary"
 		    android:entries="@array/battery_font_entries"
 		    android:entryValues="@array/battery_font_values"
-		    android:defaultValue="0"
-		    android:dependency="status_bar_show_battery_percent" />
+		    android:defaultValue="0" />
 		
 		</PreferenceCategory>
 

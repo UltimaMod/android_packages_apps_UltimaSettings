@@ -53,5 +53,6 @@
     <string name="battery_text_percent_colour_40_summary">Set a different colour for the text when below 40 percent, useful for white battery icons</string>
     <string name="battery_style_icon">Battery icon</string>
     <string name="battery_style_circle">Circle icon</string>
-    <string name="battery_style">Battery style</string>
+    <string name="battery_style_text">Text only</string>
+    <string name="battery_style">Battery style</string>   
 </resources>
