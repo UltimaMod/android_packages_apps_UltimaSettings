@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.Preference;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -80,7 +81,10 @@ public class ColorPickerPreference
 		if (attrs != null) {
 			mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
 			mHexValueEnabled = attrs.getAttributeBooleanValue(null, "hexValue", false);
-			mDefaultValue = attrs.getAttributeIntValue(null, "defaultValue", 0x00000000);
+			//mDefaultValue = attrs.getAttributeIntValue(null, "defaultValue", 0x00000000);
+			int def = attrs.getAttributeIntValue(null, "defaultValue", 0x00000000);
+			mDefaultValue = Settings.System.getInt(context.getContentResolver(), this.getKey(), def);
+
 		}		
 	}
 
