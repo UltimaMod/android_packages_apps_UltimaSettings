@@ -153,7 +153,7 @@ public class SettingsActivity extends Activity implements Constants {
             addPreferencesFromResource(R.xml.preferences_battery);
             addPreferencesFromResource(R.xml.preferences_bootanimation);
             addPreferencesFromResource(R.xml.preferences_clock);
-            addPreferencesFromResource(R.xml.preferences_display);
+            //addPreferencesFromResource(R.xml.preferences_display);
             addPreferencesFromResource(R.xml.preferences_hostname);
             
             //Remove Launcher Settings from settings if it's not installed
@@ -161,12 +161,12 @@ public class SettingsActivity extends Activity implements Constants {
                 addPreferencesFromResource(R.xml.preferences_launcher);
             } 
             
-            addPreferencesFromResource(R.xml.preferences_led);
-            addPreferencesFromResource(R.xml.preferences_lockscreen);
-            addPreferencesFromResource(R.xml.preferences_mods);
+            //addPreferencesFromResource(R.xml.preferences_led);
+            //addPreferencesFromResource(R.xml.preferences_lockscreen);
+            //addPreferencesFromResource(R.xml.preferences_mods);
             addPreferencesFromResource(R.xml.preferences_network);
             addPreferencesFromResource(R.xml.preferences_signal);
-            addPreferencesFromResource(R.xml.preferences_sounds);
+            //addPreferencesFromResource(R.xml.preferences_sounds);
             addPreferencesFromResource(R.xml.preferences_ui);
             
             ROMCFG_FOLDER = getResources().getString(R.string.romcfg_folder);
@@ -524,13 +524,7 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void disablePrefs(){
 
-			//Remove Advanced Display from settings if it's not installed
-			if(!(Utils.appInstalled("com.cyanogenmod.settings.device"))){
-			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
-				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
-				cat.removePreference(pref1);
-			}
-			
+					
             //Remove 4G option for non-4G phones
             if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
                 UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");

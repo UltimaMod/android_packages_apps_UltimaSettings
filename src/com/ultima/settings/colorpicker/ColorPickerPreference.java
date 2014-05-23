@@ -99,6 +99,7 @@ public class ColorPickerPreference
 	    mValue = mDefaultValue;
 	}
 
+	@SuppressWarnings("deprecation")
 	private void setPreviewColor() {
 		if (mView == null) return;
 		ImageView iView = new ImageView(getContext());

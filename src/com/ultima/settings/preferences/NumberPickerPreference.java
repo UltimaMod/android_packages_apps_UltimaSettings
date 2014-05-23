@@ -1,12 +1,9 @@
 package com.ultima.settings.preferences;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.ContentResolver;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
@@ -15,7 +12,6 @@ import android.view.View;
 import android.widget.NumberPicker;
 
 import com.ultima.settings.R;
-import com.ultima.settings.R.styleable;
 
 public class NumberPickerPreference extends DialogPreference {
 
