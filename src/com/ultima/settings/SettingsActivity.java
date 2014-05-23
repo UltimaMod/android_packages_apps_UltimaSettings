@@ -523,8 +523,7 @@ public class SettingsActivity extends Activity implements Constants {
         }
         
         private void disablePrefs(){
-
-					
+	
             //Remove 4G option for non-4G phones
             if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
                 UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");

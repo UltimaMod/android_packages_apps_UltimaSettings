@@ -4,7 +4,7 @@
         android:title="@string/ui_screen_title" 
         android:key="settings_ui_screen"
         android:icon="?attr/navBarIcon">
-        
+        <!-- 
         	<PreferenceCategory 
         	    android:title="@string/ui_navbar_category"
         	    android:key="mod_navbar_category">
@@ -16,7 +16,7 @@
         	    	    defaultValue="0" />
         	            	    	
         	</PreferenceCategory>
-        	
+        	-->
         	<PreferenceCategory 
         	    android:title="@string/ui_ime_switcher_title"
         	    android:key="mod_ime_category">
