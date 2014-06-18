@@ -10,7 +10,8 @@
         	    android:key="system_pref_statusbar_icon_colors"
         	    android:summary="@string/sysui_statusbar_icon_colors_summary"
         	    defaultValue="0xffffffff"
-			    alphaSlider="true" />
+			    alphaSlider="true"
+    			hexValue="true" />
         	<com.ultima.settings.preferences.UltimaCheckboxPreference  
         	    android:key="system_pref_h_plus_enabled"
         	    android:title="@string/signal_icons_h_plus_enabled"

@@ -4,7 +4,7 @@
         android:title="@string/ui_screen_title" 
         android:key="settings_ui_screen"
         android:icon="?attr/navBarIcon">
-        <!-- 
+        
         	<PreferenceCategory 
         	    android:title="@string/ui_navbar_category"
         	    android:key="mod_navbar_category">
@@ -16,7 +16,7 @@
         	    	    defaultValue="0" />
         	            	    	
         	</PreferenceCategory>
-        	-->
+        	
         	<PreferenceCategory 
         	    android:title="@string/ui_ime_switcher_title"
         	    android:key="mod_ime_category">
@@ -67,14 +67,16 @@
 		        	    android:key="system_pref_rambar_color_left"
 		        	    android:summary="@string/ui_recents_rambar_color_left_summary"
 		        	    defaultValue="0xffffffff"
-					    alphaSlider="true" />
+					    alphaSlider="true"
+    					hexValue="true" />
         	    	
         	    	<com.ultima.settings.colorpicker.ColorPickerPreference
 		        	    android:title="@string/ui_recents_rambar_color_right"
 		        	    android:key="system_pref_rambar_color_right"
 		        	    android:summary="@string/ui_recents_rambar_color_right_summary"
 		        	    defaultValue="0xff888888"
-					    alphaSlider="true" />
+					    alphaSlider="true"
+    					hexValue="true" />
         	</PreferenceCategory>          
      </PreferenceScreen>
 </PreferenceScreen>

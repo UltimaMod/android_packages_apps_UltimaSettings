@@ -8,13 +8,13 @@
         	<PreferenceCategory 
         	    android:title="@string/mod_power_menu_category"
         	    android:key="mod_power_category">
-				
+				 
         	    	<com.ultima.settings.preferences.UltimaCheckboxPreference   
         	    	    android:title="@string/mod_power_menu_title"
         	    	    android:summary="@string/mod_power_menu_summary"
         	    	    android:key="system_pref_power_menu"
         	    	    defaultValue="0" />
-        	    	
+        	    <!--	
         	    	<com.ultima.settings.preferences.UltimaCheckboxPreference   
         	    	    android:title="@string/mod_screenshot_title"
         	    	    android:summary="@string/mod_screenshot_summary"
@@ -32,7 +32,7 @@
         	    	    android:summary="@string/mod_silentmode_summary"
         	    	    android:key="system_pref_power_menu_silentmode"
         	    	    defaultValue="0" />
-        	    	
+        	 -->   	
         	</PreferenceCategory>
         	
         	<PreferenceCategory 
@@ -46,7 +46,7 @@
         	    	    defaultValue="0" />
         	    	
         	</PreferenceCategory>
-        	 
+        	 <!--
         	<PreferenceCategory 
         	    android:title="@string/mod_long_back_title"
         	    android:key="mod_long_back">
@@ -65,6 +65,6 @@
 					    defaultValue="1"
 					    android:dependency="system_pref_long_back_kill" />
         	</PreferenceCategory> 
-        	
+        	-->
     </PreferenceScreen>
 </PreferenceScreen>

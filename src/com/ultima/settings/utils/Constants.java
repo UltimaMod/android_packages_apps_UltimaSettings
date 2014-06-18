@@ -20,6 +20,7 @@ public interface Constants {
 	//Boot Animation Chooser
 	public static final String IS_BOOT_ENABLED = "is_boot_enabled";
 	public static final String REBOOT_AFTER_SELECTION = "reboot_after_selection";
-	public static final int REQUEST_CODE = 6384; // onActivityResult request code
+	public static final int BOOTANI_REQUEST_CODE = 6384;
+	public static final int WALLPAPER_REQUEST_CODE = 6385;
 
 }

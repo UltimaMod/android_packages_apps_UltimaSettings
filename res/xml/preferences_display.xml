@@ -4,54 +4,17 @@
         android:title="@string/display_screen_title" 
         android:key="settings_display_screen"
         android:icon="?attr/crtIcon">
-        	<PreferenceCategory 
-				android:key="display_cat_advanced"
-				android:title="@string/display_advanced_display_title"/>
-        	
-				<Preference
-				    android:title="@string/display_advanced_display_title"
-				    android:summary="@string/display_advanced_display_summary"
-				    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" /> 
-        
+                
 				<PreferenceCategory 
 					android:key="display_cat_crt"
 					android:title="@string/display_crt_category"/>
-				
-				<!-- Currently FC's when you rotate the display
-				<com.ultima.settings.preferences.UltimaListPreference 
-				    android:title="@string/display_crt_on_title"
-				    android:key="system_crt_on"
-				    android:summary="@string/list_summary"
-				    android:entries="@array/crt_on_animation_entries"
-				    android:entryValues="@array/crt_on_animation_values"
-				    android:defaultValue="2" /> -->
-				    
-				<com.ultima.settings.preferences.UltimaListPreference 
-				    android:title="@string/display_crt_off_title"
-				    android:key="system_crt_off"
-				    android:summary="@string/list_summary"
-				    android:entries="@array/crt_off_animation_entries"
-				    android:entryValues="@array/crt_off_animation_values"
-				    android:defaultValue="0" />
-				
-				<PreferenceCategory 
-				    android:key="display_cat_touchkey"
-				    android:title="@string/display_touch_key_backlight"/>
-				
-				 <com.ultima.settings.preferences.UltimaCheckboxPreference   
-				     android:title="@string/display_touch_key_backlight"
-				     android:key="system_pref_button_brightness"
-				     android:summary="@string/display_touch_key_backlight_summary"
-				     defaultValue="1"/>
-				 
-				 <com.ultima.settings.preferences.UltimaListPreference 
-				    android:title="@string/display_touch_key_backlight_timeout"
-				    android:key="system_pref_button_timeout"
-				    android:summary="@string/list_summary"
-				    android:entries="@array/touchkey_timeout_entries"
-				    android:entryValues="@array/touchkey_timeout_values"
-				    android:dependency="system_pref_button_brightness"
-				    android:defaultValue="4" />   	    
+								
+				<com.ultima.settings.preferences.UltimaCheckboxPreference    
+        	    	    android:title="@string/display_crt_off_title"
+        	    	    android:summaryOn="@string/display_crt_off_summary_on"
+        	    	    android:summaryOff="@string/display_crt_off_summary_off"
+        	    	    android:key="system_crt_off"
+        	    	    defaultValue="0" />
 
 	</PreferenceScreen>
 </PreferenceScreen>

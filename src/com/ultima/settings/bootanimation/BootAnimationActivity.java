@@ -151,7 +151,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 	private void showChooser() {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("file/*");
-		startActivityForResult(intent, REQUEST_CODE);
+		startActivityForResult(intent, BOOTANI_REQUEST_CODE);
 	}
 
 	public void showRebootDialog() {
@@ -234,7 +234,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
-		case REQUEST_CODE:	
+		case BOOTANI_REQUEST_CODE:	
 			// If the file selection was successful
 			if (resultCode == RESULT_OK) {
 

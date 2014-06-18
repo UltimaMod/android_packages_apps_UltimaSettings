@@ -13,19 +13,23 @@
 	           	    android:title="@string/battery_led_low_colour" 
 				    android:key="system_pref_batt_ledcolor_low" 
 				    android:summary="@string/battery_led_low_colour_summary" 
-				    defaultValue="0xffff0000" />
+				    defaultValue="0xffff0000"
+    			    hexValue="true" />
 	           	
 	           	<com.ultima.settings.colorpicker.ColorPickerPreference
 	           	    android:title="@string/battery_led_med_colour" 
 				    android:key="system_pref_batt_ledcolor_med" 
 				    android:summary="@string/battery_led_med_colour_summary" 
-				    defaultValue="0xffffff00" />
+				    defaultValue="0xffffff00"
+    				hexValue="true" />
 	           	
 	           	<com.ultima.settings.colorpicker.ColorPickerPreference
 	           	    android:title="@string/battery_led_full_colour" 
 				    android:key="system_pref_batt_ledcolor_full" 
 				    android:summary="@string/battery_led_full_colour_summary" 
-				    defaultValue="0xff00ff00" />
+				    defaultValue="0xff00ff00"
+    				hexValue="true"
+				     />
 	           	
 	       </PreferenceCategory>
 	       

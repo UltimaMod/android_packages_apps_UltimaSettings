@@ -10,7 +10,8 @@
 			    android:key="status_bar_clock_colour" 
 			    android:summary="@string/clock_color_summary" 
 			    defaultValue="0xffffffff"
-			    alphaSlider="true" />
+			    alphaSlider="true"
+    			hexValue="true" />
         	
         	<com.ultima.settings.preferences.UltimaListPreference 
         	    android:title="@string/clock_style_title"

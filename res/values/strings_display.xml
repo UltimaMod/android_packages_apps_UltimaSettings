@@ -3,10 +3,9 @@
     <string name="display_screen_title">Display</string>
     
     <string name="display_crt_category">Screen Controls</string>
-    <string name="display_crt_on_title">Screen on animation</string>
     <string name="display_crt_off_title">Screen off animation</string>
-    <string name="animation_crt">CRT</string>
-    <string name="animation_fade">Fade</string>
+    <string name="display_crt_off_summary_on">CRT animation enabled</string>
+    <string name="display_crt_off_summary_off">Fade animation enabled</string>
     
     <string name="display_advanced_display_title">Advanced Display</string>
     <string name="display_advanced_display_summary">mDNIe scenario display settings</string>

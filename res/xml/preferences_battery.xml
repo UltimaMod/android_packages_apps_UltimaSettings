@@ -27,7 +27,8 @@
 			    android:key="status_bar_battery_norm_color" 
 			    android:summary="@string/battery_icon_colour_summary"
 			    defaultValue="0xffffffff"
-    			alphaSlider="true" />
+    			alphaSlider="true"
+    			hexValue="true"  />
 			
 			<!-- Battery Background Color -->
 			<com.ultima.settings.colorpicker.ColorPickerPreference 
@@ -35,7 +36,8 @@
 			    android:key="status_bar_battery_back_color" 
 			    android:summary="@string/battery_back_colour_summary"
 			    defaultValue="0x66FFFFFF"
-			    alphaSlider="true" />
+			    alphaSlider="true"
+    			hexValue="true" />
 			
 			<!-- Battery Charge Color -->
 			<com.ultima.settings.colorpicker.ColorPickerPreference 
@@ -43,7 +45,8 @@
 			    android:key="status_bar_battery_charge_color" 
 			    android:summary="@string/battery_charge_colour_summary"
 			    defaultValue="0xffffffff"
-			    alphaSlider="true" />
+			    alphaSlider="true"
+    			hexValue="true" />
 			
 			<!-- Battery Bolt Color -->
 			<com.ultima.settings.colorpicker.ColorPickerPreference 
@@ -51,7 +54,8 @@
 			    android:key="status_bar_battery_bolt_color" 
 			    android:summary="@string/battery_bolt_colour_summary" 
 			    defaultValue="0xb2000000"
-			    alphaSlider="true" />	
+			    alphaSlider="true"
+    			hexValue="true" />	
 			               
        </PreferenceScreen> 
        
