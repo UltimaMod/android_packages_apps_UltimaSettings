@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2011 The Android Open Source Project
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="RagnarTheme.Dark" parent="@android:style/Theme.Holo">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_ragnarthemedark</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.RagnarTheme.Dark</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.RagnarTheme.Dark</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.RagnarTheme.Dark</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.RagnarTheme.Dark</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.RagnarTheme.Dark</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_ragnarthemedark</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_ragnarthemedark</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.RagnarTheme.Dark</item>
+        <item name="android:windowBackground">@drawable/background_holo_dark</item>
+		<item name="appsIcon">@drawable/ic_settings_apps_dark</item>
+		<item name="batteryIcon">@drawable/ic_settings_battery_dark</item>
+		<item name="bootaniIcon">@drawable/ic_settings_bootanimations_dark</item>
+		<item name="clockIcon">@drawable/ic_settings_clock_dark</item>
+		<item name="kernelIcon">@drawable/ic_settings_kernel_dark</item>
+		<item name="launcherIcon">@drawable/ic_settings_launcher_mods_dark</item>
+		<item name="lockscreenIcon">@drawable/ic_settings_lockscreen_dark</item>
+		<item name="modsIcon">@drawable/ic_settings_mods_dark</item>
+		<item name="phoneIcon">@drawable/ic_settings_phone_dark</item>
+		<item name="statusbarIcon">@drawable/ic_settings_statusbar_dark</item>
+		<item name="togglesIcon">@drawable/ic_settings_toggles_dark</item>
+		<item name="wifiIcon">@drawable/ic_settings_wifi_dark</item>
+		<item name="moreIconWidget">@drawable/ic_btn_round_more_dark</item>
+		<item name="alertIcon">@drawable/ic_alert_dark</item>
+		<item name="settingsIcon">@drawable/ic_settings_dark</item>
+		<item name="rebootIcon">@drawable/ic_reboot_dark</item>
+		<item name="restartIcon">@drawable/ic_restart_dark</item>
+		<item name="crtIcon">@drawable/ic_crt_animation_dark</item>
+		<item name="ext2intIcon">@drawable/ic_ext2internal_dark</item>
+		<item name="epmIcon">@drawable/ic_extended_power_dark</item>
+		<item name="hostnameIcon">@drawable/ic_hostname_dark</item>
+		<item name="keyboardIcon">@drawable/ic_keyboard_dark</item>
+		<item name="menuIcon">@drawable/ic_menu_dark</item>
+		<item name="musicControlIcon">@drawable/ic_music_controls_dark</item>
+		<item name="blockingIcon">@drawable/ic_blocking_mode_dark</item>
+		<item name="callSettingsIcon">@drawable/ic_call_rec_dark</item>
+		<item name="emailIcon">@drawable/ic_email_dark</item>
+		<item name="navBarIcon">@drawable/ic_navigation_bar_dark</item>
+		<item name="quickLockIcon">@drawable/ic_quicklock_dark</item>
+		<item name="rotationIcon">@drawable/ic_rotation_dark</item>
+		<item name="callLogIcon">@drawable/ic_sms_calllog_dark</item>
+		<item name="torchIcon">@drawable/ic_torch_dark</item>
+		<item name="vibrationIcon">@drawable/ic_vibration_dark</item>
+		<item name="lagIcon">@drawable/ic_wake_lag_dark</item>
+		<item name="wallIcon">@drawable/ic_wallpaper_dark</item>
+		<item name="pauseButton">@drawable/ic_music_pause_dark</item>
+		<item name="playButton">@drawable/ic_music_play_dark</item>
+		<item name="stopButton">@drawable/ic_music_stop_dark</item>
+		<item name="nextButton">@drawable/ic_music_next_dark</item>
+		<item name="previousButton">@drawable/ic_music_previous_dark</item>
+		<item name="playPauseButton">@drawable/ic_music_playpause_dark</item>
+		<item name="pieIcon">@drawable/ic_pie_dark</item>
+		<item name="brightnessIcon">@drawable/ic_brightness_dark</item>
+		<item name="textIcon">@drawable/ic_text_dark</item>
+		<item name="alarmIcon">@drawable/ic_alarm_dark</item>
+		<item name="volumeIcon">@drawable/ic_volume_dark</item>
+		<item name="networkIcon">@drawable/ic_network_dark</item>
+		<item name="ledIcon">@drawable/ic_led_dark</item>
+		<item name="networkMeterIcon">@drawable/ic_network_meter_dark</item>
+    </style>
+
+    <style name="ActionBar.Solid.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_ragnarthemedark</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_ragnarthemedark</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_ragnarthemedark</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.RagnarTheme.Dark</item>
+    </style>
+
+    <style name="ActionBar.Transparent.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_ragnarthemedark</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.RagnarTheme.Dark</item>
+    </style>
+
+    <style name="PopupMenu.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_ragnarthemedark</item>	
+    </style>
+
+    <style name="DropDownListView.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_ragnarthemedark</item>
+    </style>
+
+    <style name="ActionBarTabStyle.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_ragnarthemedark</item>
+    </style>
+
+    <style name="DropDownNav.RagnarTheme.Dark" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_ragnarthemedark</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_ragnarthemedark</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_ragnarthemedark</item>
+    </style>
+    
+    <style name="ProgressBar.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_ragnarthemedark</item>
+    </style>
+    
+    <style name="ActionButton.CloseMode.RagnarTheme.Dark" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_ragnarthemedark</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="RagnarTheme.Dark.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.RagnarTheme.Dark</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.RagnarTheme.Dark</item>
+    </style>
+
+</resources>
