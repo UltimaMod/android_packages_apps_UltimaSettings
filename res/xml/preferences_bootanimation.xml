@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <Preference 
         android:icon="?attr/bootaniIcon" 
-        android:title="@string/boot_animation_title" 
+        android:title="@string/bootani_title" 
         android:key="activity;com.ultima.settings;com.ultima.settings.bootanimation.BootAnimationActivity" />
 </PreferenceScreen>
  

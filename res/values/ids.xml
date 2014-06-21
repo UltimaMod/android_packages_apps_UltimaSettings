@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="change_theme">false</item>
-    <item type="id" name="choose_file">false</item>
+    <item type="id" name="bootani_choose_file_button">false</item>
     <item type="id" name="choose_sound">false</item>
     <item type="id" name="info_page">false</item>
-    <item type="id" name="set_animation">false</item>
-    <item type="id" name="file_information">false</item>
+    <item type="id" name="bootani_set_animation_button">false</item>
+    <item type="id" name="bootani_selected_file">false</item>
     <item type="id" name="sound_information">false</item>
-    <item type="id" name="file_info_title">false</item>
+    <item type="id" name="bootani_selected_file_title">false</item>
     <item type="id" name="file_choose_help">false</item>
     <item type="id" name="reboot_button">false</item>
-    <item type="id" name="reset_default">false</item>
+    <item type="id" name="bootani_reset_default_button">false</item>
 </resources>

@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
@@ -30,7 +31,8 @@
         </activity>
         <activity
             android:name="com.ultima.settings.bootanimation.BootAnimationActivity"
-            android:label="@string/boot_animation_title"
+            android:label="@string/bootani_title"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:parentActivityName="com.ultima.settings.SettingsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +40,8 @@
         </activity>
         <activity
             android:name="com.ultima.settings.bootanimation.BootAnimationSettings"   
-            android:label="@string/boot_animation_title"
+            android:label="@string/bootani_title"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:parentActivityName="com.ultima.settings.bootanimation.BootAnimationActivity">
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -47,11 +50,11 @@
         <activity
             android:name="com.ultima.settings.hostname.HostnameActivity" 
             android:label="@string/title_activity_hostname"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:parentActivityName="com.ultima.settings.SettingsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ultima.settings.SettingsActivity" />
         </activity>
     </application>
-
 </manifest>

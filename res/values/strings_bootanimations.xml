@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Boot Animation Activity Strings -->
-    <string name="boot_animation_title">Boot animation</string>
-    <string name="choose_file">Choose file</string>
-    <string name="clear_file">Clear</string>
-    <string name="choose_sound">Boot sound</string>
-    <string name="animation">Selected file</string>
-    <string name="sound">Sound file</string>
-    <string name="bootanimation_help">Help</string>
-    <string name="boot_animation_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
-    <string name="enable_disable_boot">Enable/Disable animation</string>
-    <string name="reboot_bootani_pref">Show the reboot dialog after making a selection?</string>
-    <string name="help">Help</string>
-    <string name="error_selecting_file">Error selecting File</string>
-    <string name="set_animation">Set animation</string>
-    <string name="set_sounds">Set sounds</string>
-    <string name="boot_ani_status">Status</string>
-    <string name="default_boot_animation">Restore default</string>
+    <string name="bootani_title">Boot animation</string>
+    <string name="bootani_temp_folder">/UltimaROM/BootAnimations/temp/</string>
+    <string name="bootani_folder">/UltimaROM/BootAnimations/</string>
+    <string name="bootani_selected_file">Selected file</string>
+    <string name="bootani_help_title">Help</string>
+    <string name="bootani_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
+    <string name="bootani_boot_toggle">Enable/Disable animation</string>
+    <string name="bootani_reboot_pref">Show the reboot dialog after making a selection?</string>
+    <string name="bootani_set_animation">Set animation</string>
+    <string name="bootani_status">Status</string>
+    <string name="bootani_zip_type">Zip type</string>
+    <string name="bootani_use_ors_title">Use open recovery script</string>
+    <string name="bootani_use_ors_summary">Reboot and allow any CWM/TWRP flashable zips to be flashed and your device reboot with a single click, no user interaction required. The reboot toggle above is not honoured with this setting.</string>
+    <string name="bootani_invalid">Invalid</string>
+    <string name="bootani_valid">Valid</string>
+    <string name="bootani_animation_type">Normal Animation</string>
+    <string name="bootani_flashable_type">Flashable</string>
+    <string name="bootani_animationset_reboot">Animation Set&#8230; Reboot to view it</string>
+    <string name="bootani_no_file_selected">No File Selected</string>
+    <string name="bootani_restore_default">Restore Default</string>
+    <string name="bootani_already_default">Already Default</string>
+    <string name="bootani_ors_is_disabled">Open Recovery Script disabled (see settings) Please reboot to recovery and flash manually. Alternatively, enable ORS in the settings.</string>
+    <string name="bootani_wipe_cache_title">Wipe Caches</string>
+    <string name="bootani_wipe_cache_summary">Wipe /data/dalvik-cache and /cache when using open recovery script</string>
 </resources>
