@@ -11,4 +11,5 @@
     <string name="hostname_restore_original">Restore original</string>
     <string name="hostname_title">Hostname</string>
     <string name="hostname_summary">Change the hostname of your device as it appears on networks. Useful for managing and identifying multiple devices on a WLAN.</string>
+	<string name="hostname_incorrect_name">The hostname may only contain letters (a&#8211;zA&#8211;Z), numbers (0&#8211;9) and . or &#8211; as per a proper hostname.\n\nIt cannot contain any special characters or spaces and must be shorter than 255 characters.</string>
 </resources>

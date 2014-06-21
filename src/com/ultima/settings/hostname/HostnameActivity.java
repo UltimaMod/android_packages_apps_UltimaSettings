@@ -2,9 +2,7 @@ package com.ultima.settings.hostname;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,26 +19,26 @@ import com.ultima.settings.utils.Tools;
 
 public class HostnameActivity extends Activity implements Constants
 {
+	public final String TAG = this.getClass().getSimpleName();
 
-	Context mContext = CONTEXT;
-    
-    Button restoreBtn;
-    Button setBtn;
-    EditText inputBox;
-    EditText currentBox;
-    EditText originalBox;
-    
-    RunToolTask toolTask = new RunToolTask();
+	private Button restoreBtn;
+	private Button setBtn;
+	private EditText inputBox;
+	private EditText currentBox;
+	private EditText originalBox;
+	
+	private enum Hostname {
+	    GET, SET, ORIGINAL, RESTORE 
+	}
+	
+	Hostname mHostname;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         
-        setTheme(Preferences.getTheme());
-		
-		setContentView(R.layout.hostname_main);
-		
-		// Show the Up button in the action bar.
+        setTheme(Preferences.getTheme());		
+		setContentView(R.layout.hostname_main);		
 		setupActionBar();
 		
 		restoreBtn = (Button) findViewById(R.id.hostname_restore);
@@ -48,29 +46,18 @@ public class HostnameActivity extends Activity implements Constants
 		inputBox = (EditText) findViewById(R.id.hostname_tb);
 		currentBox = (EditText) findViewById(R.id.curr_hostname);
 		originalBox = (EditText) findViewById(R.id.hostname_orig_tb);
-		
-		inputBox.setMaxLines(1);
-		
-		currentBox.setFocusable(false);
-		currentBox.setFocusableInTouchMode(false);
-		currentBox.setClickable(false);
 		currentBox.setMaxLines(1);
-		
-		originalBox.setFocusable(false);
-		originalBox.setFocusableInTouchMode(false);
-		originalBox.setClickable(false);
 		originalBox.setMaxLines(1);
-		
+
 		final AlertDialog errorMessage = new AlertDialog.Builder(this).create();
-        errorMessage.setTitle("Error");
-        errorMessage.setButton(RESULT_OK, "Ok",(DialogInterface.OnClickListener) null);
+        errorMessage.setTitle(getResources().getString(R.string.error));
+        errorMessage.setButton(RESULT_OK, getResources().getString(R.string.ok),(DialogInterface.OnClickListener) null);
 		
 		if(!Preferences.getHostnameChanged()){
 			Preferences.setHostnameChanged( true);
-			toolTask.execute("original_hostname");
+			new RunToolTask().execute(Hostname.ORIGINAL);
 			Preferences.setHostname(Preferences.getOriginalHostname());
-		}
-		else {
+		} else {
 			updateOriginal();
 			updateCurrent();
 		}
@@ -79,7 +66,7 @@ public class HostnameActivity extends Activity implements Constants
 			
 			@Override
 			public void onClick(View v) {
-				toolTask.execute("restore_hostname");
+				new RunToolTask().execute(Hostname.RESTORE);
 			}
 		});
 		
@@ -91,24 +78,17 @@ public class HostnameActivity extends Activity implements Constants
 				desiredHostname = inputBox.getText().toString();
 				
 				if(desiredHostname.matches("^[\\w\\.-]{1,255}$")){
-					toolTask.execute(new String[]{"set_hostname", desiredHostname});
-				}
-				else{
-					errorMessage.setMessage("The hostname may only contain letters (a-zA-Z), numbers (0-9) and . or - as per a proper hostname.\n\nIt cannot contain any special characters and must be shorter than 255 characters.");
+					new RunToolTask().execute(new Object[]{Hostname.SET, desiredHostname});
+				} else { 
+					errorMessage.setMessage(getResources().getString(R.string.hostname_incorrect_name));
 					errorMessage.show();
 				}			
 			}
-		});
-		
+		});		
 	}
 
 	private void updateCurrent() {
 		currentBox.setText(Preferences.getHostname());
-	}
-	
-	private void refresh(){
-		updateCurrent();
-		restartActivity();
 	}
 	
 	private void setupActionBar() {
@@ -119,47 +99,47 @@ public class HostnameActivity extends Activity implements Constants
 		originalBox.setText(Preferences.getOriginalHostname());
 	}
 	
-    private void restartActivity() {
-		Intent i = new Intent(mContext, HostnameActivity.class);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		this.finish();
-		this.startActivity(i);
-	}
-	
-	private class RunToolTask extends AsyncTask<String, Void, Void> {
+	private class RunToolTask extends AsyncTask<Object, Void, Integer> {
 		int resultValues = 0;
 		@Override
-		protected Void doInBackground(String... params) {
-			if(params[0].equals("get_hostname") ){
+		protected Integer doInBackground(Object... params) {
+			Hostname hostname = (Hostname)params[0];
+			
+			switch(hostname){
+			case GET:
 				Preferences.setHostname(Tools.getHostname());
 				resultValues = 0;
-			} else if (params[0].equals("set_hostname")){
-				Tools.setHostname(params[1]);
-				Preferences.setHostname(params[1]);
+				break;
+			case SET:
+				Tools.setHostname((String)params[1]);
+				Preferences.setHostname((String)params[1]);
 				resultValues = 1;
-			} else if (params[0].equals("original_hostname")){
+				break;
+			case ORIGINAL:
 				Preferences.setOriginalHostname(Tools.getHostname());
 				Preferences.setHostname(Preferences.getOriginalHostname());
 				resultValues = 2;
-			} else if(params[0].equals("restore_hostname")){
+				break;
+			case RESTORE:
 				Tools.setHostname(Preferences.getOriginalHostname());
 				Preferences.setHostname(Tools.getHostname());
 				resultValues = 3;
+				break;
+			default:
+				resultValues = (Integer) null;
+				Log.d(TAG, "Incorrect Parameters passed in");
+				break;
 			}
-			else{
-				Log.d("Error", "Incorrect Parameters passed in");
-			}
-			return null;
+			return resultValues;
 		}
 		
 		@Override
-		protected void onPostExecute(Void result) {
-			if(resultValues == 2){
+		protected void onPostExecute(Integer result) {
+			if(result != 2){
+				updateCurrent();
+			} else {
 				updateOriginal();
 				updateCurrent();
-				refresh();
-			} else {
-				refresh();
 			}
 		}
 	}
