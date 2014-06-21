@@ -4,9 +4,7 @@
     <!-- App Strings -->
     <string name="app_name">ROM Control</string>
     <string name="romcfg_folder">/mnt/sdcard/UltimaROM/</string>
-    <string name="modcfg_folder">/mnt/sdcard/UltimaROM</string>
-    <string name="boot_animation_extraction_folder">/UltimaROM/BootAnimations/temp/</string>
-    <string name="boot_animation_folder">/UltimaROM/BootAnimations/</string>
+    <string name="modcfg_folder">/mnt/sdcard/UltimaROM/</string>
     <string name="opacityLabel">Alpha</string>
     <string name="change_theme">Theme</string>
     <string name="restart_phone">Restart phone</string>
@@ -28,5 +26,16 @@
     <string name="position_top">Top</string>
     <string name="position_bottom">Bottom</string>
     <string name="misc_cat">Misc</string> 
-
+	<string name="rebooting">Rebooting&#8230;</string>
+	<string name="reboot_device_question">Reboot your device?</string> 
+    <string name="not_available">N/A</string>
+    <string name="help">Help</string>
+    <string name="error_selecting_file">Error selecting File</string>
+    <string name="choose_file">Choose file</string>
+    <string name="clear_file">Clear</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="enable_disable_question">Enable or Disable</string>
 </resources>

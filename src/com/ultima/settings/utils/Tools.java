@@ -177,12 +177,18 @@ public class Tools {
 	}
 	
 	public static void setBootanimation(String cmd){
-		shell("mount -o remount,rw /system");
-		if(!(new File("/system/media/bootanimation.zip.bak").exists())){
-			shell("cp /system/media/bootanimation.zip /system/media/bootanimation.zip.bak");
-		}
+		backupBootAnimation();
 		shell("cp " + cmd + " /system/media/bootanimation.zip");
 		shell("chmod 644 /system/media/bootanimation.zip");
+	}
+
+
+	public static void backupBootAnimation() {
+		// Backup the existing boot animation, if a backup does not already exist
+		if(!(new File("/system/media/bootanimation.zip.bak").exists())){
+			shell("mount -o remount,rw /system");
+			shell("cp /system/media/bootanimation.zip /system/media/bootanimation.zip.bak");
+		}
 	}
 		
 	public static void resetBootAnimation(){

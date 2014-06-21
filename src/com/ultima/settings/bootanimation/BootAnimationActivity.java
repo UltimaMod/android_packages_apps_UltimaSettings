@@ -1,13 +1,12 @@
 package com.ultima.settings.bootanimation;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,31 +17,37 @@ import android.widget.Toast;
 
 import com.ultima.settings.R;
 import com.ultima.settings.utils.Constants;
+import com.ultima.settings.utils.GenerateORS;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
 
 
 public class BootAnimationActivity extends Activity implements Constants {
-
-	TextView fileInfo;
-	TextView animationStatus;
-	Button browseButton;
-	Button setAnimationButton;
-	Button resetDefault;
-	Button enableDisable;
-	Button clearButton;
-	String currentSelectedFile;
-
-	AlertDialog enableDisableDialog;
-	AlertDialog rebootDialog;
-	boolean info_page;
 	
-	String mPath;
-	String mSdRoot = Environment.getExternalStorageDirectory().getPath();
-	File mFile;
-	File mFilename;
-	String mExtractLocation;
-	File mExtractFolder;
+	public final String TAG = this.getClass().getSimpleName();
+
+	private Context mContext;
+	
+	private TextView mFileInfo;
+	private TextView mAvailablityStatus;
+	private TextView mZipType;
+	
+	private Button mBrowseButton;
+	private Button mSetAnimationButton;
+	private Button mResetDefault;
+	private Button mEnableDisable;
+	private Button mClearButton;
+	
+	private AlertDialog mEnableDisableDialog;
+	private AlertDialog mRebootDialog;
+	
+	private boolean mIsInfoPage;
+	private boolean mIsFlashable;
+
+	private String mFile;
+	private String mCurrentSelectedFile;
+	private String mOk;
+	private String mCancel;
 
 
 	@Override
@@ -53,51 +58,53 @@ public class BootAnimationActivity extends Activity implements Constants {
 		setContentView(R.layout.bootani_main);
 		setupActionBar();
 		
-		
+		mContext = this;
 
-		browseButton = (Button)findViewById(R.id.choose_file);
-		clearButton = (Button)findViewById(R.id.clear_file);
+		mBrowseButton = (Button)findViewById(R.id.bootani_choose_file_button);
+		mClearButton = (Button)findViewById(R.id.bootani_clear_file_button);
 		
-		resetDefault = (Button)findViewById(R.id.reset_default);
-		enableDisable = (Button)findViewById(R.id.enable_disable_boot);
-		setAnimationButton = (Button)findViewById(R.id.set_animation);
+		mResetDefault = (Button)findViewById(R.id.bootani_reset_default_button);
+		mEnableDisable = (Button)findViewById(R.id.bootani_boot_toggle_button);
+		mSetAnimationButton = (Button)findViewById(R.id.bootani_set_animation_button);
 		
-		fileInfo = (TextView)findViewById(R.id.file_information);
-		animationStatus = (TextView)findViewById(R.id.StatusTextAnimation);
+		mFileInfo = (TextView)findViewById(R.id.bootani_selected_file);
+		mAvailablityStatus = (TextView)findViewById(R.id.bootani_status_valid);
+		mZipType = (TextView)findViewById(R.id.bootani_status_type);
 		
+		mOk = getResources().getString(R.string.ok);
+		mCancel = getResources().getString(R.string.cancel);
+
 		setDefaults();
+		setOnClickListeners();
 		
+	}
 
-		browseButton.setOnClickListener(new OnClickListener() {
+	private void setOnClickListeners() {
+		mBrowseButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				showChooser();
 			}
 		});
 		
-		clearButton.setOnClickListener(new OnClickListener() {
+		mClearButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Tools.noneRootShell("rm -rf " +  mExtractFolder);
 				setDefaults();
 			}
 		});
 
-		resetDefault.setOnClickListener(new OnClickListener() {
+		mResetDefault.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
 				Tools.resetBootAnimation();
-				if(Preferences.isRebootAfterSelection()){
-					if(Preferences.isRebootAfterSelection()){
-						showRebootDialog();
-					}
+				if(Preferences.getBootaniRebootSelection()){
+					showRebootDialog();
 				}
 			}
 		});
 
-		enableDisable.setOnClickListener(new OnClickListener() {
-
+		mEnableDisable.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				showEnableDialog();
@@ -105,42 +112,56 @@ public class BootAnimationActivity extends Activity implements Constants {
 		});
 
 
-		setAnimationButton.setOnClickListener(new OnClickListener() {
+		mSetAnimationButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(!currentSelectedFile.equals(null)){
-					Tools.setBootanimation(currentSelectedFile);
-				
-					setAnimationButton.setEnabled(false);
+				if(!mCurrentSelectedFile.equals(null)){
+					if(mIsFlashable){
+						// We should only be here if the button is enabled anyway
+						new GenerateORS(mContext, mCurrentSelectedFile).execute();
+					} else {
+						Tools.setBootanimation(mCurrentSelectedFile);
+						Toast.makeText(BootAnimationActivity.this, 
+								getResources().getString(R.string.bootani_set_animation), Toast.LENGTH_LONG).show();
+						mSetAnimationButton.setEnabled(false);
+						if(Preferences.getBootaniRebootSelection()){
+							showRebootDialog();
+						} else {
+							recreate();
+						}
+					}
 				}
-				Toast.makeText(BootAnimationActivity.this, 
-						"Animation Set... Reboot to view it", Toast.LENGTH_LONG).show();
-				if(Preferences.isRebootAfterSelection()){
-					showRebootDialog();
-				}
-				recreate();
 			}
 		});
-		
 	}
 	
 	private void setDefaults(){
-		Tools.noneRootShell("rm -rf " + mSdRoot + getString(R.string.boot_animation_extraction_folder));
-		browseButton.setEnabled(true);
-		clearButton.setEnabled(false);
-		setAnimationButton.setEnabled(false);
-		fileInfo.setText("No File Selected");
-		animationStatus.setText("Boot Animation: N/A");
-		animationStatus.setTextColor(getResources().getColor(R.color.holo_red_light));
-		currentSelectedFile = null;
 		
-		if((new File("/system/media/bootanimation.zip.bak").exists())){
-			resetDefault.setText("Restore Default");
-			resetDefault.setEnabled(true);
-		}
-		else{
-			resetDefault.setText("Already Default");
-			resetDefault.setEnabled(false);
+		mBrowseButton.setEnabled(true);
+		mClearButton.setEnabled(false);
+		mSetAnimationButton.setEnabled(false);
+		
+		// Default to no file selected
+		mFileInfo.setText(getResources().getString(R.string.bootani_no_file_selected));
+		// N/A Text
+		String notAvailable = getString(R.string.not_available);
+		
+		// Availability status	    
+	    String availStatusText = getResources().getString(R.string.bootani_title) + ":" + " <font color='#ff4444'>" + notAvailable + "</font>";
+		mAvailablityStatus.setText(Html.fromHtml(availStatusText), TextView.BufferType.SPANNABLE);		
+		
+		// Type Status
+		String fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + " <font color='#ff4444'>" + notAvailable + "</font>";
+		mZipType.setText(Html.fromHtml(fileTypeStatusText), TextView.BufferType.SPANNABLE);		
+
+		mCurrentSelectedFile = null;
+		
+		if(Preferences.getBootAniCustom()){
+			mResetDefault.setText(getResources().getString(R.string.bootani_restore_default));
+			mResetDefault.setEnabled(true);
+		} else {
+			mResetDefault.setText(getResources().getString(R.string.bootani_already_default));
+			mResetDefault.setEnabled(false);
 		}
 	}
 
@@ -156,25 +177,24 @@ public class BootAnimationActivity extends Activity implements Constants {
 
 	public void showRebootDialog() {
 		AlertDialog.Builder builder=new AlertDialog.Builder(this);
-		rebootDialog = builder.create();
+		mRebootDialog = builder.create();
 
-		builder.setTitle("Reboot");
-		builder.setMessage("Reboot your device?");
+		builder.setTitle(getResources().getString(R.string.reboot));
+		builder.setMessage(getResources().getString(R.string.reboot_device_question));
 
-		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton(mCancel, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				rebootDialog.dismiss();			
+				mRebootDialog.dismiss();			
 			}
 		});
 
-		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+		builder.setPositiveButton(mOk, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				rebootDialog.dismiss();
-				Tools.noneRootShell("rm -rf " + mSdRoot + getString(R.string.boot_animation_extraction_folder));
+				mRebootDialog.dismiss();
 				Tools.reboot();
 			}
 		});
@@ -183,47 +203,48 @@ public class BootAnimationActivity extends Activity implements Constants {
 	}
 
 	public void showEnableDialog() {
-		final CharSequence[] items={"Enabled","Disabled"};
+
+		final CharSequence[] items={getResources().getString(R.string.enabled), 
+				getResources().getString(R.string.disabled)};
 		AlertDialog.Builder builder=new AlertDialog.Builder(this);
-		enableDisableDialog = builder.create();
+		mEnableDisableDialog = builder.create();
 		int currentSelection;
 
-		if(Preferences.isBootAnimationEnabled()){
+		if(Preferences.getBootAniEnabled()){
 			currentSelection = 0;
 		}else{
 			currentSelection = 1;
 		}
 
-		builder.setTitle("Enable or Disable");
+		builder.setTitle(getResources().getString(R.string.enable_disable_question));
 		builder.setSingleChoiceItems(items, currentSelection, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which){						
-				if ("Enabled".equals(items[which]))	{		
-					Preferences.setBootAnimationStatus(true);
+				if (getResources().getString(R.string.enabled).equals(items[which]))	{		
+					Preferences.setIsBootaniEnabled(true);
 				}				
-				if ("Disabled".equals(items[which])){
-					Preferences.setBootAnimationStatus(false);
+				if (getResources().getString(R.string.disabled).equals(items[which])){
+					Preferences.setIsBootaniEnabled(false);
 				}				  	
 			}
 		});
 
-		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton(mCancel, new DialogInterface.OnClickListener() {
 
 			@Override
-			public void onClick(DialogInterface dialog, int which) 
-			{
-				enableDisableDialog.dismiss();
+			public void onClick(DialogInterface dialog, int which) {
+				mEnableDisableDialog.dismiss();
 			}
 		});
 
-		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+		builder.setPositiveButton(mOk, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which){
-				enableDisableDialog.dismiss();
-				Tools.enableDisableBootAnimation(Preferences.isBootAnimationEnabled());
-				if(Preferences.isRebootAfterSelection()){
+				mEnableDisableDialog.dismiss();
+				Tools.enableDisableBootAnimation(Preferences.getBootAniEnabled());
+				if(Preferences.getBootaniRebootSelection()){
 					showRebootDialog();
 				}
 			}
@@ -237,40 +258,60 @@ public class BootAnimationActivity extends Activity implements Constants {
 		case BOOTANI_REQUEST_CODE:	
 			// If the file selection was successful
 			if (resultCode == RESULT_OK) {
-
 				//Full file path
-				mPath = data.getData().getPath().toString();
-				//Filename
-				mFile = new File("" + mPath);
-				//Filename without the extension
-				mFilename = new File(mFile.getName().substring(0, mFile.getName().length() - 4));
-				//Boot animations folder
-				mExtractLocation = mSdRoot + getResources().getString(R.string.boot_animation_extraction_folder);
-				//File for the newly created unzipped archive
-				mExtractFolder = new File(mExtractLocation + mFilename);
-				//Create the dirs to unzip to
-				mExtractFolder.mkdirs();
-				//Perform the unzip
-				Tools.noneRootShell("unzip " + mPath + " -d" + mExtractLocation + mFilename);
+				mFile = data.getData().getPath().toString();
 				//Show selected file
-				fileInfo.setText(mPath);
-				fileInfo.setTextColor(getResources().getColor(R.color.white));
-				browseButton.setEnabled(false);
-				clearButton.setEnabled(true);
+				mFileInfo.setText(mFile);
+				mFileInfo.setTextColor(getResources().getColor(R.color.white));
+				mBrowseButton.setEnabled(false);
+				mClearButton.setEnabled(true);
 				
-				
-				if(new File(mExtractFolder + "/desc.txt").exists())
-				{
-					setAnimationButton.setEnabled(true);
-					animationStatus.setText("Boot Animation: Valid");
-					animationStatus.setTextColor(getResources().getColor(R.color.holo_green_light));
-				}
-				else{
-					animationStatus.setText("Boot Animation: Invalid");
-				}
-				Tools.shell("rm -rf " + mSdRoot + "/ROMControl/BootAnimations/temp");
+				String valid = getResources().getString(R.string.bootani_valid);
+				String fileTypeStatusText = "";
+				String availStatusText = "";
 
-				currentSelectedFile = mPath;
+				if(Tools.noneRootShell("unzip -l " + mFile + " | grep -ci desc.txt").trim().equals("1")){
+					mIsFlashable = false;
+					mSetAnimationButton.setEnabled(true);
+					// Availability status	    
+				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + " <font color='#99cc00'>" + valid + "</font>";					
+					// Type Status
+					String type = getResources().getString(R.string.bootani_animation_type);
+					fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + " <font color='#99cc00'>" + type + "</font>";
+				} else if(!(Tools.noneRootShell("unzip -l " + mFile + " | grep -ci META-INF").trim().equals("0"))){
+					mIsFlashable = true;
+					// Availability status	    
+				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + 
+					" <font color='#99cc00'>" + valid + "</font>";
+				    
+				    String type = getResources().getString(R.string.bootani_flashable_type);
+				    
+					if(Preferences.getBootAniORS()){
+						mSetAnimationButton.setEnabled(true);		
+						// Type Status			
+						fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + 
+						" <font color='#99cc00'>" + type + "</font>";
+					} else {
+						mSetAnimationButton.setEnabled(false);		
+						// Type Status
+						fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + 
+						" <font color='#99cc00'>" + type + "</font> " +
+						"<font color='#ff4444'>" + getResources().getString(R.string.bootani_ors_is_disabled) + "</font>";
+					}
+				} else {
+					mIsFlashable = false;
+					String invalid = getResources().getString(R.string.bootani_invalid);
+				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + 
+					" <font color='#ff4444'>" + invalid + "</font>";
+					fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + 
+					" <font color='#ff4444'>" + invalid + "</font>";
+				}
+
+				mAvailablityStatus.setText(Html.fromHtml(availStatusText), TextView.BufferType.SPANNABLE);
+				mZipType.setText(Html.fromHtml(fileTypeStatusText), TextView.BufferType.SPANNABLE);	
+
+				//The currently selected file.
+				mCurrentSelectedFile = mFile;
 			} 
 			break;
 		}
@@ -294,7 +335,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 			return true;
 		case R.id.file_choose_help:
 			setContentView(R.layout.bootani_info);
-			info_page = true;
+			mIsInfoPage = true;
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);			
@@ -302,8 +343,8 @@ public class BootAnimationActivity extends Activity implements Constants {
 	}
 
 	public void onBackPressed() {
-		if(info_page){
-			info_page = false;
+		if(mIsInfoPage){
+			mIsInfoPage = false;
 			setContentView(R.layout.bootani_main);
 			this.recreate();
 		} else {

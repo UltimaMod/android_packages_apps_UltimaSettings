@@ -9,12 +9,14 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 
 public class BootAnimationSettings extends PreferenceActivity implements Constants
 {
-    CheckBoxPreference rebootAfterSelectionCheck;
-
-    @SuppressWarnings("deprecation")
+	public final String TAG = this.getClass().getSimpleName();
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -22,25 +24,9 @@ public class BootAnimationSettings extends PreferenceActivity implements Constan
         
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.settings_bootanimation);
+		getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
+        PreferenceManager.setDefaultValues(this, R.xml.settings_bootanimation, false);
+        addPreferencesFromResource(R.xml.settings_bootanimation);
 
-		rebootAfterSelectionCheck = (CheckBoxPreference) findPreference("boot_ani_reboot");
-		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-	
-		rebootAfterSelectionCheck.setChecked(Preferences.isRebootAfterSelection());
-		
-		rebootAfterSelectionCheck.setOnPreferenceClickListener(new OnPreferenceClickListener(){
-			
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				if(Preferences.isRebootAfterSelection()){
-					Preferences.setRebootAfterSelection(false);
-				}else {
-					Preferences.setRebootAfterSelection(true);
-				}
-				return false;
-			}
-		});	
 	}
 }

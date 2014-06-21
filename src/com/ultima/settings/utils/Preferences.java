@@ -1,5 +1,7 @@
 package com.ultima.settings.utils;
 
+import java.io.File;
+
 import com.ultima.settings.R;
 
 import android.content.Context;
@@ -12,22 +14,36 @@ public class Preferences implements Constants{
     private Preferences() {
     }
     
-	public static boolean isHostnameChanged(){
-		return getPrefs().getBoolean(HOSTNAME_CHANGED, false);
+    // Boot Animation 
+    public static boolean getBootAniEnabled(){
+		return getPrefs().getBoolean(BOOTANI_IS_BOOT_ENABLED, true);
+	}
+    
+    public static boolean getBootAniORS(){
+		return getPrefs().getBoolean(BOOTANI_USE_ORS, false);
+	}
+    
+    public static boolean getBootAniWipeCache(){
+		return getPrefs().getBoolean(BOOTANI_WIPE_CACHE, true);
 	}
 	
-	public static boolean isRebootAfterSelection(){
-		return getPrefs().getBoolean(REBOOT_AFTER_SELECTION, true);
+    public static boolean getBootAniCustom(){
+		return new File("/system/media/bootanimation.zip.bak").exists();
 	}
-	
-	public static boolean isBootAnimationEnabled(){
-		return getPrefs().getBoolean(IS_BOOT_ENABLED, true);
+    
+    public static boolean getBootaniRebootSelection(){
+		return getPrefs().getBoolean(BOOTANI_REBOOT_AFTER_SELECTION, true);
 	}
-	
-	public static void setTheme(int value){
+    
+	public static void setIsBootaniEnabled(boolean status){
 		SharedPreferences.Editor editor = getPrefs().edit();
-		editor.putInt(CURRENT_THEME, value);
+		editor.putBoolean(BOOTANI_IS_BOOT_ENABLED, status);
 		editor.commit();
+	}
+   
+	// Hostname
+	public static boolean getHostnameChanged(){
+		return getPrefs().getBoolean(HOSTNAME_CHANGED, false);
 	}
 	
 	public static void setHostname(String value) {
@@ -48,15 +64,18 @@ public class Preferences implements Constants{
 		editor.commit();
 	}
 	
-	public static void setRebootAfterSelection(boolean value){
-		SharedPreferences.Editor editor = getPrefs().edit();
-		editor.putBoolean(REBOOT_AFTER_SELECTION, value);
-		editor.commit();
+	public static String getHostname(){
+		return getPrefs().getString(HOSTNAME_STORE, "");
 	}
 	
-	public static void setBootAnimationStatus(boolean status){
+	public static String getOriginalHostname(){
+		return getPrefs().getString(ORIGNAL_HOSTNAME, "");
+	}
+	
+	// Theme
+	public static void setTheme(int value){
 		SharedPreferences.Editor editor = getPrefs().edit();
-		editor.putBoolean(IS_BOOT_ENABLED, status);
+		editor.putInt(CURRENT_THEME, value);
 		editor.commit();
 	}
 	
@@ -79,14 +98,7 @@ public class Preferences implements Constants{
 		return getPrefs().getInt(CURRENT_THEME, 2); // #2 is the Dark Theme
 	}
 	
-	public static String getHostname(){
-		return getPrefs().getString(HOSTNAME_STORE, "");
-	}
-	
-	public static String getOriginalHostname(){
-		return getPrefs().getString(ORIGNAL_HOSTNAME, "");
-	}
-	
+	// Prefs
 	private static SharedPreferences getPrefs() {
         return mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }

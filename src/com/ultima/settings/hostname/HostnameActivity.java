@@ -65,7 +65,7 @@ public class HostnameActivity extends Activity implements Constants
         errorMessage.setTitle("Error");
         errorMessage.setButton(RESULT_OK, "Ok",(DialogInterface.OnClickListener) null);
 		
-		if(!Preferences.isHostnameChanged()){
+		if(!Preferences.getHostnameChanged()){
 			Preferences.setHostnameChanged( true);
 			toolTask.execute("original_hostname");
 			Preferences.setHostname(Preferences.getOriginalHostname());
