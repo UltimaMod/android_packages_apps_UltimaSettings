@@ -162,24 +162,7 @@
          <item>3</item>
          <item>4</item>
      </string-array>
-     
-     <string-array name="volbtn_action_entries">
-        <item>@string/volume_media_next</item>
-        <item>@string/volume_media_pause</item>
-        <item>@string/volume_media_play</item>
-        <item>@string/volume_media_play_pause</item>
-        <item>@string/volume_media_prev</item>
-        <item>@string/volume_media_stop</item>
-    </string-array>
-    <string-array name="volbtn_action_values">
-        <item>87</item>
-        <item>127</item>
-        <item>126</item>
-        <item>85</item>
-        <item>88</item>
-        <item>86</item>
-    </string-array>
-    
+       
     <string-array name="volbtn_timeout_entries">
         <item>@string/volume_media_100</item>
         <item>@string/volume_media_150</item>

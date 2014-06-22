@@ -162,7 +162,7 @@ public class SettingsActivity extends Activity implements Constants {
             } 
             
             //addPreferencesFromResource(R.xml.preferences_led);
-            //addPreferencesFromResource(R.xml.preferences_lockscreen);
+            addPreferencesFromResource(R.xml.preferences_lockscreen);
             addPreferencesFromResource(R.xml.preferences_mods);
             addPreferencesFromResource(R.xml.preferences_network);
             addPreferencesFromResource(R.xml.preferences_signal);
