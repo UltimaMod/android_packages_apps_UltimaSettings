@@ -185,4 +185,19 @@
         <item>450</item>
         <item>500</item>
     </string-array>
+    
+    <string-array name="torchlight_timeout_entries">
+        <item>@string/lockscreen_torch_15_sec</item>
+        <item>@string/lockscreen_torch_30_sec</item>
+        <item>@string/lockscreen_torch_1_min</item>
+        <item>@string/lockscreen_torch_2_min</item>
+        <item>@string/lockscreen_torch_10_min</item>
+    </string-array>
+    <string-array name="torchlight_timeout_values">
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>600000</item>
+    </string-array>
 </resources>

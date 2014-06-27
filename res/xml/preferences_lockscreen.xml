@@ -4,26 +4,26 @@
         android:title="@string/lockscreen_screen_title"
         android:key="settings_lockscreen_screen"
         android:icon="?attr/lockscreenIcon">
-		<!-- 
+		 
         	<PreferenceCategory
         	    android:key="lockscreen_torch_cat"
         	    android:title="@string/lockscreen_torch_toggle" />
         	
         	<com.ultima.settings.preferences.UltimaCheckboxPreference   
         	    android:title="@string/lockscreen_torch_toggle"
-        	    android:key="system_pref_torch_home_button"
+        	    android:key="torchlight_enable"
         	    android:summary="@string/lockscreen_torch_toggle_summary"
         	    defaultValue="0" />
         	
         	<com.ultima.settings.preferences.UltimaListPreference
-                 android:key="system_pref_torch_toggle_timeout"
+                 android:key="torchlight_timeout"
                  android:title="@string/lockscreen_torch_toggle_timeout"
-                 android:entries="@array/long_press_timeout_entries"
-                 android:entryValues="@array/long_press_timeout_values"
+                 android:entries="@array/torchlight_timeout_entries"
+                 android:entryValues="@array/torchlight_timeout_values"
                  android:persistent="false"
-                 android:dependency="system_pref_torch_home_button"
+                 android:dependency="torchlight_enable"
                  android:summary="@string/list_summary" />
-        	-->
+        	
         	<PreferenceCategory
         	    android:key="lockscreen_volume_cat"
         	    android:title="@string/lockscreen_volume_media_controls" />

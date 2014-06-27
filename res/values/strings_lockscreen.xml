@@ -7,9 +7,9 @@
     <string name="lockscreen_volume_media_controls">Volume media controls</string>
     <string name="lockscreen_volume_media_controls_summary">Use the volume + and - keys to control your music, while the screen</string>
     
-    <string name="lockscreen_torch_toggle">Lockscreen Torch</string>
-    <string name="lockscreen_torch_toggle_summary">Long press the home button on the lockscreen to use your phones flashlight</string>
-    <string name="lockscreen_torch_toggle_timeout">Long press timeout</string>
+    <string name="lockscreen_torch_toggle">Torch</string>
+    <string name="lockscreen_torch_toggle_summary">Long press the Vol+ button when the screen is off to enable the torch. Does not work if the lockscreen Volume media controls are active, AND, music is playing</string>
+    <string name="lockscreen_torch_toggle_timeout">Torch timeout</string>
 
     <string name="volume_media_100">100ms</string>
     <string name="volume_media_150">150ms</string>
@@ -20,6 +20,12 @@
     <string name="volume_media_400">400ms</string>
     <string name="volume_media_450">450ms</string>
     <string name="volume_media_500">500ms</string>
+    
+    <string name="lockscreen_torch_15_sec">15 Seconds</string>
+    <string name="lockscreen_torch_30_sec">30 Seconds</string>
+    <string name="lockscreen_torch_1_min">1 Minute</string>
+    <string name="lockscreen_torch_2_min">2 Minutes</string>
+    <string name="lockscreen_torch_10_min">10 Minutes</string>
 
     <string name="volume_media_vol_timeout">Timeout</string>
 </resources>
