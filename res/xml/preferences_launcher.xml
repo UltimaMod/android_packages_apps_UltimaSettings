@@ -22,7 +22,7 @@
         <com.ultima.settings.preferences.NumberPickerPreference
             android:key="pref_key_workspaceDefaultPage"
             android:title="@string/launcher_title_default_workspace"
-            ultima:def="0"
+            ultima:def="1"
             ultima:min="0"
             ultima:max="10" />
         
