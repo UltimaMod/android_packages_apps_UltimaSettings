@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Call Setting Strings -->
+    <string name="call_category">Calls</string>
+    <string name="auto_rec_in">Incoming calls</string>
+    <string name="auto_rec_out">Outgoing calls</string>
+    <string name="auto_rec_in_summary">Turn on auto recording for incoming calls</string>
+    <string name="auto_rec_out_summary">Turn on auto recording for outgoing calls</string>
+    <string name="conference">Add Call/Recording</string>
+    <string name="conference_summaryOn">Add Call button showing (recording function is preserved)</string>
+    <string name="conference_summaryOff">Call recording button showing</string>
+    <string name="call_delay">End Call Delay</string>
+    <string name="inc_volume">Remove increasing ringtone</string>
+    <string name="inc_volume_summary">Remove increasing volume level ringtone (Reboot required)</string>
+    <string name="bt_rec">BT Headset</string>
+    <string name="bt_rec_summary">Use Auto Call Recording using bluetooth headset</string>
+    <string name="remove_rec_info">Remove Rec info</string>
+    <string name="remove_rec_info_summary">Remove Rec info on call screen</string>
+    <string name="popup_incoming_calls">Incoming call notifications</string>
+    <string name="popup_incoming_calls_summary">Display notification pop-ups for incoming voice calls when the screen is on</string>
+    <string name="delay_500">500ms</string>
+    <string name="delay_1000">10000ms</string>
+    <string name="delay_2500">2500ms</string>
+    <string name="delay_5000">5000ms (Default)</string>
+    <string name="no_delay">No Delay</string>
+</resources>

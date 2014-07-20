@@ -200,4 +200,19 @@
         <item>120000</item>
         <item>600000</item>
     </string-array>
+    
+    <string-array name="call_delay_entries">
+        <item>@string/no_delay</item>
+        <item>@string/delay_500</item>
+        <item>@string/delay_1000</item>
+        <item>@string/delay_2500</item>
+        <item>@string/delay_5000</item>
+    </string-array>
+    <string-array name="call_delay_values">
+        <item>0</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+    </string-array>
 </resources>

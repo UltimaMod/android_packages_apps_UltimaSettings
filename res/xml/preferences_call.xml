@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+     <PreferenceScreen 
+        android:title="@string/call_category"
+        android:key="settings_call"
+        android:icon="?attr/callSettingsIcon">
+        
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/auto_rec_in" 
+	        android:key="auto_rec_in" 
+	        android:summary="@string/auto_rec_in_summary"
+	        defaultValue="0" />
+	    
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/auto_rec_out" 
+	        android:key="auto_rec_out" 
+	        android:summary="@string/auto_rec_out_summary"
+	        defaultValue="0" />
+	    
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/conference" 
+	        android:key="conference_call" 
+	        android:summaryOn="@string/conference_summaryOn"
+	        android:summaryOff="@string/conference_summaryOff"
+	        defaultValue="1" />
+	    
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/inc_volume" 
+	        android:key="inc_volume_disable" 
+	        android:summary="@string/inc_volume_summary"
+	        defaultValue="0" />
+	    
+	    <com.ultima.settings.preferences.UltimaListPreference 
+	        android:entries="@array/call_delay_entries" 
+	        android:title="@string/call_delay" 
+	        android:key="call_delay" 
+	        android:summary="@string/list_summary" 
+	        defaultValue="5000" 
+	        android:entryValues="@array/call_delay_values" />
+	    
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/remove_rec_info" 
+	        android:key="remove_rec_info" 
+	        android:summary="@string/remove_rec_info_summary"
+	        defaultValue="0" />
+	    
+	    <com.ultima.settings.preferences.UltimaCheckboxPreference 
+	        android:title="@string/popup_incoming_calls" 
+	        android:key="popup_incoming_call" 
+	        android:summary="@string/popup_incoming_calls_summary"
+	        defaultValue="0" />
+	    
+	    <PreferenceCategory
+	        android:title="@string/restart_phone"
+	        android:key="restart_phone_key" />
+	    
+	    <Preference 
+	        android:title="@string/restart_phone"
+	        android:summary="@string/restart_phone_summary"
+	        android:key="tool#shell#pkill -TERM -f com.android.phone" />
+	    
+	</PreferenceScreen>
+</PreferenceScreen>

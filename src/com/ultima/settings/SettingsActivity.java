@@ -152,6 +152,11 @@ public class SettingsActivity extends Activity implements Constants {
             //Add preferences - made them modular, so they're easier to layout
             addPreferencesFromResource(R.xml.preferences_battery);
             addPreferencesFromResource(R.xml.preferences_bootanimation);
+            
+            if(new File("/system/ultimarom/settings/sam_contacts").exists()){
+            	addPreferencesFromResource(R.xml.preferences_call);
+            }
+            
             addPreferencesFromResource(R.xml.preferences_clock);
             //addPreferencesFromResource(R.xml.preferences_display);
             addPreferencesFromResource(R.xml.preferences_hostname);
