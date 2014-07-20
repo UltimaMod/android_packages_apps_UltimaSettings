@@ -1,16 +1,12 @@
 package com.ultima.settings.bootanimation;
 
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+
 import com.ultima.settings.R;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
-
-import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 
 public class BootAnimationSettings extends PreferenceActivity implements Constants
 {
