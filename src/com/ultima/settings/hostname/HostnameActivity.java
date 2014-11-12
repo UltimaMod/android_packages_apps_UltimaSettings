@@ -101,6 +101,7 @@ public class HostnameActivity extends Activity implements Constants
 	
 	private class RunToolTask extends AsyncTask<Object, Void, Integer> {
 		int resultValues = 0;
+		@SuppressWarnings("null")
 		@Override
 		protected Integer doInBackground(Object... params) {
 			Hostname hostname = (Hostname)params[0];
