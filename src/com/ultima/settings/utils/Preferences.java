@@ -81,17 +81,7 @@ public class Preferences implements Constants{
 	
 	public static int getTheme()
 	{		
-		switch(getCurrentTheme())
-		{
-		case 0:
-			return R.style.RagnarTheme_Light;
-		case 1:
-			return R.style.RagnarTheme_Light_Dark_Actionbar;
-		case 2:
-			return R.style.RagnarTheme_Dark;
-		default:
-			return R.style.RagnarTheme_Dark;
-		}
+		return R.style.RagnarTheme_Dark;
 	}
 	
 	public static int getCurrentTheme(){

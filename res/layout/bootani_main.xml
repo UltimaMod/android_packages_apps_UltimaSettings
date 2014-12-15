@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:text="@string/bootani_selected_file"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/holo_blue_light" />
+            android:textColor="@color/material_teal" />
 
         <TextView
             android:id="@id/bootani_selected_file"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/holo_red_light"
+            android:textColor="@color/material_red"
             android:text="@string/none" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/bootani_status"
-            android:textColor="@color/holo_blue_light" />
+            android:textColor="@color/material_teal" />
 
         <TextView
             android:id="@+id/bootani_status_valid"

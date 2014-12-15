@@ -24,7 +24,6 @@ import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
 import android.provider.MediaStore.MediaColumns;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,8 +36,6 @@ import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
-import com.ultima.settings.utils.Utils;
-
 import java.io.File;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -46,7 +43,6 @@ import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
 	private static Context mContext = CONTEXT;
-	private static Context mActivityContext;
 	private static AlertDialog aDialog;
 		
     @Override
@@ -54,7 +50,6 @@ public class SettingsActivity extends Activity implements Constants {
     	setTheme(Preferences.getTheme());
     	Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
         super.onCreate(savedInstanceState);
-        mActivityContext = this;
         if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
     }
@@ -70,9 +65,6 @@ public class SettingsActivity extends Activity implements Constants {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
-		case R.id.change_theme:
-			showThemeDialog();
-			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -86,55 +78,6 @@ public class SettingsActivity extends Activity implements Constants {
 				aDialog = null;
 			}
 		}
-    
-    public void showThemeDialog() {
-    	int currentThemeSelection = Preferences.getCurrentTheme();
-		final CharSequence[] items={"Holo Light", "Holo Light Dark Actionbar", "Holo Dark"};
-		AlertDialog.Builder builder=new AlertDialog.Builder(this);
-		aDialog = builder.create();
-
-		builder.setTitle("Choose a Theme");
-		builder.setSingleChoiceItems(items, currentThemeSelection, new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {		
-
-				if ("Holo Light".equals(items[which])){			
-					Preferences.setTheme(0);
-				}				
-				if ("Holo Light Dark Actionbar".equals(items[which])){
-					Preferences.setTheme(1);
-				}
-				if ("Holo Dark".equals(items[which])){
-					Preferences.setTheme(2);
-				}
-				aDialog.dismiss();	    	
-			}
-		});
-		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				aDialog.dismiss();				
-			}
-		});
-		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				aDialog.dismiss();
-				restartActivity();
-			}
-		});
-		builder.show();
-	}
-            
-    private void restartActivity() {
-		Intent i = new Intent(mContext, SettingsActivity.class);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		this.finish();
-		startActivity(i);
-	}
 
     public static class PrefsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
     	ContentResolver cr;
@@ -142,86 +85,19 @@ public class SettingsActivity extends Activity implements Constants {
 
     	private static String ROMCFG_FOLDER;
     	private static String MODCFG_FOLDER;
-    	private int batteryLevelLowSelection, batteryLevelMidSelection;
-        String lowBatterySummary, midBatterySummary;
-        Preference lowBattPref, midBattPref;
     	
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             //Add preferences - made them modular, so they're easier to layout
-            addPreferencesFromResource(R.xml.preferences_battery);
             addPreferencesFromResource(R.xml.preferences_bootanimation);
-            addPreferencesFromResource(R.xml.preferences_clock);
-            addPreferencesFromResource(R.xml.preferences_display);
             addPreferencesFromResource(R.xml.preferences_hostname);
-            
-            //Remove Launcher Settings from settings if it's not installed
-            if(Utils.appInstalled("com.android.launcher3")){
-                addPreferencesFromResource(R.xml.preferences_launcher);
-            } 
-            
-            addPreferencesFromResource(R.xml.preferences_led);
-            addPreferencesFromResource(R.xml.preferences_lockscreen);
-            addPreferencesFromResource(R.xml.preferences_mods);
-            addPreferencesFromResource(R.xml.preferences_network);
-            addPreferencesFromResource(R.xml.preferences_signal);
-            addPreferencesFromResource(R.xml.preferences_sounds);
-            addPreferencesFromResource(R.xml.preferences_ui);
             
             ROMCFG_FOLDER = getResources().getString(R.string.romcfg_folder);
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
             cr = getActivity().getContentResolver();
             initPrefs();
             disablePrefs();
-            lowBatterySummary = getString(R.string.battery_level_low_summary);
-            midBatterySummary = getString(R.string.battery_level_mid_summary);
-
-            lowBattPref = findPreference("battery_level_low");
-            setLowBattSummary();
-            
-            lowBattPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    showBatteryLowLevelDialog();
-                    return false;
-                }
-            });
-            
-            midBattPref = findPreference("battery_level_mid");
-            setMidBattSummary();
-            
-            midBattPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    showBatteryMidLevelDialog();
-                    return false;
-                }
-            });
-            Preference resetBatteryDefault = findPreference("battery_reset_defaults");
-            resetBatteryDefault.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    showBatteryResetDialog();
-                    return false;
-                }
-            });
-        }
-
-        private void setLowBattSummary(){
-            int currentValue = getSettingInt(cr, "status_bar_battery_low_level", 4);
-            String text = lowBatterySummary + " " + currentValue + "%";
-            lowBattPref.setSummary(text);
-        }
-
-        private void setMidBattSummary(){
-            String text;
-            int currentValue = getSettingInt(cr, "status_bar_battery_mid_level", 15);
-            text = midBatterySummary + " " + currentValue + "%";
-            midBattPref.setSummary(text);
         }
         
         public boolean onPreferenceChange(Preference item, Object newValue){
@@ -524,189 +400,55 @@ public class SettingsActivity extends Activity implements Constants {
         
         private void disablePrefs(){
 
-			//Remove Advanced Display from settings if it's not installed
-			if(!(Utils.appInstalled("com.cyanogenmod.settings.device"))){
-			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
-				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
-				cat.removePreference(pref1);
-			}
-			
-            //Remove 4G option for non-4G phones
-            if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
-                UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");
-                PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("screen_signal_icons");
-                preferenceScreen.removePreference(preference);
-            }
+//			//Remove Advanced Display from settings if it's not installed
+//			if(!(Utils.appInstalled("com.cyanogenmod.settings.device"))){
+//			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
+//				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
+//				cat.removePreference(pref1);
+//			}
+//			
+//            //Remove 4G option for non-4G phones
+//            if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
+//                UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");
+//                PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("screen_signal_icons");
+//                preferenceScreen.removePreference(preference);
+//            }
         }
         
         private void disableListItems(ListPreference item){
 
-            if(item.getKey().equals("system_pref_battery_style")){
-                // Remove the battery 40% setting if we're not using the battery icon
-                ColorPickerPreference pref40pc = 
-                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color_forty");
-                UltimaSwitchPreference prefBatterypc = 
-                        (UltimaSwitchPreference) findPreference("status_bar_show_battery_percent");
-                ColorPickerPreference prefBatterypcColor = 
-                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color");
-                int setting = Settings.System.getInt(
-                        mContext.getContentResolver(), "system_pref_battery_style", 0);
-                if(setting != 0){                 
-                    pref40pc.setEnabled(false);
-                    pref40pc.setSummary("Only available for battery icon");
-                } else {
-                    pref40pc.setEnabled(true);
-                    pref40pc.setSummary(R.string.battery_text_percent_colour_40_summary);
-                }
-                
-                if(setting == 3){
-                    prefBatterypc.setEnabled(false);
-                    prefBatterypc.setSummary("Only available for battery text only option");
-                    prefBatterypcColor.setEnabled(false);
-                    prefBatterypcColor.setSummary("Only available for battery text only option");
-                } else {
-                    prefBatterypc.setEnabled(true);
-                    prefBatterypc.setSummary(R.string.battery_percent_summary);
-                    prefBatterypcColor.setEnabled(true);
-                    prefBatterypcColor.setSummary(R.string.battery_text_colour_summary);
-                }
-            }
+//            if(item.getKey().equals("system_pref_battery_style")){
+//                // Remove the battery 40% setting if we're not using the battery icon
+//                ColorPickerPreference pref40pc = 
+//                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color_forty");
+//                UltimaSwitchPreference prefBatterypc = 
+//                        (UltimaSwitchPreference) findPreference("status_bar_show_battery_percent");
+//                ColorPickerPreference prefBatterypcColor = 
+//                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color");
+//                int setting = Settings.System.getInt(
+//                        mContext.getContentResolver(), "system_pref_battery_style", 0);
+//                if(setting != 0){                 
+//                    pref40pc.setEnabled(false);
+//                    pref40pc.setSummary("Only available for battery icon");
+//                } else {
+//                    pref40pc.setEnabled(true);
+//                    pref40pc.setSummary(R.string.battery_text_percent_colour_40_summary);
+//                }
+//                
+//                if(setting == 3){
+//                    prefBatterypc.setEnabled(false);
+//                    prefBatterypc.setSummary("Only available for battery text only option");
+//                    prefBatterypcColor.setEnabled(false);
+//                    prefBatterypcColor.setSummary("Only available for battery text only option");
+//                } else {
+//                    prefBatterypc.setEnabled(true);
+//                    prefBatterypc.setSummary(R.string.battery_percent_summary);
+//                    prefBatterypcColor.setEnabled(true);
+//                    prefBatterypcColor.setSummary(R.string.battery_text_colour_summary);
+//                }
+//            }
         }
         
-        public void showBatteryLowLevelDialog() {
-            int current = getSettingInt(cr, "status_bar_battery_low_level", 4);
-            int currentSelection = 0;
-            if(current == 4){
-                currentSelection = 0;
-            } else if (current == 10){
-                currentSelection = 1;
-            } else {
-                currentSelection = 2;
-            }
-            final CharSequence [] items={ "4", "10", "14" };
-            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
-            aDialog = builder.create();
-
-            builder.setTitle("Select a Value");
-            builder.setSingleChoiceItems(items, currentSelection, new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {        
-
-                    if ("4".equals(items[which])){         
-                        batteryLevelLowSelection = 4;
-                    }               
-                    if ("10".equals(items[which])){
-                        batteryLevelLowSelection = 10;
-                    }
-                    if ("14".equals(items[which])){
-                        batteryLevelLowSelection = 14;
-                    }
-                    aDialog.dismiss();          
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    aDialog.dismiss();              
-                }
-            });
-            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setSettingInt(cr, "status_bar_battery_low_level", batteryLevelLowSelection);
-                    setLowBattSummary();
-                }
-            });
-            builder.show();
-        }
-        
-        public void showBatteryResetDialog() {
-            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
-            aDialog = builder.create();
-
-            builder.setTitle("Are you sure?");
-            builder.setMessage("Are you sure you want to reset the battery options to their defaults?");
-            
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    aDialog.dismiss();              
-                }
-            });
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setSettingInt(cr, "status_bar_battery_low_level", 4);
-                    setLowBattSummary();
-                    setSettingInt(cr, "status_bar_battery_mid_level", 15);
-                    setMidBattSummary();
-                    setSettingInt(cr, "status_bar_battery_percent_color", 0xFF000000);
-                    setSettingInt(cr, "status_bar_battery_norm_color", 0xFFFFFFFF);
-                    setSettingInt(cr, "status_bar_battery_back_color", 0x66FFFFFF);
-                    setSettingInt(cr, "status_bar_battery_charge_color", 0xFFFFFFFF);
-                    setSettingInt(cr, "status_bar_battery_bolt_color", 0xB2000000);
-                    setSettingInt(cr, "status_bar_battery_low_color", 0xFFF3300);
-                    setSettingInt(cr, "status_bar_battery_mid_color", 0xFFF3300);
-                    setSettingInt(cr, "status_bar_battery_percent_color", 0xFF000000);
-                }
-            });
-            builder.show();
-        }
-        
-        public void showBatteryMidLevelDialog() {
-            int current = getSettingInt(cr, "status_bar_battery_mid_level", 15);
-            int currentSelection = 0;
-            if(current == 15){
-                currentSelection = 0;
-            } else if (current == 30){
-                currentSelection = 1;
-            } else {
-                currentSelection = 2;
-            }
-            final CharSequence [] items={ "15", "30", "45" };
-            AlertDialog.Builder builder=new AlertDialog.Builder(mActivityContext);
-            aDialog = builder.create();
-
-            builder.setTitle("Select a Value");
-            builder.setSingleChoiceItems(items, currentSelection, new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {        
-
-                    if ("15".equals(items[which])){         
-                        batteryLevelMidSelection = 15;
-                    }               
-                    if ("30".equals(items[which])){
-                        batteryLevelMidSelection = 30;
-                    }
-                    if ("45".equals(items[which])){
-                        batteryLevelMidSelection = 45;
-                    }
-                    aDialog.dismiss();          
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    aDialog.dismiss();              
-                }
-            });
-            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setSettingInt(cr, "status_bar_battery_mid_level", batteryLevelMidSelection);
-                    setMidBattSummary();
-                }
-            });
-            builder.show();
-        }
         
         private void initItem(Preference item){
         	String type = item.getClass().getSimpleName();
