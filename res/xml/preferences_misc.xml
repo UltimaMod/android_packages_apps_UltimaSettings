@@ -4,5 +4,6 @@
 	<CheckBoxPreference 
 	    android:key="touch_key_backlight"
 	    android:title="@string/touchkey_backlight_title"
-	    android:summary="@string/enable_disable_question" />
+	    android:summary="@string/enable_disable_question"
+	    android:defaultValue="true" />
 </PreferenceScreen>
