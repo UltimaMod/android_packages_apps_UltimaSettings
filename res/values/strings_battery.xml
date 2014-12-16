@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="battery_settings">Battery</string>
+    <string name="battery_percent_title">Battery percent</string>
+    <string name="battery_percent_summary">Show the battery percent indicator (Reboot to take effect)</string>
+</resources>

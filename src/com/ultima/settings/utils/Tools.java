@@ -8,13 +8,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import com.stericson.RootTools.*;
+import com.ultima.settings.R;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class Tools {
 	public static String getSdCardPath(){
@@ -136,23 +139,9 @@ public class Tools {
 			RootTools.isAccessGiven();
 	}
 	
-	public static void setBacklightValue(Object value){
+	public void setBacklightValue(Object value){
 		boolean ourValue = (Boolean) value;
-		String echoOn = "echo 255 > /sys/class/leds/button-backlight/max_brightness";
-		String echoOff = "echo 0 > /sys/class/leds/button-backlight/max_brightness";
-		String file = "/system/etc/init.d/01ButtonBacklight";	
-		
-		shell("mount -o remount,rw /system"); // Remount as readable
-		if(ourValue){
-			shell(echoOn);
-			shell("echo #!/system/bin/sh > " + file);
-			shell("echo '" + echoOn + "' > " + file);
-		} else {
-			shell(echoOff);
-			shell("echo #!/system/bin/sh > " + file);
-			shell("echo '" + echoOff + "' > " + file);
-		}
-		shell("mount -o remount,ro /system"); // remount as read-only, for safety
+		new BacklightTask().execute(ourValue);
 	}
 	
 	public static void setHostname(String hostname){
@@ -283,4 +272,28 @@ public class Tools {
 		r.putStringArrayList("error", err);
 		return r;
 	}
+    private class BacklightTask extends AsyncTask<Boolean, Void, Void> {
+    	
+		@Override
+		protected Void doInBackground(Boolean... params) {
+			String echoOn = "echo 255 > /sys/class/leds/button-backlight/max_brightness";
+			String echoOff = "echo 0 > /sys/class/leds/button-backlight/max_brightness";
+			String file = "/system/etc/init.d/01ButtonBacklight";	
+			
+			shell("mount -o remount,rw /system"); // Remount as readable
+			shell("rm -rf " + file);
+			if(params[0]){
+				shell(echoOn);
+				shell("echo #!/system/bin/sh > " + file);
+				shell("echo '" + echoOn + "' > " + file);
+			} else {
+				shell(echoOff);
+				shell("echo #!/system/bin/sh > " + file);
+				shell("echo '" + echoOff + "' > " + file);
+			}
+			shell("mount -o remount,ro /system"); // remount as read-only, for safety
+			
+			return null;
+		}
+    }
 }

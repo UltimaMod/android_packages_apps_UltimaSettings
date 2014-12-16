@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Network traffic -->
+     <string name="network_traffic">Network traffic</string>
+     <string name="network_traffic_state">Status bar traffic monitor</string>
+     <string name="network_traffic_unit">Display unit</string>
+     <string name="network_traffic_frequency">Update interval</string>
+     <string name="network_traffic_disable">Disabled</string>
+     <string name="network_traffic_up">Outgoing</string>
+     <string name="network_traffic_down">Incoming</string>
+     <string name="network_traffic_all">Outgoing and incoming</string>
+     <string name="network_traffic_bit">Bits per second</string>
+     <string name="network_traffic_byte">Bytes per second</string>
+     <string name="network_traffic_500">500 ms</string>
+     <string name="network_traffic_1000">1000 ms</string>
+     <string name="network_traffic_1500">1500 ms</string>
+     <string name="network_traffic_2000">2000 ms</string>
+     
+     <string name="network_traffic_hide_inactivity">Hide inactivity</string>
+     <string name="network_traffic_hide_inactivity_summary">Hide the indicator if there has been no network activity</string>
+     <string name="network_traffic_text">Labels</string>
+     <string name="network_traffic_text_summary">Show U and D for Upload and Download next to their values</string>
+     <string name="network_traffic_icon">Icon</string>
+     <string name="network_traffic_icon_summary">Show a small icon next to the indicator</string>
+     <string name="network_traffic_color_up">Upload text color</string>
+     <string name="network_traffic_color_up_summary">Set the color of the upload text</string>
+     <string name="network_traffic_color_down">Download text color</string>
+     <string name="network_traffic_color_down_summary">Set the color of the download text</string>
+     <string name="network_traffic_color_icon">Icon color</string>
+     <string name="network_traffic_color_icon_summary">Set the color of the icon</string>
+</resources>

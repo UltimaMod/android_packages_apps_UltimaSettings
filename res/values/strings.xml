@@ -2,7 +2,7 @@
 <resources>
 
     <!-- App Strings -->
-    <string name="app_name">ROM Control</string>
+    <string name="app_name">Interface</string>
     <string name="romcfg_folder">/mnt/sdcard/ROMControl/</string>
     <string name="modcfg_folder">/mnt/sdcard/ROMControl</string>
     <string name="boot_animation_extraction_folder">/ROMControl/BootAnimations/temp/</string>

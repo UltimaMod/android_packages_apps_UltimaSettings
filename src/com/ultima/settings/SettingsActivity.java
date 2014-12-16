@@ -30,7 +30,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ultima.settings.colorpicker.ColorPickerPreference;
-import com.ultima.settings.preferences.UltimaCheckboxPreference;
 import com.ultima.settings.preferences.UltimaListPreference;
 import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
@@ -90,8 +89,12 @@ public class SettingsActivity extends Activity implements Constants {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             //Add preferences - made them modular, so they're easier to layout
+            addPreferencesFromResource(R.xml.preferences_battery);
             addPreferencesFromResource(R.xml.preferences_bootanimation);
             addPreferencesFromResource(R.xml.preferences_hostname);
+            addPreferencesFromResource(R.xml.preferences_network_meter);
+            
+            addPreferencesFromResource(R.xml.preferences_misc);
             
             ROMCFG_FOLDER = getResources().getString(R.string.romcfg_folder);
             MODCFG_FOLDER = getResources().getString(R.string.modcfg_folder);
@@ -155,8 +158,6 @@ public class SettingsActivity extends Activity implements Constants {
         	String type = item.getClass().getSimpleName();
         	if(type.equals("CheckBoxPreference")){
         		dispatchCheckbox((CheckBoxPreference) item, value);
-        	}else if(type.equals("UltimaCheckboxPreference")){
-                    dispatchCheckbox((UltimaCheckboxPreference) item, value);
         	} else if(type.equals("EditTextPreference")){
         		dispatchText((EditTextPreference) item, value);
         	} else if(type.equals("ListPreference")){
@@ -380,14 +381,10 @@ public class SettingsActivity extends Activity implements Constants {
         		setSettingBoolean(cr, item.getKey(),(Boolean) value);
         		//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
         	}
-        }
-        
-        private void dispatchCheckbox(UltimaCheckboxPreference item, Object value){
-            //Log.d(LCAT, "Dispatching Checkbox: "+item);
-            if(item != null){
-                setSettingBoolean(cr, item.getKey(),(Boolean) value);
-                //Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
-            }
+        	if (item.getKey().equals("touch_key_backlight")) {
+        		Tools tools = new Tools();
+        		tools.setBacklightValue(value);
+        	}
         }
         
         private void initPrefs(){
@@ -459,8 +456,6 @@ public class SettingsActivity extends Activity implements Constants {
         		initScreen((PreferenceScreen) item);
         	} else if(type.equals("CheckBoxPreference")){
         		initCheckbox((CheckBoxPreference) item);
-        	} else if(type.equals("UltimaCheckboxPreference")){
-                initCheckbox((UltimaCheckboxPreference) item);
         	} else if(type.equals("EditTextPreference")){
         		initText((EditTextPreference) item);
         	} else if(type.equals("ListPreference")){
@@ -642,17 +637,6 @@ public class SettingsActivity extends Activity implements Constants {
         		item.setChecked(isChecked);
         		//Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
         	}
-        }
-        
-        private void initCheckbox(UltimaCheckboxPreference item){
-            //Log.d(LCAT, "Initializin Checkbox: "+item);
-            if(item != null){
-                int defaultValue = item.getDefaultValue();
-                item.setOnPreferenceChangeListener(this);
-                boolean isChecked = getSettingBoolean(cr, item.getKey(), defaultValue);
-                item.setChecked(isChecked);
-                //Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
-            }
         }
         
         public static boolean setSettingInt(ContentResolver contentResolver, String setting, int value) {
