@@ -35,20 +35,25 @@ import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
+	
+	private static Context mContext;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		setTheme(Preferences.getTheme());
 		Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
 		super.onCreate(savedInstanceState);
+		mContext = this;
 		if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
+		
 	}
 
 	@Override
@@ -70,9 +75,14 @@ public class SettingsActivity extends Activity implements Constants {
 	public static class PrefsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 		ContentResolver cr;
 		private static final String LCAT = "PrefsFragment";
-
+		
 		private static String ROMCFG_FOLDER;
 		private static String MODCFG_FOLDER;
+		
+		private AlertDialog aDialog;
+		private Preference rebootDialog;
+		
+		private int rebootChoice;
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +100,9 @@ public class SettingsActivity extends Activity implements Constants {
 			cr = getActivity().getContentResolver();
 			initPrefs();
 			disablePrefs();
+			
+			rebootDialog = (Preference) findPreference("reboot_dialog");
+			rebootDialog.setOnPreferenceClickListener(this);
 		}
 
 		public boolean onPreferenceChange(Preference item, Object newValue){
@@ -124,9 +137,57 @@ public class SettingsActivity extends Activity implements Constants {
 					return false;
 				}
 				new RunToolTask().execute(new Object[]{getActivity(),data});
-			} 
-
+			} else if(item == rebootDialog){
+				showRebootDialog();
+			}
 			return true;
+		}
+		
+		public void showRebootDialog() {
+			final CharSequence[] items={getResources().getString(R.string.reboot), getResources().getString(R.string.recovery)};
+			AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
+			aDialog = builder.create();
+
+			builder.setTitle(getResources().getString(R.string.reboot_options));
+			
+			builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {		
+
+					if (getResources().getString(R.string.reboot).equals(items[which])){			
+						rebootChoice = 0;
+					}				
+					if (getResources().getString(R.string.recovery).equals(items[which])){
+						rebootChoice = 1;
+					}
+					aDialog.dismiss();	    	
+				}
+			});
+			
+			builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					aDialog.dismiss();				
+				}
+			});
+			builder.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					if (rebootChoice == 0){
+						Toast.makeText(mContext, getResources().getString(R.string.rebooting), Toast.LENGTH_LONG).show();
+						Tools.shell("reboot");
+					}				
+					if (rebootChoice == 1){
+						Toast.makeText(mContext, getResources().getString(R.string.rebooting), Toast.LENGTH_LONG).show();
+						Tools.shell("reboot recovery");
+					}
+					aDialog.dismiss();			
+				}
+			});
+			builder.show();
 		}
 
 		class RunToolTask extends AsyncTask<Object, Void, Void> {

@@ -9,7 +9,9 @@
     <string name="boot_animation_folder">/ROMControl/BootAnimations/</string>
     <string name="opacityLabel">Alpha</string>
     <string name="change_theme">Theme</string>
-    <string name="restart_phone">Restart phone</string>
+    <string name="restart_phone_recovery">Reboot recovery</string>
+    <string name="restart_phone_recovery_summary">Restart Phone and boot into the recovery</string>
+    <string name="restart_phone">Reboot phone</string>
     <string name="restart_phone_summary">Restart Phone process to apply some of the above changes</string>
     <string name="restart_system">Restart SystemUI</string>
     <string name="restart_system_summary">Restart SystemUI process to apply some of the above changes</string>
@@ -17,6 +19,8 @@
     <string name="restart_launcher_summary">You must restart the Launcher to apply any of the above changes</string>
     <string name="reboot">Reboot</string>
     <string name="reboot_fully">Reboot system to allow changes to take effect</string>
+    <string name="reboot_options">Reboot options</string>
+    <string name="recovery">Recovery</string>
     <string name="list_summary">%s</string>
     <string name="none">None</string>
     <string name="settings">Settings</string>

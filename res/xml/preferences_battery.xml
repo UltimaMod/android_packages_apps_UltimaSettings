@@ -11,11 +11,7 @@
 		    android:title="@string/battery_percent_title"
 		    android:summary="@string/battery_percent_summary"
 		    android:defaultValue="false" />
-		
-		<Preference 
-		    android:key="tool#reboot"
-		    android:title="@string/restart_phone"
-		    android:summary="@string/restart_phone_summary"/>
+
 	</PreferenceScreen>
     
 </PreferenceScreen>

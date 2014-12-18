@@ -6,4 +6,9 @@
 	    android:title="@string/touchkey_backlight_title"
 	    android:summary="@string/enable_disable_question"
 	    android:defaultValue="true" />
-</PreferenceScreen>
+	
+	<Preference 
+		android:key="reboot_dialog"
+		android:title="@string/reboot_options" />
+
+	</PreferenceScreen>
