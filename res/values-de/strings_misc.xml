@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="touchkey_backlight_title">Touchkey backlight</string>
+    <string name="touchkey_backlight_message">Backlight set. Reboot to show effects</string>
+</resources>
