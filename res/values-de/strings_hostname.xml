@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hostname Activity Strings -->
+    <string name="title_activity_hostname">Set hostname</string>
+    <string name="action_settings">Settings</string>
+    <string name="hostname_info">Use the textbox below to enter a hostname for this device.\n\nMake sure it has no special characters and contains no spaces.</string>
+    <string name="hostname_set">Set hostname</string>
+    <string name="hostname_current">Current hostname</string>
+    <string name="hostname_original">Original hostname</string>
+    <string name="hostname_new">New hostname</string>
+    <string name="hostname_restore_original">Restore original</string>
+    <string name="hostname_title">Hostname</string>
+    <string name="hostname_summary">Change the hostname of your device as it appears on networks. Useful for managing and identifying multiple devices on a WLAN.</string>
+	<string name="hostname_incorrect_name">The hostname may only contain letters (a&#8211;zA&#8211;Z), numbers (0&#8211;9) and . or &#8211; as per a proper hostname.\n\nIt cannot contain any special characters or spaces and must be shorter than 255 characters.</string>
+</resources>
