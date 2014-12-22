@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="battery_settings">Akku</string>
-    <string name="battery_percent_title">Battery percent</string>
-    <string name="battery_percent_summary">Show the battery percent indicator (Reboot to take effect)</string>
+	<string name="battery_settings">Batterie</string>
+    <string name="battery_percent_title">Batterie-Prozentanzeige</string>
+    <string name="battery_percent_summary">Prozentanzeige für Ladezustand in Statuszeile anzeigen (benötigt Neustart).</string>
 </resources>
