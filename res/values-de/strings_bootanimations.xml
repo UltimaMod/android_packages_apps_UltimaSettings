@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Boot Animation Activity Strings -->
+    <string name="bootani_title">Boot Animation</string>
+    <string name="bootani_temp_folder">/UltimaROM/BootAnimations/temp/</string>
+    <string name="bootani_folder">/UltimaROM/BootAnimations/</string>
+    <string name="bootani_selected_file">Ausgewählte Datei</string>
+    <string name="bootani_help_title">Hilfe</string>
+    <string name="bootani_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
+    <string name="bootani_boot_toggle">Aktiviere/Deaktiviere Animation</string>
+    <string name="bootani_reboot_pref">Zeige Neustart-Dialog nach einer Auswahl?</string>
+    <string name="bootani_set_animation">Animation festlegen</string>
+    <string name="bootani_status">Status</string>
+    <string name="bootani_zip_type">Zip Format</string>
+    <string name="bootani_use_ors_title">OpenRecoveryScript verwenden</string>
+    <string name="bootani_use_ors_summary">Reboot and allow any CWM/TWRP flashable zips to be flashed and your device reboot with a single click, no user interaction required. The reboot toggle above is not honoured with this setting.</string>
+    <string name="bootani_invalid">Ungültig</string>
+    <string name="bootani_valid">Gültig</string>
+    <string name="bootani_animation_type">Normale Animation</string>
+    <string name="bootani_flashable_type">Flashable</string>
+    <string name="bootani_animationset_reboot">Animation festelgen&#8230; Neustart zum Ansehen</string>
+    <string name="bootani_no_file_selected">Keine Datei ausgewählt</string>
+    <string name="bootani_restore_default">Standard wiederherstellen</string>
+    <string name="bootani_already_default">Bereits Standard</string>
+    <string name="bootani_ors_is_disabled">Open Recovery Script disabled (see settings) Please reboot to recovery and flash manually. Alternatively, enable ORS in the settings.</string>
+    <string name="bootani_wipe_cache_title">Cache löschen</string>
+    <string name="bootani_wipe_cache_summary">Lösche /data/dalvik-cache und /cache wenn OpenRecoveryScript verwendet wird</string>
+</resources>

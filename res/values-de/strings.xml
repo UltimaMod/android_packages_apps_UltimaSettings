@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Strings -->
+    <string name="app_name">Benutzeroberfläche</string>
+    <string name="romcfg_folder">/mnt/sdcard/ROMControl/</string>
+    <string name="modcfg_folder">/mnt/sdcard/ROMControl</string>
+    <string name="boot_animation_extraction_folder">/ROMControl/BootAnimations/temp/</string>
+    <string name="boot_animation_folder">/ROMControl/BootAnimations/</string>
+    <string name="opacityLabel">Transparenz</string>
+    <string name="change_theme">Theme</string>
+    <string name="restart_phone_recovery">Neustart in Recovery</string>
+    <string name="restart_phone_recovery_summary">Restart Phone and boot into the recovery</string>
+    <string name="restart_phone">Telefon neu starten</string>
+    <string name="restart_phone_summary">Restart Phone process to apply some of the above changes</string>
+    <string name="restart_system">SystemUI neu starten</string>
+    <string name="restart_system_summary">Restart SystemUI process to apply some of the above changes</string>
+    <string name="restart_launcher">Launcher neu starten</string>
+    <string name="restart_launcher_summary">You must restart the Launcher to apply any of the above changes</string>
+    <string name="reboot">Neustart</string>
+    <string name="reboot_fully">Reboot system to allow changes to take effect</string>
+    <string name="reboot_options">Neustart-Optionen</string>
+    <string name="recovery">Recovery</string>
+    <string name="list_summary">%s</string>
+    <string name="none">Keine</string>
+    <string name="settings">Einstellungen</string>
+    <string name="select_colour">Farbe wählen</string>
+    <string name="press_color_to_apply">Klicke auf eine Farbe um sie auszuwählen</string>
+    <string name="color_picker_arrow">&#8594;</string>
+    <string name="hexcode_hint">Hexadezimalcode</string>  
+    <string name="information">Information</string>
+    <string name="position_top">Oben</string>
+    <string name="position_bottom">Unten</string>
+    <string name="misc_cat">Sonstiges</string> 
+	<string name="rebooting">Neu starten&#8230;</string>
+	<string name="reboot_device_question">Möchten Sie das Gerät neu starten?</string> 
+    <string name="not_available">N/A</string>
+    <string name="help">Hilfe</string>
+    <string name="error_selecting_file">Fehler beim Datei auswählen</string>
+    <string name="choose_file">Datei auswählen</string>
+    <string name="clear_file">Löschen</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="error">Fehler</string>
+    <string name="enabled">Aktiviert</string>
+    <string name="disabled">Deaktiviert</string>
+    <string name="enable_disable_question">Aktiviert oder Deaktiviert</string>
+</resources>

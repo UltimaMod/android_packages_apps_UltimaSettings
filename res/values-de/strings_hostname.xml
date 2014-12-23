@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hostname Activity Strings -->
+    <string name="title_activity_hostname">Hostname festlegen</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="hostname_info">Verwende das untere Textfeld um einen neuen Hostname für das Gerät festzulegen.\n\nBitte beachte, dass dieser keine Sonderzeichen oder Leerzeichen enthält.</string>
+    <string name="hostname_set">Hostname festlegen</string>
+    <string name="hostname_current">Aktueller Hostname</string>
+    <string name="hostname_original">Standard Hostname</string>
+    <string name="hostname_new">Neuer Hostname</string>
+    <string name="hostname_restore_original">Standard wiederherstellen</string>
+    <string name="hostname_title">Hostname</string>
+    <string name="hostname_summary">Ändere den Hostname Deines Geräts wie es in Netzwerken erscheinen soll. Sehr nützlich zum Verwalten und Identifizieren von mehreren Geräte im WLAN.</string>
+	<string name="hostname_incorrect_name">Der Hostname darf nur Buchstaben (a&#8211;zA&#8211;Z), Nummern (0&#8211;9) und . oder &#8211; enthalten.\n\nEr darf keine Sonderzeichen oder Leerzeichen enthalten und ist auf weniger als 255 Zeichen beschränkt.</string>
+</resources>
