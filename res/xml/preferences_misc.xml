@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android">
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:key="misc_settings">
+  	<Preference
+  	    android:icon="@drawable/ic_clock_widget"
+  	    android:title="@string/lock_clock" 
+  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" 
+  	    android:summary="@string/lock_clock_summary" />
+  	
 	<CheckBoxPreference 
 	    android:key="touch_key_backlight"
 	    android:title="@string/touchkey_backlight_title"
 	    android:summary="@string/enable_disable_question"
-	    android:defaultValue="true" />
+	    defaultValue="true" />
+	
+	<CheckBoxPreference 
+	    android:key="on_screen_controls"
+	    android:title="@string/on_screen_controls_title"
+	    android:summary="@string/on_screen_controls_summary"
+	    defaultValue="false" />
 	
 	<Preference 
 		android:key="reboot_dialog"
 		android:title="@string/reboot_options" />
 
-	</PreferenceScreen>
+</PreferenceScreen>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="status_bar">Status bar</string>
-    <string name="hide_alarm_icon">Alarm icon</string>
-    <string name="hide_alarm_icon_summary">Toggle the alarm icon next to the clock (toggle an alarm to take effect)</string>
+    <string name="hide_alarm_icon">Disable alarm icon</string>
+    <string name="hide_alarm_icon_summary">Toggle the alarm icon next to the clock (Toggle an alarm to refresh)</string>
+    <string name="four_gee_or_lte">Toggle 4G icon</string>
+    <string name="four_gee_or_lte_summary">Switch between 4G or LTE icon (Toggle data to refresh)</string>
 </resources>

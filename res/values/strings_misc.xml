@@ -3,4 +3,9 @@
 
     <string name="touchkey_backlight_title">Touchkey backlight</string>
     <string name="touchkey_backlight_message">Backlight set. Reboot to show effects</string>
+    <string name="lock_clock">Clock widget</string>
+    <string name="lock_clock_summary">Configure the clock widget</string>
+    <string name="lock_clock_not_installed">Clock widget is not installed</string>
+    <string name="on_screen_controls_title">On-screen navigation</string>
+    <string name="on_screen_controls_summary">Enable the on-screen navigation and disable the hardware capacitive buttons (Reboot to take effect)</string>
 </resources>

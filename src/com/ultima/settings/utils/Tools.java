@@ -144,6 +144,11 @@ public class Tools {
 		new BacklightTask().execute(ourValue);
 	}
 	
+	public void setOnScreenControls(Object value){
+		boolean ourValue = (Boolean) value;
+		new OnScreenControls().execute(ourValue);
+	}
+	
 	public static void setHostname(String hostname){
 		shell("setprop net.hostname " + hostname);
 	}
@@ -280,18 +285,38 @@ public class Tools {
 			String echoOff = "echo 0 > /sys/class/leds/button-backlight/max_brightness";
 			String file = "/system/etc/init.d/01ButtonBacklight";	
 			
-			shell("mount -o remount,rw /system"); // Remount as readable
+			shell("mount -o rw,remount /system"); // Remount as readable
 			shell("rm -rf " + file);
 			if(params[0]){
 				shell(echoOn);
-				shell("echo #!/system/bin/sh > " + file);
-				shell("echo '" + echoOn + "' > " + file);
+				shell("echo #!/system/bin/sh >> " + file);
+				shell("echo '" + echoOn + "' >> " + file);
 			} else {
 				shell(echoOff);
-				shell("echo #!/system/bin/sh > " + file);
-				shell("echo '" + echoOff + "' > " + file);
+				shell("echo #!/system/bin/sh >> " + file);
+				shell("echo '" + echoOff + "' >> " + file);
 			}
-			shell("mount -o remount,ro /system"); // remount as read-only, for safety
+			shell("mount -o ro,remount /system"); // remount as read-only, for safety
+			
+			return null;
+		}
+    }
+    
+    private class OnScreenControls extends AsyncTask<Boolean, Void, Void> {
+    	
+		@Override
+		protected Void doInBackground(Boolean... params) {
+			shell("mount -o rw,remount /system"); // Remount as readable
+			if(params[0]){ // Enable Controls
+				shell("echo 'qemu.hw.mainkeys=0' >> /system/build.prop");
+				shell("sed -i 's/key 139/#key 139/g' /system/usr/keylayout/Generic.kl"); // Menu
+				shell("sed -i 's/key 158/#key 158/g' /system/usr/keylayout/Generic.kl"); // Back
+			} else {
+				shell("sed -i 's/qemu.hw.mainkeys=0//g' /system/build.prop");
+				shell("sed -i 's/#key 139/key 139/g' /system/usr/keylayout/Generic.kl");
+				shell("sed -i 's/#key 158/key 158/g' /system/usr/keylayout/Generic.kl");
+			}
+			shell("mount -o ro,remount /system"); // remount as read-only, for safety
 			
 			return null;
 		}

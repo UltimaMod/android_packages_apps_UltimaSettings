@@ -35,6 +35,7 @@ import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
 import com.ultima.settings.utils.Tools;
+import com.ultima.settings.utils.Utils;
 
 import java.io.File;
 import java.util.HashSet;
@@ -42,7 +43,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
-	
+
 	private static Context mContext;
 
 	@Override
@@ -53,7 +54,7 @@ public class SettingsActivity extends Activity implements Constants {
 		mContext = this;
 		if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
-		
+
 	}
 
 	@Override
@@ -75,13 +76,13 @@ public class SettingsActivity extends Activity implements Constants {
 	public static class PrefsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 		ContentResolver cr;
 		private static final String LCAT = "PrefsFragment";
-		
+
 		private static String ROMCFG_FOLDER;
 		private static String MODCFG_FOLDER;
-		
+
 		private AlertDialog aDialog;
 		private Preference rebootDialog;
-		
+
 		private int rebootChoice;
 
 		@Override
@@ -92,6 +93,7 @@ public class SettingsActivity extends Activity implements Constants {
 			addPreferencesFromResource(R.xml.preferences_bootanimation);
 			addPreferencesFromResource(R.xml.preferences_hostname);
 			addPreferencesFromResource(R.xml.preferences_network_meter);
+			addPreferencesFromResource(R.xml.preferences_statusbar);
 
 			addPreferencesFromResource(R.xml.preferences_misc);
 
@@ -100,7 +102,7 @@ public class SettingsActivity extends Activity implements Constants {
 			cr = getActivity().getContentResolver();
 			initPrefs();
 			disablePrefs();
-			
+
 			rebootDialog = (Preference) findPreference("reboot_dialog");
 			rebootDialog.setOnPreferenceClickListener(this);
 		}
@@ -142,14 +144,14 @@ public class SettingsActivity extends Activity implements Constants {
 			}
 			return true;
 		}
-		
+
 		public void showRebootDialog() {
 			final CharSequence[] items={getResources().getString(R.string.reboot), getResources().getString(R.string.recovery)};
 			AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
 			aDialog = builder.create();
 
 			builder.setTitle(getResources().getString(R.string.reboot_options));
-			
+
 			builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
 
 				@Override
@@ -164,7 +166,7 @@ public class SettingsActivity extends Activity implements Constants {
 					aDialog.dismiss();	    	
 				}
 			});
-			
+
 			builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
 
 				@Override
@@ -435,6 +437,10 @@ public class SettingsActivity extends Activity implements Constants {
 				Tools tools = new Tools();
 				tools.setBacklightValue(value);
 			}
+			if (item.getKey().equals("on_screen_controls")) {
+				Tools tools = new Tools();
+				tools.setOnScreenControls(value);
+			}
 		}
 
 		private void initPrefs(){
@@ -447,12 +453,13 @@ public class SettingsActivity extends Activity implements Constants {
 
 		private void disablePrefs(){
 
-			//			//Remove Advanced Display from settings if it's not installed
-			//			if(!(Utils.appInstalled("com.cyanogenmod.settings.device"))){
-			//			    PreferenceCategory cat = (PreferenceCategory) findPreference("crt_category");
-			//				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings");
-			//				cat.removePreference(pref1);
-			//			}
+			//Remove Advanced Display from settings if it's not installed
+			if(!(Utils.appInstalled("com.cyanogenmod.lockclock"))){
+				Preference pref1 = (Preference) findPreference("activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences");
+				pref1.setEnabled(false);
+				pref1.setSummary(R.string.lock_clock_not_installed);
+			}
+			
 			//			
 			//            //Remove 4G option for non-4G phones
 			//            if(!Utils.doesPropExist("ro.product.name", "jfltexx")){

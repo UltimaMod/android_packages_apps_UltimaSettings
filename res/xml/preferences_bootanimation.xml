@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="boot_animation">
     <Preference 
         android:icon="@drawable/ic_bootanimation" 
         android:title="@string/bootani_title" 
