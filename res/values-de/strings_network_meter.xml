@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Network traffic -->
+     <string name="network_traffic">Netzwerk-Traffic</string>
+     <string name="network_traffic_state">Statuszeile Traffic-Monitor</string>
+     <string name="network_traffic_unit">Einheit</string>
+     <string name="network_traffic_frequency">Aktualisierungsintervall</string>
+     <string name="network_traffic_disable">Deaktiviert</string>
+     <string name="network_traffic_up">Ausgehend</string>
+     <string name="network_traffic_down">Eingehend</string>
+     <string name="network_traffic_all">Ausgehend und Eingehend</string>
+     <string name="network_traffic_bit">Bits pro Sekunde</string>
+     <string name="network_traffic_byte">Bytes pro Sekunde</string>
+     <string name="network_traffic_500">500 ms</string>
+     <string name="network_traffic_1000">1000 ms</string>
+     <string name="network_traffic_1500">1500 ms</string>
+     <string name="network_traffic_2000">2000 ms</string>
+     
+     <string name="network_traffic_hide_inactivity">Bei Inaktivität ausblenden</string>
+     <string name="network_traffic_hide_inactivity_summary">Indikatoren ausblenden, sofern keine Netzwerkaktivität festgestellt wird</string>
+     <string name="network_traffic_text">Bezeichnung</string>
+     <string name="network_traffic_text_summary">Zeige ein U und D für Upload und Download neben den zugehörigen Werten</string>
+     <string name="network_traffic_icon">Symbol</string>
+     <string name="network_traffic_icon_summary">Zeige ein kleines Symbol neben den Indikatoren</string>
+     <string name="network_traffic_color_up">Upload Textfarbe</string>
+     <string name="network_traffic_color_up_summary">Wähle eine Farbe für den Upload Text</string>
+     <string name="network_traffic_color_down">Download Textfarbe</string>
+     <string name="network_traffic_color_down_summary">Wähle eine Farbe für den Download Text</string>
+     <string name="network_traffic_color_icon">Symbolfarbe</string>
+     <string name="network_traffic_color_icon_summary">Wähle eine Farbe für das Symbol</string>
+</resources>
