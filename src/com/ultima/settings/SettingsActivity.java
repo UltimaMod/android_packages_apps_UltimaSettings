@@ -91,6 +91,7 @@ public class SettingsActivity extends Activity implements Constants {
 			//Add preferences - made them modular, so they're easier to layout
 			addPreferencesFromResource(R.xml.preferences_battery);
 			addPreferencesFromResource(R.xml.preferences_bootanimation);
+			addPreferencesFromResource(R.xml.preferences_buttons);
 			addPreferencesFromResource(R.xml.preferences_hostname);
 			addPreferencesFromResource(R.xml.preferences_network_meter);
 			addPreferencesFromResource(R.xml.preferences_statusbar);
@@ -440,6 +441,10 @@ public class SettingsActivity extends Activity implements Constants {
 			if (item.getKey().equals("on_screen_controls")) {
 				Tools tools = new Tools();
 				tools.setOnScreenControls(value);
+			}
+			if (item.getKey().equals("disable_hardware_buttons")) {
+				Tools tools = new Tools();
+				tools.setHardwareButtons(value);
 			}
 		}
 

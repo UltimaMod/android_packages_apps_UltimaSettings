@@ -149,6 +149,11 @@ public class Tools {
 		new OnScreenControls().execute(ourValue);
 	}
 	
+	public void setHardwareButtons(Object value){
+		boolean ourValue = (Boolean) value;
+		new HardwareButtons().execute(ourValue);
+	}
+	
 	public static void setHostname(String hostname){
 		shell("setprop net.hostname " + hostname);
 	}
@@ -309,10 +314,24 @@ public class Tools {
 			shell("mount -o rw,remount /system"); // Remount as readable
 			if(params[0]){ // Enable Controls
 				shell("echo 'qemu.hw.mainkeys=0' >> /system/build.prop");
+			} else {
+				shell("sed -i 's/qemu.hw.mainkeys=0//g' /system/build.prop");
+			}
+			shell("mount -o ro,remount /system"); // remount as read-only, for safety
+			
+			return null;
+		}
+    }
+    
+private class HardwareButtons extends AsyncTask<Boolean, Void, Void> {
+    	
+		@Override
+		protected Void doInBackground(Boolean... params) {
+			shell("mount -o rw,remount /system"); // Remount as readable
+			if(params[0]){ // Enable Controls
 				shell("sed -i 's/key 139/#key 139/g' /system/usr/keylayout/Generic.kl"); // Menu
 				shell("sed -i 's/key 158/#key 158/g' /system/usr/keylayout/Generic.kl"); // Back
 			} else {
-				shell("sed -i 's/qemu.hw.mainkeys=0//g' /system/build.prop");
 				shell("sed -i 's/#key 139/key 139/g' /system/usr/keylayout/Generic.kl");
 				shell("sed -i 's/#key 158/key 158/g' /system/usr/keylayout/Generic.kl");
 			}

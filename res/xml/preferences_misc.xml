@@ -7,20 +7,9 @@
   	    android:title="@string/lock_clock" 
   	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" 
   	    android:summary="@string/lock_clock_summary" />
-  	
-	<CheckBoxPreference 
-	    android:key="touch_key_backlight"
-	    android:title="@string/touchkey_backlight_title"
-	    android:summary="@string/enable_disable_question"
-	    defaultValue="true" />
-	
-	<CheckBoxPreference 
-	    android:key="on_screen_controls"
-	    android:title="@string/on_screen_controls_title"
-	    android:summary="@string/on_screen_controls_summary"
-	    defaultValue="false" />
 	
 	<Preference 
+	    android:icon="@drawable/ic_reboot"
 		android:key="reboot_dialog"
 		android:title="@string/reboot_options" />
 
