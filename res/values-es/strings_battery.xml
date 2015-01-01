@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="battery_settings">Batería</string>
-    <string name="battery_percent_title">Porcentaje de batería</string>
-    <string name="battery_percent_summary">Mostrar un indicador con el porcentaje de carga en el icono de batería</string>
+	<string name="battery_settings">BaterÃ­a</string>
+    <string name="battery_percent_title">Porcentaje de baterÃ­a</string>
+    <string name="battery_percent_summary">Mostrar un indicador con el porcentaje de carga en el icono de baterÃ­a</string>
 </resources>

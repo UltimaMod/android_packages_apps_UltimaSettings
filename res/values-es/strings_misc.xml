@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lock_clock">Widget reloj (clock)</string>
-    <string name="lock_clock_summary">Configurar el widget reloj (clock)</string>
-    <string name="lock_clock_not_installed">El widget reloj (clock) no está instalado</string>
+    <string name="lock_clock">Widget reloj</string>
+    <string name="lock_clock_summary">Configurar el widget reloj (cLock)</string>
+    <string name="lock_clock_not_installed">El widget reloj (cLock) no está instalado</string>
 </resources>
