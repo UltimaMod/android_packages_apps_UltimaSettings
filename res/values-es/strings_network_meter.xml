@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Network traffic -->
+     <string name="network_traffic">Tráfico de red</string>
+     <string name="network_traffic_state">Monitor de tráfico en barra de estado</string>
+     <string name="network_traffic_unit">Unidades</string>
+     <string name="network_traffic_frequency">Intervalo de refresco</string>
+     <string name="network_traffic_disable">Desactivado</string>
+     <string name="network_traffic_up">Salida</string>
+     <string name="network_traffic_down">Entrada</string>
+     <string name="network_traffic_all">Salida y entrada</string>
+     <string name="network_traffic_bit">Bits por segundo</string>
+     <string name="network_traffic_byte">Bytes por segundo</string>
+     <string name="network_traffic_500">500 ms</string>
+     <string name="network_traffic_1000">1000 ms</string>
+     <string name="network_traffic_1500">1500 ms</string>
+     <string name="network_traffic_2000">2000 ms</string>
+     
+     <string name="network_traffic_hide_inactivity">Ocultar inactividad</string>
+     <string name="network_traffic_hide_inactivity_summary">Ocultar el indicador si no ha habido actividad de red</string>
+     <string name="network_traffic_text">Etiquetas</string>
+     <string name="network_traffic_text_summary">Mostrar U y D para Upload y Download junto a sus valores</string>
+     <string name="network_traffic_icon">Icono</string>
+     <string name="network_traffic_icon_summary">Mostrar un pequeño icono junto al indicador</string>
+     <string name="network_traffic_color_up">Color del texto de Upload</string>
+     <string name="network_traffic_color_up_summary">Establecer color del texto Upload (subida)</string>
+     <string name="network_traffic_color_down">Color del texto de Download</string>
+     <string name="network_traffic_color_down_summary">Establecer color del texto de Download (descarga)</string>
+     <string name="network_traffic_color_icon">Color del icono</string>
+     <string name="network_traffic_color_icon_summary">Establecer el color del icono</string>
+</resources>

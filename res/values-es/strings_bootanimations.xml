@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Boot Animation Activity Strings -->
+    <string name="bootani_title">Animación de inicio</string>
+    <string name="bootani_temp_folder">/UltimaROM/BootAnimations/temp/</string>
+    <string name="bootani_folder">/UltimaROM/BootAnimations/</string>
+    <string name="bootani_selected_file">Archivo seleccionado</string>
+    <string name="bootani_help_title">Ayuda</string>
+    <string name="bootani_help">Puede emplear esta utilidad para instalar animaciones de inicio 	que vengan en formato bootanimation.zip. El zip puede tener cualquier nombre, pero no debe ser un zip flasheable. El instalador no le permitirá proseguir a no ser que se trate de un archivo apropiado.</string>
+    <string name="bootani_boot_toggle">Habilitar/Deshabilitar animación</string>
+    <string name="bootani_reboot_pref">¿Mostrar el diálogo de reinicio después de realizar la selección?</string>
+    <string name="bootani_set_animation">Establecer animación</string>
+    <string name="bootani_status">Estado</string>
+    <string name="bootani_zip_type">Tipo de Zip</string>
+    <string name="bootani_use_ors_title">Utilizar Open Recovery Script</string>
+    <string name="bootani_use_ors_summary">Reiniciar y permitir instalar zips flasheables desde CWM/TWRP y reiniciar su dispositivo con un simple click, no requiere interacción del usuario. La opción de reinicio anterior no permite este ajuste.</string>
+    <string name="bootani_invalid">No válido</string>
+    <string name="bootani_valid">Válido</string>
+    <string name="bootani_animation_type">Animación normal</string>
+    <string name="bootani_flashable_type">Flasheable</string>
+    <string name="bootani_animationset_reboot">Animación instalada&#8230; Reinicie para visualizarla</string>
+    <string name="bootani_no_file_selected">Ningún archivo seleccionado</string>
+    <string name="bootani_restore_default">Restaurar por defecto</string>
+    <string name="bootani_already_default">Actualmente por defecto</string>
+    <string name="bootani_ors_is_disabled">Open Recovery Script deshabilitado (vea ajustes). Por favor reinicie en modo recovery y flashee manualmente. Alternativemente, habilite ORS en los ajustes.</string>
+    <string name="bootani_wipe_cache_title">Eliminar cachés</string>
+    <string name="bootani_wipe_cache_summary">Eliminar /data/dalvik-cache y /cache cuando se usa open recovery script</string>
+</resources>

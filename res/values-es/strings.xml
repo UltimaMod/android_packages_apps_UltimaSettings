@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Strings -->
+    <string name="app_name">Interface</string>
+    <string name="romcfg_folder">/mnt/sdcard/ROMControl/</string>
+    <string name="modcfg_folder">/mnt/sdcard/ROMControl</string>
+    <string name="boot_animation_extraction_folder">/ROMControl/BootAnimations/temp/</string>
+    <string name="boot_animation_folder">/ROMControl/BootAnimations/</string>
+    <string name="opacityLabel">Alpha</string>
+    <string name="change_theme">Tema</string>
+    <string name="restart_phone_recovery">Reiniciar en recovery</string>
+    <string name="restart_phone_recovery_summary">Reiniciar Teléfono y arrancar en modo recovery</string>
+    <string name="restart_phone">Reiniciar teléfono</string>
+    <string name="restart_phone_summary">Reiniciar el teléfono para aplicar algunos de los cambios anteriores</string>
+    <string name="restart_system">Reiniciar SystemUI</string>
+    <string name="restart_system_summary">Reiniciar el proceso SystemUI para aplicar algunos de los cambios anteriores</string>
+    <string name="restart_launcher">Reiniciar Launcher</string>
+    <string name="restart_launcher_summary">Debe reiniciar el Launcher para aplicar algunos de los cambios anteriores</string>
+    <string name="reboot">Reiniciar</string>
+    <string name="reboot_fully">Reiniciar el sistema para hacer efectivos los cambios</string>
+    <string name="reboot_options">Opciones de reinicio</string>
+    <string name="recovery">Recovery</string>
+    <string name="list_summary">%s</string>
+    <string name="none">Ninguno</string>
+    <string name="settings">Ajustes</string>
+    <string name="select_colour">Selector de color</string>
+    <string name="press_color_to_apply">Pulse un color para establecerlo</string>
+    <string name="color_picker_arrow">&#8594;</string>
+    <string name="hexcode_hint">Código Hex</string>  
+    <string name="information">Información</string>
+    <string name="position_top">Arriba</string>
+    <string name="position_bottom">Abajo</string>
+    <string name="misc_cat">Misc</string> 
+	<string name="rebooting">Reiniciando&#8230;</string>
+	<string name="reboot_device_question">¿Reiniciar el dispositivo?</string> 
+    <string name="not_available">N/D</string>
+    <string name="help">Ayuda</string>
+    <string name="error_selecting_file">Error al seleccionar archivo</string>
+    <string name="choose_file">Seleccione archivo</string>
+    <string name="clear_file">Borrar</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error">Error</string>
+    <string name="enabled">Habilitado</string>
+    <string name="disabled">Deshabilitado</string>
+    <string name="enable_disable_question">Habilitar o deshabilitar</string>
+</resources>

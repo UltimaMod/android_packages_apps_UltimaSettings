@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="status_bar">Barra de estado</string>
+    <string name="hide_alarm_icon">Deshabilitar icono de alarma</string>
+    <string name="hide_alarm_icon_summary">Mostrar/ocultar el icono de alarma junto al reloj (Active una alarma para actualizar)</string>
+    <string name="four_gee_or_lte">Alternar icono 4G</string>
+    <string name="four_gee_or_lte_summary">Alternar entre el icono 4G o LTE (Active los datos para actualizar)</string>
+</resources>
