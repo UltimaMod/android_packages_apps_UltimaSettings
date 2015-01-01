@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="button_settings">Botones</string>
+    <string name="touchkey_backlight_title">Retroiluminación teclas táctiles</string>
+    <string name="touchkey_backlight_message">Retroiluminación establecida. Reinicie para hacerlo efectivo</string>
+    <string name="on_screen_controls_title">Navegación en pantalla</string>
+    <string name="on_screen_controls_summary">Habilitar la navegación en pantalla (Reinicie para hacerlo efectivo)</string>
+    <string name="disable_hardware_buttons_title">Deshabilitar teclas táctiles</string>
+    <string name="disable_hardware_buttons_summary">Deshabilitar los botones físicos. Útil cuando se muestran los botones en pantalla (Reinicie para hacerlo efectivo)</string>
+</resources>

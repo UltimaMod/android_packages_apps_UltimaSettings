@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hostname Activity Strings -->
+    <string name="title_activity_hostname">Establecer nombre del sistema</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="hostname_info">Introduzca un nombre de sistema para este dispositivo en el cuadro de texto inferior.\n\nAsegúrese de que no contiene caracteres especiales ni espacios.</string>
+    <string name="hostname_set">Establecer nombre del sistema</string>
+    <string name="hostname_current">Nombre actual</string>
+    <string name="hostname_original">Nombre original</string>
+    <string name="hostname_new">Nuevo nombre</string>
+    <string name="hostname_restore_original">Restaurar nombre original</string>
+    <string name="hostname_title">Nombre del sistema</string>
+    <string name="hostname_summary">Cambia el nombre del sistema de su dispositivo nombre tal y como se muestra en las redes. Útil para gestionar e identificar múltiples dispositivos en una WLAN.</string>
+	<string name="hostname_incorrect_name">El nombre del sistema sólo puede contener letras (a&#8211;zA&#8211;Z), números (0&#8211;9) y . o &#8211; para ser correcto.\n\nNo puede incluir caracteres especiales ni espacios y debe tener una longitud inferior a 255 caracteres.</string>
+</resources>
