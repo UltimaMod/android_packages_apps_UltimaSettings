@@ -19,10 +19,21 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="RagnarTheme.Dark" parent="@android:style/Theme.Material.Settings">
+    <style name="RagnarTheme.Dark" parent="@android:style/Theme.Material">
 		<item name="alertIcon">@drawable/ic_alert_dark</item>
 		<item name="menuIcon">@drawable/ic_menu_dark</item>
 		<item name="settingsIcon">@drawable/ic_settings_dark</item>
+		<item name="android:colorPrimary">@color/material_primary</item>
+	    <item name="android:colorPrimaryDark">@color/material_primary_dark</item>
+	    <item name="android:colorAccent">@color/material_accent</item>	    
+	    <item name="android:windowBackground">@drawable/material_background_dark</item>
+    </style>
+    
+    <style name="RagnarTheme.Light" parent="@android:style/Theme.Material.Settings">
+		<item name="alertIcon">@drawable/ic_alert_dark</item>
+		<item name="menuIcon">@drawable/ic_menu_dark</item>
+		<item name="settingsIcon">@drawable/ic_settings_dark</item>
+		
     </style>
 
 </resources>

@@ -48,7 +48,21 @@ public class SettingsActivity extends Activity implements Constants {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+				
+		
+		Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        
+        if(bundle != null) {
+            int data = (Integer) bundle.get("theme");
+            int theme = data;
+			Preferences.setTheme(theme);
+        } else {
+        	Preferences.setTheme(0);
+        }
+        
 		setTheme(Preferences.getTheme());
+		
 		Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
 		super.onCreate(savedInstanceState);
 		mContext = this;

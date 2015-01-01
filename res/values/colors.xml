@@ -24,4 +24,14 @@
     
     <color name="material_teal">#009688</color>
     <color name="material_red">#F44336</color>
+    
+    <color name="material_primary">#ff263238</color>
+    <color name="material_primary_dark">#ff21272b</color>
+    <color name="material_accent">#ff009688</color>
+       
+    <color name="material_background_dark">#1f292f</color>
+    <color name="material_background_light">@color/white</color>
+    
+    <color name="material_card_background_dark">#37474f</color>
+    <color name="material_card_background_light">@color/white</color>
 </resources>

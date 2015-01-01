@@ -81,11 +81,15 @@ public class Preferences implements Constants{
 	
 	public static int getTheme()
 	{		
-		return R.style.RagnarTheme_Dark;
+		if(getCurrentTheme() == 0) { 
+			return R.style.RagnarTheme_Light;
+		} else {
+			return R.style.RagnarTheme_Dark;
+		}
 	}
 	
 	public static int getCurrentTheme(){
-		return getPrefs().getInt(CURRENT_THEME, 2); // #2 is the Dark Theme
+		return getPrefs().getInt(CURRENT_THEME, 0); // #2 is the Dark Theme
 	}
 	
 	// Prefs
