@@ -8,9 +8,11 @@
   	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" 
   	    android:summary="@string/lock_clock_summary" />
 	
-	<Preference 
+	<CheckBoxPreference 
 	    android:icon="@drawable/ic_reboot"
-		android:key="reboot_dialog"
-		android:title="@string/reboot_options" />
+		android:key="system_pref_power_menu"
+		android:title="@string/reboot_menu"
+		android:summary="@string/reboot_menu_summary"
+		android:defaultValue="false" />
 
 </PreferenceScreen>

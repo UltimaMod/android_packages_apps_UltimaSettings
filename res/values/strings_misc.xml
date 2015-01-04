@@ -4,4 +4,7 @@
     <string name="lock_clock">Clock widget</string>
     <string name="lock_clock_summary">Configure the clock widget</string>
     <string name="lock_clock_not_installed">Clock widget is not installed</string>
+    
+    <string name="reboot_menu">Advanced power menu</string>
+    <string name="reboot_menu_summary">Enable the advanced power menu for reboot options</string>
 </resources>
