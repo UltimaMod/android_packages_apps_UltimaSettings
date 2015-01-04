@@ -6,13 +6,22 @@
         android:icon="@drawable/ic_battery" 
         android:title="@string/battery_settings" 
         android:key="battery">
-        
-		<CheckBoxPreference 
-		    android:key="status_bar_show_battery_percent"
-		    android:title="@string/battery_percent_title"
-		    android:summary="@string/battery_percent_summary"
-		    android:defaultValue="false" />
+
+		<com.ultima.settings.preferences.UltimaListPreference
+	        android:key="status_bar_battery_style"
+	        android:title="@string/status_bar_battery_style_title"
+	        android:summary="@string/list_summary"
+	        android:dialogTitle="@string/status_bar_battery_style_title"
+	        android:entries="@array/status_bar_battery_style_entries"
+	        android:entryValues="@array/status_bar_battery_style_values" />
+
+   		 <com.ultima.settings.preferences.UltimaListPreference
+	        android:key="status_bar_show_battery_percent"
+	        android:title="@string/status_bar_battery_percentage_title"
+	        android:summary="@string/list_summary"
+	        android:dialogTitle="@string/status_bar_battery_percentage_dialog_title"
+	        android:entries="@array/status_bar_battery_percentage_entries"
+	        android:entryValues="@array/status_bar_battery_percentage_values" />
 
 	</PreferenceScreen>
-    
 </PreferenceScreen>
