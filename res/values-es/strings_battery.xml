@@ -2,5 +2,20 @@
 <resources>
 	<string name="battery_settings">Batería</string>
     <string name="battery_percent_title">Porcentaje de batería</string>
-    <string name="battery_percent_summary">Mostrar un indicador con el porcentaje de carga en el icono de batería</string>
+    <string name="battery_percent_summary">Mostrar el indicador de porcentaje de batería (Reinicie para hacerlo efectivo)</string>
+    
+    <!-- Status bar - Battery -->
+    <string name="status_bar_battery_style_title">Estilo de estado de batería</string>
+    <string name="status_bar_battery_style_icon_portrait">Icono vertical</string>
+    <string name="status_bar_battery_style_icon_landscape">Icono horizontal</string>
+    <string name="status_bar_battery_style_circle">Círculo</string>
+    <string name="status_bar_battery_style_text">Texto</string>
+    <string name="status_bar_battery_style_hidden">Oculto</string>
+
+    <!-- Status bar - Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Mostrar porcentaje de batería</string>
+    <string name="status_bar_battery_percentage_dialog_title">Porcentaje de batería</string>
+    <string name="status_bar_battery_percentage_default">Oculto (por defecto)</string>
+    <string name="status_bar_battery_percentage_text_inside">Dentro del icono</string>
+    <string name="status_bar_battery_percentage_text_next">Junto al icono</string>
 </resources>
