@@ -45,4 +45,5 @@
     <string name="enabled">Enabled</string>
     <string name="disabled">Disabled</string>
     <string name="enable_disable_question">Enable or Disable</string>
+    <string name="root_required">Root required</string>
 </resources>

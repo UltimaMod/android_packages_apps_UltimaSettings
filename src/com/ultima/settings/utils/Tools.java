@@ -135,8 +135,8 @@ public class Tools {
     	return out;
 	}
 	
-	public static void getRoot(){
-			RootTools.isAccessGiven();
+	public static boolean getRoot(){
+			return RootTools.isAccessGiven();
 	}
 	
 	public void setBacklightValue(Object value){
