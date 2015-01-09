@@ -45,4 +45,5 @@
     <string name="enabled">Habilitado</string>
     <string name="disabled">Deshabilitado</string>
     <string name="enable_disable_question">Habilitar o deshabilitar</string>
+    <string name="root_required">Requiere root</string>
 </resources>
