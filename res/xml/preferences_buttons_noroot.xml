@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:key="batterysettings">
+  <PreferenceScreen 
+        android:icon="@drawable/ic_buttons" 
+        android:title="@string/button_settings" 
+        android:key="buttons"
+        android:enabled="false"
+  		android:summary="@string/root_required">
+        
+		<CheckBoxPreference 
+		    android:key="touch_key_backlight"
+		    android:title="@string/touchkey_backlight_title"
+		    android:summary="@string/enable_disable_question"
+		    android:defaultValue="true" />
+	
+		<CheckBoxPreference 
+		    android:key="on_screen_controls"
+		    android:title="@string/on_screen_controls_title"
+		    android:summary="@string/on_screen_controls_summary"
+		    android:defaultValue="false" />
+		
+		<CheckBoxPreference 
+		    android:key="disable_hardware_buttons"
+		    android:title="@string/disable_hardware_buttons_title"
+		    android:summary="@string/disable_hardware_buttons_summary"
+		    android:defaultValue="false" />
+
+	</PreferenceScreen>
+    
+</PreferenceScreen>

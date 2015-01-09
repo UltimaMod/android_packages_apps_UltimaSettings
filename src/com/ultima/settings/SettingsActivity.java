@@ -61,7 +61,6 @@ public class SettingsActivity extends Activity implements Constants {
         
 		setTheme(Preferences.getTheme());
 		
-		Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
 		super.onCreate(savedInstanceState);
 		if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
@@ -90,15 +89,27 @@ public class SettingsActivity extends Activity implements Constants {
 
 		private static String ROMCFG_FOLDER;
 		private static String MODCFG_FOLDER;
+		
+		boolean mIsRoot;
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			
+			mIsRoot = Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
+			
 			//Add preferences - made them modular, so they're easier to layout
 			addPreferencesFromResource(R.xml.preferences_battery);
-			addPreferencesFromResource(R.xml.preferences_bootanimation);
-			addPreferencesFromResource(R.xml.preferences_buttons);
-			addPreferencesFromResource(R.xml.preferences_hostname);
+			if(mIsRoot){
+				addPreferencesFromResource(R.xml.preferences_bootanimation);
+				addPreferencesFromResource(R.xml.preferences_buttons);
+				addPreferencesFromResource(R.xml.preferences_hostname);
+			} else {
+				addPreferencesFromResource(R.xml.preferences_bootanimation_noroot);
+				addPreferencesFromResource(R.xml.preferences_buttons_noroot);
+				addPreferencesFromResource(R.xml.preferences_hostname_noroot);
+			}
+
 			addPreferencesFromResource(R.xml.preferences_network_meter);
 			addPreferencesFromResource(R.xml.preferences_statusbar);
 
@@ -420,48 +431,11 @@ public class SettingsActivity extends Activity implements Constants {
 				pref1.setEnabled(false);
 				pref1.setSummary(R.string.lock_clock_not_installed);
 			}
-			
-			//			
-			//            //Remove 4G option for non-4G phones
-			//            if(!Utils.doesPropExist("ro.product.name", "jfltexx")){
-			//                UltimaCheckboxPreference preference = (UltimaCheckboxPreference) findPreference("system_pref_show_4g");
-			//                PreferenceScreen preferenceScreen = (PreferenceScreen) findPreference("screen_signal_icons");
-			//                preferenceScreen.removePreference(preference);
-			//            }
 		}
 
 		private void disableListItems(ListPreference item){
 
-			//            if(item.getKey().equals("system_pref_battery_style")){
-			//                // Remove the battery 40% setting if we're not using the battery icon
-			//                ColorPickerPreference pref40pc = 
-			//                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color_forty");
-			//                UltimaSwitchPreference prefBatterypc = 
-			//                        (UltimaSwitchPreference) findPreference("status_bar_show_battery_percent");
-			//                ColorPickerPreference prefBatterypcColor = 
-			//                        (ColorPickerPreference) findPreference("status_bar_battery_percent_color");
-			//                int setting = Settings.System.getInt(
-			//                        mContext.getContentResolver(), "system_pref_battery_style", 0);
-			//                if(setting != 0){                 
-			//                    pref40pc.setEnabled(false);
-			//                    pref40pc.setSummary("Only available for battery icon");
-			//                } else {
-			//                    pref40pc.setEnabled(true);
-			//                    pref40pc.setSummary(R.string.battery_text_percent_colour_40_summary);
-			//                }
-			//                
-			//                if(setting == 3){
-			//                    prefBatterypc.setEnabled(false);
-			//                    prefBatterypc.setSummary("Only available for battery text only option");
-			//                    prefBatterypcColor.setEnabled(false);
-			//                    prefBatterypcColor.setSummary("Only available for battery text only option");
-			//                } else {
-			//                    prefBatterypc.setEnabled(true);
-			//                    prefBatterypc.setSummary(R.string.battery_percent_summary);
-			//                    prefBatterypcColor.setEnabled(true);
-			//                    prefBatterypcColor.setSummary(R.string.battery_text_colour_summary);
-			//                }
-			//            }
+
 		}
 
 
