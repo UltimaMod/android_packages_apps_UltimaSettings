@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="settings_music_controls">
+	<PreferenceScreen android:title="@string/music_controls_title"
+	    android:key="music_controls"
+	    android:icon="@drawable/ic_music_controls">
+	    <SwitchPreference 
+	        android:title="@string/music_controls_enable" 
+	        android:key="enable_music_controls" 
+	        defaultValue="false" />
+	    <com.ultima.settings.preferences.UltimaListPreference 
+	        android:entries="@array/music_controls_button_titles" 
+	        android:title="@string/music_controls_volume_up_action" 
+	        android:key="volume_up_action" 
+	        android:dependency="enable_music_controls" 
+	        defaultValue="0" 
+	        android:positiveButtonText="@null" 
+	        android:negativeButtonText="@null" 
+	        android:entryValues="@array/music_controls_button_values"
+	        android:summary="@string/list_summary" />
+	    <com.ultima.settings.preferences.UltimaListPreference 
+	        android:entries="@array/music_controls_button_titles" 
+	        android:title="@string/music_controls_volume_down_action" 
+	        android:key="volume_down_action" 
+	        android:dependency="enable_music_controls"
+	        defaultValue="3" 
+	        android:positiveButtonText="@null" 
+	        android:negativeButtonText="@null" 
+	        android:entryValues="@array/music_controls_button_values"
+	        android:summary="@string/list_summary" />
+	    <com.ultima.settings.preferences.UltimaListPreference 
+	        android:entries="@array/music_controls_timeout_titles" 
+	        android:title="@string/music_controls_timeout" 
+	        android:key="music_controls_timeout" 
+	        android:dependency="enable_music_controls" 
+	        defaultValue="4" 
+	        android:positiveButtonText="@null" 
+	        android:negativeButtonText="@null" 
+	        android:entryValues="@array/music_controls_timeout_values"
+	        android:summary="@string/list_summary" />
+	</PreferenceScreen>
+</PreferenceScreen>

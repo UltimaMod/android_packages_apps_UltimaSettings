@@ -9,19 +9,19 @@
         android:enabled="false"
   		android:summary="@string/root_required">
         
-		<CheckBoxPreference 
+		<CheckBoxPreference  
 		    android:key="touch_key_backlight"
 		    android:title="@string/touchkey_backlight_title"
 		    android:summary="@string/enable_disable_question"
 		    android:defaultValue="true" />
 	
-		<CheckBoxPreference 
+		<CheckBoxPreference  
 		    android:key="on_screen_controls"
 		    android:title="@string/on_screen_controls_title"
 		    android:summary="@string/on_screen_controls_summary"
 		    android:defaultValue="false" />
 		
-		<CheckBoxPreference 
+		<CheckBoxPreference  
 		    android:key="disable_hardware_buttons"
 		    android:title="@string/disable_hardware_buttons_title"
 		    android:summary="@string/disable_hardware_buttons_summary"

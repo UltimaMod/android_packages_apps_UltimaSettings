@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference 
+    <CheckBoxPreference  
         android:title="@string/reboot" 
         android:key="bootani_reboot_after_selection" 
         android:summary="@string/bootani_reboot_pref" 
         android:defaultValue="false" />
-    <CheckBoxPreference 
+    <CheckBoxPreference  
         android:title="@string/bootani_use_ors_title" 
         android:key="bootani_use_open_recovery_script" 
         android:summary="@string/bootani_use_ors_summary" 
         android:defaultValue="false" />
-    <CheckBoxPreference 
+    <CheckBoxPreference  
         android:title="@string/bootani_wipe_cache_title"
         android:key="bootani_wipe_cache"
         android:summary="@string/bootani_wipe_cache_summary"

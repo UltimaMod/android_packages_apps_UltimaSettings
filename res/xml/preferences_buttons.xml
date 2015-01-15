@@ -7,23 +7,23 @@
         android:title="@string/button_settings" 
         android:key="buttons">
         
-		<CheckBoxPreference 
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="touch_key_backlight"
 		    android:title="@string/touchkey_backlight_title"
 		    android:summary="@string/enable_disable_question"
-		    android:defaultValue="true" />
+		    defaultValue="1" />
 	
-		<CheckBoxPreference 
-		    android:key="on_screen_controls"
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
+		    android:key="system_pref_enable_navigation_bar"
 		    android:title="@string/on_screen_controls_title"
 		    android:summary="@string/on_screen_controls_summary"
-		    android:defaultValue="false" />
+		    defaultValue="0" />
 		
-		<CheckBoxPreference 
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="disable_hardware_buttons"
 		    android:title="@string/disable_hardware_buttons_title"
 		    android:summary="@string/disable_hardware_buttons_summary"
-		    android:defaultValue="false" />
+		    defaultValue="0" />
 
 	</PreferenceScreen>
     

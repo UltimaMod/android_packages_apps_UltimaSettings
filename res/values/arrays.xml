@@ -62,4 +62,45 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    
+    <string-array name="music_controls_button_titles">
+        <item>@string/music_controls_next</item>
+        <item>@string/music_controls_pause</item>
+        <item>@string/music_controls_pause_play</item>
+        <item>@string/music_controls_prev</item>
+    </string-array>
+    <string-array name="music_controls_button_values">
+        <item>87</item>
+        <item>127</item>
+        <item>85</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="music_controls_timeout_titles">
+        <item>100ms</item>
+        <item>200ms</item>
+        <item>300ms</item>
+        <item>400ms</item>
+        <item>500ms</item>
+    </string-array>
+    <string-array name="music_controls_timeout_values">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="volume_panel_timeout_titles">
+        <item>500ms</item>
+        <item>1s</item>
+        <item>2s</item>
+        <item>3s(default)</item>
+        <item>4s</item>
+    </string-array>
+    <string-array name="volume_panel_timeout_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+    </string-array>
 </resources>
