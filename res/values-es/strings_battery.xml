@@ -2,7 +2,7 @@
 <resources>
 	<string name="battery_settings">Batería</string>
     <string name="battery_percent_title">Porcentaje de batería</string>
-    <string name="battery_percent_summary">Mostrar el indicador de porcentaje de batería (Reinicie para hacerlo efectivo)</string>
+    <string name="battery_percent_summary">Mostrar el indicador de porcentaje de batería (Reinicia para hacerlo efectivo)</string>
     
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_style_title">Estilo de estado de batería</string>
