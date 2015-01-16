@@ -7,17 +7,23 @@
         android:title="@string/status_bar" 
         android:key="status_bar">
         
-		<CheckBoxPreference 
+		<CheckBoxPreference  
 		    android:key="hide_alarm_icon"
 		    android:title="@string/hide_alarm_icon"
 		    android:summary="@string/hide_alarm_icon_summary"
 		    android:defaultValue="false" />
 		
-		<CheckBoxPreference 
+		<CheckBoxPreference  
 		    android:key="showfourgeeforlte"
 		    android:title="@string/four_gee_or_lte"
 		    android:summary="@string/four_gee_or_lte_summary"
 		    android:defaultValue="false" />
+		
+		<!-- <CheckBoxPreference  
+		    android:key="system_show_ime_switcher"
+		    android:title="@string/hide_ime_switcher_title"
+		    android:summary="@string/hide_ime_switcher_summary"
+		    android:defaultValue="false" /> -->
 
 	</PreferenceScreen>
     

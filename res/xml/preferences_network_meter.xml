@@ -12,7 +12,7 @@
 	        android:summary="@string/list_summary"
 	        android:entries="@array/network_traffic_state_entries"
 	        android:entryValues="@array/network_traffic_state_values"
-	        android:defaultValue="0" />
+	         />
 	 
 	    <com.ultima.settings.preferences.UltimaListPreference
 	        android:key="network_traffic_unit"
@@ -20,7 +20,7 @@
 	        android:summary="@string/list_summary"
 	        android:entries="@array/network_traffic_unit_entries"
 	        android:entryValues="@array/network_traffic_unit_values"
-	        android:defaultValue="0" />
+	        defaultValue="0" />
 	 
 	    <com.ultima.settings.preferences.UltimaListPreference
 	        android:key="network_traffic_interval"
@@ -28,25 +28,25 @@
 	        android:summary="@string/list_summary"
 	        android:entries="@array/network_traffic_frequency_entries"
 	        android:entryValues="@array/network_traffic_frequency_values"
-	        android:defaultValue="0" />
+	        defaultValue="0" />
 	       
-	    <CheckBoxPreference   
+	    <com.ultima.settings.preferences.UltimaSwitchPreference    
 	        android:key="network_traffic_hide"
 	        android:title="@string/network_traffic_hide_inactivity" 
 	        android:summary="@string/network_traffic_hide_inactivity_summary"
-	        android:defaultValue="false" />
+	        defaultValue="0" />
 	       
-	    <CheckBoxPreference   
+	    <com.ultima.settings.preferences.UltimaSwitchPreference    
 	        android:key="network_traffic_text"
 	        android:title="@string/network_traffic_text" 
 	        android:summary="@string/network_traffic_text_summary"
-	        android:defaultValue="false" />
+	        defaultValue="0" />
 	         
-	    <CheckBoxPreference   
+	    <com.ultima.settings.preferences.UltimaSwitchPreference    
 	        android:key="network_traffic_icon"
 	        android:title="@string/network_traffic_icon" 
 	        android:summary="@string/network_traffic_icon_summary"
-	        android:defaultValue="true" />
+	        defaultValue="1" />
 
 	</PreferenceScreen>
 </PreferenceScreen>

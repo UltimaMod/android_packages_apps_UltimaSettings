@@ -2,17 +2,30 @@
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:key="misc_settings">
-  	<Preference
+	<PreferenceScreen 
+	    android:key="misc_settings_two"
+	    android:title="@string/misc"
+	    android:icon="@drawable/ic_more">
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
+			android:key="system_pref_power_menu"
+			android:title="@string/reboot_menu"
+			android:summary="@string/reboot_menu_summary"
+			defaultValue="0" />
+		
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
+			android:key="system_pref_wake_when_unplugged"
+			android:title="@string/wake_on_unplug_title"
+			android:summary="@string/wake_on_unplug_summary"
+			defaultValue="1" />
+		
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
+			android:key="system_pref_all_all_rotations"
+			android:title="@string/all_screen_rotations_title"
+			android:summary="@string/all_screen_rotations_summary"
+			defaultValue="0" />
+	</PreferenceScreen>
+	<Preference
   	    android:icon="@drawable/ic_clock_widget"
   	    android:title="@string/lock_clock" 
-  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" 
-  	    android:summary="@string/lock_clock_summary" />
-	
-	<CheckBoxPreference 
-	    android:icon="@drawable/ic_reboot"
-		android:key="system_pref_power_menu"
-		android:title="@string/reboot_menu"
-		android:summary="@string/reboot_menu_summary"
-		android:defaultValue="false" />
-
+  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" />
 </PreferenceScreen>

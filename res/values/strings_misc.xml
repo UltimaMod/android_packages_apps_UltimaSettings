@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="misc">Misc</string>
     <string name="lock_clock">Clock widget</string>
     <string name="lock_clock_summary">Configure the clock widget</string>
     <string name="lock_clock_not_installed">Clock widget is not installed</string>
     
     <string name="reboot_menu">Advanced power menu</string>
     <string name="reboot_menu_summary">Enable the advanced power menu for reboot options</string>
+    
+    <string name="wake_on_unplug_title">Wake on unplug</string>
+    <string name="wake_on_unplug_summary">Wake the device when you unplug from USB (Reboot to take effect)</string>
+    
+    <string name="all_screen_rotations_title">All screen rotations</string>
+    <string name="all_screen_rotations_summary">Enable 4-way screen rotation (Reboot to take effect)</string>
 </resources>

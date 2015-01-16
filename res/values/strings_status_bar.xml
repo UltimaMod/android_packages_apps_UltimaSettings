@@ -5,4 +5,6 @@
     <string name="hide_alarm_icon_summary">Toggle the alarm icon next to the clock (Toggle an alarm to refresh)</string>
     <string name="four_gee_or_lte">Toggle 4G icon</string>
     <string name="four_gee_or_lte_summary">Switch between 4G or LTE icon (Toggle data to refresh)</string>
+    <string name="hide_ime_switcher_title">Hide IME switcher</string>
+    <string name="hide_ime_switcher_summary">Stop the persistent IME switcher notification from showing</string>
 </resources>
