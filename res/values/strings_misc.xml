@@ -2,10 +2,7 @@
 <resources>
 
     <string name="misc">Misc</string>
-    <string name="lock_clock">Clock widget</string>
-    <string name="lock_clock_summary">Configure the clock widget</string>
-    <string name="lock_clock_not_installed">Clock widget is not installed</string>
-    
+
     <string name="reboot_menu">Advanced power menu</string>
     <string name="reboot_menu_summary">Enable the advanced power menu for reboot options</string>
     
@@ -14,4 +11,9 @@
     
     <string name="all_screen_rotations_title">All screen rotations</string>
     <string name="all_screen_rotations_summary">Enable 4-way screen rotation (Reboot to take effect)</string>
+    
+    <string name="longback_press_title">Long back to kill</string>
+    <string name="longback_press_summary">Enable long pressing the back button to kill foreground apps</string>
+    <string name="longback_press_timeout">Long back timeout</string>
+
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="clock">Clock</string>
+    <string name="clock_position">Clock position</string>
+    <string name="clock_am_pm_style">AM/PM style</string>
+    <string name="clock_dow_style">Day-of-week style</string>
+    
+    <string name="lock_clock">Clock widget</string>
+    <string name="lock_clock_summary">Configure the clock widget</string>
+    <string name="lock_clock_not_installed">Clock widget is not installed</string>
+</resources>

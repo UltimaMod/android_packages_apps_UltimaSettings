@@ -7,4 +7,14 @@
     <string name="four_gee_or_lte_summary">Switch between 4G or LTE icon (Toggle data to refresh)</string>
     <string name="hide_ime_switcher_title">Hide IME switcher</string>
     <string name="hide_ime_switcher_summary">Stop the persistent IME switcher notification from showing</string>
+    
+    <string name="heads_up_enable_title">Heads up notification</string>
+    <string name="heads_up_enable_summary">Enable or disable the heads up notification panel</string>
+    <string name="volume_panel_timeout">Volume panel timeout</string>
+    <string name="heads_up_timeout">Heads up notification timeout</string>
+    
+    <string name="quick_pulldown_title">Quick pulldown</string>
+    <string name="quick_pulldown_summary">Open the quick tiles by pulling the right side of the status bar</string>
+    <string name="double_tap_to_sleep_title">Status bar sleep</string>
+    <string name="double_tap_to_sleep_summary">Double tap the status bar to sleep the device</string>
 </resources>

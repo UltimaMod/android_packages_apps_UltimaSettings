@@ -46,4 +46,10 @@
     <string name="disabled">Disabled</string>
     <string name="enable_disable_question">Enable or Disable</string>
     <string name="root_required">Root required</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="center">Center</string>
+    <string name="normal">Normal</string>
+    <string name="small">Small</string>
+    <string name="setting">Setting&#8230;</string>
 </resources>

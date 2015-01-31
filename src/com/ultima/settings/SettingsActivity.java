@@ -45,26 +45,26 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
-	
+
 	static Context mContext;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		mContext = this;
-		
+
 		Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        
-        if(bundle != null) {
-            int data = (Integer) bundle.get("theme");
-            int theme = data;
+		Bundle bundle = intent.getExtras();
+
+		if(bundle != null) {
+			int data = (Integer) bundle.get("theme");
+			int theme = data;
 			Preferences.setTheme(theme);
-        } else {
-        	Preferences.setTheme(0);
-        }
-        
+		} else {
+			Preferences.setTheme(0);
+		}
+
 		setTheme(Preferences.getTheme());
-		
+
 		super.onCreate(savedInstanceState);
 		if (savedInstanceState == null)
 			getFragmentManager().beginTransaction().replace(android.R.id.content,new PrefsFragment()).commit();
@@ -93,31 +93,25 @@ public class SettingsActivity extends Activity implements Constants {
 
 		private static String ROMCFG_FOLDER;
 		private static String MODCFG_FOLDER;
-		
+
 		boolean mIsRoot;
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-			
+
 			mIsRoot = Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
 
 			//Add preferences - made them modular, so they're easier to layout
 			addPreferencesFromResource(R.xml.preferences_battery);
-			if(mIsRoot){
-				addPreferencesFromResource(R.xml.preferences_bootanimation);
-				addPreferencesFromResource(R.xml.preferences_buttons);
-				addPreferencesFromResource(R.xml.preferences_hostname);
-			} else {
-				addPreferencesFromResource(R.xml.preferences_bootanimation_noroot);
-				addPreferencesFromResource(R.xml.preferences_buttons_noroot);
-				addPreferencesFromResource(R.xml.preferences_hostname_noroot);
-			}
+			addPreferencesFromResource(R.xml.preferences_bootanimation);
+			addPreferencesFromResource(R.xml.preferences_buttons);
+			addPreferencesFromResource(R.xml.preferences_clock);
+			addPreferencesFromResource(R.xml.preferences_hostname);
 			addPreferencesFromResource(R.xml.preferences_music_controls);
 			addPreferencesFromResource(R.xml.preferences_network_meter);
 			addPreferencesFromResource(R.xml.preferences_statusbar);
 
-			PreferenceManager.setDefaultValues(mContext, R.xml.preferences_misc, false);
 			addPreferencesFromResource(R.xml.preferences_misc);
 
 
@@ -257,18 +251,6 @@ public class SettingsActivity extends Activity implements Constants {
 				setSettingBoolean(cr, item.getKey(),(Boolean) value);
 				//Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
 			}
-			if (item.getKey().equals("touch_key_backlight")) {
-				Tools tools = new Tools();
-				tools.setBacklightValue(value);
-			}
-			if (item.getKey().equals("on_screen_controls")) {
-				Tools tools = new Tools();
-				tools.setOnScreenControls(value);
-			}
-			if (item.getKey().equals("disable_hardware_buttons")) {
-				Tools tools = new Tools();
-				tools.setHardwareButtons(value);
-			}
 		}
 
 		private void dispatchList(ListPreference item, Object value){
@@ -306,11 +288,15 @@ public class SettingsActivity extends Activity implements Constants {
 				item.setSummary(item.getEntries()[id]);
 
 				disableListItems(item);
-				
+
 				if(item.getKey().equalsIgnoreCase("status_bar_battery_style")) {
 					Tools.shell("sysrw");
 					Tools.shell("echo \"" + (String) value + "\" > /system/jflte-gpe/battery_icon");
 					Tools.shell("sysro");
+				}
+				if (item.getKey().equalsIgnoreCase("hardware_buttons")) {
+					Tools tools = new Tools();
+					tools.setHardwareButtons(value, mContext);
 				}
 			}
 		}
@@ -427,16 +413,16 @@ public class SettingsActivity extends Activity implements Constants {
 				setSettingBoolean(cr, item.getKey(),(Boolean) value);
 				//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
 			}
-			
+
 		}
-		
-		 private void dispatchCheckbox(UltimaCheckBoxPreference item, Object value){
-	            //Log.d(LCAT, "Dispatching Checkbox: "+item);
-	            if(item != null){
-	                setSettingBoolean(cr, item.getKey(),(Boolean) value);
-	                //Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
-	            }
-	        }
+
+		private void dispatchCheckbox(UltimaCheckBoxPreference item, Object value){
+			//Log.d(LCAT, "Dispatching Checkbox: "+item);
+			if(item != null){
+				setSettingBoolean(cr, item.getKey(),(Boolean) value);
+				//Log.d(LCAT, "Setting in Settings: "+item.getKey()+" => "+value);
+			}
+		}
 
 		private void initPrefs(){
 			int items = this.getPreferenceScreen().getPreferenceCount();
@@ -472,7 +458,7 @@ public class SettingsActivity extends Activity implements Constants {
 			} else if(type.equals("CheckBoxPreference")){
 				initCheckbox((CheckBoxPreference) item);
 			} else if(type.equals("UltimaCheckboxPreference")){
-                initCheckbox((UltimaCheckBoxPreference) item);
+				initCheckbox((UltimaCheckBoxPreference) item);
 			} else if(type.equals("EditTextPreference")){
 				initText((EditTextPreference) item);
 			} else if(type.equals("ListPreference")){
@@ -655,17 +641,17 @@ public class SettingsActivity extends Activity implements Constants {
 				//Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
 			}
 		}
-		
+
 		private void initCheckbox(UltimaCheckBoxPreference item){
-            //Log.d(LCAT, "Initializin Checkbox: "+item);
-            if(item != null){
-                int defaultValue = item.getDefaultValue();
-                item.setOnPreferenceChangeListener(this);
-                boolean isChecked = getSettingBoolean(cr, item.getKey(), defaultValue);
-                item.setChecked(isChecked);
-                //Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
-            }
-        }
+			//Log.d(LCAT, "Initializin Checkbox: "+item);
+			if(item != null){
+				int defaultValue = item.getDefaultValue();
+				item.setOnPreferenceChangeListener(this);
+				boolean isChecked = getSettingBoolean(cr, item.getKey(), defaultValue);
+				item.setChecked(isChecked);
+				//Log.d(LCAT, "Setting CheckBox: "+item.getKey()+" => "+isChecked);
+			}
+		}
 
 		public static boolean setSettingInt(ContentResolver contentResolver, String setting, int value) {
 			//Log.d(LCAT, "setSettingInt called: "+setting+":"+value);

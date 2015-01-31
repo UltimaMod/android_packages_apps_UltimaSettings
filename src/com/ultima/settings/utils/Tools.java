@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import com.stericson.RootTools.*;
 import com.ultima.settings.R;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +26,7 @@ public class Tools {
 		String sdCard = Environment.getExternalStorageDirectory().getAbsolutePath();
 		return sdCard;
 	}
-	
+
 	public static void dispatch(String[] tool){
 		if(tool[0].contentEquals("reboot")){
 			reboot();
@@ -39,7 +41,7 @@ public class Tools {
 		} else if(tool[0].contentEquals("restartsystemui")){
 			rebootSystemUi();
 		} else if(tool[0].contentEquals("restartlauncher")){
-            rebootLauncher();
+			rebootLauncher();
 		} else if(tool[0].contentEquals("shell")){
 			if(tool.length < 2){
 				Log.e("Tools","Not enough parameters given for SHELL");
@@ -48,7 +50,7 @@ public class Tools {
 			}
 		}
 	}
-	
+
 	public static void dispatch(Context context, String[] tool){
 		if(tool[0].contentEquals("reboot")){
 			reboot(context);
@@ -63,7 +65,7 @@ public class Tools {
 		} else if(tool[0].contentEquals("restartsystemui")){
 			rebootSystemUi();
 		} else if(tool[0].contentEquals("restartlauncher")){
-            rebootLauncher();
+			rebootLauncher();
 		} else if(tool[0].contentEquals("shell")){
 			if(tool.length < 2){
 				Log.e("Tools","Not enough parameters given for SHELL");
@@ -72,7 +74,7 @@ public class Tools {
 			}
 		}
 	}
-	
+
 	public static void reboot(){
 		rebootPhone("now");
 	}
@@ -108,60 +110,50 @@ public class Tools {
 	public static void rebootSystemUi(){
 		shell("pkill -TERM -f com.android.systemui");
 	}
-	
+
 	public static void rebootLauncher(){
-        shell("pkill -TERM -f com.android.launcher3");
-    }
+		shell("pkill -TERM -f com.android.launcher3");
+	}
 
 	public static void hotboot(){
 		shell("setprop ctl.restart surfaceflinger;setprop ctl.restart zygote");
 	}
-	
+
 	public static String shell(String cmd) {
-    	String out = "";
-    	ArrayList<String> r = system(getSuBin(),cmd).getStringArrayList("out");
-    	for(String l: r){
-    		out += l+"\n";
-    	}
-    	return out;
+		String out = "";
+		ArrayList<String> r = system(getSuBin(),cmd).getStringArrayList("out");
+		for(String l: r){
+			out += l+"\n";
+		}
+		return out;
 	}
-	
+
 	public static String noneRootShell(String cmd) {
-    	String out = "";
-    	ArrayList<String> r = system("sh",cmd).getStringArrayList("out");
-    	for(String l: r){
-    		out += l+"\n";
-    	}
-    	return out;
+		String out = "";
+		ArrayList<String> r = system("sh",cmd).getStringArrayList("out");
+		for(String l: r){
+			out += l+"\n";
+		}
+		return out;
 	}
-	
+
 	public static boolean getRoot(){
-			return RootTools.isAccessGiven();
+		return RootTools.isAccessGiven();
 	}
-	
-	public void setBacklightValue(Object value){
-		boolean ourValue = (Boolean) value;
-		new BacklightTask().execute(ourValue);
+
+	public void setHardwareButtons(Object value, Context context){
+		int ourValue = Integer.parseInt((String) value);
+		new HardwareButtons(context).execute(ourValue);
 	}
-	
-	public void setOnScreenControls(Object value){
-		boolean ourValue = (Boolean) value;
-		new OnScreenControls().execute(ourValue);
-	}
-	
-	public void setHardwareButtons(Object value){
-		boolean ourValue = (Boolean) value;
-		new HardwareButtons().execute(ourValue);
-	}
-	
+
 	public static void setHostname(String hostname){
 		shell("setprop net.hostname " + hostname);
 	}
-	
+
 	public static String getHostname(){
 		return shell("getprop net.hostname");
 	}
-	
+
 	private static void rebootPhone(String type){
 		shell("reboot "+type);
 	}
@@ -174,7 +166,7 @@ public class Tools {
 			shell("reboot "+type);
 		}
 	}
-	
+
 	public static void setBootanimation(String cmd){
 		backupBootAnimation();
 		shell("cp " + cmd + " /system/media/bootanimation.zip");
@@ -189,17 +181,17 @@ public class Tools {
 			shell("cp /system/media/bootanimation.zip /system/media/bootanimation.zip.bak");
 		}
 	}
-		
+
 	public static void resetBootAnimation(){
 		shell("mount -o remount,rw /system");
-		
+
 		if((new File("/system/media/bootanimation.zip.bak").exists())){
 			shell("cp /system/media/bootanimation.zip.bak /system/media/bootanimation.zip");
 			shell("rm /system/media/bootanimation.zip.bak");
 			shell("chmod 644 /system/media/bootanimation.zip");
 		}
 	}
-	
+
 	public static void enableDisableBootAnimation(boolean value) {
 		if (value){
 			shell("setprop debug.sf.nobootanimation 0");
@@ -207,29 +199,29 @@ public class Tools {
 			shell("setprop debug.sf.nobootanimation 1");
 		}
 	}
-	
+
 	private static boolean isUiThread(){
-    	return (Looper.myLooper() == Looper.getMainLooper());
-    }
-	
-    private static String getSuBin(){
-    	if(new File("/system/xbin","su").exists()){
-    		return "/system/xbin/su";
-    	}
-    	if(RootTools.isRootAvailable()){
-    		return "su";
-    	}
-    	return "sh";
-    }
-    
-    private static Bundle system(String shell, String command) {
+		return (Looper.myLooper() == Looper.getMainLooper());
+	}
+
+	private static String getSuBin(){
+		if(new File("/system/xbin","su").exists()){
+			return "/system/xbin/su";
+		}
+		if(RootTools.isRootAvailable()){
+			return "su";
+		}
+		return "sh";
+	}
+
+	private static Bundle system(String shell, String command) {
 		if (BuildConfig.DEBUG) {
 			if (isUiThread()) {
 				Log.e(shell,"Application attempted to run a shell command from the main thread");
 			}
 			Log.d(shell,"START");
 		}
-	
+
 		ArrayList<String> res = new ArrayList<String>();
 		ArrayList<String> err = new ArrayList<String>();
 		boolean success = false;
@@ -243,13 +235,13 @@ public class Tools {
 			STDIN.flush();
 			STDIN.writeBytes("exit\n");
 			STDIN.flush();
-				
+
 			process.waitFor();
 			if (process.exitValue() == 255) {
 				if (BuildConfig.DEBUG) Log.e(shell,"SU was probably denied! Exit value is 255");
 				err.add("SU was probably denied! Exit value is 255");
 			}
-			
+
 			while (STDOUT.ready()) {
 				String read = STDOUT.readLine();
 				if (BuildConfig.DEBUG) Log.d(shell, read);
@@ -260,12 +252,12 @@ public class Tools {
 				if (BuildConfig.DEBUG) Log.e(shell, read);
 				err.add(read);
 			}
-			
+
 			process.destroy();
-    		success = true;
-    		if(err.size() > 0){
-    			success = false;
-    		}
+			success = true;
+			if(err.size() > 0){
+				success = false;
+			}
 		} catch (IOException e) {
 			if (BuildConfig.DEBUG) Log.e(shell,"IOException: "+e.getMessage());
 			err.add("IOException: "+e.getMessage());
@@ -282,62 +274,47 @@ public class Tools {
 		r.putStringArrayList("error", err);
 		return r;
 	}
-    private class BacklightTask extends AsyncTask<Boolean, Void, Void> {
-    	
+
+
+	private class HardwareButtons extends AsyncTask<Integer, Void, Void> {
+
+		private Context mContext;
+
+		private ProgressDialog mLoadingDialog;
+		
+		public HardwareButtons(Context context) {
+			mContext = context;
+		}
+
 		@Override
-		protected Void doInBackground(Boolean... params) {
-			String echoOn = "echo 255 > /sys/class/leds/button-backlight/max_brightness";
-			String echoOff = "echo 0 > /sys/class/leds/button-backlight/max_brightness";
-			String file = "/system/etc/init.d/01ButtonBacklight";	
-			
+		protected void onPreExecute(){
+			mLoadingDialog = new ProgressDialog(mContext);
+			mLoadingDialog.setIndeterminate(true);
+			mLoadingDialog.setCancelable(false);
+			mLoadingDialog.setMessage(mContext.getResources().getString(R.string.setting));
+			mLoadingDialog.show();
+		}
+
+		@Override
+		protected Void doInBackground(Integer... params) {
 			shell("mount -o rw,remount /system"); // Remount as readable
-			shell("rm -rf " + file);
-			if(params[0]){
-				shell(echoOn);
-				shell("echo #!/system/bin/sh >> " + file);
-				shell("echo '" + echoOn + "' >> " + file);
+			if(params[0] == 0) { // Enable Controls
+				shell("cp /system/jflte-gpe/buttons/stock /system/usr/keylayout/Generic.kl"); // Stock
+			} else if(params[0] == 1) {
+				shell("cp /system/jflte-gpe/buttons/disabled_buttons /system/usr/keylayout/Generic.kl"); // Disabled
 			} else {
-				shell(echoOff);
-				shell("echo #!/system/bin/sh >> " + file);
-				shell("echo '" + echoOff + "' >> " + file);
+				shell("cp /system/jflte-gpe/buttons/menu_to_recents /system/usr/keylayout/Generic.kl"); // Menu to Recents				
 			}
 			shell("mount -o ro,remount /system"); // remount as read-only, for safety
-			
+
 			return null;
 		}
-    }
-    
-    private class OnScreenControls extends AsyncTask<Boolean, Void, Void> {
-    	
+		
 		@Override
-		protected Void doInBackground(Boolean... params) {
-			shell("mount -o rw,remount /system"); // Remount as readable
-			if(params[0]){ // Enable Controls
-				shell("echo 'qemu.hw.mainkeys=0' >> /system/build.prop");
-			} else {
-				shell("sed -i 's/qemu.hw.mainkeys=0//g' /system/build.prop");
-			}
-			shell("mount -o ro,remount /system"); // remount as read-only, for safety
-			
-			return null;
-		}
-    }
-    
-private class HardwareButtons extends AsyncTask<Boolean, Void, Void> {
-    	
-		@Override
-		protected Void doInBackground(Boolean... params) {
-			shell("mount -o rw,remount /system"); // Remount as readable
-			if(params[0]){ // Enable Controls
-				shell("sed -i 's/key 139/#key 139/g' /system/usr/keylayout/Generic.kl"); // Menu
-				shell("sed -i 's/key 158/#key 158/g' /system/usr/keylayout/Generic.kl"); // Back
-			} else {
-				shell("sed -i 's/#key 139/key 139/g' /system/usr/keylayout/Generic.kl");
-				shell("sed -i 's/#key 158/key 158/g' /system/usr/keylayout/Generic.kl");
-			}
-			shell("mount -o ro,remount /system"); // remount as read-only, for safety
-			
-			return null;
-		}
-    }
+	    protected void onPostExecute(Void result) {
+			mLoadingDialog.cancel();
+			Toast.makeText(mContext, mContext.getResources().getString(R.string.buttons_set), Toast.LENGTH_LONG).show();
+	        super.onPostExecute(result);
+	    }
+	}
 }

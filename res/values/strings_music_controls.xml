@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="music_controls_title">Music Controls</string>
+    <string name="music_controls_title">Music controls</string>
     <string name="music_controls_enable">Enable music controls</string>
 	<string name="music_controls_timeout">Timeout</string>
 	<string name="music_controls_volume_down_action">Volume down action</string>
@@ -8,6 +8,5 @@
 	<string name="music_controls_next">Next</string>
 	<string name="music_controls_prev">Prev</string>
 	<string name="music_controls_pause_play">Pause/Play</string>
-	<string name="music_controls_pause">Next</string>
-	
+	<string name="music_controls_pause">Next</string>	
 </resources>

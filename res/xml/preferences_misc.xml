@@ -23,9 +23,23 @@
 			android:title="@string/all_screen_rotations_title"
 			android:summary="@string/all_screen_rotations_summary"
 			defaultValue="0" />
+		
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
+			android:key="longpress_back_kill_enable"
+			android:title="@string/longback_press_title"
+			android:summary="@string/longback_press_summary"
+			defaultValue="0" />
+		
+		<com.ultima.settings.preferences.UltimaListPreference
+		    android:title="@string/longback_press_timeout"
+		    android:key="longpress_back_kill_timeout"
+		    android:dependency="longpress_back_kill_enable"
+		    defaultValue="3"
+		    android:summary="@string/list_summary"
+		    android:entries="@array/longpress_back_kill_timeout_titles"
+		    android:entryValues="@array/longpress_back_kill_timeout_values"
+		    android:negativeButtonText="@null"
+		    android:positiveButtonText="@null" />		
+		
 	</PreferenceScreen>
-	<Preference
-  	    android:icon="@drawable/ic_clock_widget"
-  	    android:title="@string/lock_clock" 
-  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" />
 </PreferenceScreen>

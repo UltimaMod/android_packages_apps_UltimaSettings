@@ -6,12 +6,26 @@
         android:icon="@drawable/ic_buttons" 
         android:title="@string/button_settings" 
         android:key="buttons">
+
+      <com.ultima.settings.preferences.UltimaListPreference
+	        android:key="hardware_buttons"
+	        defaultValue="0"
+	        android:summary="@string/list_summary"
+	        android:title="@string/hardware_buttons_title"
+	        android:entries="@array/hardware_buttons_titles"
+	        android:entryValues="@array/hardware_buttons_values"
+	        android:negativeButtonText="@null"
+	        android:positiveButtonText="@null"/>
         
-		<com.ultima.settings.preferences.UltimaSwitchPreference  
-		    android:key="touch_key_backlight"
-		    android:title="@string/touchkey_backlight_title"
-		    android:summary="@string/enable_disable_question"
-		    defaultValue="1" />
+		<com.ultima.settings.preferences.UltimaListPreference
+	        android:key="button_key_light"
+	        defaultValue="1"
+	        android:summary="@string/list_summary"
+	        android:title="@string/touchkey_backlight_title"
+	        android:entries="@array/touchkey_backlight_titles"
+	        android:entryValues="@array/touchkey_backlight_values"
+	        android:negativeButtonText="@null"
+	        android:positiveButtonText="@null"/>
 	
 		<com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="system_pref_enable_navigation_bar"
@@ -19,11 +33,16 @@
 		    android:summary="@string/on_screen_controls_summary"
 		    defaultValue="0" />
 		
-		<com.ultima.settings.preferences.UltimaSwitchPreference  
-		    android:key="disable_hardware_buttons"
-		    android:title="@string/disable_hardware_buttons_title"
-		    android:summary="@string/disable_hardware_buttons_summary"
-		    defaultValue="0" />
+		<com.ultima.settings.preferences.UltimaListPreference
+	        android:key="navbar_height"
+	        android:dependency="system_pref_enable_navigation_bar"
+	        defaultValue="4"
+	        android:summary="@string/list_summary"
+	        android:title="@string/navbar_height"
+	        android:entries="@array/navbar_height_titles"
+	        android:entryValues="@array/navbar_height_values"
+	        android:negativeButtonText="@null"
+	        android:positiveButtonText="@null"/>
 
 	</PreferenceScreen>
     
