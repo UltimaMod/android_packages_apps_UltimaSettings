@@ -46,7 +46,8 @@
 	            android:dependency="battery_light_enabled" />
 	
 	    </PreferenceCategory>
-	
+	    
+	   	
 	    <PreferenceCategory
 	        android:key="colors_list"
 	        android:title="@string/battery_light_list_title"
@@ -57,7 +58,7 @@
 	            android:title="@string/battery_light_low_color_title"
 	            defaultValue="0xffff0000"
 			    alphaSlider="false" />
-	
+	        	
 	        <com.ultima.settings.colorpicker.ColorPickerPreference
 	            android:key="battery_light_medium_color"
 	            android:title="@string/battery_light_medium_color_title"

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="status_bar">Status bar</string>
-    <string name="hide_alarm_icon">Disable alarm icon</string>
-    <string name="hide_alarm_icon_summary">Toggle the alarm icon next to the clock (Toggle an alarm to refresh)</string>
+    <string name="show_alarm_icon">Show alarm icon</string>
+    <string name="show_alarm_icon_summary">Toggle the alarm icon next to the clock</string>
     <string name="four_gee_or_lte">Toggle 4G icon</string>
     <string name="four_gee_or_lte_summary">Switch between 4G or LTE icon (Toggle data to refresh)</string>
-    <string name="hide_ime_switcher_title">Hide IME switcher</string>
-    <string name="hide_ime_switcher_summary">Stop the persistent IME switcher notification from showing</string>
+    <string name="show_ime_switcher_title">Show IME switcher</string>
+    <string name="show_ime_switcher_summary">Show a persistent IME switcher notification</string>
     
     <string name="heads_up_enable_title">Heads up notification</string>
     <string name="heads_up_enable_summary">Enable or disable the heads up notification panel</string>

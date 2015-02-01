@@ -27,4 +27,9 @@
     <string name="battery_light_low_color_title">Battery low</string>
     <string name="battery_light_medium_color_title">Charging</string>
     <string name="battery_light_full_color_title">Fully charged</string>
+    
+    <!-- Battery Level -->
+    <string name="battery_level_title">Battery level</string>
+    <string name="battery_low_title">Battery level low</string>
+    <string name="battery_crit_title">Battery level critical</string>
 </resources>

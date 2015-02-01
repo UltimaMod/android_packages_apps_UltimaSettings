@@ -19,7 +19,7 @@
         
 		<com.ultima.settings.preferences.UltimaListPreference
 	        android:key="button_key_light"
-	        defaultValue="1"
+	        defaultValue="4"
 	        android:summary="@string/list_summary"
 	        android:title="@string/touchkey_backlight_title"
 	        android:entries="@array/touchkey_backlight_titles"

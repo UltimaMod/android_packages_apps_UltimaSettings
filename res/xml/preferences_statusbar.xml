@@ -8,10 +8,10 @@
         android:key="status_bar">
         
 		<com.ultima.settings.preferences.UltimaSwitchPreference  
-		    android:key="hide_alarm_icon"
-		    android:title="@string/hide_alarm_icon"
-		    android:summary="@string/hide_alarm_icon_summary"
-		    defaultValue="0" />
+		    android:key="show_alarm_icon"
+		    android:title="@string/show_alarm_icon"
+		    android:summary="@string/show_alarm_icon_summary"
+		    defaultValue="1" />
 		
 		<com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="showfourgeeforlte"
@@ -19,11 +19,11 @@
 		    android:summary="@string/four_gee_or_lte_summary"
 		    defaultValue="0" />
 		
-		<!-- <com.ultima.settings.preferences.UltimaSwitchPreference  
+		<com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="system_show_ime_switcher"
-		    android:title="@string/hide_ime_switcher_title"
-		    android:summary="@string/hide_ime_switcher_summary"
-		    android:defaultValue="false" /> -->
+		    android:title="@string/show_ime_switcher_title"
+		    android:summary="@string/show_ime_switcher_summary"
+		    defaultValue="1" />
 		    
 		 <com.ultima.settings.preferences.UltimaListPreference 
 		    android:entries="@array/volume_panel_timeout_titles" 
