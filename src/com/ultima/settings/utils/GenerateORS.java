@@ -84,7 +84,7 @@ public class GenerateORS extends AsyncTask<Void, String, Boolean> implements Con
             out.append(mScriptOutput);
             out.close();
             
-            Tools.shell("mkdir -p /cache/recovery/" + " && cp " + tempFile + " " + mScriptFile + " && rm -rf " + tempFile);
+            Root.shell("mkdir -p /cache/recovery/" + " && cp " + tempFile + " " + mScriptFile + " && rm -rf " + tempFile);
             return true;
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -96,7 +96,7 @@ public class GenerateORS extends AsyncTask<Void, String, Boolean> implements Con
     @Override
     protected void onPostExecute(Boolean value) {
         mLoadingDialog.cancel();
-        Tools.backupBootAnimation();
-        Tools.recovery();
+        Root.backupBootAnimation();
+        Root.recovery();
     }
 }

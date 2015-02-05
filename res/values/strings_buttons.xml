@@ -8,4 +8,5 @@
     <string name="hardware_buttons_title">Hardware buttons</string>
     <string name="navbar_height">Navigation bar height</string>
     <string name="buttons_set">Buttons set. Reboot to take effect.</string>
+    <string name="buttons_information">Using the "menu to recents" button configuration works best with enabling the on-screen navigation bar, then setting the size to "0 (Off)".\n\nThis will force the on-screen menu button to show in apps.</string>
 </resources>

@@ -1,11 +1,15 @@
 package com.ultima.settings;
 
+import java.io.File;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -20,11 +24,12 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.SwitchPreference;
 import android.provider.MediaStore.MediaColumns;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,13 +41,8 @@ import com.ultima.settings.preferences.UltimaListPreference;
 import com.ultima.settings.preferences.UltimaSwitchPreference;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
-import com.ultima.settings.utils.Tools;
+import com.ultima.settings.utils.Root;
 import com.ultima.settings.utils.Utils;
-
-import java.io.File;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 public class SettingsActivity extends Activity implements Constants {
 
@@ -100,7 +100,7 @@ public class SettingsActivity extends Activity implements Constants {
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 
-			mIsRoot = Tools.getRoot(); //Check for root, so that checking later doesn't slow down the action
+			mIsRoot = Root.getRoot(); //Check for root, so that checking later doesn't slow down the action
 
 			//Add preferences - made them modular, so they're easier to layout
 			addPreferencesFromResource(R.xml.preferences_battery);
@@ -110,6 +110,7 @@ public class SettingsActivity extends Activity implements Constants {
 			addPreferencesFromResource(R.xml.preferences_hostname);
 			addPreferencesFromResource(R.xml.preferences_music_controls);
 			addPreferencesFromResource(R.xml.preferences_network_meter);
+			addPreferencesFromResource(R.xml.preferences_screen);
 			addPreferencesFromResource(R.xml.preferences_statusbar);
 
 			addPreferencesFromResource(R.xml.preferences_misc);
@@ -159,11 +160,10 @@ public class SettingsActivity extends Activity implements Constants {
 			return true;
 		}
 
-
 		class RunToolTask extends AsyncTask<Object, Void, Void> {
 			@Override
 			protected Void doInBackground(Object... params) {
-				Tools.dispatch((Context) params[0], (String[]) params[1]);
+				Root.dispatch((Context) params[0], (String[]) params[1]);
 				return null;
 			}
 
@@ -250,6 +250,15 @@ public class SettingsActivity extends Activity implements Constants {
 			if(item != null){
 				setSettingBoolean(cr, item.getKey(),(Boolean) value);
 				//Log.d(LCAT, "Setting in Switch: "+item.getKey()+" => "+value);
+				
+				if (item.getKey().equalsIgnoreCase(Constants.KEY_MDNIE_NEGATIVE)) {
+					Utils.writeValue(
+							mContext.getResources().getString(R.string.mdnie_negative_sysfs_file), (Boolean) value);
+				}
+				if(item.getKey().equalsIgnoreCase(Constants.KEY_MDNIE_OUTDOOR)) {
+					Utils.writeValue(
+							mContext.getResources().getString(R.string.mdnie_outdoor_sysfs_file), (Boolean) value);
+				}
 			}
 		}
 
@@ -289,14 +298,17 @@ public class SettingsActivity extends Activity implements Constants {
 
 				disableListItems(item);
 
-				if(item.getKey().equalsIgnoreCase("status_bar_battery_style")) {
-					Tools.shell("sysrw");
-					Tools.shell("echo \"" + (String) value + "\" > /system/jflte-gpe/battery_icon");
-					Tools.shell("sysro");
-				}
 				if (item.getKey().equalsIgnoreCase("hardware_buttons")) {
-					Tools tools = new Tools();
+					Root tools = new Root();
 					tools.setHardwareButtons(value, mContext);
+				}
+				if (item.getKey().equalsIgnoreCase(Constants.KEY_MDNIE_MODE)) {
+					Utils.writeValue(
+							mContext.getResources().getString(R.string.mdnie_mode_sysfs_file), (String) value);
+				}
+				if (item.getKey().equalsIgnoreCase(Constants.KEY_MDNIE_SCENARIO)) {
+					Utils.writeValue(
+							mContext.getResources().getString(R.string.mdnie_scenario_sysfs_file), (String) value);
 				}
 			}
 		}
@@ -866,6 +878,25 @@ public class SettingsActivity extends Activity implements Constants {
 			return isReverse?!exists:exists;
 		}
 	}
-
-
+	public static void restoreScreenSettings(Context context) {
+		ContentResolver cr = context.getContentResolver();
+		try {
+			Utils.writeValue(
+					mContext.getResources().getString(R.string.mdnie_mode_sysfs_file), 
+					Integer.toString(Settings.System.getInt(cr, Constants.KEY_MDNIE_MODE)));
+			Utils.writeValue(
+					mContext.getResources().getString(R.string.mdnie_scenario_sysfs_file), 
+					Integer.toString(Settings.System.getInt(cr, Constants.KEY_MDNIE_SCENARIO)));
+			Utils.writeValue(
+					mContext.getResources().getString(R.string.mdnie_negative_sysfs_file), 
+					Integer.toString(Settings.System.getInt(cr, Constants.KEY_MDNIE_NEGATIVE)));
+			Utils.writeValue(
+					mContext.getResources().getString(R.string.mdnie_outdoor_sysfs_file), 
+					Integer.toString(Settings.System.getInt(cr, Constants.KEY_MDNIE_OUTDOOR)));
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		} catch (SettingNotFoundException e) {
+			e.printStackTrace();
+		}		
+	}
 }

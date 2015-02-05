@@ -19,7 +19,7 @@ import com.ultima.settings.R;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.GenerateORS;
 import com.ultima.settings.utils.Preferences;
-import com.ultima.settings.utils.Tools;
+import com.ultima.settings.utils.Root;
 
 
 public class BootAnimationActivity extends Activity implements Constants {
@@ -97,7 +97,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 		mResetDefault.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Tools.resetBootAnimation();
+				Root.resetBootAnimation();
 				if(Preferences.getBootaniRebootSelection()){
 					showRebootDialog();
 				}
@@ -120,7 +120,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 						// We should only be here if the button is enabled anyway
 						new GenerateORS(mContext, mCurrentSelectedFile).execute();
 					} else {
-						Tools.setBootanimation(mCurrentSelectedFile);
+						Root.setBootanimation(mCurrentSelectedFile);
 						Toast.makeText(BootAnimationActivity.this, 
 								getResources().getString(R.string.bootani_set_animation), Toast.LENGTH_LONG).show();
 						mSetAnimationButton.setEnabled(false);
@@ -195,7 +195,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				mRebootDialog.dismiss();
-				Tools.reboot();
+				Root.reboot();
 			}
 		});
 
@@ -243,7 +243,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 			@Override
 			public void onClick(DialogInterface dialog, int which){
 				mEnableDisableDialog.dismiss();
-				Tools.enableDisableBootAnimation(Preferences.getBootAniEnabled());
+				Root.enableDisableBootAnimation(Preferences.getBootAniEnabled());
 				if(Preferences.getBootaniRebootSelection()){
 					showRebootDialog();
 				}
@@ -270,7 +270,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 				String fileTypeStatusText = "";
 				String availStatusText = "";
 
-				if(Tools.noneRootShell("unzip -l " + mFile + " | grep -ci desc.txt").trim().equals("1")){
+				if(Root.noneRootShell("unzip -l " + mFile + " | grep -ci desc.txt").trim().equals("1")){
 					mIsFlashable = false;
 					mSetAnimationButton.setEnabled(true);
 					// Availability status	    
@@ -278,7 +278,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 					// Type Status
 					String type = getResources().getString(R.string.bootani_animation_type);
 					fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + " <font color='#99cc00'>" + type + "</font>";
-				} else if(!(Tools.noneRootShell("unzip -l " + mFile + " | grep -ci META-INF").trim().equals("0"))){
+				} else if(!(Root.noneRootShell("unzip -l " + mFile + " | grep -ci META-INF").trim().equals("0"))){
 					mIsFlashable = true;
 					// Availability status	    
 				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + 

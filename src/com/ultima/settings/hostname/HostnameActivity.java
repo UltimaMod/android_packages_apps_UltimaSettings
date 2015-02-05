@@ -14,7 +14,7 @@ import android.widget.EditText;
 import com.ultima.settings.R;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Preferences;
-import com.ultima.settings.utils.Tools;
+import com.ultima.settings.utils.Root;
 
 
 public class HostnameActivity extends Activity implements Constants
@@ -108,22 +108,22 @@ public class HostnameActivity extends Activity implements Constants
 			
 			switch(hostname){
 			case GET:
-				Preferences.setHostname(Tools.getHostname());
+				Preferences.setHostname(Root.getHostname());
 				resultValues = 0;
 				break;
 			case SET:
-				Tools.setHostname((String)params[1]);
+				Root.setHostname((String)params[1]);
 				Preferences.setHostname((String)params[1]);
 				resultValues = 1;
 				break;
 			case ORIGINAL:
-				Preferences.setOriginalHostname(Tools.getHostname());
+				Preferences.setOriginalHostname(Root.getHostname());
 				Preferences.setHostname(Preferences.getOriginalHostname());
 				resultValues = 2;
 				break;
 			case RESTORE:
-				Tools.setHostname(Preferences.getOriginalHostname());
-				Preferences.setHostname(Tools.getHostname());
+				Root.setHostname(Preferences.getOriginalHostname());
+				Preferences.setHostname(Root.getHostname());
 				resultValues = 3;
 				break;
 			default:

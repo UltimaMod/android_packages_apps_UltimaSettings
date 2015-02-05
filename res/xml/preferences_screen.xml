@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceScreen 
+	    android:key="screen_settings"
+	    android:title="@string/screen"
+	    android:icon="@drawable/ic_statusbar">
+	    <!-- Screen -->
+	    <PreferenceCategory
+	            android:title="@string/screen_colors_title">
+	
+	        <!-- mDNIe Scenario modes -->
+	        <com.ultima.settings.preferences.UltimaListPreference
+	                android:key="mdnie_scenario"
+	                android:title="@string/mdnie_scenario_title_head"
+	                android:summary="@string/list_summary"
+	                android:entries="@array/mdnie_scenario_entries"
+	                android:entryValues="@array/mdnie_scenario_entries_values"
+	                defaultValue="0" />
+	
+	        <!-- mDNIe Mode -->
+	        <com.ultima.settings.preferences.UltimaListPreference
+	                android:key="mdnie_mode"
+	                android:title="@string/mdnie_mode_title_head"
+	                android:summary="@string/list_summary"
+	                android:entries="@array/mdnie_mode_entries"
+	                android:entryValues="@array/mdnie_mode_entries_values"
+	                defaultValue="0" />
+	
+	        <!-- mDNIe Negative mode -->
+	        <com.ultima.settings.preferences.UltimaSwitchPreference
+	                android:key="mdnie_negative"
+	                android:title="@string/mdnie_negative_title_head"
+	                android:summary="@string/mdnie_negative_summary_head"
+	                defaultValue="0" />
+	        
+	       <!-- mDNIe Negative mode -->
+	        <com.ultima.settings.preferences.UltimaSwitchPreference
+	                android:key="mdnie_outdoor"
+	                android:title="@string/mdnie_outdoor_title_head"
+	                android:summary="@string/mdnie_outdoor_summary_head"
+	                defaultValue="0" />
+	        
+	    </PreferenceCategory>
+	</PreferenceScreen>
+</PreferenceScreen>

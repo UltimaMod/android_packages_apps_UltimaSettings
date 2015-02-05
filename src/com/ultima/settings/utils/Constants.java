@@ -25,5 +25,11 @@ public interface Constants {
 	public static final String BOOTANI_USE_ORS = "bootani_use_open_recovery_script";
 	public static final String BOOTANI_WIPE_CACHE = "bootani_wipe_cache";
 	public static final int BOOTANI_REQUEST_CODE = 6384;
+	
+	public static final String KEY_CABC = "cabc";
+    public static final String KEY_MDNIE_SCENARIO = "mdnie_scenario";
+    public static final String KEY_MDNIE_MODE = "mdnie_mode";
+    public static final String KEY_MDNIE_NEGATIVE = "mdnie_negative";
+    public static final String KEY_MDNIE_OUTDOOR = "mdnie_outdoor";
 
 }

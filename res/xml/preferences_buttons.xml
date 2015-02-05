@@ -43,6 +43,12 @@
 	        android:entryValues="@array/navbar_height_values"
 	        android:negativeButtonText="@null"
 	        android:positiveButtonText="@null"/>
+		
+		<Preference android:key="buttons_information"
+		    android:title="@string/information"
+		    android:summary="@string/buttons_information"
+		    android:selectable="false"
+		    style="?android:preferenceInformationStyle" />
 
 	</PreferenceScreen>
     

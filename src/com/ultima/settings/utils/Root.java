@@ -7,12 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.stericson.RootTools.*;
-import com.ultima.settings.R;
-
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,7 +17,11 @@ import android.os.PowerManager;
 import android.util.Log;
 import android.widget.Toast;
 
-public class Tools {
+import com.stericson.RootTools.BuildConfig;
+import com.stericson.RootTools.RootTools;
+import com.ultima.settings.R;
+
+public class Root {
 	public static String getSdCardPath(){
 		String sdCard = Environment.getExternalStorageDirectory().getAbsolutePath();
 		return sdCard;
@@ -144,6 +144,11 @@ public class Tools {
 	public void setHardwareButtons(Object value, Context context){
 		int ourValue = Integer.parseInt((String) value);
 		new HardwareButtons(context).execute(ourValue);
+	}
+	
+	public void setMdnieControls(String value, String filename){
+		String[] input = {value, filename};
+		new MdnieControls().execute(input);
 	}
 
 	public static void setHostname(String hostname){
@@ -316,5 +321,14 @@ public class Tools {
 			Toast.makeText(mContext, mContext.getResources().getString(R.string.buttons_set), Toast.LENGTH_LONG).show();
 	        super.onPostExecute(result);
 	    }
+	}
+	
+	private class MdnieControls extends AsyncTask<String, Void, Void> {
+
+		@Override
+		protected Void doInBackground(String... params) {
+			shell("echo " + params[0] + " > " + params[1]);
+			return null;
+		}
 	}
 }

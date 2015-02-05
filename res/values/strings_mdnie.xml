@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- mDNIe -->
+    <string name="screen">Screen</string>
+    <string name="screen_colors_title">Colors</string>
+    <string name="mdnie_scenario_title_head">Scenario</string>
+    <string name="mdnie_scenario_summary_head">Set the mDNIe scenario</string>
+    <string name="mdnie_mode_title_head">Mode</string>
+    <string name="mdnie_mode_summary_head">Set the mDNIe mode</string>
+    <string name="mdnie_negative_title_head">Negative mode</string>
+    <string name="mdnie_negative_summary_head">Enable/Disable inverted colors</string>
+    <string name="mdnie_outdoor_title_head">Outdoor mode</string>
+    <string name="mdnie_outdoor_summary_head">Enable/Disable outdoor settings</string>
+    <string name="mdnie_scenario_sysfs_file" translatable="false">"/sys/class/mdnie/mdnie/scenario"</string>
+    <string name="mdnie_mode_sysfs_file" translatable="false">"/sys/class/mdnie/mdnie/mode"</string>
+    <string name="mdnie_negative_sysfs_file" translatable="false">"/sys/class/mdnie/mdnie/negative"</string>
+    <string name="mdnie_outdoor_sysfs_file" translatable="false">""/sys/class/mdnie/mdnie/outdoor"</string>
+</resources>

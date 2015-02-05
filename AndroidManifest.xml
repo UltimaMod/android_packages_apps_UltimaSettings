@@ -14,6 +14,8 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REBOOT" tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" tools:ignore="ProtectedPermissions" />
 
     <application
         android:name="com.ultima.settings.SettingsApplication"
@@ -33,29 +35,22 @@
         <activity
             android:name="com.ultima.settings.bootanimation.BootAnimationActivity"
             android:label="@string/bootani_title"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:parentActivityName="com.ultima.settings.SettingsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ultima.settings.SettingsActivity" />
-        </activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.ultima.settings.bootanimation.BootAnimationSettings"   
             android:label="@string/bootani_title"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:parentActivityName="com.ultima.settings.bootanimation.BootAnimationActivity">
-        <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ccom.ultima.settings.bootanimation.BootAnimationActivity" />
-        </activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.ultima.settings.hostname.HostnameActivity" 
             android:label="@string/title_activity_hostname"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:parentActivityName="com.ultima.settings.SettingsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ultima.settings.SettingsActivity" />
-        </activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+        
+        <receiver android:name="com.ultima.settings.receivers.Startup">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        
     </application>
 </manifest>
