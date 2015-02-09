@@ -6,7 +6,7 @@
     <string name="bootani_folder">/UltimaROM/BootAnimations/</string>
     <string name="bootani_selected_file">Selected file</string>
     <string name="bootani_help_title">Help</string>
-    <string name="bootani_help">You can use this utility to flash boot animations that come in the bootanimation.zip format. The zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
+    <string name="bootani_help">You can use this utility to flash boot animations that come in the bootanimation.zip format.\n\nThe zip can be named anything you wish, but must not be a flashable zip. The installer won\'t let you continue unless it is an appropriate file.</string>
     <string name="bootani_boot_toggle">Enable/Disable animation</string>
     <string name="bootani_reboot_pref">Show the reboot dialog after making a selection?</string>
     <string name="bootani_set_animation">Set animation</string>

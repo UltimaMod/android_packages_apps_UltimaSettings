@@ -39,7 +39,6 @@ public class HostnameActivity extends Activity implements Constants
         
         setTheme(Preferences.getTheme());		
 		setContentView(R.layout.hostname_main);		
-		setupActionBar();
 		
 		restoreBtn = (Button) findViewById(R.id.hostname_restore);
 		setBtn = (Button) findViewById(R.id.hostname_setbtn);
@@ -90,11 +89,7 @@ public class HostnameActivity extends Activity implements Constants
 	private void updateCurrent() {
 		currentBox.setText(Preferences.getHostname());
 	}
-	
-	private void setupActionBar() {
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-	
+
 	private void updateOriginal(){
 		originalBox.setText(Preferences.getOriginalHostname());
 	}

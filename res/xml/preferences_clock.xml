@@ -38,7 +38,7 @@
 		        android:positiveButtonText="@null" />	
 	    
 			<Preference
-	  	    android:title="@string/lock_clock" 
-	  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" />
+		  	    android:title="@string/lock_clock" 
+		  	    android:key="activity;com.cyanogenmod.lockclock;com.cyanogenmod.lockclock.preference.Preferences" />
 	</PreferenceScreen>
 </PreferenceScreen>

@@ -41,7 +41,6 @@ public class BootAnimationActivity extends Activity implements Constants {
 	private AlertDialog mEnableDisableDialog;
 	private AlertDialog mRebootDialog;
 	
-	private boolean mIsInfoPage;
 	private boolean mIsFlashable;
 
 	private String mFile;
@@ -56,7 +55,6 @@ public class BootAnimationActivity extends Activity implements Constants {
 
 		setTheme(Preferences.getTheme());			
 		setContentView(R.layout.bootani_main);
-		setupActionBar();
 		
 		mContext = this;
 
@@ -165,14 +163,18 @@ public class BootAnimationActivity extends Activity implements Constants {
 		}
 	}
 
-	private void setupActionBar() {
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-
 	private void showChooser() {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("file/*");
 		startActivityForResult(intent, BOOTANI_REQUEST_CODE);
+	}
+	
+	private void showInfo() {
+		AlertDialog builder = new AlertDialog.Builder(this).create();
+		builder.setCancelable(true);
+		builder.setTitle(getResources().getString(R.string.information));
+		builder.setMessage(getResources().getString(R.string.bootani_help));
+		builder.show();
 	}
 
 	public void showRebootDialog() {
@@ -206,7 +208,7 @@ public class BootAnimationActivity extends Activity implements Constants {
 
 		final CharSequence[] items={getResources().getString(R.string.enabled), 
 				getResources().getString(R.string.disabled)};
-		AlertDialog.Builder builder=new AlertDialog.Builder(this);
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		mEnableDisableDialog = builder.create();
 		int currentSelection;
 
@@ -274,15 +276,15 @@ public class BootAnimationActivity extends Activity implements Constants {
 					mIsFlashable = false;
 					mSetAnimationButton.setEnabled(true);
 					// Availability status	    
-				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + " <font color='#99cc00'>" + valid + "</font>";					
+				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + " <font color='#009688'>" + valid + "</font>";					
 					// Type Status
 					String type = getResources().getString(R.string.bootani_animation_type);
-					fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + " <font color='#99cc00'>" + type + "</font>";
+					fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + " <font color='#009688'>" + type + "</font>";
 				} else if(!(Root.noneRootShell("unzip -l " + mFile + " | grep -ci META-INF").trim().equals("0"))){
 					mIsFlashable = true;
 					// Availability status	    
 				    availStatusText = getResources().getString(R.string.bootani_title) + ":" + 
-					" <font color='#99cc00'>" + valid + "</font>";
+					" <font color='#009688'>" + valid + "</font>";
 				    
 				    String type = getResources().getString(R.string.bootani_flashable_type);
 				    
@@ -290,12 +292,12 @@ public class BootAnimationActivity extends Activity implements Constants {
 						mSetAnimationButton.setEnabled(true);		
 						// Type Status			
 						fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + 
-						" <font color='#99cc00'>" + type + "</font>";
+						" <font color='#009688'>" + type + "</font>";
 					} else {
 						mSetAnimationButton.setEnabled(false);		
 						// Type Status
 						fileTypeStatusText = getResources().getString(R.string.bootani_zip_type) + ":" + 
-						" <font color='#99cc00'>" + type + "</font> " +
+						" <font color='#009688'>" + type + "</font> " +
 						"<font color='#ff4444'>" + getResources().getString(R.string.bootani_ors_is_disabled) + "</font>";
 					}
 				} else {
@@ -334,22 +336,10 @@ public class BootAnimationActivity extends Activity implements Constants {
 			startActivity(intent);
 			return true;
 		case R.id.file_choose_help:
-			setContentView(R.layout.bootani_info);
-			mIsInfoPage = true;
+			showInfo();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);			
 		}
 	}
-
-	public void onBackPressed() {
-		if(mIsInfoPage){
-			mIsInfoPage = false;
-			setContentView(R.layout.bootani_main);
-			this.recreate();
-		} else {
-			super.onBackPressed();
-		}
-	}
-
 }

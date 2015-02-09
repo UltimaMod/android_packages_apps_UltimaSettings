@@ -1,53 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="network_meter_settings">
-    <PreferenceScreen 
-        android:icon="@drawable/ic_network_meter" 
-        android:title="@string/network_traffic" 
-        android:key="network_meter">
-    
-    	<com.ultima.settings.preferences.UltimaListPreference
-	        android:key="network_traffic_meter"
-	        android:title="@string/network_traffic_state"
-	        android:summary="@string/list_summary"
-	        android:entries="@array/network_traffic_state_entries"
-	        android:entryValues="@array/network_traffic_state_values"
-	         />
-	 
-	    <com.ultima.settings.preferences.UltimaListPreference
-	        android:key="network_traffic_unit"
-	        android:title="@string/network_traffic_unit"
-	        android:summary="@string/list_summary"
-	        android:entries="@array/network_traffic_unit_entries"
-	        android:entryValues="@array/network_traffic_unit_values"
-	        defaultValue="0" />
-	 
-	    <com.ultima.settings.preferences.UltimaListPreference
-	        android:key="network_traffic_interval"
-	        android:title="@string/network_traffic_frequency"
-	        android:summary="@string/list_summary"
-	        android:entries="@array/network_traffic_frequency_entries"
-	        android:entryValues="@array/network_traffic_frequency_values"
-	        defaultValue="0" />
-	       
-	    <com.ultima.settings.preferences.UltimaSwitchPreference    
-	        android:key="network_traffic_hide"
-	        android:title="@string/network_traffic_hide_inactivity" 
-	        android:summary="@string/network_traffic_hide_inactivity_summary"
-	        defaultValue="0" />
-	       
-	    <com.ultima.settings.preferences.UltimaSwitchPreference    
-	        android:key="network_traffic_text"
-	        android:title="@string/network_traffic_text" 
-	        android:summary="@string/network_traffic_text_summary"
-	        defaultValue="0" />
-	         
-	    <com.ultima.settings.preferences.UltimaSwitchPreference    
-	        android:key="network_traffic_icon"
-	        android:title="@string/network_traffic_icon" 
-	        android:summary="@string/network_traffic_icon_summary"
-	        defaultValue="1" />
-
-	</PreferenceScreen>
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+	    android:title="@string/network_traffic" 
+	    android:icon="@drawable/ic_network_meter"
+	    android:key="activity;com.ultima.settings;com.ultima.settings.NetworkTraffic" />
 </PreferenceScreen>
- 

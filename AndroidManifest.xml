@@ -44,13 +44,10 @@
             android:name="com.ultima.settings.hostname.HostnameActivity" 
             android:label="@string/title_activity_hostname"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.ultima.settings.NetworkTraffic" 
+            android:label="@string/network_traffic"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
 
-        
-        <receiver android:name="com.ultima.settings.receivers.Startup">
-            <intent-filter android:priority="100">
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        
     </application>
 </manifest>

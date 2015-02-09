@@ -57,4 +57,10 @@
 	    <attr name="max" format="integer" />
 	    <attr name="def" format="integer" />
 	</declare-styleable>
+	<declare-styleable name="SeekBarPreference">
+        <attr name="interval" format="integer" />
+        <attr name="seekmin" format="integer" />
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
+    </declare-styleable>
 </resources>
