@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_controls_title">Controles de música</string>
+    <string name="music_controls_enable">Habilitar controles de música</string>
+	<string name="music_controls_timeout">Tiempo de espera</string>
+	<string name="music_controls_volume_down_action">Acción al bajar volumen</string>
+	<string name="music_controls_volume_up_action">Acción al subir volumen</string>
+	<string name="music_controls_next">Siguiente</string>
+	<string name="music_controls_prev">Anterior</string>
+	<string name="music_controls_pause_play">Pausa/Play</string>
+	<string name="music_controls_pause">Siguiente</string>
+	
+</resources>
