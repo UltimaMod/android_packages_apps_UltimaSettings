@@ -19,7 +19,7 @@
      <string name="network_traffic_hide_inactivity">Ocultar inactividad</string>
      <string name="network_traffic_hide_inactivity_summary">Ocultar el indicador si no ha habido actividad de red</string>
      <string name="network_traffic_text">Etiquetas</string>
-     <string name="network_traffic_text_summary">Mostrar U y D para Upload y Download junto a sus valores</string>
+     <string name="network_traffic_text_summary">Mostrar U y D junto a los valores de subida (Upload) y descarga (Download)</string>
      <string name="network_traffic_icon">Icono</string>
      <string name="network_traffic_icon_summary">Mostrar un pequeño icono junto al indicador</string>
      <string name="network_traffic_color_up">Color del texto de Upload</string>
