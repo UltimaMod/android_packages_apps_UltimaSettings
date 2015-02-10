@@ -58,11 +58,11 @@
 		    android:summary="@string/quick_pulldown_summary"
 		    defaultValue="0" />
     	
-    	<com.ultima.settings.preferences.UltimaSwitchPreference  
+    	<!-- <com.ultima.settings.preferences.UltimaSwitchPreference  
 		    android:key="double_tap_sleep_gesture"
 		    android:title="@string/double_tap_to_sleep_title"
 		    android:summary="@string/double_tap_to_sleep_summary"
-		    defaultValue="0" />
+		    defaultValue="0" /> -->
 
 	</PreferenceScreen>
     
