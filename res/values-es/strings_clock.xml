@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="clock">Reloj</string>
+    <string name="clock_position">Posición del reloj</string>
+    <string name="clock_am_pm_style">Estilo AM/PM</string>
+    <string name="clock_dow_style">Estilo de día de la semana</string>
+    
+    <string name="lock_clock">Widget reloj</string>
+    <string name="lock_clock_summary">Configurar widget reloj (cLock)</string>
+    <string name="lock_clock_not_installed">El widget reloj (cLock) no está instalado</string>
+</resources>

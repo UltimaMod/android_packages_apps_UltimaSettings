@@ -2,16 +2,18 @@
 <resources>
 
     <string name="misc">Miscelánea</string>
-    <string name="lock_clock">Widget reloj</string>
-    <string name="lock_clock_summary">Configurar widget reloj (cLock)</string>
-    <string name="lock_clock_not_installed">El widget reloj (cLock) no está instalado</string>
 
     <string name="reboot_menu">Encendido avanzado</string>
-    <string name="reboot_menu_summary">Habilitar el menú de encendido avanzado para incluir opciones de reinicio</string>
+    <string name="reboot_menu_summary">Habilitar el menú de encendido avanzado para incluir opcione de reinicio</string>
 
     <string name="wake_on_unplug_title">Activación al desenchufar</string>
     <string name="wake_on_unplug_summary">Activar el dispositivo cuando se desconecta el USB (Reinicia para hacerlo efectivo)</string>
 
     <string name="all_screen_rotations_title">Giro de pantalla 4 lados</string>
     <string name="all_screen_rotations_summary">Habilitar la rotación de la pantalla a los 4 lados (Reinicia para hacerlo efectivo)</string>
+
+    <string name="longback_press_title">Atrás para matar apps</string>
+    <string name="longback_press_summary">Habilita que al mantener pulsado el botón Atrás se detengan las aplicaciones en primer plano</string>
+    <string name="longback_press_timeout">Tiempo de espera de la pulsación</string>
+
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="button_settings">Botones</string>
-    <string name="touchkey_backlight_title">Retroiluminación teclas físicas</string>
+    <string name="touchkey_backlight_title">Retroiluminación botones físicos</string>
     <string name="touchkey_backlight_message">Retroiluminación establecida. Reinicia para hacerla efectiva</string>
     <string name="on_screen_controls_title">Navegación en pantalla</string>
-    <string name="on_screen_controls_summary">Habilitar la navegación en pantalla (Reinicia para hacerlo efectivo)</string>
-    <string name="disable_hardware_buttons_title">Inhabilitar teclas físicas</string>
-    <string name="disable_hardware_buttons_summary">Inhabilitar las teclas físicas. Útil cuando utilizas los botones de navegación en pantalla (Reinicia para hacerlo efectivo)</string>
+    <string name="on_screen_controls_summary">Habilitar la navegación en pantalla (Reinicia para hacerla efectiva)</string>
+    <string name="hardware_buttons_title">Botones físicos</string>
+    <string name="buttons_set">Botones establecidos. Reinicia para hacerlos efectivos</string>
+    <string name="buttons_information">La configuración del botón "Menú" como "Recientes" funciona mejor habilitando la barra de navegación en pantalla, y después ajustando la altura a "0 (desactivada)".\nEsto forzará a que se muestre el botón de menú en pantalla en las aplicaciones.</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- App Strings -->
-    <string name="app_name">Interface</string>
+    <string name="app_name">Interfaz</string>
     <string name="romcfg_folder">/mnt/sdcard/ROMControl/</string>
     <string name="modcfg_folder">/mnt/sdcard/ROMControl</string>
     <string name="boot_animation_extraction_folder">/ROMControl/BootAnimations/temp/</string>
@@ -46,4 +46,10 @@
     <string name="disabled">Inhabilitado</string>
     <string name="enable_disable_question">Habilitar o inhabilitar</string>
     <string name="root_required">Requiere root</string>
+    <string name="right">Derecha</string>
+    <string name="left">Izquierda</string>
+    <string name="center">Centro</string>
+    <string name="normal">Normal</string>
+    <string name="small">Pequeño</string>
+    <string name="setting">Ajuste&#8230;</string>
 </resources>

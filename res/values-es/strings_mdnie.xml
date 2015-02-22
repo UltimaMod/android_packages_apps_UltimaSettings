@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- mDNIe -->
+    <string name="screen">Pantalla</string>
+    <string name="screen_colors_title">Colores</string>
+    <string name="mdnie_scenario_title_head">Escenario</string>
+    <string name="mdnie_scenario_summary_head">Establecer escenario mDNIe</string>
+    <string name="mdnie_mode_title_head">Modo</string>
+    <string name="mdnie_mode_summary_head">Establecer modo mDNIe</string>
+    <string name="mdnie_negative_title_head">Modo negativo</string>
+    <string name="mdnie_negative_summary_head">Habilitar/inhabilitar colores invertidos</string>
+    <string name="mdnie_outdoor_title_head">Modo exterior</string>
+    <string name="mdnie_outdoor_summary_head">Habilitar/inhabilitar ajustes de exterior</string>
+</resources>

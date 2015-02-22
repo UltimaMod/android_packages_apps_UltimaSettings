@@ -3,6 +3,7 @@
 	<string name="battery_settings">Batería</string>
     <string name="battery_percent_title">Porcentaje de batería</string>
     <string name="battery_percent_summary">Mostrar el indicador de porcentaje de batería (Reinicia para hacerlo efectivo)</string>
+    <string name="battery_style_title">Estilo de batería</string>
     
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_style_title">Estilo de estado de batería</string>
@@ -18,4 +19,17 @@
     <string name="status_bar_battery_percentage_default">Oculto (por defecto)</string>
     <string name="status_bar_battery_percentage_text_inside">Dentro del icono</string>
     <string name="status_bar_battery_percentage_text_next">Junto al icono</string>
+    
+    <!-- Battery light settings -->
+    <string name="battery_light_title">Luz de batería</string>
+    <string name="battery_low_pulse_title">Parpadear con batería baja</string>
+    <string name="battery_light_list_title">Colores</string>
+    <string name="battery_light_low_color_title">Batería baja</string>
+    <string name="battery_light_medium_color_title">Cargando</string>
+    <string name="battery_light_full_color_title">Carga completada</string>
+    
+    <!-- Battery Level -->
+    <string name="battery_level_title">Nivel de batería</string>
+    <string name="battery_low_title">Nivel de batería bajo</string>
+    <string name="battery_crit_title">Nivel de batería crítico</string>
 </resources>
