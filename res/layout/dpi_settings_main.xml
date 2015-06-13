@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp" >
+    
+    <TextView
+        android:id="@+id/currentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/currentTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/currentSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/currentTitle"
+        android:layout_above="@+id/defaultTitle"
+        android:text="test"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/defaultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/currentTitle"
+        android:text="@string/defaultTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="16.0dp" />
+    
+    <TextView
+        android:id="@+id/defaultSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/currentTitle"
+        android:layout_below="@+id/currentSummary"
+        android:text="480"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/dpi_info"
+        android:layout_below="@+id/defaultTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dpi_info"
+        android:textAppearance="?android:attr/textAppearance"
+        android:layout_marginBottom="16.0dp" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dpi_info" />
+    
+    <TextView
+        android:id="@+id/seekbar_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbar"
+        android:layout_alignParentEnd="true"
+        android:text="Test"
+        android:layout_marginBottom="16.0dp"
+        android:layout_marginEnd="16.0dp" />
+
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbar_value"
+        android:text="@string/apply" />
+
+    <Button
+        android:id="@+id/reset_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/apply"
+        android:text="@string/hostname_restore_original" />
+
+</RelativeLayout>

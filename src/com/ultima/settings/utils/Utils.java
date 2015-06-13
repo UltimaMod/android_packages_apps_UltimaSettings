@@ -76,4 +76,21 @@ public static void writeValue(String filename, Boolean value) {
         Root root = new Root();
 		root.setMdnieControls(strValue, filename);
     }
+
+public static String getProp(String propName) {
+	Process p = null;
+	String result = "";
+	try {
+		p = new ProcessBuilder("/system/bin/getprop", propName).redirectErrorStream(true).start();
+		BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		String line = "";
+		while ((line=br.readLine()) != null) {
+			result = line;
+		}
+		br.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	return result;
+}
 }

@@ -52,4 +52,9 @@
     <string name="normal">Normal</string>
     <string name="small">Small</string>
     <string name="setting">Setting&#8230;</string>
+    <string name="apply">Apply</string>
+    <string name="currentTitle">Current: </string>
+    <string name="defaultTitle">Default: </string>
+    <string name="dpi_ok">DPI settings changed. Reboot now to take effect.</string>
+    <string name="dpi_fail">DPI settings failed.</string>
 </resources>

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference
-	    android:title="@string/screen" 
-	    android:icon="@drawable/ic_screen"
-	    android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="misc_settings" >
+
+    <PreferenceScreen
+        android:icon="@drawable/ic_screen"
+        android:title="@string/screen" >
+        <Preference
+            android:key="activity;com.cyanogenmod.settings.device;com.cyanogenmod.settings.device.DisplaySettings"
+            android:title="@string/screen_colors_title"
+            android:summary="@string/screen_colors_summary" />
+        <Preference
+            android:key="activity;com.ultima.settings;com.ultima.settings.DpiSettings"
+            android:title="@string/dpi_title"
+            android:summary="@string/dpi_summary" />
+    </PreferenceScreen>
+
 </PreferenceScreen>

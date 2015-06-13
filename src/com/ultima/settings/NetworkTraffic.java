@@ -1,6 +1,7 @@
 package com.ultima.settings;
 
 import com.ultima.settings.preferences.UltimaSeekBarPreference;
+import com.ultima.settings.utils.Preferences;
 
 import android.content.res.Resources;
 import android.net.TrafficStats;
@@ -40,6 +41,7 @@ public class NetworkTraffic extends PreferenceActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	setTheme(Preferences.getTheme());
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.network_meter);

@@ -3,6 +3,7 @@
     <!-- mDNIe -->
     <string name="screen">Screen</string>
     <string name="screen_colors_title">Colors</string>
+    <string name="screen_colors_summary">Alter the screens mNDIe settings</string>
     <string name="mdnie_scenario_title_head">Scenario</string>
     <string name="mdnie_scenario_summary_head">Set the mDNIe scenario</string>
     <string name="mdnie_mode_title_head">Mode</string>
@@ -15,4 +16,9 @@
     <string name="mdnie_mode_sysfs_file" translatable="false">"/sys/class/mdnie/mdnie/mode"</string>
     <string name="mdnie_negative_sysfs_file" translatable="false">"/sys/class/mdnie/mdnie/negative"</string>
     <string name="mdnie_outdoor_sysfs_file" translatable="false">""/sys/class/mdnie/mdnie/outdoor"</string>
+    
+    <!--  DPI -->
+    <string name="dpi_title">Display metrics</string>
+    <string name="dpi_summary">Change the DPI setting of your phone</string>
+    <string name="dpi_info">Use the slider below to choose your desired DPI setting, then hit apply to set it. </string>
 </resources>
