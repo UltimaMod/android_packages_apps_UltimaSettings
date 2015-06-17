@@ -300,7 +300,7 @@ public class SettingsActivity extends Activity implements Constants {
 
 				if (item.getKey().equalsIgnoreCase("hardware_buttons")) {
 					Root tools = new Root();
-					tools.setHardwareButtons(value, mContext);
+					tools.setHardwareButtons((String)value, mContext);
 				}
 				if (item.getKey().equalsIgnoreCase(Constants.KEY_MDNIE_MODE)) {
 					Utils.writeValue(

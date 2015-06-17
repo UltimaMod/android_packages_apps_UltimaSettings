@@ -21,7 +21,7 @@ import com.stericson.RootTools.BuildConfig;
 import com.stericson.RootTools.RootTools;
 import com.ultima.settings.R;
 
-public class Root {
+public class Root implements Constants {
 	public static String getSdCardPath(){
 		String sdCard = Environment.getExternalStorageDirectory().getAbsolutePath();
 		return sdCard;
@@ -141,9 +141,16 @@ public class Root {
 		return RootTools.isAccessGiven();
 	}
 
-	public void setHardwareButtons(Object value, Context context){
-		int ourValue = Integer.parseInt((String) value);
-		new HardwareButtons(context).execute(ourValue);
+	public void setHardwareButtons(String value, Context context){
+		String buttons = "";
+		if(value.equals(HARDWARE_BUTTONS_STOCK)) {
+			buttons = "stock";
+		} else if (value.equals(HARDWARE_BUTTONS_DISABLED)) {
+			buttons = "disabled";
+		} else if (value.equals(HARDWARE_BUTTONS_MENU_RECENTS)) {
+			buttons = "menu_to_recents";
+		}
+		new HardwareButtons(context).execute(buttons);
 	}
 	
 	public void setMdnieControls(String value, String filename){
@@ -281,11 +288,16 @@ public class Root {
 	}
 
 
-	private class HardwareButtons extends AsyncTask<Integer, Void, Void> {
+	private class HardwareButtons extends AsyncTask<String, Void, Void> {
 
 		private Context mContext;
 
 		private ProgressDialog mLoadingDialog;
+		
+		private StringBuilder mScript = new StringBuilder();
+		private static final String SCRIPT_FILE = "/cache/recovery/openrecoveryscript";
+		private static final String NEW_LINE = "\n";   
+		private String mScriptOutput;
 		
 		public HardwareButtons(Context context) {
 			mContext = context;
@@ -301,22 +313,28 @@ public class Root {
 		}
 
 		@Override
-		protected Void doInBackground(Integer... params) {
-			shell("mount -o rw,remount /system"); // Remount as readable
-			if(params[0] == 0) { // Enable Controls
-				shell("cp /system/jflte-gpe/buttons/stock /system/usr/keylayout/Generic.kl"); // Stock
-			} else if(params[0] == 1) {
-				shell("cp /system/jflte-gpe/buttons/disabled_buttons /system/usr/keylayout/Generic.kl"); // Disabled
-			} else {
-				shell("cp /system/jflte-gpe/buttons/menu_to_recents /system/usr/keylayout/Generic.kl"); // Menu to Recents				
-			}
-			shell("mount -o ro,remount /system"); // remount as read-only, for safety
+		protected Void doInBackground(String... params) {
+			mScript.append("mount system" + NEW_LINE);
+			mScript.append("install " 
+					+ File.separator 
+					+ "system" 
+					+ File.separator 
+					+ "jflte-gpe" 
+					+ File.separator
+					+ "buttons"
+					+ File.separator
+					+ params[0] 
+					+ ".zip"
+					+ NEW_LINE);
 
+			mScriptOutput = mScript.toString();
 			return null;
 		}
 		
 		@Override
 	    protected void onPostExecute(Void result) {
+			shell("mkdir -p /cache/recovery/; echo $?");
+			shell("echo \"" + mScriptOutput + "\" >> " + SCRIPT_FILE + "\n");
 			mLoadingDialog.cancel();
 			Toast.makeText(mContext, mContext.getResources().getString(R.string.buttons_set), Toast.LENGTH_LONG).show();
 	        super.onPostExecute(result);

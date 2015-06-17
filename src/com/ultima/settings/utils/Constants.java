@@ -31,5 +31,9 @@ public interface Constants {
     public static final String KEY_MDNIE_MODE = "mdnie_mode";
     public static final String KEY_MDNIE_NEGATIVE = "mdnie_negative";
     public static final String KEY_MDNIE_OUTDOOR = "mdnie_outdoor";
+    
+    public static final String HARDWARE_BUTTONS_STOCK = "0";
+    public static final String HARDWARE_BUTTONS_DISABLED = "1";
+    public static final String HARDWARE_BUTTONS_MENU_RECENTS = "2";
 
 }

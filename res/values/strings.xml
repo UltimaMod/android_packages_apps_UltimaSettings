@@ -57,4 +57,6 @@
     <string name="defaultTitle">Default: </string>
     <string name="dpi_ok">DPI settings changed. Reboot now to take effect.</string>
     <string name="dpi_fail">DPI settings failed.</string>
+    <string name="restart_ui">Restart UI</string>
+    <string name="restart_ui_summary">Restart the UI to allow changes to take effect (hotboot)</string>
 </resources>

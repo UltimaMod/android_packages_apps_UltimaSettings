@@ -9,6 +9,7 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 
 import com.ultima.settings.R;
+import com.ultima.settings.SettingsActivity;
 import com.ultima.settings.utils.Constants;
 import com.ultima.settings.utils.Utils;
 
@@ -36,7 +37,7 @@ public class Startup extends BroadcastReceiver {
 				e.printStackTrace();
 			} catch (SettingNotFoundException e) {
 				e.printStackTrace();
-			}	
+			}
 		} 	
     }
 }
