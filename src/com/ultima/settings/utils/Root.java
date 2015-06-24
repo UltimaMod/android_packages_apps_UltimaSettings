@@ -7,15 +7,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.stericson.RootTools.BuildConfig;
 import com.stericson.RootTools.RootTools;
@@ -336,9 +339,32 @@ public class Root implements Constants {
 			shell("mkdir -p /cache/recovery/; echo $?");
 			shell("echo \"" + mScriptOutput + "\" >> " + SCRIPT_FILE + "\n");
 			mLoadingDialog.cancel();
-			Toast.makeText(mContext, mContext.getResources().getString(R.string.buttons_set), Toast.LENGTH_LONG).show();
+			showRebootRecoveryDialog(mContext);
 	        super.onPostExecute(result);
 	    }
+		
+		private void showRebootRecoveryDialog(Context context) {
+			Builder dialog = new AlertDialog.Builder(context);
+			Resources res = context.getResources();
+			dialog.setTitle(res.getString(R.string.reboot));
+			dialog.setMessage(res.getString(R.string.reboot_device_question_buttons));
+			dialog.setNegativeButton(res.getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+				}
+			});
+			dialog.setCancelable(false);
+			dialog.setPositiveButton(res.getString(R.string.ok), new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Root.recovery();		
+				}
+			});
+			dialog.show();
+		}
 	}
 	
 	private class MdnieControls extends AsyncTask<String, Void, Void> {

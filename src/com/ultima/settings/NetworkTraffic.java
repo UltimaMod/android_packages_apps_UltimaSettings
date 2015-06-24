@@ -39,7 +39,8 @@ public class NetworkTraffic extends PreferenceActivity
     private int MASK_UNIT;
     private int MASK_PERIOD;
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
     	setTheme(Preferences.getTheme());
         super.onCreate(savedInstanceState);

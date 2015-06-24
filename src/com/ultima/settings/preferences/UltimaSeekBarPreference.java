@@ -109,7 +109,8 @@ public class UltimaSeekBarPreference extends Preference implements OnSeekBarChan
         
     }
     
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void onBindView(View view) {
         super.onBindView(view);
 

@@ -34,6 +34,7 @@
     <string name="misc_cat">Misc</string> 
 	<string name="rebooting">Rebooting&#8230;</string>
 	<string name="reboot_device_question">Reboot your device?</string> 
+	<string name="reboot_device_question_buttons">You must reboot to recovery to apply your new buttons settings. Would you like to do that now?</string> 
     <string name="not_available">N/A</string>
     <string name="help">Help</string>
     <string name="error_selecting_file">Error selecting File</string>

@@ -49,10 +49,6 @@
 		    android:summary="@string/buttons_information"
 		    android:selectable="false"
 		    style="?android:preferenceInformationStyle" />
-		
-		<Preference android:key="tool#recovery"
-		    android:title="@string/restart_phone"
-		    android:summary="@string/restart_phone_summary" />
 
 	</PreferenceScreen>
     

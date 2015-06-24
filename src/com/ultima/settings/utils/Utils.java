@@ -1,27 +1,18 @@
 package com.ultima.settings.utils;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.SyncFailedException;
-
-import com.stericson.RootTools.RootTools;
 import com.ultima.settings.SettingsApplication;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.util.Log;
 
 public class Utils {
-   private static Context mContext = SettingsApplication.getContext();
-   private static final String TAG = "DeviceSettings_Utils";
-   private static final String TAG_WRITE = "DeviceSettings_Utils_Write";
-    
-    public static Boolean doesPropExist(String propName, String propValue) {
+   
+	private static Context mContext = SettingsApplication.getContext();
+   
+   public static Boolean doesPropExist(String propName, String propValue) {
         boolean valid = false;
 
         try {

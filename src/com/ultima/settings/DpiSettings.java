@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
@@ -85,6 +84,5 @@ public class DpiSettings extends Activity implements Constants {
 		Root.shell("mount -o remount,rw /system");
 		Root.shell("sed -i 's/.*ro.sf.lcd_density.*/ro.sf.lcd_density=" + value + "/g' /system/build.prop; echo $?");
 		Root.shell("mount -o remount,ro /system");
-		Toast.makeText(this, getResources().getString(R.string.dpi_ok), Toast.LENGTH_LONG).show();
 	}
 }
